@@ -1,0 +1,77 @@
+<!-- Content -->
+<div id="content" class="login-content">
+    <div class="row no-margin">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right tr">
+                    <div class="card card-container">
+                        <h3 class="form-title">FINANCIAL ADVISOR LOGIN</h3>
+                        <form class="form-signin">
+                            <div class="form-group">
+                                <input type="text" id="inputName" class="form-control" placeholder="Name" required>
+                                <!--                            <span class="fa fa-user-o"></span>-->
+                                <span class="name-icon"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="inputDealer" class="form-control" placeholder="Dealer Group" required>
+                                <!--                            <span class="fa fa-group"></span>-->
+                                <span class="dealer-group-icon"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="inputMobile" class="form-control" placeholder="Mobile Phone" required>
+                                <!--                            <span class="fa fa-mobile fa-6"></span>-->
+                                <span class="mobile-icon"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email Id" required>
+                                <!--                            <span class="fa fa-envelope-o"></span>-->
+                                <span class="email-icon"></span>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ui-sref="app.advisorPage">Log in</button>
+                        </form>
+                        <!-- /form -->
+                    </div>
+                </div>
+                <!-- /card-container -->
+
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center tc">
+                    <div class="card card-container">
+                        <h3 class="form-title">CLIENT LOGIN</h3>
+                        <form class="form-signin" novalidate>
+                            <div class="form-group">
+                                <input type="text" id="inputName" class="form-control" placeholder="Name">
+                                <!--                            <span class="fa fa-user-o"></span>-->
+                                <span class="name-icon"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address">
+                                <!--                            <span class="fa fa-envelope-o"></span>-->
+
+                                <span class="email-icon"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="inputMobile" class="form-control" placeholder="Mobile Phone">
+                                <!--                            <span class="fa fa-mobile"></span>-->
+                                <span class="mobile-icon"></span>
+                            </div>
+                            <div id="financialAdvisor" class="checkbox">
+                                <!--<input type="checkbox" name="financial" value="financial-advisor" id="financial-advisor_id">
+                            <label for="adventure-advisor_id">Do you have a Financial Advisor</label>-->
+                                <label>
+                                    <input type="checkbox" value="financial-advisor">
+                                    <span>Do you have a Financial Advisor</span>
+                                </label>
+                            </div>
+                            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Log in</button>
+                        </form>
+                        <!-- /form -->
+                    </div>
+                    <!-- /card-container -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Content -->

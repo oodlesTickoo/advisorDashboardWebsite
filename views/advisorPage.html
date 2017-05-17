@@ -1,0 +1,40 @@
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <td>
+                Client Name
+            </td>
+            <td>
+                Download
+            </td>
+            <td>
+                Upload
+            </td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="client in clients">
+            <td>{{ client.name }}</td>
+            <td>
+                <button>Download</button>
+            </td>
+            <td>
+                 <button type="file" ngf-select="uploadFiles($file, $invalidFiles, $index)"
+          accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+      Select File</button>
+  <br><br>
+  File:
+  <div style="font:smaller">{{files[$index].name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+      <span class="progress" ng-show="files[$index].progress >= 0">
+          <div style="width:{{files[$index].progress}}%"  
+               ng-bind="files[$index].progress + '%'"></div>
+      </span>
+  </div>     
+  {{errorMsg}}
+            </td>
+        </tr>
+    </tbody>
+
+</table>
