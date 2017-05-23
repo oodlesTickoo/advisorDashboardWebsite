@@ -14,10 +14,10 @@
                         <input id="dealer" type="text" class="form-control" name="dealer" placeholder="Dealer Group">
                     </div>
                     <div class="form-group">
-                        <input id="mobile" type="password" class="form-control" name="mobile" placeholder="Mobile Phone">
+                        <input id="mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone">
                     </div>
                     <div class="form-group ">
-                        <input id="email" type="text" class="form-control" name="email" placeholder="Email Id">
+                        <input id="email" type="email" class="form-control" name="email" placeholder="Email Id">
                     </div>
                     <div class="terms">
                         <input type="checkbox" id="terms1" name="terms1">
@@ -30,7 +30,7 @@
                     </div>-->
 
                     <div class="form-group ">
-                        <a href="#" type="button" class="btn btn-primary btn-lg btn-block login-button">login</a>
+                        <a href="#" type="button" class="btn btn-primary btn-lg btn-block login-button">login in</a>
                     </div>
                 </div>
             </div>
@@ -43,23 +43,24 @@
                         <input id="name" type="text" class="form-control" name="name" placeholder="Name">
                     </div>
                     <div class="form-group ">
-                        <input id="email" type="text" class="form-control" name="email" placeholder="Email Id">
+                        <input id="email" type="email" class="form-control" name="email" placeholder="Email Id">
                     </div>
                     <div class="form-group ">
-                        <input id="phone" type="text" class="form-control" name="phone" placeholder="Phone No">
+                        <input id="phone" type="number" class="form-control" name="phone" placeholder="Phone No">
                     </div>
 
                     <div class="terms advisor">
-                        <input type="checkbox" id="advisorcheck" name="advisorcheck">
+                        <input type="checkbox" id="advisorcheck" name="advisorcheck" ng-model="isFinancialAdvisor">
                         <label for="advisorcheck"><span>Do you have a Financial Advisor?</span></label>
+						<p ng-if="isFinancialAdvisor">Please complete your Financial Advisor Details</p>
                     </div>
-                    <div class="terms client-terms">
+                    <div class="terms client-terms" ng-class="{'is-financial-advisor' : isFinancialAdvisor}">
                         <input type="checkbox" id="terms2" name="terms2">
                         <label for="terms2"><span>I agree with the <b>Terms & Conditions</b></span></label>
                     </div>
 
-                    <div class="form-group ">
-                        <a href="#" type="button" class="btn btn-primary btn-lg btn-block login-button">login</a>
+                    <div class="form-group" ng-if="!isFinancialAdvisor">
+                        <a href="#" type="button" class="btn btn-primary btn-lg btn-block login-button">login in</a>
                     </div>
                 </div>
             </div>
