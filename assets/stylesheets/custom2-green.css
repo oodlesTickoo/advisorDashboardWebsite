@@ -1,12 +1,6 @@
-
-
-body {
-    font-family: LatoLight;
-}
-
 .ttrForm{
-    padding-left: 20%;
-    padding-right: 20%;
+   /* padding-left: 20%;
+    padding-right: 20%;*/
 }
 
 .hollow-icon{
@@ -18,8 +12,8 @@ body {
 }
 
 .hollow-icon-heading{
-    width: 30px;
-    height: 38px;
+    /*width: 30px;
+    height: 38px;*/
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -28,10 +22,10 @@ body {
     margin-top: 10px;
 }
 
-.boxes h2 {
+/*.boxes h2 {
     margin-top: 0px;
     margin-bottom: 20px;
-}
+}*/
 
 /*.btn-info{
     background-color: #fff;
@@ -65,10 +59,12 @@ body {
   -moz-transition: max-height 0.9s ease-in;    
   transition: max-height 0.9s ease-in;
   max-height: 1950px;
-  overflow: hidden;
-
-    
+  overflow: hidden;   
+	position: relative;
+    top: -7px;
+    margin-left: 10px;
 }
+
 .menuDrop{
   max-height: 0;
   overflow: hidden;
@@ -148,18 +144,23 @@ body {
 }
 
 .heading-bg{
-    padding-left: 0px;
+   	    padding-left: 0px;
     padding-right: 0px;
-    background: #228da5;;
-    
+    background: #0d2f47;
+    height: 55px;
+    border: 1px solid #234760;
+    width: 56px;
+	    z-index: 1;
 }
 
 .super-calc{
-	border: 1px solid #228da5;
+/*	border: 1px solid #228da5;*/
+	    margin-right: -24px;
 }
 
 .contents{
         padding-top: 15px;
+	background: #e9edf0;
 }
 
 .contents > .row{
@@ -176,20 +177,22 @@ and (orientation : landscape) {
 }
 
 .heading-bg1{
-    height: 100%;
-    line-height: 38px;
-    background-color: #fff;
-    color:#f1f2ef;
+     /*  height: 100%;
+    line-height: 38px;*/
+        background-color: rgba(20, 53, 76, 0.83);
+    margin-top: 8px;
+/*    color:#f1f2ef;*/
 }
 
 .heading-bg1 h2{
-  	vertical-align: middle;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    line-height: inherit;
-    font-size: 20px;
-    font-family: LatoSemiBold;
-    color: #3c3c3c;
+/*  	vertical-align: middle;*/
+     margin-top: 10px; 
+    /* margin-bottom: 0px; */
+    /* line-height: inherit; */
+    font-size: 18px;
+    font-family: AvantGardeBookBT;
+    color: #9fe7f7;
+	letter-spacing: 1px;
 }
 
 .heading-bg3{
@@ -207,7 +210,7 @@ and (orientation : landscape) {
 .optimisationTTR-details .icon-container i,
 .general-details .icon-container i,
 .general-details-results .icon-container i {
-    background-color: #f1f2ef;
+/*    background-color: #f1f2ef;*/
 }
 
 .page-content .tell-us,
@@ -217,7 +220,7 @@ and (orientation : landscape) {
 .page-content .otherExpense-details,
 .page-content .other-assets,
 .page-content .assetAllocation-details {
-    background-color: #f1f2ef;
+/*    background-color: #f1f2ef;*/
 }
 
 .page-content .spouse-tell-us,
@@ -227,7 +230,7 @@ and (orientation : landscape) {
 .page-content .optimisationTTR-details,
 .general-details,
 .general-details-results {
-    background-color: #f3f5f4;
+/*    background-color: #f3f5f4;*/
 }
 
 
