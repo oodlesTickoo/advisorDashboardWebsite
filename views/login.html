@@ -3,66 +3,68 @@
     <div class="container login-container">
         <div class="row no-margin">
             <div class="col-md-6 login-col">
-                <div class="login-form-header">
-                    <h1 class="text-center ">Financial Advisor Login</h1>
-                </div>
-                <div class="login-content">
-                    <div class="form-group ">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Name">
+                <form name="advisor-form" ng-submit="login('advisor')" role="form">
+                    <div class="login-form-header">
+                        <h1 class="text-center ">Financial Advisor Login</h1>
                     </div>
-                    <div class="form-group ">
-                        <input id="dealer" type="text" class="form-control" name="dealer" placeholder="Dealer Group">
+                    <div class="login-content">
+                        <div class="form-group ">
+                            <input id="name" type="text" class="form-control" name="name" placeholder="Name">
+                        </div>
+                        <div class="form-group ">
+                            <input id="dealer" type="text" class="form-control" name="dealer" placeholder="Dealer Group">
+                        </div>
+                        <div class="form-group">
+                            <input id="mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone">
+                        </div>
+                        <div class="form-group ">
+                            <input id="email" type="email" class="form-control" name="email" placeholder="Email Id">
+                        </div>
+                        <div class="terms">
+                            <input type="checkbox" id="terms1" name="terms1">
+                            <label for="terms1"><span>I agree with the <b>Terms & Conditions</b></span></label>
+                        </div>
+                        <!--  <div class="checkbox">
+                            <label class="remember">
+                                <input name="terms" type="checkbox"><span>I agree with the <b>Terms & Conditions</b></span>
+                            </label>
+                        </div>-->
+                        <div class="form-group ">
+                            <a href="#" type="button" ng-click="login('advisor')" class="btn btn-primary btn-lg btn-block login-button">login in</a>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input id="mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone">
-                    </div>
-                    <div class="form-group ">
-                        <input id="email" type="email" class="form-control" name="email" placeholder="Email Id">
-                    </div>
-                    <div class="terms">
-                        <input type="checkbox" id="terms1" name="terms1">
-                        <label for="terms1"><span>I agree with the <b>Terms & Conditions</b></span></label>
-                    </div>
-                    <!--  <div class="checkbox">
-                        <label class="remember">
-                            <input name="terms" type="checkbox"><span>I agree with the <b>Terms & Conditions</b></span>
-                        </label>
-                    </div>-->
-
-                    <div class="form-group ">
-                        <a href="#" type="button" class="btn btn-primary btn-lg btn-block login-button">login in</a>
-                    </div>
-                </div>
+                </form>    
             </div>
             <div class="col-md-6 login-col">
-                <div class="login-form-header">
-                    <h1 class="text-center ">Client Login </h1>
-                </div>
-                <div class="login-content">
-                    <div class="form-group ">
-                        <input id="name" type="text" class="form-control" name="name" placeholder="Name">
+                <form name="client-form" ng-submit="login('client');" role="form">
+                    <div class="login-form-header">
+                        <h1 class="text-center ">Client Login </h1>
                     </div>
-                    <div class="form-group ">
-                        <input id="email" type="email" class="form-control" name="email" placeholder="Email Id">
+                    <div class="login-content">
+                        <div class="form-group ">
+                            <input id="name" ng-model="user.name" type="text" class="form-control" name="name" placeholder="Name">
+                        </div>
+                        <div class="form-group ">
+                            <input id="email" ng-model="user.mail" type="email" class="form-control" name="email" placeholder="Email Id">
+                        </div>
+                        <div class="form-group ">
+                            <input id="phone" ng-model="user.phone" type="number" class="form-control" name="phone" placeholder="Phone No">
+                        </div>
+                        <div class="terms advisor">
+                            <input type="checkbox" id="advisorcheck" name="advisorcheck" ng-model="isFinancialAdvisor">
+                            <label for="advisorcheck"><span>Do you have a Financial Advisor?</span></label>
+                            <p ng-if="isFinancialAdvisor">Please complete your Financial Advisor Details</p>
+                        </div>
+                        <div class="terms client-terms" ng-class="{'is-financial-advisor' : isFinancialAdvisor}">
+                            <input type="checkbox" id="terms2" name="terms2">
+                            <label for="terms2"><span>I agree with the <b>Terms & Conditions</b></span></label>
+                        </div>
+                        <div class="form-actions" ng-if="!isFinancialAdvisor">
+                        <button type="submit"  class="btn btn-primary btn-lg btn-block login-button">login in</button>
+                           <!--  <a href="#" type="button" ng-click="login('client')"  class="btn btn-primary btn-lg btn-block login-button">login in</a> -->
+                        </div>
                     </div>
-                    <div class="form-group ">
-                        <input id="phone" type="number" class="form-control" name="phone" placeholder="Phone No">
-                    </div>
-
-                    <div class="terms advisor">
-                        <input type="checkbox" id="advisorcheck" name="advisorcheck" ng-model="isFinancialAdvisor">
-                        <label for="advisorcheck"><span>Do you have a Financial Advisor?</span></label>
-						<p ng-if="isFinancialAdvisor">Please complete your Financial Advisor Details</p>
-                    </div>
-                    <div class="terms client-terms" ng-class="{'is-financial-advisor' : isFinancialAdvisor}">
-                        <input type="checkbox" id="terms2" name="terms2">
-                        <label for="terms2"><span>I agree with the <b>Terms & Conditions</b></span></label>
-                    </div>
-
-                    <div class="form-group" ng-if="!isFinancialAdvisor">
-                        <a href="#" type="button" class="btn btn-primary btn-lg btn-block login-button">login in</a>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
