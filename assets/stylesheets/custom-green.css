@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url('../fonts/glyphicons-halflings-regular.eot');
-  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+  src: url('../fonts/glyphicons/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
 @media (min-width: 1281px) {
@@ -216,14 +216,14 @@
     outline: none !important;*/
 }
 
-.btn-primary,
+/*.btn-primary,
 .btn-primary:hover,
 .btn-primary:focus {
-    /*background-color: #91B6BE !important;*/
+    background-color: #91B6BE !important;
     border: none !important;
     outline: none !important;
     border-radius: 0px;
-}
+}*/
 
 .largeWidth {
     margin-top: 25px !important;

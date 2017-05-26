@@ -53,10 +53,12 @@ strong {
     font-weight: 700;
 }
 
+
 html {
-    font-size: 100.01%;
+   /* font-size: 100.01%;
     -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;*/
+	
 }
 
 body {
@@ -66,11 +68,11 @@ body {
     /*background-color: #e0e0e0;
 background: url("../images/landingPage-bg.png") no-repeat;
 background-size: cover;*/
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 a {
-    display: inline-block;
+    display: block;
 }
 
 a:link,
@@ -276,9 +278,10 @@ a:visited {
     letter-spacing: 5px;
 }
 
-.btn-primary:hover {
-    color: #0d2f47;
-    background-color: #fff;
+.btn-primary:hover ,
+.btn-primary:focus {
+    color: #0d2f47 !important;
+    background-color: #fff !important;
 }
 
 
@@ -286,11 +289,23 @@ a:visited {
 */
 
 .container {
-    width: 756px;
+    width: 762px;
     margin: 0 auto;
     padding: 0;
 }
 
+.main-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 10%;
+}
+
+/*ng-scrollable*/
+
+.mCSB_inside>.mCSB_container {
+    margin-right: 0;
+}
 
 /*Tables*/
 
@@ -320,31 +335,160 @@ table tr:nth-child(even) {
     width: 473px;
 }
 
+/*** Menu ***/
+
+
 
 /* Header*/
 
 #header {
     display: inline-block;
-    margin: 65px 66px;
+    /*margin: 65px 66px;*/
 }
 
+/*Hamburg Menu*/
 
-/*Content*/
-
-#content {
-    background: url(../images/yacht-right-image.png) no-repeat;
-    height: 662px;
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: 1px;
+left: 109px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+	background: rgba(0, 0, 0, 0.6);
+    width: 47px;
+    padding: 11.5px;
 }
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 23px;
+  height: 3px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #ffffff;;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+	left: 2px;
+    top: 2px;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(1px, 2px);
+  background: #ffffff;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu{
+	    position: absolute;
+    width: 340px;
+    margin: -36px 0 0 36px;
+    /* padding: 50px; */
+    /* padding-top: 125px; */
+    background: rgba(0, 0, 0, 0.6);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* display: none; */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, -150%);
+    opacity: 0;
+    /* transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0); */
+    transition: 0.5s all;
+    /* display: none; */
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's fade it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+transform: scale(1.0, 1.0); */
+    transition: 0.5s all;
+    opacity: 1;
+    transform: translate(-100%, 0%);
+}
+
 
 
 /*** Login ***/
 
-.login-container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translate(0, -50%);
+#login-content {
+    background: url(../images/main-bg.png) no-repeat;
+    height: 662px;
 }
 
 .login-content {
@@ -504,4 +648,70 @@ table tr:nth-child(even) {
     text-align: center;
     text-transform: uppercase;
     font-family: HelveticaLT;
+}
+
+/*** Welcome ***/
+#welcome-content {
+    background: url(../images/welcome-bg.png) no-repeat;
+    height: 662px;
+    background-size: 100% 100%;
+}
+
+.welcome-container{
+	padding-top: 45px;
+}
+
+.welcome-container h2{
+	font-size: 22px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: LatoRegular;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+.welcome-container h1{
+	font-size: 37.5px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: AvantGardeBookBT;
+    margin-top: 15px;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+}
+
+.welcome-container h3{
+	font-size: 20px;
+    color: rgba(254, 253, 253, 0.75);
+    font-family: LatoRegular;
+    letter-spacing: 0.5px;
+	margin-top: 0;
+}
+
+/*** Super Calculator ***/
+#super-calc-content{
+	 background: url(../images/super-calc-bg.png) no-repeat;
+    height: 662px;
+}
+
+.super-calc-container{
+	top: 2px;
+}
+
+.super-calc-container .page-content{
+	padding-top: 63px;
+}
+
+.super-calc-heading h3{
+	color: rgba(255, 255, 255, 0.9);
+	line-height: 22px;
+	text-transform: uppercase;
+	font-size: 19.5px;
+	margin-bottom: 5px;
+	margin-top: 0;
+    letter-spacing: 1px;
+}
+
+.super-calc-heading p{
+	font-size: 13px;
+	color: rgba(255, 255, 255, 0.75);
+	margin-bottom: 0;
 }
