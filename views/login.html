@@ -3,22 +3,22 @@
     <div class="container main-container">
         <div class="row no-margin">
             <div class="col-md-6 login-col">
-                <form name="advisor-form" ng-submit="login('advisor')" role="form">
+                <form name="advisor-form" ng-submit="login(USER_ROLE.ADVISOR)" role="form">
                     <div class="login-form-header">
                         <h1 class="text-center ">Financial Advisor Login</h1>
                     </div>
                     <div class="login-content">
                         <div class="form-group ">
-                            <input id="name" type="text" class="form-control" name="name" placeholder="Name">
+                            <input id="name" ng-model="user.name" type="text" class="form-control" name="name" placeholder="Name">
                         </div>
                         <div class="form-group ">
-                            <input id="dealer" type="text" class="form-control" name="dealer" placeholder="Dealer Group">
+                            <input id="dealer" ng-model="user.dealer" type="text" class="form-control" name="dealer" placeholder="Dealer Group">
                         </div>
                         <div class="form-group">
-                            <input id="mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone">
+                            <input id="mobile" ng-model="user.phone" type="number" class="form-control" name="mobile" placeholder="Mobile Phone">
                         </div>
                         <div class="form-group ">
-                            <input id="email" type="email" class="form-control" name="email" placeholder="Email Id">
+                            <input id="email" ng-model="user.mail" type="email" class="form-control" name="email" placeholder="Email Id">
                         </div>
                         <div class="terms">
                             <input type="checkbox" id="terms1" name="terms1">
@@ -36,7 +36,7 @@
                 </form>    
             </div>
             <div class="col-md-6 login-col">
-                <form name="client-form" ng-submit="login('client');" role="form">
+                <form name="client-form" ng-submit="login(USER_ROLE.CLIENT);" role="form">
                     <div class="login-form-header">
                         <h1 class="text-center ">Client Login </h1>
                     </div>

@@ -1,19 +1,17 @@
 var auth = angular.module("app.auth", []);
 
-auth.factory("authenticationService", ['$http', '$rootScope', 'sessionService', '$state', '$log', function($http, $rootScope, sessionService, $state, $log) {
+app.factory("authenticationService", ['$http', '$timeout','toastr', function($http, $timeout, toastr) {
     var cacheSession = function(response) {
         var result=response[0];
-        $rootScope.authObject = response[0];
-        sessionService.set('token', result.mobile);
+       /* sessionService.set('token', result.token);
         sessionService.set('firstName', result.FIRST_NAME);
         sessionService.set('lastName', result.LAST_NAME);
         sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
-        sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
+        sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);*/
 
     };
 
     var uncacheSession = function() {
-        $rootScope.authObject = {};
         sessionService.unsetAll();
     };
 

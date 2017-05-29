@@ -1,24 +1,28 @@
 app.controller("LoginController", ['$scope', 'AuthenticationService', function($scope, AuthenticationService) {
-         'use strict';
+    'use strict';
 
-         $scope.user={};
+    $scope.user = {};
 
-         $scope.login=function(type) {
-             //vm.dataLoading = true;
-          	console.log("user: ",$scope.user);
-             $scope.user.type=type;
-             AuthenticationService.Login($scope.user, function(response) {
-             	console.log('response: ',response);
-                 if (response.success) {
-                     
-                 } else {
-    
-                     //vm.dataLoading = false;
-                 }
-             });
-         };
 
-     }]);
+    $scope.USER_ROLE = {
+        ADVISOR: "ADVISOR",
+        CLIENT: "CLIENT",
+        ADMIN: "ADMINISTRATOR"
+    };
+
+    $scope.login = function(type) {
+        //vm.dataLoading = true;
+        console.log("user: ", $scope.user);
+        $scope.user.type = type;
+        console.log("user.type: ", $scope.user.type);
+        AuthenticationService.login($scope.user).then(function(response) {
+            console.log('response: ', response);
+        }).catch(function(error){
+            console.log("error",error);
+        });
+    };
+
+}]);
 
 
 /*function SaveToDisk(fileURL, fileName) {

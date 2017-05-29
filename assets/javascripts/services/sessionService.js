@@ -17,3 +17,24 @@ auth.factory("sessionService", function() {
     };
 
 });
+
+
+/*'use strict';
+angular.module('nwwatson')
+  .factory('Session', function($window) {
+    var localStorage = $window.localStorage;
+    
+    var Session = {
+      getItem: function(key) {
+        return angular.fromJson(localStorage.getItem(key));
+      },
+      setItem: function(key, value) {
+        return localStorage.setItem(key, angular.toJson(value));
+      },
+      removeItem: function(key) {
+        return localStorage.removeItem(key);
+      }
+    };
+
+    return Session;
+*/
