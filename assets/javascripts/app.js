@@ -13,7 +13,10 @@ var app = angular.module('advisorDashboardApp', [
     'ngFileUpload',
     'AngularPrint',
     'AgeCalculatorService',
-    'ngScrollbars'
+    'ngScrollbars',
+	'ui.grid',
+	'ui.grid.autoResize',
+	'ui.bootstrap'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider) {
@@ -25,7 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider) {
         scrollInertia: 800,
         axis: 'y', // enable 2 axis scrollbars by default 
         theme: 'light',
-        setHeight: 652,
+        setHeight: 655,
         autoHideScrollbar: true
     };
 
@@ -51,9 +54,8 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider) {
 
     .state('app.welcome', {
         url: '/welcome',
-        templateUrl: 'views/welcome.html'
-            /*,
-                    controller: 'WelcomeController'*/
+        templateUrl: 'views/welcome.html',
+        controller: 'WelcomeController'
     })
 
     .state('app.advisorPage', {

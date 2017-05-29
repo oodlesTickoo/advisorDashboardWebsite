@@ -53,16 +53,13 @@ strong {
     font-weight: 700;
 }
 
-
 html {
-   /* font-size: 100.01%;
+    /* font-size: 100.01%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;*/
-	
 }
 
 body {
-    font-size: 62.5%;
     line-height: 1em;
     background-size: 100% auto;
     /*background-color: #e0e0e0;
@@ -254,6 +251,63 @@ a:visited {
 }
 
 
+/*** Grid ***/
+
+.ui-grid .ui-grid-render-container-body .ui-grid-viewport {
+    overflow: hidden !important;
+}
+
+.grid{
+	height: 525px !important;
+	border: none !important;
+}
+
+.ui-grid-header{
+	border-bottom: none !important;
+}
+
+.ui-grid-header-cell{
+	border-color: #565656;
+}
+
+/*.ui-grid-cell-contents{
+	padding: 12px 15px;
+}*/
+
+.ui-grid-cell .ui-grid-cell-contents{
+	font-family: LatoRegular;
+	font-size: 16px;
+	color: #191717;
+	text-shadow: 0 0 0 #191717;
+	padding: 20px;
+}
+
+.ui-grid-top-panel {
+    position: relative;
+    color: #9fe7f7;
+    overflow: hidden;
+    background: #062135;
+	font-family: AvantGardeBookBT;
+	font-size: 18px;
+    font-weight: 100;
+    letter-spacing: 1px;
+	padding: 7.5px 0;
+}
+
+.ui-grid-row .ui-grid-cell{
+	background-color: #e8ecee !important;
+	height: 57px !important;
+}
+
+.ui-grid-cell {
+    border-color: #f8f9f9;
+}
+
+.ui-grid-header-cell{
+	padding: 0 15px;
+}
+
+
 /* -- Heading -- */
 
 .heading h2 {
@@ -278,7 +332,7 @@ a:visited {
     letter-spacing: 5px;
 }
 
-.btn-primary:hover ,
+.btn-primary:hover,
 .btn-primary:focus {
     color: #0d2f47 !important;
     background-color: #fff !important;
@@ -301,11 +355,13 @@ a:visited {
     top: 10%;
 }
 
+
 /*ng-scrollable*/
 
 .mCSB_inside>.mCSB_container {
     margin-right: 0;
 }
+
 
 /*Tables*/
 
@@ -335,8 +391,8 @@ table tr:nth-child(even) {
     width: 473px;
 }
 
-/*** Menu ***/
 
+/*** Menu ***/
 
 
 /* Header*/
@@ -346,109 +402,106 @@ table tr:nth-child(even) {
     /*margin: 65px 66px;*/
 }
 
+
 /*Hamburg Menu*/
 
-#menuToggle
-{
-  display: block;
-  position: relative;
-  top: 1px;
-left: 109px;
-  z-index: 1;
-  -webkit-user-select: none;
-  user-select: none;
-	background: rgba(0, 0, 0, 0.6);
+#menuToggle {
+    display: block;
+    position: relative;
+    top: 1px;
+    left: 109px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.6);
     width: 47px;
     padding: 11.5px;
 }
 
-#menuToggle input
-{
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  
-  cursor: pointer;
-  
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
+#menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none;
 }
+
 
 /*
  * Just a quick hamburger
  */
-#menuToggle span
-{
-  display: block;
-  width: 23px;
-  height: 3px;
-  margin-bottom: 5px;
-  position: relative;
-  
-  background: #ffffff;;
-  border-radius: 3px;
-  
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
-	left: 2px;
+
+#menuToggle span {
+    display: block;
+    width: 23px;
+    height: 3px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #ffffff;
+    ;
+    border-radius: 3px;
+    z-index: 1;
+    transform-origin: 4px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+    left: 2px;
     top: 2px;
 }
 
-#menuToggle span:first-child
-{
-  transform-origin: 0% 0%;
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2)
-{
-  transform-origin: 0% 100%;
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
 }
+
 
 /* 
  * Transform all the slices of hamburger
  * into a crossmark.
  */
-#menuToggle input:checked ~ span
-{
-  opacity: 1;
-  transform: rotate(45deg) translate(1px, 2px);
-  background: #ffffff;
+
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(1px, 2px);
+    background: #ffffff;
 }
+
 
 /*
  * But let's hide the middle one.
  */
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
 }
+
 
 /*
  * Ohyeah and the last one should go the other direction
  */
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
-  opacity: 1;
-  transform: rotate(-45deg) translate(0, -1px);
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    opacity: 1;
+    transform: rotate(-45deg) translate(0, -1px);
 }
+
 
 /*
  * Make this absolute positioned
  * at the top left of the screen
  */
-#menu{
-	    position: absolute;
+
+#menu {
+    position: absolute;
     width: 340px;
     margin: -36px 0 0 36px;
     /* padding: 50px; */
@@ -465,23 +518,22 @@ left: 109px;
     /* display: none; */
 }
 
-#menu li
-{
-  padding: 10px 0;
-  font-size: 22px;
+#menu li {
+    padding: 10px 0;
+    font-size: 22px;
 }
+
 
 /*
  * And let's fade it in from the left
  */
-#menuToggle input:checked ~ ul
-{
-transform: scale(1.0, 1.0); */
-    transition: 0.5s all;
+
+#menuToggle input:checked ~ ul {
+    transform: scale(1.0, 1.0);
+    */ transition: 0.5s all;
     opacity: 1;
     transform: translate(-100%, 0%);
 }
-
 
 
 /*** Login ***/
@@ -568,7 +620,7 @@ transform: scale(1.0, 1.0); */
     font-size: 15.5px;
     padding-left: 30px;
     margin-top: 5px;
-	line-height: 21.5px;
+    line-height: 21.5px;
 }
 
 .advisor {
@@ -579,9 +631,11 @@ transform: scale(1.0, 1.0); */
     margin-bottom: 49px;
 }
 
+
 /*if financial advisor is checked*/
-.is-financial-advisor{
-	position: absolute;
+
+.is-financial-advisor {
+    position: absolute;
     bottom: 0;
     margin-bottom: 30px;
 }
@@ -650,68 +704,228 @@ transform: scale(1.0, 1.0); */
     font-family: HelveticaLT;
 }
 
+
 /*** Welcome ***/
+
 #welcome-content {
     background: url(../images/welcome-bg.png) no-repeat;
     height: 662px;
     background-size: 100% 100%;
 }
 
-.welcome-container{
-	padding-top: 45px;
+.welcome-container {
+/*    padding-top: 45px;*/
+	height: 100%;
+    top: 2px;
 }
 
-.welcome-container h2{
-	font-size: 22px;
+.welcome-container h2 {
+    font-size: 22px;
     color: rgba(255, 255, 255, 0.9);
     font-family: LatoRegular;
     margin-bottom: 0;
     letter-spacing: 1px;
 }
 
-.welcome-container h1{
-	font-size: 37.5px;
+.welcome-container h1 {
+    font-size: 37.5px;
     color: rgba(255, 255, 255, 0.9);
     font-family: AvantGardeBookBT;
-    margin-top: 15px;
-    margin-bottom: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     letter-spacing: 2px;
 }
 
-.welcome-container h3{
-	font-size: 20px;
+.welcome-container h3 {
+    font-size: 20px;
     color: rgba(254, 253, 253, 0.75);
     font-family: LatoRegular;
     letter-spacing: 0.5px;
-	margin-top: 0;
+    margin-top: 0;
 }
 
-/*** Super Calculator ***/
-#super-calc-content{
-	 background: url(../images/super-calc-bg.png) no-repeat;
-    height: 662px;
-}
 
-.super-calc-container{
-	top: 2px;
-}
+/***Advisor Login***/
 
-.super-calc-container .page-content{
-	padding-top: 63px;
-}
-
-.super-calc-heading h3{
-	color: rgba(255, 255, 255, 0.9);
-	line-height: 22px;
-	text-transform: uppercase;
-	font-size: 19.5px;
-	margin-bottom: 5px;
-	margin-top: 0;
+.welcome-intro p {
+    display: inline;
+    font-size: 15px;
+    line-height: 48px;
+    font-family: LatoRegular;
+    color: #fff;
+    margin-left: 10px;
     letter-spacing: 1px;
 }
 
-.super-calc-heading p{
+.welcome-intro a {
+    font-size: 13px;
+    line-height: 48px;
+    font-family: LatoRegular;
+    color: #fff;
+    display: inline-block;
+}
+
+a.download-pdf i{
+	background-image: url(../images/download-pdf-icon.png);
+}
+
+a.action-icon i{
+	 background-repeat: no-repeat;
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+}
+
+a.upload-word i{
+	background-image: url(../images/upload-word-icon.png);
+}
+
+.download-pdf,
+.edit-action{
+	padding: 10px 15px;
+}
+
+.action-icon{
+	display: inline-block;
+}
+
+/*** Administartor Login ***/
+.btn-group{
+	width: 100%;
+	margin-top: 35px;
+	margin-bottom: 12px;
+}
+
+.btn-group .btn{
+	width: 33.33%;
+	text-transform: uppercase;
+	border-radius: 0;
+}
+
+.btn-success {
+    color: #c0c9cf;
+    background-color: transparent;
+    border-color: #9eadb7;
+	font-family: LatoRegular;
 	font-size: 13px;
-	color: rgba(255, 255, 255, 0.75);
-	margin-bottom: 0;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active, 
+.btn-success:active, 
+.open>.dropdown-toggle.btn-success{
+    color: #062135;
+    background-color: #fff;
+    border-color: #fff;
+    font-weight: bold;
+}
+
+.btn-success.active,
+.btn-success.active:focus,
+.btn-success.active:hover,
+.btn-group-vertical>.btn.active, .btn-group-vertical>.btn:active, .btn-group-vertical>.btn:focus, .btn-group-vertical>.btn:hover, .btn-group>.btn.active, .btn-group>.btn:active, .btn-group>.btn:focus, .btn-group>.btn:hover{
+	color: #062135;
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: none;
+    /* text-shadow: 0 0 0 #062135; */
+    font-weight: bold;
+}
+
+/*Master Advisor accordion*/
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #cfcaca;
+    border-color: transparent;
+    padding: 0;
+    border: none;
+	    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.panel-default {
+    border-color: transparent;
+	box-shadow: none;
+	border-radius: 0 !important;
+	border: none;
+}
+
+.panel-default .panel-heading{
+	background-image: url(../images/arrow-down-dark.png);
+	background-repeat: no-repeat;
+	background-position: right 40px center;
+}
+
+.panel-open .panel-heading{
+	background-image: url(../images/arrow-up-dark.png);
+	background-repeat: no-repeat;
+	background-position: right 40px center;
+}
+
+.panel-group{
+	background: #e8ecee;
+}
+
+.panel-default>.panel-heading+.panel-collapse>.panel-body{
+	background: #e8ecee;
+    padding: 0;
+}
+
+a.accordion-toggle{
+	display: block !important;
+    padding: 0 20px;
+    font-family: LatoRegular !important;
+    font-size: 16px !important;
+    color: #062135 !important;
+    text-transform: uppercase;
+    font-weight: bold;
+	outline: none;
+}
+
+.administrator-content .col-md-3{
+	margin-top: 25px;
+} 
+
+.master-advisor-accordion li{
+	padding: 17px 15px;
+	color: #191717;
+	font-size: 16px;
+	font-family: LatoRegular;
+	text-shadow: 0 0 0 #191717;
+}
+
+a.edit-action i{
+	background-image: url(../images/edit-action.png);
+}
+
+/*** Super Calculator ***/
+
+#super-calc-content {
+    background: url(../images/super-calc-bg.png) no-repeat;
+    height: 662px;
+}
+
+.super-calc-container {
+    top: 2px;
+}
+
+.super-calc-container .page-content {
+    padding-top: 63px;
+}
+
+.super-calc-heading h3 {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 22px;
+    text-transform: uppercase;
+    font-size: 19.5px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    letter-spacing: 1px;
+}
+
+.super-calc-heading p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0;
 }
