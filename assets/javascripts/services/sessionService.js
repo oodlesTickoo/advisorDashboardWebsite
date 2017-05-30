@@ -22,6 +22,7 @@ app.factory("sessionService", function() {
 });
 
 })();
+//kqarty
 
 
 /*'use strict';
