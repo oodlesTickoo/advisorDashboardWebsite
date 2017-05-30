@@ -1,9 +1,80 @@
 <!--Welcome Content -->
 <div id="welcome-content">
-    <div class="container welcome-container">
-        <h2>Welcome</h2>
-        <h1>John Keats!</h1>
-        <h3>Now you are logged in and you can browse to different menus</h3>
+    <div class="main-container welcome-container" ng-scrollbars ng-scrollbars-config="config">
+        <div class="container">
+            <div class="row no-margin" style="padding-top: 45px">
+                <h2>Welcome</h2>
+                <h1>John Keats!</h1>
+                <h3>Now you are logged in and you can browse to different menus</h3>
+                <!-- Advisor Login-->
+                <div class="row welcome-intro">
+                    <div class="advisor-content ng-hide">
+                        <div class="col-md-9">
+                            <img src="../assets/images/cloud-down.png" />
+                            <a href="#">
+                                <p>Sample statement of advice introduction file</p>
+                            </a>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <a href="#">Click here for instructions</a>
+                        </div>
+                        <div class="row no-margin">
+                            <div class="col-md-12">
+                                <div id="grid1" ui-grid="advisorListData" class="grid" ui-grid-auto-resize></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Advisor Login-->
+
+                    <!-- Administrator Login-->
+                    <div class="administrator-content">
+                        <div class="row no-margin">
+                            <div class="col-md-9">
+                                <div class="btn-group">
+                                    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uib-uncheckable="uncheckable">Your Client List</label>
+                                    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uib-uncheckable="uncheckable">Advisors</label>
+                                    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uib-uncheckable="uncheckable">Clients</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <a href="#">Click here for instructions</a>
+                            </div>
+                        </div>
+                        <div class="row no-margin">
+                            <!-- Administrator Client List -->
+                            <div class="col-md-12">
+                                <div id="grid2" ui-grid="administratorCLientListData" class="grid" ng-if="radioModel == 'Left'" ui-grid-auto-resize></div>
+
+                                <!--Master Advisor List -->
+								<div class="row no-margin" ng-if="radioModel == 'Middle'">
+									<div class="col-md-12"style="padding: 12.5px 20px;color: #9fe7f7; background: #062135;font-family: AvantGardeBookBT;font-size: 18px;font-weight: 100;letter-spacing: 1px;">
+										Name
+									</div>
+								</div>
+                                <div class="master-advisor-accordion" ng-if="radioModel == 'Middle'">
+                                    <uib-accordion close-others=false>
+                                        <uib-accordion-group ng-repeat="advisorList in advisorLists" ng-scroll="advisorList in advisorLists" is-open="group.isOpen" ng-click="updateOpenStatus()">
+                                            <uib-accordion-heading ng-model="checkTitle">
+                                                {{advisorList.title}}
+                                            </uib-accordion-heading>
+                                            <!--                                            <a>{{advisorList.content}}</a>-->
+                                            <ul>
+                                                <li ng-repeat="content in advisorList.contents">{{content.fullName}}</li>
+                                            </ul>
+                                        </uib-accordion-group>
+                                    </uib-accordion>
+                                </div>
+
+                                <!-- Master Clients List -->
+                                <div id="grid2" ui-grid="administratorMasterClientListData" class="grid" ng-if="radioModel == 'Right'" ui-grid-auto-resize></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Administrator Login-->
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 <!-- /Welcome Content -->

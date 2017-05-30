@@ -1,33 +1,36 @@
 
-    var app = angular.module('advisorDashboardApp', [
-        'ui.router',
-        'ngAnimate',
+var app = angular.module('advisorDashboardApp', [
+    'ui.router',
+    'ngAnimate',
         'toastr',
-        'ngAria',
-        'ngCookies',
-        'ngMessages',
-        'ngResource',
-        'ngRoute',
-        'ngSanitize',
-        'ngTouch',
-        'ngFileUpload',
-        'AngularPrint',
-        'AgeCalculatorService',
-        'ngScrollbars'
-    ]);
+    'ngAria',
+    'ngCookies',
+    'ngMessages',
+    'ngResource',
+    'ngRoute',
+    'ngSanitize',
+    'ngTouch',
+    'ngFileUpload',
+    'AngularPrint',
+    'AgeCalculatorService',
+    'ngScrollbars',
+	'ui.grid',
+	'ui.grid.autoResize',
+	'ui.bootstrap'
+]);
 
     app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider) {
 
-        ScrollBarsProvider.defaults = {
-            advanced: {
-                updateOnContentResize: true
-            },
-            scrollInertia: 800,
-            axis: 'y', // enable 2 axis scrollbars by default 
-            theme: 'light',
-            setHeight: 652,
-            autoHideScrollbar: true
-        };
+    ScrollBarsProvider.defaults = {
+        advanced: {
+            updateOnContentResize: true
+        },
+        scrollInertia: 800,
+        axis: 'y', // enable 2 axis scrollbars by default 
+        theme: 'light',
+        setHeight: 655,
+        autoHideScrollbar: true
+    };
 
         $urlRouterProvider.otherwise('/login');
 
@@ -49,12 +52,11 @@
                         controller: 'AppCtrl'*/
         })
 
-        .state('app.welcome', {
-            url: '/welcome',
-            templateUrl: 'views/welcome.html'
-                /*,
-                        controller: 'WelcomeController'*/
-        })
+    .state('app.welcome', {
+        url: '/welcome',
+        templateUrl: 'views/welcome.html',
+        controller: 'WelcomeController'
+    })
 
         .state('app.advisorPage', {
             url: '/advisor',
