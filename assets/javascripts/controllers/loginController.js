@@ -10,15 +10,24 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', function($
         ADMIN: "ADMINISTRATOR"
     };
 
-    $scope.login = function(type) {
-        //vm.dataLoading = true;
-        console.log("user: ", $scope.user);
-        $scope.user.type = type;
-        console.log("user.type: ", $scope.user.type);
-        AuthenticationService.login($scope.user).then(function(response) {
+    $scope.advisorLogin = function() {
+        console.log("advisor: ", $scope.advisor);
+        $scope.advisor.type = $scope.USER_ROLE.ADVISOR;
+        console.log("advisor.type: ", $scope.advisor.type);
+        AuthenticationService.login($scope.advisor).then(function(response) {
             console.log('response: ', response);
-        }).catch(function(error){
-            console.log("error",error);
+        }).catch(function(error) {
+            console.log("error", error);
+        });
+    };
+    $scope.clientLogin = function() {
+        console.log("client: ", $scope.client);
+        $scope.client.type = $scope.USER_ROLE.CLIENT;
+        console.log("client.type: ", $scope.client.type);
+        AuthenticationService.login($scope.client).then(function(response) {
+            console.log('response: ', response);
+        }).catch(function(error) {
+            console.log("error", error);
         });
     };
 

@@ -8,13 +8,14 @@
     function AuthenticationService(sessionService,$http, $timeout, toastr) {
 
         var cacheSession = function(response) {
-            console.log("cacheSession", response);
-            var result = response[0];
-            /* sessionService.set('token', result.token);
+            var result = response.data.response.me;
+            //   sessionService.set('token', result.token);
              sessionService.set('firstName', result.FIRST_NAME);
              sessionService.set('lastName', result.LAST_NAME);
              sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
-             sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);*/
+             sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
+            console.log("sessionService.name:", sessionService.get('firstName'));
+
 
         };
 
@@ -25,6 +26,7 @@
         function formTemplate(user) {
             return {
                 "FIRST_NAME": user.name,
+                "LAST_NAME": "d",
 
                 "CONTACTINFOS": [{
                     "TYPE": "PHONE",
@@ -49,17 +51,18 @@
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    data: formTemplate(user)
+                    data: formTemplate(credentials)
                 };
 
-                console.log("form", formTemplate(user));
+                console.log("form", formTemplate(credentials));
                 console.log("req", req);
 
                 /* Use this for real authentication*/
                 //return $http(req);
 
                 var login = $http(req);
-                login.success(cacheSession);
+                console.log("login11:",login );
+                login.then(cacheSession);
                 return login;
             },
             logout: function() {
