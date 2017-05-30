@@ -1,13 +1,14 @@
-var auth = angular.module("app.auth", []);
+/*var auth = angular.module("app.auth", []);
 
 app.factory("authenticationService", ['$http', '$timeout','toastr', function($http, $timeout, toastr) {
     var cacheSession = function(response) {
+        console.log("cacheSession",response);
         var result=response[0];
-       /* sessionService.set('token', result.token);
+       sessionService.set('token', result.token);
         sessionService.set('firstName', result.FIRST_NAME);
         sessionService.set('lastName', result.LAST_NAME);
         sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
-        sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);*/
+        sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
 
     };
 
@@ -18,7 +19,21 @@ app.factory("authenticationService", ['$http', '$timeout','toastr', function($ht
     return {
        
         login: function(credentials) {
-            var login = $http.post("/api/v1/login", credentials);
+            var req = {
+                method: 'POST',
+                url: '/api/v1/login',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: formTemplate(user)
+            };
+
+            console.log("form",formTemplate(user));
+            console.log("req",req);
+
+            
+            
+            var login = $http(req);
             login.success(cacheSession);
             return login;
         },
@@ -32,7 +47,7 @@ app.factory("authenticationService", ['$http', '$timeout','toastr', function($ht
     };
 }]);
 
-
+*/
 /*auth.config(function($httpProvider) {
 
     $httpProvider.interceptors.push(['$location', '$q', 'sessionService', 'flashService', '$log', function($location, $q, sessionService, flashService, $log) {
