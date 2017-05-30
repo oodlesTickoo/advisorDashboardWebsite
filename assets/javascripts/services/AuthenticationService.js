@@ -3,9 +3,9 @@
 
     app.factory('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['$http', '$timeout', 'toastr'];
+    AuthenticationService.$inject = ['sessionService','$http', '$timeout', 'toastr'];
 
-    function AuthenticationService($http, $timeout, toastr) {
+    function AuthenticationService(sessionService,$http, $timeout, toastr) {
 
         var cacheSession = function(response) {
             console.log("cacheSession", response);
@@ -19,7 +19,7 @@
         };
 
         var uncacheSession = function() {
-            sessionService.unsetAll();
+            //sessionService.unsetAll();
         };
 
         function formTemplate(user) {

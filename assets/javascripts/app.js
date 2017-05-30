@@ -1,5 +1,3 @@
-(function() {
-    'use strict';
 
     var app = angular.module('advisorDashboardApp', [
         'ui.router',
@@ -71,8 +69,6 @@
         });
 
     });
-
-}());
 
 
 /*$routeProvider

@@ -1,6 +1,9 @@
-var auth = angular.module("app.auth");
+// var auth = angular.module("app.auth");
 
-auth.factory("sessionService", function() {
+(function() {
+    'use strict';
+
+app.factory("sessionService", function() {
     return {
         get: function(key) {
             return localStorage.getItem(key);
@@ -17,6 +20,8 @@ auth.factory("sessionService", function() {
     };
 
 });
+
+})();
 
 
 /*'use strict';
