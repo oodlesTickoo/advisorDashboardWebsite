@@ -19,8 +19,8 @@ var app = angular.module('advisorDashboardApp', [
 	'ui.bootstrap'
 ]);
 
-    app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider) {
-
+    app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider) {
+    $locationProvider.hashPrefix('');
     ScrollBarsProvider.defaults = {
         advanced: {
             updateOnContentResize: true
@@ -31,8 +31,6 @@ var app = angular.module('advisorDashboardApp', [
         setHeight: 655,
         autoHideScrollbar: true
     };
-
-        $urlRouterProvider.otherwise('/login');
 
         $stateProvider
 
@@ -68,7 +66,18 @@ var app = angular.module('advisorDashboardApp', [
             url: '/superCalculator',
             templateUrl: 'views/superCalculator.html',
             controller: 'SuperCalculatorController'
+        })
+        .state('app.goal', {
+            url: '/goals',
+            templateUrl: 'views/superCalculator.html',
+            controller: 'GoalController'
+        })
+        .state('app.contact', {
+            url: '/contact',
+            templateUrl: 'views/superCalculator.html',
+            controller: 'SuperCalculatorController'
         });
+        $urlRouterProvider.otherwise('/login');
 
     });
 

@@ -1,35 +1,36 @@
-app.controller("LoginController", ['$scope', 'AuthenticationService', function($scope, AuthenticationService) {
+app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', function($scope, AuthenticationService, $state) {
     'use strict';
 
-    $scope.user = {};
-
-
-    $scope.USER_ROLE = {
+    const USER_ROLE = {
         ADVISOR: "ADVISOR",
         CLIENT: "CLIENT",
         ADMIN: "ADMINISTRATOR"
     };
 
-    $scope.advisorLogin = function() {
-        console.log("advisor: ", $scope.advisor);
-        $scope.advisor.type = $scope.USER_ROLE.ADVISOR;
-        console.log("advisor.type: ", $scope.advisor.type);
-        AuthenticationService.login($scope.advisor).then(function(response) {
-            console.log('response: ', response);
+    
+    $scope.advisor = {};
+    $scope.advisor.type = USER_ROLE.ADVISOR;
+    $scope.client = {};
+    $scope.client.type = USER_ROLE.CLIENT;
+
+
+    $scope.login = function(data) {
+        console.log("Login: ",data);
+        AuthenticationService.login(data).then(function(response) {
+            if(response && response.data && response.data.response){
+                console.log(response);
+                $state.go('app.welcome');
+            } else{
+
+            }
         }).catch(function(error) {
             console.log("error", error);
         });
     };
-    $scope.clientLogin = function() {
-        console.log("client: ", $scope.client);
-        $scope.client.type = $scope.USER_ROLE.CLIENT;
-        console.log("client.type: ", $scope.client.type);
-        AuthenticationService.login($scope.client).then(function(response) {
-            console.log('response: ', response);
-        }).catch(function(error) {
-            console.log("error", error);
-        });
-    };
+
+    function openWelcomePage(role){
+
+    }
 
 }]);
 

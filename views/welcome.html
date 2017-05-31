@@ -8,15 +8,15 @@
                 <h3>Now you are logged in and you can browse to different menus</h3>
                 <!-- Advisor Login-->
                 <div class="row welcome-intro">
-                    <div class="advisor-content ng-hide">
+                    <div class="advisor-content" ng-if="selectedRole === USER_ROLE.ADVISOR">
                         <div class="col-md-9">
                             <img src="../assets/images/cloud-down.png" />
-                            <a href="#">
+                            <a >
                                 <p>Sample statement of advice introduction file</p>
                             </a>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a href="#">Click here for instructions</a>
+                            <a >Click here for instructions</a>
                         </div>
                         <div class="row no-margin">
                             <div class="col-md-12">
@@ -27,7 +27,7 @@
                     <!-- /Advisor Login-->
 
                     <!-- Administrator Login-->
-                    <div class="administrator-content">
+                    <div class="administrator-content" ng-if="selectedRole === USER_ROLE.ADMIN">
                         <div class="row no-margin">
                             <div class="col-md-9">
                                 <div class="btn-group">

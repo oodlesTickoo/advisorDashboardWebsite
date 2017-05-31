@@ -14,6 +14,7 @@
              sessionService.set('lastName', result.LAST_NAME);
              sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
              sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
+             sessionService.set('role', response.data.response.role);
             console.log("sessionService.name:", sessionService.get('firstName'));
 
 

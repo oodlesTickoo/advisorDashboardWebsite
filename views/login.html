@@ -3,7 +3,7 @@
     <div class="container main-container">
         <div class="row no-margin">
             <div class="col-md-6 login-col">
-                <form name="advisor-form" ng-submit="advisorLogin();" role="form">
+                <form name="advisor-form" ng-submit="login(advisor);" role="form">
                     <div class="login-form-header">
                         <h1 class="text-center ">Financial Advisor Login</h1>
                     </div>
@@ -29,14 +29,14 @@
                                 <input name="terms" type="checkbox"><span>I agree with the <b>Terms & Conditions</b></span>
                             </label>
                         </div>-->
-                        <div class="form-group ">
-                            <a href="#" type="button" ng-click="login('advisor')" class="btn btn-primary btn-lg btn-block login-button">login in</a>
+                        <div class="form-actions">
+                        <button type="submit"  class="btn btn-primary btn-lg btn-block login-button">login in</button>
                         </div>
                     </div>
                 </form>    
             </div>
             <div class="col-md-6 login-col">
-                <form name="client-form" ng-submit="clientLogin();" role="form">
+                <form name="client-form" ng-submit="login(client);" role="form">
                     <div class="login-form-header">
                         <h1 class="text-center ">Client Login </h1>
                     </div>

@@ -1,7 +1,19 @@
-app.controller("WelcomeController", ['$scope', function($scope) {
+app.controller("WelcomeController", ['$scope', 'sessionService', '$state', function($scope, sessionService, $state) {
     'use strict';
 
     //tab toggle btn group
+    $scope.USER_ROLE = {
+        ADVISOR: "ADVISOR",
+        CLIENT: "CLIENT",
+        ADMIN: "ADMINISTRATOR"
+    };
+
+    function initialize(){
+        $scope.selectedRole = sessionService.get('role');
+
+    }
+    initialize();
+
     $scope.radioModel = 'Left';
 
     $scope.checkModel = {
