@@ -53,13 +53,13 @@
                                 </div>
                                 <div class="master-advisor-accordion" ng-if="radioModel == 'Middle'">
                                     <uib-accordion close-others=false>
-                                        <uib-accordion-group ng-repeat="advisorList in advisorLists" ng-scroll="advisorList in advisorLists" is-open="group.isOpen" ng-click="updateOpenStatus()">
+                                        <uib-accordion-group ng-repeat="advisor in advisors" ng-scroll="advisor in advisors" is-open="group.isOpen" ng-click="updateOpenStatus()">
                                             <uib-accordion-heading ng-model="checkTitle">
-                                                {{advisorList.title}}
+                                                {{advisor.advisor.FIRST_NAME + ' ' + advisor.advisor.LAST_NAME}}
                                             </uib-accordion-heading>
                                             <!--                                            <a>{{advisorList.content}}</a>-->
                                             <ul>
-                                                <li ng-repeat="content in advisorList.contents">{{content.fullName}}</li>
+                                                <li ng-repeat="content in advisor.clients">{{content.FIRST_NAME + ' '+ content.LAST_NAME}}</li>
                                             </ul>
                                         </uib-accordion-group>
                                     </uib-accordion>

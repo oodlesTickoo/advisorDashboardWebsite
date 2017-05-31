@@ -17,6 +17,9 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', 
     $scope.login = function(data) {
         console.log("Login: ",data);
         AuthenticationService.login(data).then(function(response) {
+            if(response && response.status !== 200){
+                return;
+            }
             if(response && response.data && response.data.response){
                 console.log(response);
                 $state.go('app.welcome');
