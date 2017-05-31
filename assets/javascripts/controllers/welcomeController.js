@@ -61,23 +61,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     });
 
     //Advisor Login
-    $scope.advisorList = [{
-        "fullName": "Robert Pattison"
-    }, {
-        "fullName": "Jessica Black"
-    }, {
-        "fullName": "Daryl Richard Swasbrook"
-    }, {
-        "fullName": "Klebia Clorrie"
-    }, {
-        "fullName": "Taylor Swift"
-    }, {
-        "fullName": "Jonnathan T."
-    }, {
-        "fullName": "Daniel Richard"
-    }, {
-        "fullName": "Hannah Cliff"
-    }];
+
 
     $scope.advisorListData = {
         data: 'my_clients',
@@ -98,7 +82,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             name: 'actions',
             width: 150,
             pinnedRight: true,
-            cellTemplate: "<a class='download-pdf action-icon' title='Download PDF' href='#'><i></i></a><a class='upload-word action-icon' title='Upload WORD' href='#'><i></i></a>",
+            cellTemplate: "<a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity.CONTACT_ID)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ng-click='grid.appScope.uploadDoc(row.entity.CONTACT_ID)'><i></i></a><input type='file' accept='application/vnd.openxmlformats-officedocument.wordprocessingml.document' id='{{row.entity.CONTACT_ID}}' style='display:none;' ng-model='grid.appScope.filesModel'>",
         }],
         onRegisterApi: function(gridApi) {
             $scope.gridApi = gridApi;
@@ -111,32 +95,6 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     //Administrator Login
 
     /*Client List*/
-    $scope.administratorCLientList = [{
-        "fullName": "Robert Pattison"
-        ,"last": "Robert Pattison"
-    }, {
-        "fullName": "Jessica Black",
-        "last": "Robert Pattison"
-    }, {
-        "fullName": "Daryl Richard Swasbrook",
-        "last": "SD"
-    }, {
-        "fullName": "Klebia Clorrie",
-        "last": "Robert Pattison"
-    }, {
-        "fullName": "Taylor Swift",
-        "last": "Robert Pattison"
-    }, {
-        "fullName": "Jonnathan T.",
-        "last": "Robert Pattison"
-    }, {
-        "fullName": "Daniel Richard",
-        "last": "Robert Pattison"
-    }, {
-        "fullName": "Hannah Cliff",
-        "last": "Robert Pattison"
-    }];
-
     /// SHOW CLIENTS 
    
     $scope.administratorCLientListData = {
@@ -169,51 +127,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     $scope.isOpen = false;
 
     // Data 
-    $scope.advisorLists = [{
-        title: "XYZ Advisor",
-        contents: [{
-            "fullName": "Robert Pattison"
-        }, {
-            "fullName": "Jessica Black"
-        }, {
-            "fullName": "Daryl Richard Swasbrook"
-        }]
-    }, {
-        title: "PQR Advisor",
-        contents: [{
-            "fullName": "Klebia Clorrie"
-        }, {
-            "fullName": "Taylor Swift"
-        }]
-    }];
-
     /*Master Client List*/
-    $scope.administratorMasterClientList = [{
-        "fullName": "Robert Pattison",
-		"advisorName": "Russel Medcraft"
-    }, {
-        "fullName": "Jessica Black",
-		"advisorName": "Medcraft"
-    }, {
-        "fullName": "Daryl Richard Swasbrook",
-		"advisorName": "T.K Larry"
-    }, {
-        "fullName": "Klebia Clorrie",
-		"advisorName": "T.K Larry"
-    }, {
-        "fullName": "Taylor Swift",
-		"advisorName": "Russel Medcraft"
-    }, {
-        "fullName": "Jonnathan T.",
-		"advisorName": "Russel Medcraft"
-    }, {
-        "fullName": "Daniel Richard",
-		"advisorName": "Emma"
-    }, {
-        "fullName": "Hannah Cliff",
-		"advisorName": "T.K Larry"
-    }];
-
     $scope.administratorMasterClientListData = {
         data: 'client_advisors',
         useExternalPagination: false,
@@ -245,5 +159,33 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
               });*/
         }
     };
+
+    $scope.saveTemplateDoc = function() {
+        var link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = '/download/TEMPLATE_DOC.docx';
+        link.target='_blank';
+        link.click();
+    }
+
+    $scope.downloadPdf = function(id){
+        const url = '/api/v1/file?contact_id='+id+'&file_format=pdf';
+        var link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = url;
+        link.target='_blank';
+        link.click();
+    }
+
+    $scope.uploadDoc = function(id){
+        console.log(id);
+        document.getElementById(''+id).click();
+    }
+
+    $scope.fileSelected = function(id){
+
+        console.log("---------------------",document.getElementById(''+id));
+
+    }
 
 }]);
