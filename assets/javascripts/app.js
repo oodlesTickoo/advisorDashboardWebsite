@@ -1,8 +1,7 @@
-
 var app = angular.module('advisorDashboardApp', [
     'ui.router',
     'ngAnimate',
-        'toastr',
+    'toastr',
     'ngAria',
     'ngCookies',
     'ngMessages',
@@ -14,12 +13,12 @@ var app = angular.module('advisorDashboardApp', [
     'AngularPrint',
     'AgeCalculatorService',
     'ngScrollbars',
-	'ui.grid',
-	'ui.grid.autoResize',
-	'ui.bootstrap'
+    'ui.grid',
+    'ui.grid.autoResize',
+    'ui.bootstrap'
 ]);
 
-    app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider) {
+app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
     ScrollBarsProvider.defaults = {
         advanced: {
@@ -28,27 +27,27 @@ var app = angular.module('advisorDashboardApp', [
         scrollInertia: 800,
         axis: 'y', // enable 2 axis scrollbars by default 
         theme: 'light',
-        setHeight: 655,
+        setHeight: 630,
         autoHideScrollbar: true
     };
 
-        $stateProvider
+    $stateProvider
 
-        // LOGIN STATE
-            .state('login', {
-            url: '/login',
-            templateUrl: 'views/login.html',
-            controller: 'LoginController'
-        })
+    // LOGIN STATE
+        .state('login', {
+        url: '/login',
+        templateUrl: 'views/login.html',
+        controller: 'LoginController'
+    })
 
-        // NESTED VIEWS 
-        .state('app', {
-            url: '/app',
-            abstract: true,
-            templateUrl: 'views/app.html'
-                /*,
-                        controller: 'AppCtrl'*/
-        })
+    // NESTED VIEWS 
+    .state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'views/app.html'
+            /*,
+                    controller: 'AppCtrl'*/
+    })
 
     .state('app.welcome', {
         url: '/welcome',
@@ -56,30 +55,30 @@ var app = angular.module('advisorDashboardApp', [
         controller: 'WelcomeController'
     })
 
-        .state('app.advisorPage', {
-            url: '/advisor',
-            templateUrl: 'views/advisorPage.html',
-            controller: 'AdvisorPageController'
-        })
+    .state('app.advisorPage', {
+        url: '/advisor',
+        templateUrl: 'views/advisorPage.html',
+        controller: 'AdvisorPageController'
+    })
 
-        .state('app.superCalculator', {
+    .state('app.superCalculator', {
             url: '/superCalculator',
             templateUrl: 'views/superCalculator.html',
             controller: 'SuperCalculatorController'
         })
-        .state('app.goal', {
-            url: '/goals',
-            templateUrl: 'views/superCalculator.html',
-            controller: 'GoalController'
+        .state('app.goalBasedAdvice', {
+            url: '/goalBasedAdvice',
+            templateUrl: 'views/goalBasedAdvice.html',
+            controller: 'GoalBasedAdviceController'
         })
         .state('app.contact', {
             url: '/contact',
             templateUrl: 'views/superCalculator.html',
             controller: 'SuperCalculatorController'
         });
-        $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/login');
 
-    });
+});
 
 
 /*$routeProvider
