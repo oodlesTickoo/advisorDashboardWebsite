@@ -1,4 +1,4 @@
-app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService', function($scope, sessionService, $state, UserService) {
+app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService','$uibModal', function($scope, sessionService, $state, UserService, $uibModal) {
     'use strict';
 
     //tab toggle btn group
@@ -36,7 +36,8 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     
         $scope.client_advisors.forEach(function(ca){
             ca.client.NAME = ca.client.FIRST_NAME + ' ' + ca.client.LAST_NAME;
-            ca.advisor.NAME = ca.advisor.FIRST_NAME + ' ' + ca.advisor.LAST_NAME;
+            if(ca.advisor)
+                ca.advisor.NAME = ca.advisor.FIRST_NAME + ' ' + ca.advisor.LAST_NAME;
         })
 
     }
@@ -150,7 +151,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             name: 'actions',
             width: 150,
             pinnedRight: true,
-            cellTemplate: "<a class='edit-action action-icon' title='Edit' href='#'><i></i></a>",
+            cellTemplate: "<a class='edit-action action-icon pointer' title='Edit' ng-click='grid.appScope.showModal(row.entity.client, row.entity.advisor.CONTACT_ID)'><i></i></a>",
         }],
         onRegisterApi: function(gridApi) {
             $scope.gridApi = gridApi;
@@ -187,5 +188,34 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         console.log("---------------------",document.getElementById(''+id));
 
     }
+
+     $scope.showModal = function(client, advisor) {
+        $uibModal.open({
+                templateUrl: 'changeAdvisorModal.html',
+                controller: 'ChangeAdvisorController',
+                size: 'md',
+                backdrop: 'static',
+                resolve: {
+                    advisors: function() {
+                        return {
+                            client: client.CONTACT_ID,
+                            name: client.FIRST_NAME + ' ' + client.LAST_NAME,
+                            advisors: $scope.advisors,
+                            selected: advisor
+                        };
+                    }
+
+                }
+            })
+            .result.then(
+                function() {
+                    console.log("OK");
+                    _getPageData();
+                },
+                function() {
+                    console.log("Cancel");
+                }
+            );
+        }
 
 }]);

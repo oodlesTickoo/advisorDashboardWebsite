@@ -19,6 +19,18 @@
                     }
                 };
                 return $http(req);
+            },
+            linkClientToAdvisor: function(clientId, advisorId) {
+                var req = {
+                    method: 'PUT',
+                    url: '/api/v1/client/link_advisor',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionService.get('token')
+                    },
+                    data: { 'client_id':clientId, 'advisor_id':advisorId}
+                };
+                return $http(req);
             }
         };
     }
