@@ -250,6 +250,9 @@ a:visited {
     font-weight: bold !important;
 }
 
+.pointer{
+	cursor: pointer;
+}
 
 /*** Grid ***/
 
@@ -802,7 +805,7 @@ a.upload-word i{
 	border-radius: 0;
 }
 
-.btn-success {
+.btn-group .btn-success {
     color: #c0c9cf;
     background-color: transparent;
     border-color: #9eadb7;
@@ -810,11 +813,11 @@ a.upload-word i{
 	font-size: 13px;
 }
 
-.btn-success:hover,
-.btn-success:focus,
-.btn-success:active, 
-.btn-success:active, 
-.open>.dropdown-toggle.btn-success{
+.btn-group .btn-success:hover,
+.btn-group .btn-success:focus,
+.btn-group .btn-success:active, 
+.btn-group .btn-success:active, 
+.btn-group .open>.dropdown-toggle.btn-success{
     color: #062135;
     background-color: #fff;
     border-color: #fff;
@@ -831,6 +834,19 @@ a.upload-word i{
     box-shadow: none;
     /* text-shadow: 0 0 0 #062135; */
     font-weight: bold;
+}
+
+/*Change Advisor Login Modal*/
+.modal-footer .btn-success{
+	color: #fff;
+    background-color: #113956;
+    border-color: #113956;
+}
+
+.modal-footer .btn-success:hover {
+    color: #fff;
+    background-color: #062135;
+    border-color: #062135;
 }
 
 /*Master Advisor accordion*/
