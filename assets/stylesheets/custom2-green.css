@@ -58,7 +58,7 @@
   -o-transition: max-height 0.9s ease-in;
   -moz-transition: max-height 0.9s ease-in;    
   transition: max-height 0.9s ease-in;
-  max-height: 1950px;
+  max-height: 2500px;
   overflow: hidden;   
 	position: relative;
     top: -7px;
