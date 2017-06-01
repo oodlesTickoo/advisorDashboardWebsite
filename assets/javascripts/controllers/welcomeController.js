@@ -1,4 +1,4 @@
-app.controller("WelcomeController", ['$scope', 'sessionService', '$state', function($scope, sessionService, $state) {
+app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService', '$uibModal', function($scope, sessionService, $state, UserService, $uibModal) {
     'use strict';
 
     //tab toggle btn group
@@ -8,11 +8,38 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', funct
         ADMIN: "ADMINISTRATOR"
     };
 
-    function initialize(){
+    $scope.my_clients = [];
+    $scope.advisors = [];
+    $scope.client_advisors = [];
+
+    function initialize() {
         $scope.selectedRole = sessionService.get('role');
+        _getPageData();
 
     }
     initialize();
+
+    function _getPageData() {
+        console.log("Getting data")
+        UserService.homePageData().then(function(result) {
+            console.log("Response ", result);
+            $scope.my_clients = result.data.response.my_clients ? result.data.response.my_clients : [];
+            $scope.advisors = result.data.response.advisors ? result.data.response.advisors : [];
+            $scope.client_advisors = result.data.response.clientAdvisor ? result.data.response.clientAdvisor : [];
+            _updateListData();
+        }).catch(function(err) {
+            console.log(err);
+        })
+    }
+
+    function _updateListData() {
+
+        $scope.client_advisors.forEach(function(ca) {
+            ca.client.NAME = ca.client.FIRST_NAME + ' ' + ca.client.LAST_NAME;
+            ca.advisor.NAME = ca.advisor.FIRST_NAME + ' ' + ca.advisor.LAST_NAME;
+        })
+
+    }
 
     $scope.radioModel = 'Left';
 
@@ -53,7 +80,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', funct
     }];
 
     $scope.advisorListData = {
-        data: 'advisorList',
+        data: 'my_clients',
         useExternalPagination: false,
         enablePaginationOption: false,
         enableGridMenu: false,
@@ -65,7 +92,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', funct
         enableVerticalScrollbar: 0,
         rowHeight: 30,
         columnDefs: [{
-            name: 'fullName',
+            name: 'name',
             displayName: 'Name'
         }, {
             name: 'actions',
@@ -85,25 +112,35 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', funct
 
     /*Client List*/
     $scope.administratorCLientList = [{
-        "fullName": "Robert Pattison"
+        "fullName": "Robert Pattison",
+        "last": "Robert Pattison"
     }, {
-        "fullName": "Jessica Black"
+        "fullName": "Jessica Black",
+        "last": "Robert Pattison"
     }, {
-        "fullName": "Daryl Richard Swasbrook"
+        "fullName": "Daryl Richard Swasbrook",
+        "last": "SD"
     }, {
-        "fullName": "Klebia Clorrie"
+        "fullName": "Klebia Clorrie",
+        "last": "Robert Pattison"
     }, {
-        "fullName": "Taylor Swift"
+        "fullName": "Taylor Swift",
+        "last": "Robert Pattison"
     }, {
-        "fullName": "Jonnathan T."
+        "fullName": "Jonnathan T.",
+        "last": "Robert Pattison"
     }, {
-        "fullName": "Daniel Richard"
+        "fullName": "Daniel Richard",
+        "last": "Robert Pattison"
     }, {
-        "fullName": "Hannah Cliff"
+        "fullName": "Hannah Cliff",
+        "last": "Robert Pattison"
     }];
 
+    /// SHOW CLIENTS 
+
     $scope.administratorCLientListData = {
-        data: 'administratorCLientList',
+        data: 'my_clients',
         useExternalPagination: false,
         enablePaginationOption: false,
         enableGridMenu: false,
@@ -115,10 +152,11 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', funct
         enableVerticalScrollbar: 0,
         rowHeight: 30,
         columnDefs: [{
-            name: 'fullName',
+            name: 'name',
             displayName: 'Name'
         }],
         onRegisterApi: function(gridApi) {
+            console.log(gridApi);
             $scope.gridApi = gridApi;
             /*  gridApi.pagination.on.paginationChanged($scope, function(newPage, pageSize) {
                   setPaginationDataAndGetList(newPage, pageSize);
@@ -152,32 +190,32 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', funct
     /*Master Client List*/
     $scope.administratorMasterClientList = [{
         "fullName": "Robert Pattison",
-		"advisorName": "Russel Medcraft"
+        "advisorName": "Russel Medcraft"
     }, {
         "fullName": "Jessica Black",
-		"advisorName": "Medcraft"
+        "advisorName": "Medcraft"
     }, {
         "fullName": "Daryl Richard Swasbrook",
-		"advisorName": "T.K Larry"
+        "advisorName": "T.K Larry"
     }, {
         "fullName": "Klebia Clorrie",
-		"advisorName": "T.K Larry"
+        "advisorName": "T.K Larry"
     }, {
         "fullName": "Taylor Swift",
-		"advisorName": "Russel Medcraft"
+        "advisorName": "Russel Medcraft"
     }, {
         "fullName": "Jonnathan T.",
-		"advisorName": "Russel Medcraft"
+        "advisorName": "Russel Medcraft"
     }, {
         "fullName": "Daniel Richard",
-		"advisorName": "Emma"
+        "advisorName": "Emma"
     }, {
         "fullName": "Hannah Cliff",
-		"advisorName": "T.K Larry"
+        "advisorName": "T.K Larry"
     }];
 
     $scope.administratorMasterClientListData = {
-        data: 'administratorMasterClientList',
+        data: 'client_advisors',
         useExternalPagination: false,
         enablePaginationOption: false,
         enableGridMenu: false,
@@ -189,10 +227,10 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', funct
         enableVerticalScrollbar: 0,
         rowHeight: 30,
         columnDefs: [{
-            name: 'fullName',
+            name: 'client.NAME',
             displayName: 'Name'
-        },{
-            name: 'advisorName',
+        }, {
+            name: 'advisor.NAME',
             displayName: 'Advisors Name'
         }, {
             name: 'actions',
@@ -207,5 +245,30 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', funct
               });*/
         }
     };
+
+    //open modal
+
+    $scope.showModal = function() {
+        $uibModal.open({
+                templateUrl: 'changeAdvisorModal.html',
+                controller: 'ChangeAdvisorController',
+                size: 'md',
+                backdrop: 'static',
+                resolve: {
+                    advisors: function() {
+                        return $scope.administratorMasterClientList;
+                    }
+
+                }
+            })
+            .result.then(
+                function() {
+                    console.log("OK");
+                },
+                function() {
+                    console.log("Cancel");
+                }
+            );
+    }
 
 }]);

@@ -15,6 +15,7 @@
              sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
              sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
              sessionService.set('role', response.data.response.role);
+             sessionService.set('token', response.data.response.token);
             console.log("sessionService.name:", sessionService.get('firstName'));
 
 

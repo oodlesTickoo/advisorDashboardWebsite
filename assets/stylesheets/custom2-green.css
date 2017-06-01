@@ -58,7 +58,7 @@
   -o-transition: max-height 0.9s ease-in;
   -moz-transition: max-height 0.9s ease-in;    
   transition: max-height 0.9s ease-in;
-  max-height: 1950px;
+  max-height: 2500px;
   overflow: hidden;   
 	position: relative;
     top: -7px;
@@ -658,8 +658,8 @@ input:-webkit-autofill {
 
 .modal-header {
     padding: 5px 8px !important;
-    background-color: #003946;
-    border: 1px solid white;
+    background-color: #062135;
+/*    border: 1px solid white;*/
 }
 
 .modal-body {
@@ -667,14 +667,12 @@ input:-webkit-autofill {
 }
 
 .modal-header h4 {
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
     padding: 5px;
-    color: white;
+    color: #9fe7f7;
+	font-family: AvantGardeBookBT;
 }
 
-#myModal1 .modal-footer button,
+/*#myModal1 .modal-footer button,
 #myModal2 .modal-footer button,
 #myModal3 .modal-footer button {
     font-weight: bold;
@@ -684,6 +682,10 @@ input:-webkit-autofill {
     padding: 0 15px;
     background-color: #003946;
     color: white;
+}*/
+
+.modal-footer button{
+	
 }
 
 #myModal1 .modal-footer img,

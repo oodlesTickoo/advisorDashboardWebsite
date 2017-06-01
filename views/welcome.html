@@ -11,12 +11,12 @@
                     <div class="advisor-content" ng-if="selectedRole === USER_ROLE.ADVISOR">
                         <div class="col-md-9">
                             <img src="../assets/images/cloud-down.png" />
-                            <a >
+                            <a>
                                 <p>Sample statement of advice introduction file</p>
                             </a>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a >Click here for instructions</a>
+                            <a>Click here for instructions</a>
                         </div>
                         <div class="row no-margin">
                             <div class="col-md-12">
@@ -46,20 +46,20 @@
                                 <div id="grid2" ui-grid="administratorCLientListData" class="grid" ng-if="radioModel == 'Left'" ui-grid-auto-resize></div>
 
                                 <!--Master Advisor List -->
-								<div class="row no-margin" ng-if="radioModel == 'Middle'">
-									<div class="col-md-12"style="padding: 12.5px 20px;color: #9fe7f7; background: #062135;font-family: AvantGardeBookBT;font-size: 18px;font-weight: 100;letter-spacing: 1px;">
-										Name
-									</div>
-								</div>
+                                <div class="row no-margin" ng-if="radioModel == 'Middle'">
+                                    <div class="col-md-12" style="padding: 12.5px 20px;color: #9fe7f7; background: #062135;font-family: AvantGardeBookBT;font-size: 18px;font-weight: 100;letter-spacing: 1px;">
+                                        Name
+                                    </div>
+                                </div>
                                 <div class="master-advisor-accordion" ng-if="radioModel == 'Middle'">
                                     <uib-accordion close-others=false>
-                                        <uib-accordion-group ng-repeat="advisorList in advisorLists" ng-scroll="advisorList in advisorLists" is-open="group.isOpen" ng-click="updateOpenStatus()">
+                                        <uib-accordion-group ng-repeat="advisor in advisors" ng-scroll="advisor in advisors" is-open="group.isOpen" ng-click="updateOpenStatus()">
                                             <uib-accordion-heading ng-model="checkTitle">
-                                                {{advisorList.title}}
+                                                {{advisor.advisor.FIRST_NAME + ' ' + advisor.advisor.LAST_NAME}}
                                             </uib-accordion-heading>
                                             <!--                                            <a>{{advisorList.content}}</a>-->
                                             <ul>
-                                                <li ng-repeat="content in advisorList.contents">{{content.fullName}}</li>
+                                                <li ng-repeat="content in advisor.clients">{{content.FIRST_NAME + ' '+ content.LAST_NAME}}</li>
                                             </ul>
                                         </uib-accordion-group>
                                     </uib-accordion>
@@ -78,3 +78,19 @@
     </div>
 </div>
 <!-- /Welcome Content -->
+
+<script type="text/ng-template" id="changeAdvisorModal.html">
+    <div class="modal-header">
+        <h4 class="modal-title">Client 1</h4>
+    </div>
+    <div class="modal-body">
+        <p>Change Your Advisor : </p>
+        <select id="" class="form-control"  ng-model="selectedAdvisor" ng-options="advisor for advisor in administratorMasterClientList" name="advisorList" required>
+        </select>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="ok()">Save</button>
+		<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
