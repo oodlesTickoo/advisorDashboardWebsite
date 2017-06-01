@@ -434,7 +434,11 @@ table tr:nth-child(even) {
     z-index: 2;
     /* and place it over the hamburger */
     -webkit-touch-callout: none;
+    background: transparent;
 }
+
+
+
 
 
 /*
@@ -505,7 +509,8 @@ table tr:nth-child(even) {
 
 #menu {
     position: absolute;
-    width: 340px;
+    width: 360px;
+    height: 530px;
     margin: -36px 0 0 36px;
     /* padding: 50px; */
     /* padding-top: 125px; */
@@ -523,9 +528,63 @@ table tr:nth-child(even) {
 
 #menu li {
     padding: 10px 0;
-    font-size: 22px;
+    
 }
 
+.menu-items
+{
+    margin-top: 90px;
+    text-align: center;
+    font-size: 34px;
+    color: white;
+    text-transform: uppercase;
+    font-family: AvantGardeBookBT;
+}
+
+.menu-items1
+{
+   
+    text-align: center;
+    font-size: 34px;
+    color: white;
+    text-transform: uppercase;
+    margin: 26px 0px;
+    font-family: AvantGardeBookBT;
+}
+
+.user-menu
+{
+        margin-top: 100px;
+}
+
+.user-left
+{
+        float: left;
+    width: 50%;
+    text-align: center;
+}
+
+.user-right
+{
+        float: right;
+    width: 50%;
+    text-align: center;
+        margin-top: -2px;
+}
+
+.user-menu-name
+{
+    color: white;
+     font-family: AvantGardeBookBT;
+    margin-top: 5px;
+    letter-spacing: 1px;
+        margin-left: 10px;
+}
+
+.arrow-icon-menu
+{
+    padding-left: 5px;
+}
 
 /*
  * And let's fade it in from the left
@@ -945,3 +1004,114 @@ a.edit-action i{
     color: rgba(255, 255, 255, 0.75);
     margin-bottom: 0;
 }
+
+
+
+/****goal-based**/
+
+
+.padding-zero
+{
+    padding: 0;
+}
+
+.goal-heading h3 {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 22px;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.goal-block
+{   
+    
+    margin-top: 10px;
+    width:765px;
+    height:260px;
+    background: #0d2f47;
+}
+
+.img-block
+{
+    height:233px;
+    width:230px;
+    border:1px dashed #0f8b8f;
+    margin-top: 14px;
+    margin-left: 10px;
+}
+
+.goalblock-heading
+{
+    font-family: AvantGardeBookBT;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 5px;
+
+}
+
+.goal-text-block
+{
+    margin-top: 10px;
+    margin-left: 15px;
+    padding-right: 15px;
+}
+
+.goalblock-text
+{
+     color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    margin-bottom: 5px;
+
+}
+
+.text-margin
+{
+    margin-top: 5px;
+}
+
+.goalblock-subhead
+{
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+}
+
+.goal-button
+{
+    margin-top: 14px;
+    height: 35px;
+    width: 175px;
+    border: 1.5px solid white;
+    background: rgba(255, 255, 255, 0.18);
+    color: white;
+}
+
+
+.goalbased-list li::before 
+{
+    background: white;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    content: "";
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.goal-button:focus
+{
+    
+    outline: none;
+}
+
+.goal-img
+{
+    width: 218px;
+    height: 220px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+/*goal-based*/////
+
+
