@@ -83,7 +83,8 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             name: 'actions',
             width: 150,
             pinnedRight: true,
-            cellTemplate: "<a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity.CONTACT_ID)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ng-click='grid.appScope.uploadDoc(row.entity.CONTACT_ID)'><i></i></a><input type='file' accept='application/vnd.openxmlformats-officedocument.wordprocessingml.document' id='{{row.entity.CONTACT_ID}}' style='display:none;' ng-model='grid.appScope.filesModel'>",
+            cellTemplate: "<a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity.CONTACT_ID)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ng-click='grid.appScope.uploadDoc(row.entity.CONTACT_ID)'><i></i></a>"+
+            "<input type='file' fileread='' id='{{row.entity.CONTACT_ID}}' style='display:none;'>",
         }],
         onRegisterApi: function(gridApi) {
             $scope.gridApi = gridApi;
