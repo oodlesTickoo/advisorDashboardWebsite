@@ -591,15 +591,46 @@ table tr:nth-child(even) {
 .user-menu-name {
     color: white;
     font-family: AvantGardeBookBT;
-    margin-top: 5px;
+    margin-top: 8px;
     letter-spacing: 1px;
     margin-left: 10px;
+        border: none;
+    background: none;
 }
 
 .arrow-icon-menu {
     padding-left: 5px;
 }
 
+
+.logout-menu
+{
+    background: none;
+    border: 1px solid white;
+        min-width: 100px;
+    left: 35px;
+        margin-top: 6px;
+        border-radius: 0px;
+}
+
+
+
+.logout
+{
+    color:white;
+    font-family: HelveticaLT;
+    padding: 8px;
+    text-align: center;
+}
+
+.logout:hover
+{
+    color:black;
+    font-family: HelveticaLT;
+    padding: 8px;
+    background: white;
+
+}
 
 /*
  * And let's fade it in from the left
