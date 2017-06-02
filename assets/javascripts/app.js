@@ -66,16 +66,16 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
             templateUrl: 'views/superCalculator.html',
             controller: 'SuperCalculatorController'
         })
-        .state('app.goalBasedAdvice', {
-            url: '/goals',
-            templateUrl: 'views/goalBasedAdvice.html',
-            controller: 'GoalBasedAdviceController'
-        })
-        .state('app.contact', {
-            url: '/contact',
-            templateUrl: 'views/superCalculator.html',
-            controller: 'SuperCalculatorController'
-        });
+	.state('app.goalBasedAdvice', {
+		url: '/goals',
+		templateUrl: 'views/goalBasedAdvice.html',
+		controller: 'GoalBasedAdviceController'
+	})
+	.state('app.contact', {
+		url: '/contact',
+		templateUrl: 'views/contact.html',
+		controller: 'ContactController'
+	});
     $urlRouterProvider.otherwise('/login');
 
 });
