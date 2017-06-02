@@ -2397,68 +2397,66 @@
                                         <div class="col-sm-12 contents">
                                             <div class="row">
 
-                                              <p class="goal-cal-heading">Please select 3 or more goals according to your priorities</p>
-                                            </div>
-                                            
-                                            <div class="row">
-                                              <div class="col-md-12 no-padding pr25">
-                                              <div class="col-md-4 no-padding goal-based-cal-block" ng-repeat ="goals in goalCal">
-                                                <img src="/assets/images/check.png"  ng-if="goals.isOpen"  class="selected-goal" />
-                                              <div class="col-sm-12 no-padding"></div>
-                                                 <div class="col-sm-12 no-padding">
-                                                  <img  class="cal-goal-img" src="{{goals.goalimg}}">
-                                                  <p class="goal-cal-subhead">{{goals.headings}}</p>
-                                                     
-                                                  </div> 
-                                                  <div class="col-sm-12 no-padding" ng-if="!goals.isOpen">
-                                                  <button class="goal-cal-button" type="button" ng-click ="addGoal(goals.id)">ADD GOAL</button>
-                                                  </div>
-                                                  <div class="col-sm-12 no-padding" ng-if="goals.isOpen">
-                                                  <p class="goal-cal-text">How important is it to you?</p>
-                                                      <button class="goal-cal-selected-btn" type="button">LOW</button>
-                                                      <button class="goal-cal-selected-btn2" type="button">MEDIUM</button>
-                                                      <button class="goal-cal-selected-btn2" type="button">HIGH</button>
-                                                  </div>
-                                                 </div>
+                                                <p class="goal-cal-heading">Please select 3 or more goals according to your priorities</p>
                                             </div>
 
                                             <div class="row">
-                                                <div class="col-md-12 padding-zero pr25">
-                                                    <div class="col-md-4 padding-zero goal-based-cal-block" ng-repeat="goals in goalCal">
+                                                <div class="col-md-12 no-padding pr25">
+                                                    <div class="col-md-4 no-padding goal-based-cal-block" ng-repeat="goals in goalCal">
                                                         <img src="/assets/images/check.png" ng-if="goals.isOpen" class="selected-goal" />
-                                                        <div class="col-sm-12 padding-zero"></div>
-                                                        <div class="col-sm-12 padding-zero">
+                                                        <div class="col-sm-12 no-padding"></div>
+                                                        <div class="col-sm-12 no-padding">
                                                             <img class="cal-goal-img" src="{{goals.goalimg}}">
                                                             <p class="goal-cal-subhead">{{goals.headings}}</p>
 
                                                         </div>
-                                                        <div class="col-sm-12 padding-zero" ng-if="!goals.isOpen">
+                                                        <div class="col-sm-12 no-padding" ng-if="!goals.isOpen">
                                                             <button class="goal-cal-button" type="button" ng-click="addGoal(goals.id)">ADD GOAL</button>
                                                         </div>
-                                                        <div class="col-sm-12 padding-zero" ng-if="goals.isOpen">
+                                                        <div class="col-sm-12 no-padding" ng-if="goals.isOpen">
                                                             <p class="goal-cal-text">How important is it to you?</p>
                                                             <button class="goal-cal-selected-btn" type="button">LOW</button>
                                                             <button class="goal-cal-selected-btn2" type="button">MEDIUM</button>
                                                             <button class="goal-cal-selected-btn2" type="button">HIGH</button>
                                                         </div>
-
-
                                                     </div>
-
                                                 </div>
+
                                                 <div class="row">
-                                                    <div class="col-xs-12">
-                                                        <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(8)">
-                                                            <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                                        </button>
+                                                    <div class="col-md-12 pr25">
+                                                        <div class="col-md-4 no-padding goal-based-cal-block" ng-repeat="goals in goalCal">
+                                                            <img src="/assets/images/check.png" ng-if="goals.isOpen" class="selected-goal" />
+                                                            <div class="col-sm-12 no-padding"></div>
+                                                            <div class="col-sm-12 no-padding">
+                                                                <img class="cal-goal-img" src="{{goals.goalimg}}">
+                                                                <p class="goal-cal-subhead">{{goals.headings}}</p>
+
+                                                            </div>
+                                                            <div class="col-sm-12 no-padding" ng-if="!goals.isOpen">
+                                                                <button class="goal-cal-button" type="button" ng-click="addGoal(goals.id)">ADD GOAL</button>
+                                                            </div>
+                                                            <div class="col-sm-12 no-padding" ng-if="goals.isOpen">
+                                                                <p class="goal-cal-text">How important is it to you?</p>
+                                                                <button class="goal-cal-selected-btn" type="button">LOW</button>
+                                                                <button class="goal-cal-selected-btn2" type="button">MEDIUM</button>
+                                                                <button class="goal-cal-selected-btn2" type="button">HIGH</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(8)">
+                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-							</div>
                             <!--
                             <div class="row calculate-row contents">
                                 <div class="col-xs-12">
