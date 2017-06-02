@@ -204,8 +204,16 @@ a:visited {
     margin-bottom: 15px !important;
 }
 
+.mb26{
+	margin-bottom: 26px !important;
+}
+
 .mb30 {
     margin-bottom: 30px !important;
+}
+
+.mt10 {
+    margin-top: 10px !important;
 }
 
 .mt20 {
@@ -1065,6 +1073,66 @@ a.edit-action i {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.75);
     margin-bottom: 0;
+}
+
+/*toggle switch*/
+
+.switch.checked {
+    background: #c6cace;
+    border-color: #c6cace;
+}
+
+.switch {
+    background: #dfdfdf;
+    border: 1px solid #dfdfdf;
+    width: 81px;
+    height: 26px;
+    border-radius: 20px;
+    top: -1px;
+}
+
+.switch small {
+    background: #0d2f47;
+    width: 32px;
+    height: 32px;
+    top: -3px;
+    left: 7px;
+}
+
+.switch .on {
+    display: block;
+    z-index: 0;
+    color: #fff;
+    position: absolute;
+    top: 25%;
+    left: 17%;
+}
+
+.switch .off {
+    display: block;
+    position: absolute;
+    right: 15%;
+    top: 25%;
+    z-index: 0;
+    color: #3c3c3c;
+}
+
+.switch.checked .on {
+    display: block;
+    color: #3c3c3c;
+}
+
+.switch.checked small {
+    left: 43px;
+}
+
+.switch .switch-text{
+	font-size: 11px;
+}
+
+.switch.checked .off {
+    display: block;
+    color: #fff;
 }
 
 

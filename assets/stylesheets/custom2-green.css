@@ -53,6 +53,13 @@
 	color: #228da5;
 }
 
+.dob-calendar-icon{
+	 background-image: url(../images/dob-calendar-icon.png);
+    width: 15px;
+    height: 14px;
+    display: inline-block;
+}
+
 .form-1,.form-2,.form-3,.form-4,.form-5,.form-6,.form-7,.form-8,.form-9,.form-10,.form-11,.form-12{
   -webkit-transition: max-height 0.9s ease-in;
   -o-transition: max-height 0.9s ease-in;
@@ -104,7 +111,7 @@
 }*/
 
 .page-content .boxes label {
-   	font-size: 14px;
+   	font-size: 13px;
     line-height: 18px;
 /*    font-family: HelveticaCyrUpright;*/
 	font-weight: normal;
@@ -121,6 +128,13 @@
 /*hide sliders*/
 .slider-col{
 	display: none;
+}
+
+.dropdown-arrow{
+	 background-image: url(../images/dropdown-arrow-icon.png);
+    width: 14px;
+    height: 8px;
+    display: inline-block;
 }
 
 .page-content .boxes .bootstrap-select .btn {
@@ -162,7 +176,7 @@
 }
 
 .contents{
-        padding-top: 15px;
+        padding-top: 28px;
 	background: #e9edf0;
 }
 
@@ -346,7 +360,8 @@ and (orientation : landscape) {
 .spouse-tell-us .bootstrap-select,
 .account-details .bootstrap-select,
 .otherExpense-details .bootstrap-select,
-.assetAllocation-details .bootstrap-select{
+.assetAllocation-details .bootstrap-select,
+.privateSchoolFee-details .bootstrap-select{
     width: 100% !important;
     margin-top: 0;
 }
