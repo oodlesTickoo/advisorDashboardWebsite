@@ -2817,54 +2817,32 @@
                                     <div class="row form-8" ng-class="{menuDrop: isMenuDrop8}">
                                         <div class="col-sm-12 contents">
                                             <div class="row">
-                                                <!--<div class="col-md-6">
-                                                    <div class="form-group row" ng-show="fundNotFoundB">
-                                                        <label for="nraInput" class="col-xs-6 col-md-5 col-sm-3 col-form-label">
-                                                            What is the net return of your Super in accumulation phase% ?</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="nraSlider">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-6 col-md-6 col-sm-4">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="nraInput" name="nraInput" ng-model="nra">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row" ng-show="fundNotFoundB">
-                                                        <label for="nrpInput" class="col-xs-6 col-md-5 col-sm-3 col-form-label">
-                                                            What is the net return of your pension% ?</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="nrpSlider">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-6 col-md-6 col-sm-4">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="nrpInput" name="nrpInput" ng-model="nrp">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group row" ng-show="fundNotFoundB">
-                                                        <label for="tfpInput" class="col-xs-6 col-md-6 col-sm-3 col-form-label">
-                                                            What Percentage of your current Superannuation balance is tax free%?</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="tfpSlider">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-6 col-md-6 col-sm-4">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="tfpInput" name="tfpInput" ng-model="tfp">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label for="beforeTTRInput" class="col-xs-6 col-md-6 col-sm-3 col-form-label">What is the Superannuation balance at the start of the Transition to Retirement phase $?</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="beforeTTRSlider">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-6 col-md-6 col-sm-4">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="beforeTTRInput" name="beforeTTRInput" ng-model="beforeTTR">
-                                                        </div>
-                                                    </div>
-                                                </div>-->
+                                              <p class="goal-cal-heading">Please select 3 or more goals according to your priorities</p>
+                                            </div>
+                                            
+                                            <div class="row">
+                                              <div class="col-md-12 padding-zero pr25">
+                                              <div class="col-md-4 padding-zero goal-based-cal-block" ng-repeat ="goals in goalCal">
+                                                <img src="/assets/images/check.png"  ng-if="goals.isOpen"  class="selected-goal" />
+                                              <div class="col-sm-12 padding-zero"></div>
+                                                 <div class="col-sm-12 padding-zero">
+                                                  <img  class="cal-goal-img" src="{{goals.goalimg}}">
+                                                  <p class="goal-cal-subhead">{{goals.headings}}</p>
+                                                     
+                                                  </div> 
+                                                  <div class="col-sm-12 padding-zero" ng-if="!goals.isOpen">
+                                                  <button class="goal-cal-button" type="button" ng-click ="addGoal(goals.id)">ADD GOAL</button>
+                                                  </div>
+                                                  <div class="col-sm-12 padding-zero" ng-if="goals.isOpen">
+                                                  <p class="goal-cal-text">How important is it to you?</p>
+                                                      <button class="goal-cal-selected-btn" type="button">LOW</button>
+                                                      <button class="goal-cal-selected-btn2" type="button">MEDIUM</button>
+                                                      <button class="goal-cal-selected-btn2" type="button">HIGH</button>
+                                                  </div>
+                                                  
+                                                  
+                                                 </div>
+                                              
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12">
@@ -2876,6 +2854,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                             <!--
                             <div class="row calculate-row contents">

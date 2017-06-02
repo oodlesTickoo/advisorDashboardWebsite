@@ -149,6 +149,10 @@ a:visited {
     padding-right: 5px;
 }
 
+.pr25 {
+    padding-right: 25px;
+}
+
 .pl0 {
     padding-left: 0px !important;
 }
@@ -329,7 +333,7 @@ a:visited {
     background-color: rgba(245, 245, 245, 0.18);
     border-color: #f5f5f5;
     border-radius: 0;
-    padding: 20.5px 16px;
+    padding: 14px 16px;
     text-transform: uppercase;
     font-size: 20px;
     letter-spacing: 5px;
@@ -608,7 +612,7 @@ table tr:nth-child(even) {
 .login-content {
     padding: 24px;
     background: rgba(0, 0, 0, 0.30);
-    height: 471px;
+    height: 505px;
 }
 
 .login-form-header {
@@ -626,14 +630,14 @@ table tr:nth-child(even) {
 }
 
 .login-content .form-group {
-    margin-bottom: 22px;
+    margin-bottom: 14px;
 }
 
 .login-content .form-group:last-child {
     margin-bottom: 8px;
 }
 
-.login-content .form-group:nth-child(4) {
+.login-content .form-group:nth-child(5) {
     margin-bottom: 10px;
 }
 
@@ -642,7 +646,7 @@ table tr:nth-child(even) {
     border-radius: 0;
     border: 1px solid #899298;
     box-shadow: none;
-    height: 57px;
+    height: 45px;
     color: rgba(255, 255, 255, 0.70);
     text-transform: uppercase;
     /* font-size: 14px; */
@@ -664,7 +668,7 @@ table tr:nth-child(even) {
 }
 
 .terms {
-    margin-bottom: 17px;
+    margin-bottom: 90px;
 }
 
 .terms span {
@@ -690,7 +694,7 @@ table tr:nth-child(even) {
 }
 
 .client-terms {
-    margin-bottom: 49px;
+    margin-bottom: 110px;
 }
 
 
@@ -1055,6 +1059,8 @@ a.edit-action i{
     margin-top: 10px;
     margin-left: 15px;
     padding-right: 15px;
+    position: relative;
+        height: 235px;
 }
 
 .goalblock-text
@@ -1062,6 +1068,9 @@ a.edit-action i{
      color: rgba(255, 255, 255, 0.9);
     font-size: 12px;
     margin-bottom: 5px;
+    line-height: 17px; 
+    font-family: HelveticaLT;
+    
 
 }
 
@@ -1078,7 +1087,7 @@ a.edit-action i{
 
 .goal-button
 {
-    margin-top: 14px;
+  
     height: 35px;
     width: 175px;
     border: 1.5px solid white;
@@ -1112,6 +1121,122 @@ a.edit-action i{
     margin-left: 5px;
 }
 
-/*goal-based*/////
+.button-div
+{
+    position: absolute;
+    bottom: 0;
+}
+
+/*goal-based*/
+
+/*goal-based-cal*/
+
+.goal-based-cal-block
+{
+    background: white;
+    height: 257px;
+    width: 204px;
+    margin-right: 18px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+}
 
 
+.cal-goal-img
+{
+    margin-top: -1px;
+}
+
+.goal-cal-heading
+{
+    font-size: 13px;
+    font-family: HelveticaLT;
+}
+
+.goal-cal-subhead
+{
+    text-align: center;
+    font-size: 12px;
+    margin-top: 12px;
+    color: rgba(82, 82, 82, 0.77);
+    font-family: HelveticaLT;
+    letter-spacing: 0.5px;
+}
+
+.goal-cal-button
+{
+    margin-top: 20px;
+    width: 165px;
+    height: 30px;
+    background: none;
+    margin-left: 19px;
+    border: 2px solid #0d2f47;
+    font-size: 10px;
+    font-family: HelveticaLT;
+    letter-spacing: 2px;
+}
+
+.goal-cal-button:hover
+{
+    background: #0d2f47;
+    color: white;
+}
+
+.goal-cal-text
+{
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: -7px;
+    font-family: HelveticaLT;
+}
+
+.goal-cal-selected-btn
+{
+    width: 55px;
+    height: 30px;
+    background: none;
+    margin-left: 14px;
+    border: 2px solid #0d2f47;
+    font-size: 10px;
+    font-family: HelveticaLT;
+    margin-top: -4px;
+    padding-top: 1px;
+
+   
+}
+
+.goal-cal-selected-btn:hover
+{
+    background: #0d2f47;
+    color: white;
+}
+
+.goal-cal-selected-btn2
+{
+    width: 55px;
+    height: 30px;
+    background: none;
+    margin-left: 2px;
+    border: 2px solid #0d2f47;
+    font-size: 10px;
+    font-family: HelveticaLT;
+    margin-top: -4px; 
+    padding-top: 1px;
+}
+
+.goal-cal-selected-btn2:hover
+{
+    background: #0d2f47;
+    color: white;
+}
+
+.selected-goal
+{
+    position: absolute;
+    z-index: 1111;
+    right: 10px;
+    margin-top: 10px;
+}
+
+/*goal-based-cal-ends*/

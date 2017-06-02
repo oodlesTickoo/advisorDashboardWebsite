@@ -10000,4 +10000,107 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
 
         $scope.saveWithNew = false;
     }
+    $scope.goalCal = [
+       
+        {
+            isOpen: false,
+            id:0,
+            goalimg : "/assets/images/cal-goal1.png", 
+            headings: "protect my income"
+        },
+        
+        
+         {
+            isOpen: false,
+            id:1,    
+            goalimg : "/assets/images/cal-goal2.png", 
+            headings: "Simplify my finances"
+        },
+        
+        
+        {
+            isOpen: false,
+            id:2,    
+            goalimg : "/assets/images/cal-goal3.jpg", 
+            headings: "Retire right"
+        },
+        
+          {
+            isOpen: false,
+            id:3,    
+            goalimg : "/assets/images/cal-goal4.png", 
+            headings: "Be debt free"
+        },
+        
+         {
+            isOpen: false,
+            id:4, 
+            goalimg : "/assets/images/cal-goal5.png", 
+            headings: "Invest in property"
+        },
+        
+           {
+            isOpen: false,
+            id:5,   
+            goalimg : "/assets/images/cal-goal6.jpg", 
+            headings: "Save for something big"
+        },
+        
+        {
+            isOpen: false,
+            id:6,
+            goalimg : "/assets/images/cal-goal7.png", 
+            headings: "Pursue a passion"
+        },
+        
+        {
+            isOpen: false,
+            id:7,    
+            goalimg : "/assets/images/cal-goal8.png", 
+            headings: "Buy a home"
+        },
+        
+        {
+            isOpen: false,
+            id:8,
+            goalimg : "/assets/images/cal-goal9.png", 
+            headings: "We're married, now what?"
+        },
+        
+        {
+            isOpen: false,
+            id:9,
+            goalimg : "/assets/images/cal-goal10.png", 
+            headings: "Retirement living options"
+        },
+        
+        {
+            isOpen: false,
+            id:11,
+            goalimg : "/assets/images/cal-goal11.png", 
+            headings: "Start accessing my super"
+        },
+        
+        {
+            isOpen: false,
+            id:12,
+            goalimg : "/assets/images/cal-goal12.png", 
+            headings: "Give them the best chance"
+        },
+    
+    ];
+    
+   $scope.addGoal= function(index) 
+    {
+      for(var i=0;i<$scope.goalCal.length;i++)
+          {
+              if(index == $scope.goalCal[i].id)
+                  {
+                      $scope.goalCal[i].isOpen = true;
+                      break;
+                  }
+          }
+    }
+    
+    
 }]);
