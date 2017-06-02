@@ -31,6 +31,28 @@
                     data: { 'client_id':clientId, 'advisor_id':advisorId}
                 };
                 return $http(req);
+            },
+            download: function(id, format) {
+                var req = {
+                    method: 'GET',
+                    url: '/api/v1/file?contact_id='+id+'&file_format='+format,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionService.get('token')
+                    }
+                };
+                return $http(req);
+            },
+            isFileExist: function(format) {
+                var req = {
+                    method: 'GET',
+                    url: '/api/v1/is_file_exist?format='+format,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionService.get('token')
+                    }
+                };
+                return $http(req);
             }
         };
     }

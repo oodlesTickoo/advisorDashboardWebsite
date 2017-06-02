@@ -2,23 +2,24 @@ app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advis
     'use strict';
 	
 	console.log("in ChangeAdvisorController", advisors);
-	//$scope.selectedAdvisor = advisors.advisor+'';
+	$scope.selectedAdvisor = advisors.selected+'';
 	$scope.advisorList = []; 
 	const clientId = advisors.client;
     $scope.name = advisors.name;
 	function _init(){
+        var index = 0;
+        var selectedIndex = -1;
         advisors.advisors.forEach(function(elm){
             if(advisors.advisor+'' === elm.advisor.CONTACT_ID+''){
-                $scope.selectedAdvisor = {
-                    name: elm.advisor.FIRST_NAME + ' ' + elm.advisor.LAST_NAME,
-                    id: elm.advisor.CONTACT_ID+''
-                }
+                selectedIndex = index;
             }
             $scope.advisorList.push({
                 name: elm.advisor.FIRST_NAME + ' ' + elm.advisor.LAST_NAME,
                 id: elm.advisor.CONTACT_ID+''
             })
+            index++;
         })
+        //$scope.selectedAdvisor = $scope.advisorList[selectedIndex];
     }
     _init();
 

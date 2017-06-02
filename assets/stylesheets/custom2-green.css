@@ -96,17 +96,20 @@
      color: #f1f2ef; 
      border: none; 
 }
-.boxes label {
+/*.boxes label {
     font-size:14px;
     font-weight: 500;
     position: relative;
     top:4px;
-}
+}*/
 
 .page-content .boxes label {
-    font-size: 13px;    
-	line-height: 18px;
-	font-family: LatoRegular;
+   	font-size: 14px;
+    line-height: 18px;
+/*    font-family: HelveticaCyrUpright;*/
+	font-weight: normal;
+    color: #0d2f47;
+    margin-bottom: 8px;
 }
 
 .page-content .boxes .slider-div {
@@ -125,7 +128,7 @@
     color: #003946;
     padding-left: 11px;
     font-size: 18px;
-	    width: 129px;
+/*	    width: 129px;*/
 }
 
 .page-content .boxes .bootstrap-select ul.dropdown-menu span.text {
@@ -182,9 +185,13 @@ and (orientation : landscape) {
         background-color: rgba(20, 53, 76, 0.83);
     margin-top: 8px;
 /*    color:#f1f2ef;*/
-	background-image: url(../images/arrow-down.png);
+	background-image: url(../images/arrow-up.png);
     background-repeat: no-repeat;
     background-position: right 20px center;
+}
+
+.accordion-close{
+	background-image: url(../images/arrow-down.png) !important;
 }
 
 .heading-bg1 h2{
@@ -336,8 +343,12 @@ and (orientation : landscape) {
 }
 
 .tell-us .bootstrap-select,
-.spouse-tell-us .bootstrap-select {
+.spouse-tell-us .bootstrap-select,
+.account-details .bootstrap-select,
+.otherExpense-details .bootstrap-select,
+.assetAllocation-details .bootstrap-select{
     width: 100% !important;
+    margin-top: 0;
 }
 
 .boxes .white-border {
@@ -364,14 +375,21 @@ and (orientation : landscape) {
 .ttrForm input.form-control,
 .ttrForm .bootstrap-select .btn,
 .ttrForm .input-group-addon {
-    border-radius: 8px;
-	height: 30px;
+   border-radius: 0;
+    height: 32px;
     font-size: 13px !important;
-	    width: 129px;
+    width: 86.5%;
+    background: transparent;
+    box-shadow: none;
+    padding: 5px;
 }
 
 .ttrForm input.form-control.dob-input{
-	width: 90px;
+	width: 100%;
+}
+
+.ttrForm .dob-input-group{
+	width: 86.5%;
 }
 
 .ttrForm .dob-input-group .input-group-addon{
@@ -394,14 +412,21 @@ and (orientation : landscape) {
 
 .ttrForm .bootstrap-select .btn-default:hover,
 .ttrForm .bootstrap-select .btn-default:focus {
-    background-color: #fff;
+    background-color: transparent;
     box-shadow: none;
+    border: 1px solid #ccc;
 }
 
 .ttrForm .open>.dropdown-toggle.btn-default {
-    background-color: #fff;
+     background-color: transparent;
     box-shadow: none;
+    border: 1px solid #ccc;
 }
+
+.ttrForm .bootstrap-select.btn-group .dropdown-menu{
+	min-width: 87%;
+}
+
 
 @media (max-width: 767px) {
     .icon-container {

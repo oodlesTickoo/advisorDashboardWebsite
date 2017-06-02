@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row no-margin" style="padding-top: 45px">
                 <h2>Welcome</h2>
-                <h1>John Keats!</h1>
+                <h1>{{LOGGED_NAME}}!</h1>
                 <h3>Now you are logged in and you can browse to different menus</h3>
                 <!-- Advisor Login-->
                 <div class="row welcome-intro">
@@ -71,6 +71,25 @@
                         </div>
                     </div>
                     <!-- /Administrator Login-->
+
+                    <!-- Client Login-->
+                    <div class="advisor-content" ng-if="selectedRole === USER_ROLE.CLIENT">
+                        <div class="col-md-9" ng-if="fileExist">
+                            <img src="../assets/images/cloud-down.png" />
+                            <a ng-click="saveDocForClient()">
+                                <p>Your Advisor uploaded file. Click here to download</p>
+                            </a>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <!-- <a>Click here for instructions</a> -->
+                        </div>
+                        <!-- <div class="row no-margin">
+                            <div class="col-md-12">
+                                <div id="grid1" ui-grid="advisorListData" class="grid" ui-grid-auto-resize></div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <!-- /Client Login-->
                 </div>
 
             </div>

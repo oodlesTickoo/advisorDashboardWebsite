@@ -2,6 +2,8 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     'use strict';
 
     //tab toggle btn group
+    $scope.fileExist = false;
+    $scope.LOGGED_NAME = sessionService.get('name')
     $scope.USER_ROLE = {
         ADVISOR: "ADVISOR",
         CLIENT: "CLIENT",
@@ -21,15 +23,22 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
     function _getPageData(){
         console.log("Getting data")
-        UserService.homePageData().then(function(result){
-            console.log("Response ", result);
-            $scope.my_clients = result.data.response.my_clients?result.data.response.my_clients: [];
-            $scope.advisors = result.data.response.advisors?result.data.response.advisors: [];
-            $scope.client_advisors = result.data.response.clientAdvisor?result.data.response.clientAdvisor: []; 
-            _updateListData();
-        }).catch(function(err){
-            console.log(err);
-        })
+        if($scope.selectedRole !== $scope.USER_ROLE.CLIENT){
+            UserService.homePageData().then(function(result){
+                console.log("Response ", result);
+                $scope.my_clients = result.data.response.my_clients?result.data.response.my_clients: [];
+                $scope.advisors = result.data.response.advisors?result.data.response.advisors: [];
+                $scope.client_advisors = result.data.response.clientAdvisor?result.data.response.clientAdvisor: []; 
+                _updateListData();
+            }).catch(function(err){
+                console.log(err);
+            })
+        } else{
+            UserService.isFileExist('docx').then(function(result){
+                console.log(result)
+                $scope.fileExist = result.data.response.status;
+            })
+        }
     }
 
     function _updateListData(){
@@ -188,6 +197,19 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
         console.log("---------------------",document.getElementById(''+id));
 
+    }
+
+    $scope.saveDocForClient = function(){
+         UserService.download(sessionService.get('contact'), 'docx').then(function(data){
+            if(data.data && data.data.response && data.data.response.file){
+                const url = '/download/'+ data.data.response.file;
+                var link = document.createElement('a');
+                document.body.appendChild(link);
+                link.href = url;
+                link.target='_blank';
+                link.click();
+            } 
+         })
     }
 
      $scope.showModal = function(client, advisor) {
