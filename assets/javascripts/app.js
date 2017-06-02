@@ -28,7 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
         scrollInertia: 800,
         axis: 'y', // enable 2 axis scrollbars by default 
         theme: 'light',
-        setHeight: 620,
+        setHeight: 635,
         autoHideScrollbar: true
     };
 
