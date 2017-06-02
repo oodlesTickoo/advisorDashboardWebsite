@@ -15,7 +15,8 @@ var app = angular.module('advisorDashboardApp', [
     'ngScrollbars',
     'ui.grid',
     'ui.grid.autoResize',
-    'ui.bootstrap'
+    'ui.bootstrap',
+	'uiSwitch'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider) {

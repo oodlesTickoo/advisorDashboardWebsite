@@ -5,8 +5,12 @@
  * # MainCtrl
  * Controller of the fmsApp
  */
-app.controller("MainCtrl", ['$scope', function($scope) {
+app.controller("MainCtrl", ['$scope', 'sessionService', function($scope, sessionService) {
     //    $scope.menuItems = ['Home', 'Calculators', 'Goal Based Advice', 'Contact Us'];
+	
+	//to get token
+//	$scope.authToken = sessionService.get('token', response.data.response.token);
+	
     $scope.menuItems = [{
         'path': 'app.welcome',
         'name': 'Home'
