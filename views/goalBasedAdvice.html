@@ -1,0 +1,52 @@
+<!-- Content -->
+<div id="goal-based-content">
+    <div class="main-container goal-based-container" ng-scrollbars ng-scrollbars-config="config">
+        <div class="container">
+            <div print-remove style="display: block;">
+                <div class="row page-content no-margin" id="inputs">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="row goal-heading">
+                            <h3>GOALS BASED ADVICE</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 goal-block" ng-repeat="goal in goalBased">
+                        <div class="col-md-4 img-block no-padding">
+                            <img class="goal-img" src="{{goal.image}}">
+                        </div>
+                        <div class="col-md-8 no-padding goal-text-block">
+                            <div class="col-md-12 no-padding">
+                                <p class="goalblock-heading">{{goal.heading}}</p>
+                            </div>
+
+                            <div class="col-md-12 no-padding text-margin">
+                                <p class="goalblock-text">{{goal.text}}</p>
+
+                                <p class="goalblock-subhead">Have you thought of the following:</p>
+
+                                <ul class="goalbased-list">
+                                    <li class="goalblock-text">{{goal.listOne}}</li>
+                                    <li class="goalblock-text">{{goal.listTwo}}</li>
+                                    <li class="goalblock-text">{{goal.listThree}}</li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="col-md-12 no-padding text-margin">
+
+                                <button class="goal-button">ADD GOAL</button>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Content -->

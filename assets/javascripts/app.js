@@ -27,7 +27,7 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
         scrollInertia: 800,
         axis: 'y', // enable 2 axis scrollbars by default 
         theme: 'light',
-        setHeight: 630,
+        setHeight: 620,
         autoHideScrollbar: true
     };
 
@@ -66,16 +66,16 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
             templateUrl: 'views/superCalculator.html',
             controller: 'SuperCalculatorController'
         })
-        .state('app.goalBasedAdvice', {
-            url: '/goalBasedAdvice',
-            templateUrl: 'views/goalBasedAdvice.html',
-            controller: 'GoalBasedAdviceController'
-        })
-        .state('app.contact', {
-            url: '/contact',
-            templateUrl: 'views/superCalculator.html',
-            controller: 'SuperCalculatorController'
-        });
+	.state('app.goalBasedAdvice', {
+		url: '/goals',
+		templateUrl: 'views/goalBasedAdvice.html',
+		controller: 'GoalBasedAdviceController'
+	})
+	.state('app.contact', {
+		url: '/contact',
+		templateUrl: 'views/contact.html',
+		controller: 'ContactController'
+	});
     $urlRouterProvider.otherwise('/login');
 
 });

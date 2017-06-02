@@ -10,12 +10,12 @@
         var cacheSession = function(response) {
             var result = response.data.response.me;
             //   sessionService.set('token', result.token);
-             sessionService.set('firstName', result.FIRST_NAME);
-             sessionService.set('lastName', result.LAST_NAME);
+             sessionService.set('name', result.FIRST_NAME + ' ' + result.LAST_NAME);
              sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
              sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
              sessionService.set('role', response.data.response.role);
-            console.log("sessionService.name:", sessionService.get('firstName'));
+             sessionService.set('token', response.data.response.token);
+             sessionService.set('contact', result.CONTACT_ID);
 
 
         };
