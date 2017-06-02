@@ -1083,6 +1083,8 @@ a.edit-action i {
     /* margin-top: 10px;
     margin-left: 15px;
     padding-right: 15px;*/
+      position: relative;
+     height: 235px;
 }
 
 .goalblock-text {
@@ -1219,6 +1221,18 @@ a.edit-action i {
    
 }
 
+.goal-cal-selected-btn:focus
+{
+     background: #0d2f47;
+    color: white;
+}
+
+.goal-cal-selected-btn2:focus
+{
+     background: #0d2f47;
+    color: white;
+}
+
 .goal-cal-selected-btn:hover
 {
     background: #0d2f47;
@@ -1254,3 +1268,109 @@ a.edit-action i {
 
 /*goal-based-cal-ends*/
 
+
+/*contact-us*/
+
+#contact-us-content {
+    background: url(../images/welcome-bg.png) no-repeat;
+    height: 662px;
+}
+
+.contact-content {
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.30);
+    height: 350px;
+}
+
+.contact-content .form-group {
+    margin-bottom: 14px;
+}
+
+
+
+
+
+.contact-content .form-control {
+    background: transparent;
+    border-radius: 0;
+    border: 1px solid #899298;
+    box-shadow: none;
+    height: 45px;
+    color: rgba(255, 255, 255, 0.70);
+    text-transform: uppercase;
+    /* font-size: 14px; */
+    text-align: -webkit-center;
+    font-family: HelveticaLT;
+}
+
+.contact-content .form-control:active,
+.contact-content .form-control:focus {
+    border: 1px solid #fff;
+}
+
+.contact-content input[type="checkbox"] {
+    display: none;
+}
+
+.contact-content label {
+    cursor: pointer;
+}
+
+.contact-us-heading
+{
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: -16px;
+    
+}
+
+.contact-form-header {
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #fff;
+}
+
+.contact-form-header h1 {
+       margin: 0;
+    font-family: AvantGardeBookBT;
+    font-size: 16px;
+    line-height: 21px;
+    padding: 18.5px 38px;
+    letter-spacing: 1px;
+}
+
+.group-left
+{
+    padding-left: 15px;
+    padding-right: 7px;
+}
+
+
+.group-right
+{
+    padding-left: 7px;
+    padding-right: 15px;
+}
+
+.state-text
+{
+    color:white;
+        font-family: HelveticaLT;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.contact-address
+{
+    color:white;
+        font-family: HelveticaLT;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    
+}
+
+.contact-footer
+{
+    margin-top: 20px;
+}
