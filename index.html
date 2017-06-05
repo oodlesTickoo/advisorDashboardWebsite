@@ -32,21 +32,22 @@
 </head>
 
 <body>
-
+<div class="body-container">
     <div ng-app="advisorDashboardApp" ng-controller="MainCtrl">
         <!--        <ng-view></ng-view>-->
         <div class="row no-margin">
-            <div class="col-md-4 no-padding" style="width: 34.5%;">
+        
+            <div class="col-md-4 col-sm-4 no-padding" style="width: 34.5%;">
                 <div class="main-image">
                     <div class="row" style="padding: 65px 66px;">
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-6">
                             <header id="header">
                                 <div class="logo">
                                     <a href="#"><img src="assets/images/logo.png" alt="Logo" /></a>
                                 </div>
                             </header>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-sm-6">
                             <nav role="navigation">
                                 <div id="menuToggle">
                                     <!--
@@ -143,11 +144,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 no-padding" style="padding: 0; width: 65.5%;">
+            <div class="col-md-8 col-sm-8 no-padding" style="padding: 0; width: 65.5%;">
                 <div ui-view></div>
             </div>
         </div>
 
+    </div>
     </div>
     <!-- JAVASCRIPTS -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" integrity="sha256-ihAoc6M/JPfrIiIeayPE9xjin4UWjsx2mjW/rtmxLM4=" crossorigin="anonymous"></script>
