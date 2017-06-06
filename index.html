@@ -48,7 +48,7 @@
                                 </div>
                             </header>
                         </div>
-                        <div class="col-md-6 col-sm-6">
+                        <div ng-if="isLoggedIn === true" class="col-md-6 col-sm-6">
                             <nav role="navigation">
                                 <div id="menuToggle">
                                     <!--
@@ -108,22 +108,22 @@
                                                 <li class="user-left"><img src="assets/images/user-icon.png">
                                                     <br/>
                                                          <div class="dropdown">
-                                                    <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">John Keats<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
+                                                    <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">{{loginName}}<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
                                                 
                                                     <ul class="dropdown-menu logout-menu">
-                                                      <li class="logout pointer">Logout</li>
+                                                      <li ng-click="logout()" class="logout pointer">Logout</li>
                                                    
                                                     </ul>
                                                   </div>
                                                 </li>
-                                                <li class="user-right"><img src="assets/images/user-icon.png">
+                                               <!--  <li class="user-right"><img src="assets/images/user-icon.png">
                                                     <br/>
                                                     
                                                            <div class="dropdown">
                                                     <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">Advisor<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
                                                 
                                                     <ul class="dropdown-menu logout-menu">
-                                                      <li class="logout pointer">Logout</li>
+                                                      <li ng-click="logout()" class="logout pointer">Logout</li>
                                                    
                                                     </ul>
                                                   </div>
@@ -131,7 +131,7 @@
                                                   
 
                                                 </li>
-
+ -->
                                             </ul>
 
                                         </li>

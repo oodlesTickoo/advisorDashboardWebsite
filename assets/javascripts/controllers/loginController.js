@@ -1,4 +1,4 @@
-app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', function($scope, AuthenticationService, $state) {
+app.controller("LoginController", ['$scope', 'AuthenticationService', '$state','$rootScope', function($scope, AuthenticationService, $state, $rootScope) {
     'use strict';
 
     const USER_ROLE = {
@@ -22,6 +22,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', 
             }
             if(response && response.data && response.data.response){
                 console.log(response);
+                $rootScope.isLoggedIn = true;
                 $state.go('app.welcome');
             } else{
 

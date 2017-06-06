@@ -5,11 +5,24 @@
  * # MainCtrl
  * Controller of the fmsApp
  */
-app.controller("MainCtrl", ['$scope', 'sessionService', function($scope, sessionService) {
+app.controller("MainCtrl", ['$scope', 'sessionService', '$state','$rootScope', function($scope, sessionService, $state, $rootScope) {
     //    $scope.menuItems = ['Home', 'Calculators', 'Goal Based Advice', 'Contact Us'];
 	
 	//to get token
-//	$scope.authToken = sessionService.get('token', response.data.response.token);
+	$rootScope.isLoggedIn = false;
+	$rootScope.loginName = '';
+	
+	function init(){
+		var token = sessionService.get('token');
+		if(token && token !== '' && token !== null && token !== 'null'){
+			$rootScope.isLoggedIn = true;
+		}
+		var name = sessionService.get('name');
+		if(name && name !== '' && name !== null && name !== 'null'){
+			$rootScope.loginName = name;
+		}
+	}
+	init();
 	
     $scope.menuItems = [{
         'path': 'app.welcome',
@@ -29,4 +42,10 @@ app.controller("MainCtrl", ['$scope', 'sessionService', function($scope, session
     $scope.select = function(index) {
         $scope.selected = index;
     };
+
+    $scope.logout = function(){
+    	sessionService.unsetAll();
+    	$rootScope.isLoggedIn = false;
+    	$state.go('login');
+    }
 }]);

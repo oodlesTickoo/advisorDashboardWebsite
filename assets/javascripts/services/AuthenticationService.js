@@ -3,13 +3,13 @@
 
     app.factory('AuthenticationService', AuthenticationService);
 
-    AuthenticationService.$inject = ['sessionService','$http', '$timeout', 'toastr'];
+    AuthenticationService.$inject = ['sessionService','$http', '$timeout', 'toastr', '$rootScope'];
 
-    function AuthenticationService(sessionService,$http, $timeout, toastr) {
+    function AuthenticationService(sessionService,$http, $timeout, toastr, $rootScope) {
 
         var cacheSession = function(response) {
             var result = response.data.response.me;
-            //   sessionService.set('token', result.token);
+            $rootScope.loginName = result.FIRST_NAME + ' ' + result.LAST_NAME;
              sessionService.set('name', result.FIRST_NAME + ' ' + result.LAST_NAME);
              sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
              sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
@@ -65,10 +65,6 @@
                 console.log("login11:",login );
                 login.then(cacheSession);
                 return login;
-            },
-            logout: function() {
-                uncacheSession();
-                return logout;
             },
             isLoggedIn: function() {
                 return sessionService.get('token');
