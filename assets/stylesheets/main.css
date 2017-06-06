@@ -266,6 +266,11 @@ a:visited {
     cursor: pointer;
 }
 
+/*** Error ***/
+/* .submitted .ng-invalid{
+	border: 1px solid #c9302c !important;
+}*/
+
 
 /*** Grid ***/
 
@@ -569,6 +574,10 @@ table tr:nth-child(even) {
 	letter-spacing: 1px;
 }*/
 
+.menu-items a:hover{
+	font-weight: bold;
+}
+
 .menu-items a {
     text-align: center;
     font-size: 32px;
@@ -662,7 +671,7 @@ table tr:nth-child(even) {
 .login-content {
     padding: 24px;
     background: rgba(0, 0, 0, 0.30);
-    height: 505px;
+    height: 480px;
 }
 
 .login-form-header {
@@ -681,6 +690,15 @@ table tr:nth-child(even) {
 
 .login-content .form-group {
     margin-bottom: 14px;
+	position: relative;
+}
+
+.login-content .form-group .fa.fa-exclamation-triangle{
+	position: absolute;
+    top: 32%;
+    right: 10px;
+    color: #c9302c;
+    cursor: pointer;
 }
 
 .login-content .form-group:last-child {
@@ -718,7 +736,8 @@ table tr:nth-child(even) {
 }
 
 .terms {
-    margin-bottom: 90px;
+    margin-bottom: 50px;    
+	position: relative;
 }
 
 .terms span {
@@ -729,6 +748,15 @@ table tr:nth-child(even) {
     font-family: HelveticaLT;
     font-weight: normal;
     letter-spacing: 0.5px;
+}
+
+.terms .error-span{
+	position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    color: #c9302c;
+    font-size: 16px;
 }
 
 .terms.advisor p {
@@ -744,7 +772,7 @@ table tr:nth-child(even) {
 }
 
 .client-terms {
-    margin-bottom: 110px;
+    margin-bottom: 69px;
 }
 
 
@@ -753,7 +781,7 @@ table tr:nth-child(even) {
 .is-financial-advisor {
     position: absolute;
     bottom: 0;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .login-content input[type="checkbox"] + label:before {
@@ -1054,6 +1082,10 @@ a.edit-action i {
     top: 2px;
 }
 
+.divider{
+	 background: url(../images/divider.png) no-repeat right 20px center;
+}
+
 .super-calc-container .page-content,
 .goal-based-container .page-content {
     padding-top: 63px;
@@ -1269,12 +1301,14 @@ a.edit-action i {
 
 .goal-cal-subhead
 {
-    text-align: center;
+        text-align: center;
     font-size: 12px;
     margin-top: 12px;
-    color: rgba(82, 82, 82, 0.77);
+    color: rgba(60, 60, 60, 0.9);
     font-family: HelveticaLT;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    font-weight: bold;
 }
 
 .goal-cal-button
@@ -1286,7 +1320,7 @@ a.edit-action i {
     margin-left: 19px;
     border: 2px solid #0d2f47;
     font-size: 10px;
-    font-family: HelveticaLT;
+/*    font-family: HelveticaLT;*/
     letter-spacing: 2px;
 }
 
@@ -1298,11 +1332,12 @@ a.edit-action i {
 
 .goal-cal-text
 {
-    font-size: 12px;
+        font-size: 12px;
     text-align: center;
     font-weight: bold;
     margin-top: -7px;
-    font-family: HelveticaLT;
+/*    font-family: HelveticaCE-Regular;*/
+    color: #0d2f47;
 }
 
 .goal-cal-selected-btn

@@ -9,6 +9,1203 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
           setHeight: 600,
           scrollInertia: 0
       };*/
+	
+	$scope.fundTypeA = [
+        { id: 0, name: 'MySuper Fund' },
+        { id: 1, name: 'Lifestage Fund' },
+        { id: 2, name: 'Other Fund' }
+    ];
+
+    $scope.fundTypeB = [
+        { id: 0, name: 'MySuper Fund' },
+        { id: 1, name: 'Lifestage Fund' },
+        { id: 2, name: 'Other Fund' }
+    ];
+
+    $scope.investOptions = [
+        { id: 0, name: 'Cash', netReturn: 2.90 },
+        { id: 1, name: 'Conservative', netReturn: 4.20 },
+        { id: 2, name: 'Moderate', netReturn: 5.00 },
+        { id: 3, name: 'Balanced', netReturn: 5.70 },
+        { id: 4, name: 'Growth', netReturn: 6.20 },
+        { id: 5, name: 'High Growth', netReturn: 6.60 }
+    ];
+
+
+    $scope.fundsOb = [{ id: 0, name: "AMG Super ", annualPercentageFee: 0.01134 },
+        { id: 1, name: "AMP No.1 Retirement Trust ", annualPercentageFee: 0.0085696 },
+        { id: 2, name: "Brookfield Australia AMP super Savings Trust ", annualPercentageFee: 0.0053 },
+        { id: 3, name: "Macquarie Group AMP super Savings Trust ", annualPercentageFee: 0.0079 },
+        { id: 4, name: "Woolworths Group AMP super Savings Trust ", annualPercentageFee: 0.00611 },
+        { id: 5, name: "ANZ Staff Australian super Scheme ", annualPercentageFee: 0.0053 },
+        { id: 6, name: "Balanced Australian Catholic super and Retirement Fund ", annualPercentageFee: 0.00956 },
+        { id: 7, name: "ADF Australian Defence Force super Scheme ", annualPercentageFee: 0.0093 },
+        { id: 8, name: "Balanced accumulation Australian Ethical Retail super Fund ", annualPercentageFee: 0.01404 },
+        { id: 9, name: "AMIST Australian Meat Industry super Trust ", annualPercentageFee: 0.00758 },
+        { id: 10, name: "AustralianSuper ", annualPercentageFee: 0.00796 },
+        { id: 11, name: "IBM Super Plan AustralianSuper ", annualPercentageFee: 0.00952 },
+        { id: 12, name: "Komatsu Super Plan AustralianSuper ", annualPercentageFee: 0.01086 },
+        { id: 13, name: "Balanced Austsafe super Fund ", annualPercentageFee: 0.00892 },
+        { id: 14, name: "AvSuper Growth Fund ", annualPercentageFee: 0.0112 },
+        { id: 15, name: "Betros Bros super Fund No 2 ", annualPercentageFee: 0.0108 },
+        { id: 16, name: "BOC Gases super Fund ", annualPercentageFee: 0.01268 },
+        { id: 17, name: "BUSSQ Building Unions super Scheme Queensland ", annualPercentageFee: 0.00896 },
+        { id: 18, name: "CareSuper ", annualPercentageFee: 0.01136 },
+        { id: 19, name: "My Ethical Super Christian ", annualPercentageFee: 0.01268 },
+        { id: 20, name: "Club Plus Super Scheme ", annualPercentageFee: 0.007472 },
+        { id: 21, name: "Club Super ", annualPercentageFee: 0.01272 },
+        { id: 22, name: "Combined Fund Super ", annualPercentageFee: 0.01052 },
+        { id: 23, name: "Accumulate Plus Balanced Commonwealth Bank Group Super ", annualPercentageFee: 0.006973 },
+        { id: 24, name: "Balanced Concept One The Industry super Fund ", annualPercentageFee: 0.01152 },
+        { id: 25, name: "Growth Cbus Construction & Building Unions super ", annualPercentageFee: 0.00996 },
+        { id: 26, name: "Active Balanced DuluxGroup Employees super Fund ", annualPercentageFee: 0.01222 },
+        { id: 27, name: "Balanced Elphinstone Group super Fund ", annualPercentageFee: 0.0157 },
+        { id: 28, name: "EmPlus super Fund ", annualPercentageFee: 0.010456 },
+        { id: 29, name: "Balanced Energy Industries super SchemePool A ", annualPercentageFee: 0.0063 },
+        { id: 30, name: "Energy Super ", annualPercentageFee: 0.00944 },
+        { id: 31, name: "Equipsuper ", annualPercentageFee: 0.00926 },
+        { id: 32, name: "First Super ", annualPercentageFee: 0.00886 },
+        { id: 33, name: "Goldman Sachs & JBWere super Fund Product ", annualPercentageFee: 0.016 },
+        { id: 34, name: "Core Pool Health Employees super Trust Australia ", annualPercentageFee: 0.0096 },
+        { id: 35, name: "Balanced option HOSTPLUS super Fund ", annualPercentageFee: 0.01356 },
+        { id: 36, name: "IAG & NRMA super Plan ", annualPercentageFee: 0.0104 },
+        { id: 37, name: "Active Balanced Incitec Pivot Employees super Fund ", annualPercentageFee: 0.01276 },
+        { id: 38, name: "Intrust Super Fund ", annualPercentageFee: 0.01046 },
+        { id: 39, name: "IOOF Portfolio Service super Fund ", annualPercentageFee: 0.01084 },
+        { id: 40, name: "Kinetic Super Growth super Fund ", annualPercentageFee: 0.008612 },
+        { id: 41, name: "Balanced Labour Union CoOperative Retirement Fund ", annualPercentageFee: 0.00846 },
+        { id: 42, name: "Balanced legalsuper ", annualPercentageFee: 0.011152 },
+        { id: 43, name: "LESF Super ", annualPercentageFee: 0.012932 },
+        { id: 44, name: "Vision Local Authorities super Fund ", annualPercentageFee: 0.00946 },
+        { id: 45, name: "Balanced Option Compliant Lutheran Super ", annualPercentageFee: 0.00902 },
+        { id: 46, name: "Moderate investment option Maritime Super ", annualPercentageFee: 0.01246 },
+        { id: 47, name: "Max Super Fund ", annualPercentageFee: 0.01126 },
+        { id: 48, name: "MIESF Meat Industry Employees super Fund ", annualPercentageFee: 0.0069 },
+        { id: 49, name: "Balanced investment option accumulation Media Super ", annualPercentageFee: 0.00864 },
+        { id: 50, name: "Mercer Santos Super Trust ", annualPercentageFee: 0.0091336 },
+        { id: 51, name: "Mercy Super ", annualPercentageFee: 0.010644 },
+        { id: 52, name: "MLC Super Fund ", annualPercentageFee: 0.01206 },
+        { id: 53, name: "NAB Staff MLC Super Fund ", annualPercentageFee: 0.01036 },
+        { id: 54, name: "My AutoSuper MTAA super Fund ", annualPercentageFee: 0.00996 },
+        { id: 55, name: "MyCatholicSuper MyLifeMyMoney super Fund ", annualPercentageFee: 0.01126 },
+        { id: 56, name: "NSF Nationwide super Fund ", annualPercentageFee: 0.0121 },
+        { id: 57, name: "NESS Super ", annualPercentageFee: 0.00984 },
+        { id: 58, name: "Diversified NGS Super ", annualPercentageFee: 0.0077 },
+        { id: 59, name: "Perpetual Perpetual's Select super Fund ", annualPercentageFee: 0.0137 },
+        { id: 60, name: "Pitcher Retirement Plan ", annualPercentageFee: 0.02072 },
+        { id: 61, name: "Prime Super ", annualPercentageFee: 0.01416 },
+        { id: 62, name: "PSSap Balanced Public Sector super Accumulation Plan ", annualPercentageFee: 0.0093 },
+        { id: 63, name: "QIEC Queensland Independent Education & Care super Trust ", annualPercentageFee: 0.01092 },
+        { id: 64, name: "Trustee Super Balanced Rei ", annualPercentageFee: 0.008516 },
+        { id: 65, name: "REST Super Retail Employees super Trust ", annualPercentageFee: 0.008144 },
+        { id: 66, name: "Rio Tinto Fund Growth Option Product Staff super ", annualPercentageFee: 0.00902 },
+        { id: 67, name: "General Division Russell Investments Master Trust ", annualPercentageFee: 0.01314 },
+        { id: 68, name: "SmartSave Balanced Smartsave 'Member's Choice' super Master Plan ", annualPercentageFee: 0.01272 },
+        { id: 69, name: "Statewide super Trust ", annualPercentageFee: 0.00936 },
+        { id: 70, name: "MyLife The Executive super Fund ", annualPercentageFee: 0.0133452 },
+        { id: 71, name: "VISSF Balanced Option Product The Victorian Independent Schools super Fund ", annualPercentageFee: 0.00914 },
+        { id: 72, name: "Growth Toyota Super ", annualPercentageFee: 0.00984 },
+        { id: 73, name: "Balanced TWU super Fund ", annualPercentageFee: 0.01236 },
+        { id: 74, name: "UniSuper Balanced Unisuper ", annualPercentageFee: 0.00692 },
+        { id: 75, name: "Balanced United Technologies Corporation Retirement Plan ", annualPercentageFee: 0.0098 },
+        { id: 76, name: "Growth Victorian super Fund ", annualPercentageFee: 0.00986 },
+        { id: 77, name: "My WA Super Local Government super Plan ", annualPercentageFee: 0.01246 },
+        { id: 78, name: "Growth Water Corporation super Plan ", annualPercentageFee: 0.01144 },
+        { id: 79, name: "AFLPA & AFL. Industry 1950s ", annualPercentageFee: 0.011808 },
+        { id: 80, name: "AFLPA & AFL. Industry 1960s ", annualPercentageFee: 0.011908 },
+        { id: 81, name: "AFLPA & AFL. Industry 1970s ", annualPercentageFee: 0.010908 },
+        { id: 82, name: "AFLPA & AFL. Industry 1980s ", annualPercentageFee: 0.010408 },
+        { id: 83, name: "AFLPA & AFL. Industry 1990s ", annualPercentageFee: 0.009908 },
+        { id: 84, name: "AFLPA & AFL. Industry Capital Stable ", annualPercentageFee: 0.009708 },
+        { id: 85, name: "AMP No.2 1950s ", annualPercentageFee: 0.0136472 },
+        { id: 86, name: "AMP No.2 1960s ", annualPercentageFee: 0.0141472 },
+        { id: 87, name: "AMP No.2 1970s ", annualPercentageFee: 0.0146472 },
+        { id: 88, name: "AMP No.2 1980s ", annualPercentageFee: 0.0155472 },
+        { id: 89, name: "AMP No.2 1990s ", annualPercentageFee: 0.0155472 },
+        { id: 90, name: "AMP No.2 Capital Stable ", annualPercentageFee: 0.0134472 },
+        { id: 91, name: "Anglican National ANS RIL Balanced ", annualPercentageFee: 0.0099662 },
+        { id: 92, name: "Anglican National ANS RIL Conservative ", annualPercentageFee: 0.008948 },
+        { id: 93, name: "Anglican National ANS RIL Growth ", annualPercentageFee: 0.010948 },
+        { id: 94, name: "Anglican National ANS RIL High Growth ", annualPercentageFee: 0.011948 },
+        { id: 95, name: "Australia Post 1950s ", annualPercentageFee: 0.010436 },
+        { id: 96, name: "Australia Post 1960s ", annualPercentageFee: 0.009536 },
+        { id: 97, name: "Australia Post 1970s ", annualPercentageFee: 0.008536 },
+        { id: 98, name: "Australia Post 1980s ", annualPercentageFee: 0.009036 },
+        { id: 99, name: "Australia Post 1990s ", annualPercentageFee: 0.010536 },
+        { id: 100, name: "Australia Post Capital Stable ", annualPercentageFee: 0.008336 },
+        { id: 101, name: "CCA Future Directions Balanced ", annualPercentageFee: 0.0065616 },
+        { id: 102, name: "CCA Future Directions Conservative ", annualPercentageFee: 0.0052744 },
+        { id: 103, name: "CCA Future Directions Growth ", annualPercentageFee: 0.0071618 },
+        { id: 104, name: "CCA Future Directions High Growth ", annualPercentageFee: 0.0072642 },
+        { id: 105, name: "CCA Future Directions Moderately Cons ", annualPercentageFee: 0.0058672 },
+        { id: 106, name: "Aon Defensive ", annualPercentageFee: 0.00942 },
+        { id: 107, name: "Aon High Growth ", annualPercentageFee: 0.00942 },
+        { id: 108, name: "Aon 43 ", annualPercentageFee: 0.00942 },
+        { id: 109, name: "Aon 44 ", annualPercentageFee: 0.00942 },
+        { id: 110, name: "Aon 45 ", annualPercentageFee: 0.00942 },
+        { id: 111, name: "Aon 46 ", annualPercentageFee: 0.00942 },
+        { id: 112, name: "Aon 47 ", annualPercentageFee: 0.00942 },
+        { id: 113, name: "Aon 48 ", annualPercentageFee: 0.00942 },
+        { id: 114, name: "Aon 49 ", annualPercentageFee: 0.00942 },
+        { id: 115, name: "Aon 50 ", annualPercentageFee: 0.00942 },
+        { id: 116, name: "Aon 51 ", annualPercentageFee: 0.00942 },
+        { id: 117, name: "Aon 52 ", annualPercentageFee: 0.00942 },
+        { id: 118, name: "Aon 53 ", annualPercentageFee: 0.00942 },
+        { id: 119, name: "Aon 54 ", annualPercentageFee: 0.00942 },
+        { id: 120, name: "Aon 55 ", annualPercentageFee: 0.00942 },
+        { id: 121, name: "Aon 56 ", annualPercentageFee: 0.00942 },
+        { id: 122, name: "Aon 57 ", annualPercentageFee: 0.00942 },
+        { id: 123, name: "Aon 58 ", annualPercentageFee: 0.00942 },
+        { id: 124, name: "Aon 59 ", annualPercentageFee: 0.00942 },
+        { id: 125, name: "Aon 60 ", annualPercentageFee: 0.00942 },
+        { id: 126, name: "Aon 61 ", annualPercentageFee: 0.00942 },
+        { id: 127, name: "Aon 62 ", annualPercentageFee: 0.00942 },
+        { id: 128, name: "Aon 63 ", annualPercentageFee: 0.00942 },
+        { id: 129, name: "Aon 64 ", annualPercentageFee: 0.00942 },
+        { id: 130, name: "Aon 65 ", annualPercentageFee: 0.00942 },
+        { id: 131, name: "Aon 66 ", annualPercentageFee: 0.00942 },
+        { id: 132, name: "Asgard Employee 1940s LifeStage ", annualPercentageFee: 0.01354 },
+        { id: 133, name: "Asgard Employee 1950s LifeStage ", annualPercentageFee: 0.01344 },
+        { id: 134, name: "Asgard Employee 1960s LifeStage ", annualPercentageFee: 0.01334 },
+        { id: 135, name: "Asgard Employee 1970s LifeStage ", annualPercentageFee: 0.01334 },
+        { id: 136, name: "Asgard Employee 1980s LifeStage ", annualPercentageFee: 0.01334 },
+        { id: 137, name: "Asgard Employee 1990s LifeStage ", annualPercentageFee: 0.01334 },
+        { id: 138, name: "Asgard Employee 2000s Lifestage ", annualPercentageFee: 0.01334 },
+        { id: 139, name: "Colonial First State FirstChoice super Lifestage 1945 49 ", annualPercentageFee: 0.0112 },
+        { id: 140, name: "Colonial First State FirstChoice super Lifestage 1950 54 ", annualPercentageFee: 0.0112 },
+        { id: 141, name: "Colonial First State FirstChoice super Lifestage 1955 59 ", annualPercentageFee: 0.0112 },
+        { id: 142, name: "Colonial First State FirstChoice super Lifestage 1960 64 ", annualPercentageFee: 0.0112 },
+        { id: 143, name: "Colonial First State FirstChoice super Lifestage 1965 69 ", annualPercentageFee: 0.0112 },
+        { id: 144, name: "Colonial First State FirstChoice super  Lifestage 1970 74 ", annualPercentageFee: 0.0112 },
+        { id: 145, name: "Colonial First State FirstChoice super  Lifestage 1975 79 ", annualPercentageFee: 0.0112 },
+        { id: 146, name: "Colonial First State FirstChoice super  Lifestage 1980 84 ", annualPercentageFee: 0.0112 },
+        { id: 147, name: "Colonial First State FirstChoice super  Lifestage 1985 89 ", annualPercentageFee: 0.0112 },
+        { id: 148, name: "Colonial First State FirstChoice super  Lifestage 1990 94 ", annualPercentageFee: 0.0112 },
+        { id: 149, name: "Colonial First State FirstChoice super  Lifestage 1995 ", annualPercentageFee: 0.0112 },
+        { id: 150, name: "Colonial First State FirstChoice super  Lifestage 2000 04 ", annualPercentageFee: 0.0112 },
+        { id: 151, name: "Commonwealth Essential Super Essential Lifestage 1940's option ", annualPercentageFee: 0.0094112 },
+        { id: 152, name: "Commonwealth Essential Super Essential Lifestage 1950's option ", annualPercentageFee: 0.0094112 },
+        { id: 153, name: "Commonwealth Essential Super Essential Lifestage 1960's option ", annualPercentageFee: 0.0094112 },
+        { id: 154, name: "Commonwealth Essential Super Essential Lifestage 1970's option ", annualPercentageFee: 0.0094112 },
+        { id: 155, name: "Commonwealth Essential Super Essential Lifestage 1980's option ", annualPercentageFee: 0.0094112 },
+        { id: 156, name: "Commonwealth Essential Super Essential Lifestage 1990's option ", annualPercentageFee: 0.0094112 },
+        { id: 157, name: "First State Super LifecycleBalanced ", annualPercentageFee: 0.00754 },
+        { id: 158, name: "First State Super LifecycleDiversified ", annualPercentageFee: 0.00794 },
+        { id: 159, name: "Guild Retirement Fund Building ", annualPercentageFee: 0.0112 },
+        { id: 160, name: "Guild Retirement Fund Consolidating ", annualPercentageFee: 0.0094 },
+        { id: 161, name: "Guild Retirement Fund Growing ", annualPercentageFee: 0.0103 },
+        { id: 162, name: "Age Based Investment Strategy Balanced ", annualPercentageFee: 0.00626 },
+        { id: 163, name: "Age Based Investment Strategy Balanced Growth ", annualPercentageFee: 0.00666 },
+        { id: 164, name: "Age Based Investment Strategy Conservative ", annualPercentageFee: 0.00576 },
+        { id: 165, name: "Age Based Investment Strategy High Growth ", annualPercentageFee: 0.00706 },
+        { id: 166, name: "LGIASuper Lifecycle75 Plus ", annualPercentageFee: 0.0064 },
+        { id: 167, name: "LGIASuper LifecycleUnder 75 ", annualPercentageFee: 0.0072 },
+        { id: 168, name: "Mercer SmartPath1929 to 1933 ", annualPercentageFee: 0.0121696 },
+        { id: 169, name: "Mercer SmartPath1934 to 1938 ", annualPercentageFee: 0.0121696 },
+        { id: 170, name: "Mercer SmartPath1939 to 1943 ", annualPercentageFee: 0.0121696 },
+        { id: 171, name: "Mercer SmartPath1944 to 1948 ", annualPercentageFee: 0.0123696 },
+        { id: 172, name: "Mercer SmartPath1949 to 1953 ", annualPercentageFee: 0.0122696 },
+        { id: 173, name: "Mercer SmartPath1954 to 1958 ", annualPercentageFee: 0.0123696 },
+        { id: 174, name: "Mercer SmartPath1959 to 1963 ", annualPercentageFee: 0.0132696 },
+        { id: 175, name: "Mercer SmartPath1964 to 1968 ", annualPercentageFee: 0.0135696 },
+        { id: 176, name: "Mercer SmartPath1969 to 1973 ", annualPercentageFee: 0.0135696 },
+        { id: 177, name: "Mercer SmartPath1974 to 1978 ", annualPercentageFee: 0.0135696 },
+        { id: 178, name: "Mercer SmartPath1979 to 1983 ", annualPercentageFee: 0.0135696 },
+        { id: 179, name: "Mercer SmartPath1984 to 1988 ", annualPercentageFee: 0.0135696 },
+        { id: 180, name: "Mercer SmartPath1989 to 1993 ", annualPercentageFee: 0.0135696 },
+        { id: 181, name: "Mercer SmartPath1994 to 1998 ", annualPercentageFee: 0.0135696 },
+        { id: 182, name: "Mercer SmartPath1999 to 2003 ", annualPercentageFee: 0.0135696 },
+        { id: 183, name: "Mercer SmartPathBorn prior to 1929 ", annualPercentageFee: 0.0121696 },
+        { id: 184, name: "Mercer WGSP 1929 to 1933 ", annualPercentageFee: 0.0080696 },
+        { id: 185, name: "Mercer WGSP 1934 to 1938 ", annualPercentageFee: 0.0080696 },
+        { id: 186, name: "Mercer WGSP 1939 to 1943 ", annualPercentageFee: 0.0080696 },
+        { id: 187, name: "Mercer WGSP 1944 to 1948 ", annualPercentageFee: 0.0082696 },
+        { id: 188, name: "Mercer WGSP 1949 to 1953 ", annualPercentageFee: 0.0081696 },
+        { id: 189, name: "Mercer WGSP 1954 to 1958 ", annualPercentageFee: 0.0082696 },
+        { id: 190, name: "Mercer WGSP 1959 to 1963 ", annualPercentageFee: 0.0091696 },
+        { id: 191, name: "Mercer WGSP 1964 to 1968 ", annualPercentageFee: 0.0094696 },
+        { id: 192, name: "Mercer WGSP 1969 to 1973 ", annualPercentageFee: 0.0094696 },
+        { id: 193, name: "Mercer WGSP 1974 to 1978 ", annualPercentageFee: 0.0094696 },
+        { id: 194, name: "Mercer WGSP 1979 to 1983 ", annualPercentageFee: 0.0094696 },
+        { id: 195, name: "Mercer WGSP 1984 to 1988 ", annualPercentageFee: 0.0094696 },
+        { id: 196, name: "Mercer WGSP 1989 to 1993 ", annualPercentageFee: 0.0094696 },
+        { id: 197, name: "Mercer WGSP 1994 to 1998 ", annualPercentageFee: 0.0094696 },
+        { id: 198, name: "Mercer WGSP 1999 to 2003 ", annualPercentageFee: 0.0094696 },
+        { id: 199, name: "Mercer WGSP Born prior to 1929 ", annualPercentageFee: 0.0080696 },
+        { id: 200, name: "Virgin Money 1949 to 1953 ", annualPercentageFee: 0.00656 },
+        { id: 201, name: "Virgin Money 1954 to 1958 ", annualPercentageFee: 0.00646 },
+        { id: 202, name: "Virgin Money 1959 to 1963 ", annualPercentageFee: 0.00656 },
+        { id: 203, name: "Virgin Money 1964 to 1968 ", annualPercentageFee: 0.00656 },
+        { id: 204, name: "Virgin Money 1969 to 1973 ", annualPercentageFee: 0.00656 },
+        { id: 205, name: "Virgin Money 1974 to 1978 ", annualPercentageFee: 0.00656 },
+        { id: 206, name: "Virgin Money 1979 to 1983 ", annualPercentageFee: 0.00656 },
+        { id: 207, name: "Virgin Money 1984 to 1988 ", annualPercentageFee: 0.00656 },
+        { id: 208, name: "Virgin Money 1989 to 1993 ", annualPercentageFee: 0.00656 },
+        { id: 209, name: "Virgin Money 1994 to 1998 ", annualPercentageFee: 0.00656 },
+        { id: 210, name: "Virgin Money 1999 to 2003 ", annualPercentageFee: 0.00656 },
+        { id: 211, name: "Virgin Money 2004 to 2008 ", annualPercentageFee: 0.00656 },
+        { id: 212, name: "Virgin Money 2009 to 2013 ", annualPercentageFee: 0.00656 },
+        { id: 213, name: "Virgin Money 2014 to 2018 ", annualPercentageFee: 0.00656 },
+        { id: 214, name: "Virgin Money BORN PRIOR to 1949 ", annualPercentageFee: 0.00656 },
+        { id: 215, name: "Default Lifecycle Aggressive ", annualPercentageFee: 0.01068 },
+        { id: 216, name: "Default Lifecycle Balanced ", annualPercentageFee: 0.00938 },
+        { id: 217, name: "Default Lifecycle Growth ", annualPercentageFee: 0.01028 },
+        { id: 218, name: "Default Lifecycle Stable ", annualPercentageFee: 0.00828 },
+        { id: 219, name: "ANZ Smart Choice Super 1940s ", annualPercentageFee: 0.006 },
+        { id: 220, name: "ANZ Smart Choice Super 1950s ", annualPercentageFee: 0.006 },
+        { id: 221, name: "ANZ Smart Choice Super 1960s ", annualPercentageFee: 0.006 },
+        { id: 222, name: "ANZ Smart Choice Super 1970s ", annualPercentageFee: 0.006 },
+        { id: 223, name: "ANZ Smart Choice Super 1980s ", annualPercentageFee: 0.006 },
+        { id: 224, name: "ANZ Smart Choice Super 1990s ", annualPercentageFee: 0.006 },
+        { id: 225, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1940s ", annualPercentageFee: 0.0054 },
+        { id: 226, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1950s ", annualPercentageFee: 0.0054 },
+        { id: 227, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1960s ", annualPercentageFee: 0.0054 },
+        { id: 228, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1970s ", annualPercentageFee: 0.0054 },
+        { id: 229, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1980s ", annualPercentageFee: 0.0054 },
+        { id: 230, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1990s ", annualPercentageFee: 0.0054 },
+        { id: 231, name: "GlidepathAltitude ", annualPercentageFee: 0.01108 },
+        { id: 232, name: "GlidepathCruising ", annualPercentageFee: 0.01088 },
+        { id: 233, name: "GlidepathDestination ", annualPercentageFee: 0.01058 },
+        { id: 234, name: "GlidepathTake Off ", annualPercentageFee: 0.01138 },
+        { id: 235, name: "BT Super for Life  Lifetime Employer 1940s LifeStage ", annualPercentageFee: 0.012 },
+        { id: 236, name: "BT Super for Life  Lifetime Employer 1950s LifeStage ", annualPercentageFee: 0.0119 },
+        { id: 237, name: "BT Super for Life  Lifetime Employer 1960s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 238, name: "BT Super for Life  Lifetime Employer 1970s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 239, name: "BT Super for Life  Lifetime Employer 1980s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 240, name: "BT Super for Life  Lifetime Employer 1990s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 241, name: "BT Super for Life  Lifetime Employer 2000s Lifestage ", annualPercentageFee: 0.0118 },
+        { id: 242, name: "Westpac Group Plan 1940s LifeStage ", annualPercentageFee: 0.0075 },
+        { id: 243, name: "Westpac Group Plan 1950s LifeStage ", annualPercentageFee: 0.0074 },
+        { id: 244, name: "Westpac Group Plan 1960s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 245, name: "Westpac Group Plan 1970s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 246, name: "Westpac Group Plan 1980s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 247, name: "Westpac Group Plan 1990s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 248, name: "Westpac Group Plan 2000s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 249, name: "QSuper LifetimeAspire 1 Group ", annualPercentageFee: 0.007 },
+        { id: 250, name: "QSuper LifetimeAspire 2 Group ", annualPercentageFee: 0.007 },
+        { id: 251, name: "QSuper LifetimeFocus 1 Group ", annualPercentageFee: 0.0063 },
+        { id: 252, name: "QSuper LifetimeFocus 2 Group ", annualPercentageFee: 0.0063 },
+        { id: 253, name: "QSuper LifetimeFocus 3 Group ", annualPercentageFee: 0.0063 },
+        { id: 254, name: "QSuper LifetimeOutlook ", annualPercentageFee: 0.0079 },
+        { id: 255, name: "QSuper LifetimeSustain Group 1 ", annualPercentageFee: 0.0049 },
+        { id: 256, name: "QSuper LifetimeSustain Group 2 ", annualPercentageFee: 0.0049 },
+        { id: 257, name: "Suncorp Lifestage FundsSuncorp 1934 Prior ", annualPercentageFee: 0.01006 },
+        { id: 258, name: "Suncorp Lifestage FundsSuncorp 1935 1939 ", annualPercentageFee: 0.01006 },
+        { id: 259, name: "Suncorp Lifestage FundsSuncorp 1940 1944 ", annualPercentageFee: 0.01006 },
+        { id: 260, name: "Suncorp Lifestage FundsSuncorp 1945 1949 ", annualPercentageFee: 0.01006 },
+        { id: 261, name: "Suncorp Lifestage FundsSuncorp 1950 1954 ", annualPercentageFee: 0.01006 },
+        { id: 262, name: "Suncorp Lifestage FundsSuncorp 1955 1959 ", annualPercentageFee: 0.01006 },
+        { id: 263, name: "Suncorp Lifestage FundsSuncorp 1960 1964 ", annualPercentageFee: 0.01006 },
+        { id: 264, name: "Suncorp Lifestage FundsSuncorp 1965 1969 ", annualPercentageFee: 0.01006 },
+        { id: 265, name: "Suncorp Lifestage FundsSuncorp 1970 1974 ", annualPercentageFee: 0.01006 },
+        { id: 266, name: "Suncorp Lifestage FundsSuncorp 1975 1979 ", annualPercentageFee: 0.01006 },
+        { id: 267, name: "Suncorp Lifestage FundsSuncorp 1980 1984 ", annualPercentageFee: 0.01006 },
+        { id: 268, name: "Suncorp Lifestage FundsSuncorp 1985 1989 ", annualPercentageFee: 0.01006 },
+        { id: 269, name: "Suncorp Lifestage FundsSuncorp 1990 1994 ", annualPercentageFee: 0.01006 },
+        { id: 270, name: "Suncorp Lifestage FundsSuncorp 1995 1999 ", annualPercentageFee: 0.01006 },
+        { id: 271, name: "Suncorp Lifestage FundsSuncorp 2000 2004 ", annualPercentageFee: 0.01006 },
+        { id: 272, name: "Sunsuper for LifeAge 54 and under ", annualPercentageFee: 0.00736 },
+        { id: 273, name: "Sunsuper for LifeAge 55 ", annualPercentageFee: 0.00736 },
+        { id: 274, name: "Sunsuper for LifeAge 56 ", annualPercentageFee: 0.00736 },
+        { id: 275, name: "Sunsuper for LifeAge 57 ", annualPercentageFee: 0.00736 },
+        { id: 276, name: "Sunsuper for LifeAge 58 ", annualPercentageFee: 0.00736 },
+        { id: 277, name: "Sunsuper for LifeAge 59 ", annualPercentageFee: 0.00736 },
+        { id: 278, name: "Sunsuper for LifeAge 60 ", annualPercentageFee: 0.00736 },
+        { id: 279, name: "Sunsuper for LifeAge 61 ", annualPercentageFee: 0.00736 },
+        { id: 280, name: "Sunsuper for LifeAge 62 ", annualPercentageFee: 0.00736 },
+        { id: 281, name: "Sunsuper for LifeAge 63 ", annualPercentageFee: 0.00736 },
+        { id: 282, name: "Sunsuper for LifeAge 64 ", annualPercentageFee: 0.00736 },
+        { id: 283, name: "Sunsuper for LifeAge 65 and over ", annualPercentageFee: 0.00736 },
+        { id: 284, name: "AMP No.3AMP SDF 1950s ", annualPercentageFee: 0.0145472 },
+        { id: 285, name: "AMP No.3AMP SDF 1960s ", annualPercentageFee: 0.0150472 },
+        { id: 286, name: "AMP No.3AMP SDF 1970s ", annualPercentageFee: 0.0155472 },
+        { id: 287, name: "AMP No.3AMP SDF 1980s ", annualPercentageFee: 0.0164472 },
+        { id: 288, name: "AMP No.3AMP SDF 1990s ", annualPercentageFee: 0.0164472 },
+        { id: 289, name: "AMP No.3AMP SDF Capital Stable ", annualPercentageFee: 0.0143472 },
+        { id: 290, name: "Tasplan Ontrack Build ", annualPercentageFee: 0.00926 },
+        { id: 291, name: "Tasplan Ontrack Control ", annualPercentageFee: 0.00856 },
+        { id: 292, name: "Tasplan Ontrack Maintain ", annualPercentageFee: 0.00786 },
+        { id: 293, name: "Tasplan Ontrack Sustain ", annualPercentageFee: 0.00896 },
+        { id: 294, name: "Telstra Super Balanced ", annualPercentageFee: 0.01076 },
+        { id: 295, name: "Telstra Super Conservative ", annualPercentageFee: 0.00816 },
+        { id: 296, name: "Telstra Super Growth ", annualPercentageFee: 0.01096 },
+        { id: 297, name: "Bendigo Balanced Index Fund ", annualPercentageFee: 0.00626 },
+        { id: 298, name: "Bendigo Conservative Index Fund ", annualPercentageFee: 0.00608 },
+        { id: 299, name: "Bendigo Growth Index Fund ", annualPercentageFee: 0.00654 },
+        { id: 300, name: "BT Business 1940s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 301, name: "BT Business 1950s LifeStage ", annualPercentageFee: 0.0119 },
+        { id: 302, name: "BT Business 1960s LifeStage ", annualPercentageFee: 0.0119 },
+        { id: 303, name: "BT Business 1970s LifeStage ", annualPercentageFee: 0.012 },
+        { id: 304, name: "BT Business 1980s LifeStage ", annualPercentageFee: 0.012 },
+        { id: 305, name: "BT Business 1990s LifeStage ", annualPercentageFee: 0.012 },
+        { id: 306, name: "BT Business 2000s LifeStage", annualPercentageFee: 0.012 },
+        { id: 307, name: "Asgard Infinity Ewrap", contributionFee: 0, adminFee: 0, indirectCostRation: 1.16 },
+        { id: 308, name: "SMSI Non Advice", contributionFee: 0, adminFee: 2499, indirectCostRation: 0 },
+        { id: 309, name: "SMSI Advice", contributionFee: 0, adminFee: 259, indirectCostRation: 0.53 },
+        { id: 310, name: "Australian Super direct share portfolio platform", contributionFee: 0, adminFee: 2673, indirectCostRation: 0 },
+        { id: 311, name: "Investor's own", contributionFee: 0.01134, adminFee: 0, indirectCostRation: 0 }
+    ];
+
+    $scope.fundsMySuper = [{ id: 0, name: "AMG Super ", annualPercentageFee: 0.01134 },
+        { id: 1, name: "AMP No.1 Retirement Trust ", annualPercentageFee: 0.0085696 },
+        { id: 2, name: "Brookfield Australia AMP super Savings Trust ", annualPercentageFee: 0.0053 },
+        { id: 3, name: "Macquarie Group AMP super Savings Trust ", annualPercentageFee: 0.0079 },
+        { id: 4, name: "Woolworths Group AMP super Savings Trust ", annualPercentageFee: 0.00611 },
+        { id: 5, name: "ANZ Staff Australian super Scheme ", annualPercentageFee: 0.0053 },
+        { id: 6, name: "Balanced Australian Catholic super and Retirement Fund ", annualPercentageFee: 0.00956 },
+        { id: 7, name: "ADF Australian Defence Force super Scheme ", annualPercentageFee: 0.0093 },
+        { id: 8, name: "Balanced accumulation Australian Ethical Retail super Fund ", annualPercentageFee: 0.01404 },
+        { id: 9, name: "AMIST Australian Meat Industry super Trust ", annualPercentageFee: 0.00758 },
+        { id: 10, name: "AustralianSuper ", annualPercentageFee: 0.00796 },
+        { id: 11, name: "IBM Super Plan AustralianSuper ", annualPercentageFee: 0.00952 },
+        { id: 12, name: "Komatsu Super Plan AustralianSuper ", annualPercentageFee: 0.01086 },
+        { id: 13, name: "Balanced Austsafe super Fund ", annualPercentageFee: 0.00892 },
+        { id: 14, name: "AvSuper Growth Fund ", annualPercentageFee: 0.0112 },
+        { id: 15, name: "Betros Bros super Fund No 2 ", annualPercentageFee: 0.0108 },
+        { id: 16, name: "BOC Gases super Fund ", annualPercentageFee: 0.01268 },
+        { id: 17, name: "BUSSQ Building Unions super Scheme Queensland ", annualPercentageFee: 0.00896 },
+        { id: 18, name: "CareSuper ", annualPercentageFee: 0.01136 },
+        { id: 19, name: "My Ethical Super Christian ", annualPercentageFee: 0.01268 },
+        { id: 20, name: "Club Plus Super Scheme ", annualPercentageFee: 0.007472 },
+        { id: 21, name: "Club Super ", annualPercentageFee: 0.01272 },
+        { id: 22, name: "Combined Fund Super ", annualPercentageFee: 0.01052 },
+        { id: 23, name: "Accumulate Plus Balanced Commonwealth Bank Group Super ", annualPercentageFee: 0.006973 },
+        { id: 24, name: "Balanced Concept One The Industry super Fund ", annualPercentageFee: 0.01152 },
+        { id: 25, name: "Growth Cbus Construction & Building Unions super ", annualPercentageFee: 0.00996 },
+        { id: 26, name: "Active Balanced DuluxGroup Employees super Fund ", annualPercentageFee: 0.01222 },
+        { id: 27, name: "Balanced Elphinstone Group super Fund ", annualPercentageFee: 0.0157 },
+        { id: 28, name: "EmPlus super Fund ", annualPercentageFee: 0.010456 },
+        { id: 29, name: "Balanced Energy Industries super SchemePool A ", annualPercentageFee: 0.0063 },
+        { id: 30, name: "Energy Super ", annualPercentageFee: 0.00944 },
+        { id: 31, name: "Equipsuper ", annualPercentageFee: 0.00926 },
+        { id: 32, name: "First Super ", annualPercentageFee: 0.00886 },
+        { id: 33, name: "Goldman Sachs & JBWere super Fund Product ", annualPercentageFee: 0.016 },
+        { id: 34, name: "Core Pool Health Employees super Trust Australia ", annualPercentageFee: 0.0096 },
+        { id: 35, name: "Balanced option HOSTPLUS super Fund ", annualPercentageFee: 0.01356 },
+        { id: 36, name: "IAG & NRMA super Plan ", annualPercentageFee: 0.0104 },
+        { id: 37, name: "Active Balanced Incitec Pivot Employees super Fund ", annualPercentageFee: 0.01276 },
+        { id: 38, name: "Intrust Super Fund ", annualPercentageFee: 0.01046 },
+        { id: 39, name: "IOOF Portfolio Service super Fund ", annualPercentageFee: 0.01084 },
+        { id: 40, name: "Kinetic Super Growth super Fund ", annualPercentageFee: 0.008612 },
+        { id: 41, name: "Balanced Labour Union CoOperative Retirement Fund ", annualPercentageFee: 0.00846 },
+        { id: 42, name: "Balanced legalsuper ", annualPercentageFee: 0.011152 },
+        { id: 43, name: "LESF Super ", annualPercentageFee: 0.012932 },
+        { id: 44, name: "Vision Local Authorities super Fund ", annualPercentageFee: 0.00946 },
+        { id: 45, name: "Balanced Option Compliant Lutheran Super ", annualPercentageFee: 0.00902 },
+        { id: 46, name: "Moderate investment option Maritime Super ", annualPercentageFee: 0.01246 },
+        { id: 47, name: "Max Super Fund ", annualPercentageFee: 0.01126 },
+        { id: 48, name: "MIESF Meat Industry Employees super Fund ", annualPercentageFee: 0.0069 },
+        { id: 49, name: "Balanced investment option accumulation Media Super ", annualPercentageFee: 0.00864 },
+        { id: 50, name: "Mercer Santos Super Trust ", annualPercentageFee: 0.0091336 },
+        { id: 51, name: "Mercy Super ", annualPercentageFee: 0.010644 },
+        { id: 52, name: "MLC Super Fund ", annualPercentageFee: 0.01206 },
+        { id: 53, name: "NAB Staff MLC Super Fund ", annualPercentageFee: 0.01036 },
+        { id: 54, name: "My AutoSuper MTAA super Fund ", annualPercentageFee: 0.00996 },
+        { id: 55, name: "MyCatholicSuper MyLifeMyMoney super Fund ", annualPercentageFee: 0.01126 },
+        { id: 56, name: "NSF Nationwide super Fund ", annualPercentageFee: 0.0121 },
+        { id: 57, name: "NESS Super ", annualPercentageFee: 0.00984 },
+        { id: 58, name: "Diversified NGS Super ", annualPercentageFee: 0.0077 },
+        { id: 59, name: "Perpetual Perpetual's Select super Fund ", annualPercentageFee: 0.0137 },
+        { id: 60, name: "Pitcher Retirement Plan ", annualPercentageFee: 0.02072 },
+        { id: 61, name: "Prime Super ", annualPercentageFee: 0.01416 },
+        { id: 62, name: "PSSap Balanced Public Sector super Accumulation Plan ", annualPercentageFee: 0.0093 },
+        { id: 63, name: "QIEC Queensland Independent Education & Care super Trust ", annualPercentageFee: 0.01092 },
+        { id: 64, name: "Trustee Super Balanced Rei ", annualPercentageFee: 0.008516 },
+        { id: 65, name: "REST Super Retail Employees super Trust ", annualPercentageFee: 0.008144 },
+        { id: 66, name: "Rio Tinto Fund Growth Option Product Staff super ", annualPercentageFee: 0.00902 },
+        { id: 67, name: "General Division Russell Investments Master Trust ", annualPercentageFee: 0.01314 },
+        { id: 68, name: "SmartSave Balanced Smartsave 'Member's Choice' super Master Plan ", annualPercentageFee: 0.01272 },
+        { id: 69, name: "Statewide super Trust ", annualPercentageFee: 0.00936 },
+        { id: 70, name: "MyLife The Executive super Fund ", annualPercentageFee: 0.0133452 },
+        { id: 71, name: "VISSF Balanced Option Product The Victorian Independent Schools super Fund ", annualPercentageFee: 0.00914 },
+        { id: 72, name: "Growth Toyota Super ", annualPercentageFee: 0.00984 },
+        { id: 73, name: "Balanced TWU super Fund ", annualPercentageFee: 0.01236 },
+        { id: 74, name: "UniSuper Balanced Unisuper ", annualPercentageFee: 0.00692 },
+        { id: 75, name: "Balanced United Technologies Corporation Retirement Plan ", annualPercentageFee: 0.0098 },
+        { id: 76, name: "Growth Victorian super Fund ", annualPercentageFee: 0.00986 },
+        { id: 77, name: "My WA Super Local Government super Plan ", annualPercentageFee: 0.01246 },
+        { id: 78, name: "Growth Water Corporation super Plan ", annualPercentageFee: 0.01144 }
+    ];
+
+    $scope.fundsLifestage = [{ id: 79, name: "AFLPA & AFL. Industry 1950s ", annualPercentageFee: 0.011808 },
+        { id: 80, name: "AFLPA & AFL. Industry 1960s ", annualPercentageFee: 0.011908 },
+        { id: 81, name: "AFLPA & AFL. Industry 1970s ", annualPercentageFee: 0.010908 },
+        { id: 82, name: "AFLPA & AFL. Industry 1980s ", annualPercentageFee: 0.010408 },
+        { id: 83, name: "AFLPA & AFL. Industry 1990s ", annualPercentageFee: 0.009908 },
+        { id: 84, name: "AFLPA & AFL. Industry Capital Stable ", annualPercentageFee: 0.009708 },
+        { id: 85, name: "AMP No.2 1950s ", annualPercentageFee: 0.0136472 },
+        { id: 86, name: "AMP No.2 1960s ", annualPercentageFee: 0.0141472 },
+        { id: 87, name: "AMP No.2 1970s ", annualPercentageFee: 0.0146472 },
+        { id: 88, name: "AMP No.2 1980s ", annualPercentageFee: 0.0155472 },
+        { id: 89, name: "AMP No.2 1990s ", annualPercentageFee: 0.0155472 },
+        { id: 90, name: "AMP No.2 Capital Stable ", annualPercentageFee: 0.0134472 },
+        { id: 91, name: "Anglican National ANS RIL Balanced ", annualPercentageFee: 0.0099662 },
+        { id: 92, name: "Anglican National ANS RIL Conservative ", annualPercentageFee: 0.008948 },
+        { id: 93, name: "Anglican National ANS RIL Growth ", annualPercentageFee: 0.010948 },
+        { id: 94, name: "Anglican National ANS RIL High Growth ", annualPercentageFee: 0.011948 },
+        { id: 95, name: "Australia Post 1950s ", annualPercentageFee: 0.010436 },
+        { id: 96, name: "Australia Post 1960s ", annualPercentageFee: 0.009536 },
+        { id: 97, name: "Australia Post 1970s ", annualPercentageFee: 0.008536 },
+        { id: 98, name: "Australia Post 1980s ", annualPercentageFee: 0.009036 },
+        { id: 99, name: "Australia Post 1990s ", annualPercentageFee: 0.010536 },
+        { id: 100, name: "Australia Post Capital Stable ", annualPercentageFee: 0.008336 },
+        { id: 101, name: "CCA Future Directions Balanced ", annualPercentageFee: 0.0065616 },
+        { id: 102, name: "CCA Future Directions Conservative ", annualPercentageFee: 0.0052744 },
+        { id: 103, name: "CCA Future Directions Growth ", annualPercentageFee: 0.0071618 },
+        { id: 104, name: "CCA Future Directions High Growth ", annualPercentageFee: 0.0072642 },
+        { id: 105, name: "CCA Future Directions Moderately Cons ", annualPercentageFee: 0.0058672 },
+        { id: 106, name: "Aon Defensive ", annualPercentageFee: 0.00942 },
+        { id: 107, name: "Aon High Growth ", annualPercentageFee: 0.00942 },
+        { id: 108, name: "Aon 43 ", annualPercentageFee: 0.00942 },
+        { id: 109, name: "Aon 44 ", annualPercentageFee: 0.00942 },
+        { id: 110, name: "Aon 45 ", annualPercentageFee: 0.00942 },
+        { id: 111, name: "Aon 46 ", annualPercentageFee: 0.00942 },
+        { id: 112, name: "Aon 47 ", annualPercentageFee: 0.00942 },
+        { id: 113, name: "Aon 48 ", annualPercentageFee: 0.00942 },
+        { id: 114, name: "Aon 49 ", annualPercentageFee: 0.00942 },
+        { id: 115, name: "Aon 50 ", annualPercentageFee: 0.00942 },
+        { id: 116, name: "Aon 51 ", annualPercentageFee: 0.00942 },
+        { id: 117, name: "Aon 52 ", annualPercentageFee: 0.00942 },
+        { id: 118, name: "Aon 53 ", annualPercentageFee: 0.00942 },
+        { id: 119, name: "Aon 54 ", annualPercentageFee: 0.00942 },
+        { id: 120, name: "Aon 55 ", annualPercentageFee: 0.00942 },
+        { id: 121, name: "Aon 56 ", annualPercentageFee: 0.00942 },
+        { id: 122, name: "Aon 57 ", annualPercentageFee: 0.00942 },
+        { id: 123, name: "Aon 58 ", annualPercentageFee: 0.00942 },
+        { id: 124, name: "Aon 59 ", annualPercentageFee: 0.00942 },
+        { id: 125, name: "Aon 60 ", annualPercentageFee: 0.00942 },
+        { id: 126, name: "Aon 61 ", annualPercentageFee: 0.00942 },
+        { id: 127, name: "Aon 62 ", annualPercentageFee: 0.00942 },
+        { id: 128, name: "Aon 63 ", annualPercentageFee: 0.00942 },
+        { id: 129, name: "Aon 64 ", annualPercentageFee: 0.00942 },
+        { id: 130, name: "Aon 65 ", annualPercentageFee: 0.00942 },
+        { id: 131, name: "Aon 66 ", annualPercentageFee: 0.00942 },
+        { id: 132, name: "Asgard Employee 1940s LifeStage ", annualPercentageFee: 0.01354 },
+        { id: 133, name: "Asgard Employee 1950s LifeStage ", annualPercentageFee: 0.01344 },
+        { id: 134, name: "Asgard Employee 1960s LifeStage ", annualPercentageFee: 0.01334 },
+        { id: 135, name: "Asgard Employee 1970s LifeStage ", annualPercentageFee: 0.01334 },
+        { id: 136, name: "Asgard Employee 1980s LifeStage ", annualPercentageFee: 0.01334 },
+        { id: 137, name: "Asgard Employee 1990s LifeStage ", annualPercentageFee: 0.01334 },
+        { id: 138, name: "Asgard Employee 2000s Lifestage ", annualPercentageFee: 0.01334 },
+        { id: 139, name: "Colonial First State FirstChoice super Lifestage 1945 49 ", annualPercentageFee: 0.0112 },
+        { id: 140, name: "Colonial First State FirstChoice super Lifestage 1950 54 ", annualPercentageFee: 0.0112 },
+        { id: 141, name: "Colonial First State FirstChoice super Lifestage 1955 59 ", annualPercentageFee: 0.0112 },
+        { id: 142, name: "Colonial First State FirstChoice super Lifestage 1960 64 ", annualPercentageFee: 0.0112 },
+        { id: 143, name: "Colonial First State FirstChoice super Lifestage 1965 69 ", annualPercentageFee: 0.0112 },
+        { id: 144, name: "Colonial First State FirstChoice super  Lifestage 1970 74 ", annualPercentageFee: 0.0112 },
+        { id: 145, name: "Colonial First State FirstChoice super  Lifestage 1975 79 ", annualPercentageFee: 0.0112 },
+        { id: 146, name: "Colonial First State FirstChoice super  Lifestage 1980 84 ", annualPercentageFee: 0.0112 },
+        { id: 147, name: "Colonial First State FirstChoice super  Lifestage 1985 89 ", annualPercentageFee: 0.0112 },
+        { id: 148, name: "Colonial First State FirstChoice super  Lifestage 1990 94 ", annualPercentageFee: 0.0112 },
+        { id: 149, name: "Colonial First State FirstChoice super  Lifestage 1995 ", annualPercentageFee: 0.0112 },
+        { id: 150, name: "Colonial First State FirstChoice super  Lifestage 2000 04 ", annualPercentageFee: 0.0112 },
+        { id: 151, name: "Commonwealth Essential Super Essential Lifestage 1940's option ", annualPercentageFee: 0.0094112 },
+        { id: 152, name: "Commonwealth Essential Super Essential Lifestage 1950's option ", annualPercentageFee: 0.0094112 },
+        { id: 153, name: "Commonwealth Essential Super Essential Lifestage 1960's option ", annualPercentageFee: 0.0094112 },
+        { id: 154, name: "Commonwealth Essential Super Essential Lifestage 1970's option ", annualPercentageFee: 0.0094112 },
+        { id: 155, name: "Commonwealth Essential Super Essential Lifestage 1980's option ", annualPercentageFee: 0.0094112 },
+        { id: 156, name: "Commonwealth Essential Super Essential Lifestage 1990's option ", annualPercentageFee: 0.0094112 },
+        { id: 157, name: "First State Super LifecycleBalanced ", annualPercentageFee: 0.00754 },
+        { id: 158, name: "First State Super LifecycleDiversified ", annualPercentageFee: 0.00794 },
+        { id: 159, name: "Guild Retirement Fund Building ", annualPercentageFee: 0.0112 },
+        { id: 160, name: "Guild Retirement Fund Consolidating ", annualPercentageFee: 0.0094 },
+        { id: 161, name: "Guild Retirement Fund Growing ", annualPercentageFee: 0.0103 },
+        { id: 162, name: "Age Based Investment Strategy Balanced ", annualPercentageFee: 0.00626 },
+        { id: 163, name: "Age Based Investment Strategy Balanced Growth ", annualPercentageFee: 0.00666 },
+        { id: 164, name: "Age Based Investment Strategy Conservative ", annualPercentageFee: 0.00576 },
+        { id: 165, name: "Age Based Investment Strategy High Growth ", annualPercentageFee: 0.00706 },
+        { id: 166, name: "LGIASuper Lifecycle75 Plus ", annualPercentageFee: 0.0064 },
+        { id: 167, name: "LGIASuper LifecycleUnder 75 ", annualPercentageFee: 0.0072 },
+        { id: 168, name: "Mercer SmartPath1929 to 1933 ", annualPercentageFee: 0.0121696 },
+        { id: 169, name: "Mercer SmartPath1934 to 1938 ", annualPercentageFee: 0.0121696 },
+        { id: 170, name: "Mercer SmartPath1939 to 1943 ", annualPercentageFee: 0.0121696 },
+        { id: 171, name: "Mercer SmartPath1944 to 1948 ", annualPercentageFee: 0.0123696 },
+        { id: 172, name: "Mercer SmartPath1949 to 1953 ", annualPercentageFee: 0.0122696 },
+        { id: 173, name: "Mercer SmartPath1954 to 1958 ", annualPercentageFee: 0.0123696 },
+        { id: 174, name: "Mercer SmartPath1959 to 1963 ", annualPercentageFee: 0.0132696 },
+        { id: 175, name: "Mercer SmartPath1964 to 1968 ", annualPercentageFee: 0.0135696 },
+        { id: 176, name: "Mercer SmartPath1969 to 1973 ", annualPercentageFee: 0.0135696 },
+        { id: 177, name: "Mercer SmartPath1974 to 1978 ", annualPercentageFee: 0.0135696 },
+        { id: 178, name: "Mercer SmartPath1979 to 1983 ", annualPercentageFee: 0.0135696 },
+        { id: 179, name: "Mercer SmartPath1984 to 1988 ", annualPercentageFee: 0.0135696 },
+        { id: 180, name: "Mercer SmartPath1989 to 1993 ", annualPercentageFee: 0.0135696 },
+        { id: 181, name: "Mercer SmartPath1994 to 1998 ", annualPercentageFee: 0.0135696 },
+        { id: 182, name: "Mercer SmartPath1999 to 2003 ", annualPercentageFee: 0.0135696 },
+        { id: 183, name: "Mercer SmartPathBorn prior to 1929 ", annualPercentageFee: 0.0121696 },
+        { id: 184, name: "Mercer WGSP 1929 to 1933 ", annualPercentageFee: 0.0080696 },
+        { id: 185, name: "Mercer WGSP 1934 to 1938 ", annualPercentageFee: 0.0080696 },
+        { id: 186, name: "Mercer WGSP 1939 to 1943 ", annualPercentageFee: 0.0080696 },
+        { id: 187, name: "Mercer WGSP 1944 to 1948 ", annualPercentageFee: 0.0082696 },
+        { id: 188, name: "Mercer WGSP 1949 to 1953 ", annualPercentageFee: 0.0081696 },
+        { id: 189, name: "Mercer WGSP 1954 to 1958 ", annualPercentageFee: 0.0082696 },
+        { id: 190, name: "Mercer WGSP 1959 to 1963 ", annualPercentageFee: 0.0091696 },
+        { id: 191, name: "Mercer WGSP 1964 to 1968 ", annualPercentageFee: 0.0094696 },
+        { id: 192, name: "Mercer WGSP 1969 to 1973 ", annualPercentageFee: 0.0094696 },
+        { id: 193, name: "Mercer WGSP 1974 to 1978 ", annualPercentageFee: 0.0094696 },
+        { id: 194, name: "Mercer WGSP 1979 to 1983 ", annualPercentageFee: 0.0094696 },
+        { id: 195, name: "Mercer WGSP 1984 to 1988 ", annualPercentageFee: 0.0094696 },
+        { id: 196, name: "Mercer WGSP 1989 to 1993 ", annualPercentageFee: 0.0094696 },
+        { id: 197, name: "Mercer WGSP 1994 to 1998 ", annualPercentageFee: 0.0094696 },
+        { id: 198, name: "Mercer WGSP 1999 to 2003 ", annualPercentageFee: 0.0094696 },
+        { id: 199, name: "Mercer WGSP Born prior to 1929 ", annualPercentageFee: 0.0080696 },
+        { id: 200, name: "Virgin Money 1949 to 1953 ", annualPercentageFee: 0.00656 },
+        { id: 201, name: "Virgin Money 1954 to 1958 ", annualPercentageFee: 0.00646 },
+        { id: 202, name: "Virgin Money 1959 to 1963 ", annualPercentageFee: 0.00656 },
+        { id: 203, name: "Virgin Money 1964 to 1968 ", annualPercentageFee: 0.00656 },
+        { id: 204, name: "Virgin Money 1969 to 1973 ", annualPercentageFee: 0.00656 },
+        { id: 205, name: "Virgin Money 1974 to 1978 ", annualPercentageFee: 0.00656 },
+        { id: 206, name: "Virgin Money 1979 to 1983 ", annualPercentageFee: 0.00656 },
+        { id: 207, name: "Virgin Money 1984 to 1988 ", annualPercentageFee: 0.00656 },
+        { id: 208, name: "Virgin Money 1989 to 1993 ", annualPercentageFee: 0.00656 },
+        { id: 209, name: "Virgin Money 1994 to 1998 ", annualPercentageFee: 0.00656 },
+        { id: 210, name: "Virgin Money 1999 to 2003 ", annualPercentageFee: 0.00656 },
+        { id: 211, name: "Virgin Money 2004 to 2008 ", annualPercentageFee: 0.00656 },
+        { id: 212, name: "Virgin Money 2009 to 2013 ", annualPercentageFee: 0.00656 },
+        { id: 213, name: "Virgin Money 2014 to 2018 ", annualPercentageFee: 0.00656 },
+        { id: 214, name: "Virgin Money BORN PRIOR to 1949 ", annualPercentageFee: 0.00656 },
+        { id: 215, name: "Default Lifecycle Aggressive ", annualPercentageFee: 0.01068 },
+        { id: 216, name: "Default Lifecycle Balanced ", annualPercentageFee: 0.00938 },
+        { id: 217, name: "Default Lifecycle Growth ", annualPercentageFee: 0.01028 },
+        { id: 218, name: "Default Lifecycle Stable ", annualPercentageFee: 0.00828 },
+        { id: 219, name: "ANZ Smart Choice Super 1940s ", annualPercentageFee: 0.006 },
+        { id: 220, name: "ANZ Smart Choice Super 1950s ", annualPercentageFee: 0.006 },
+        { id: 221, name: "ANZ Smart Choice Super 1960s ", annualPercentageFee: 0.006 },
+        { id: 222, name: "ANZ Smart Choice Super 1970s ", annualPercentageFee: 0.006 },
+        { id: 223, name: "ANZ Smart Choice Super 1980s ", annualPercentageFee: 0.006 },
+        { id: 224, name: "ANZ Smart Choice Super 1990s ", annualPercentageFee: 0.006 },
+        { id: 225, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1940s ", annualPercentageFee: 0.0054 },
+        { id: 226, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1950s ", annualPercentageFee: 0.0054 },
+        { id: 227, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1960s ", annualPercentageFee: 0.0054 },
+        { id: 228, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1970s ", annualPercentageFee: 0.0054 },
+        { id: 229, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1980s ", annualPercentageFee: 0.0054 },
+        { id: 230, name: "ANZ Smart Choice Super For QBE Management Services PTY LTD and their employees 1990s ", annualPercentageFee: 0.0054 },
+        { id: 231, name: "GlidepathAltitude ", annualPercentageFee: 0.01108 },
+        { id: 232, name: "GlidepathCruising ", annualPercentageFee: 0.01088 },
+        { id: 233, name: "GlidepathDestination ", annualPercentageFee: 0.01058 },
+        { id: 234, name: "GlidepathTake Off ", annualPercentageFee: 0.01138 },
+        { id: 235, name: "BT Super for Life  Lifetime Employer 1940s LifeStage ", annualPercentageFee: 0.012 },
+        { id: 236, name: "BT Super for Life  Lifetime Employer 1950s LifeStage ", annualPercentageFee: 0.0119 },
+        { id: 237, name: "BT Super for Life  Lifetime Employer 1960s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 238, name: "BT Super for Life  Lifetime Employer 1970s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 239, name: "BT Super for Life  Lifetime Employer 1980s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 240, name: "BT Super for Life  Lifetime Employer 1990s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 241, name: "BT Super for Life  Lifetime Employer 2000s Lifestage ", annualPercentageFee: 0.0118 },
+        { id: 242, name: "Westpac Group Plan 1940s LifeStage ", annualPercentageFee: 0.0075 },
+        { id: 243, name: "Westpac Group Plan 1950s LifeStage ", annualPercentageFee: 0.0074 },
+        { id: 244, name: "Westpac Group Plan 1960s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 245, name: "Westpac Group Plan 1970s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 246, name: "Westpac Group Plan 1980s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 247, name: "Westpac Group Plan 1990s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 248, name: "Westpac Group Plan 2000s LifeStage ", annualPercentageFee: 0.0073 },
+        { id: 249, name: "QSuper LifetimeAspire 1 Group ", annualPercentageFee: 0.007 },
+        { id: 250, name: "QSuper LifetimeAspire 2 Group ", annualPercentageFee: 0.007 },
+        { id: 251, name: "QSuper LifetimeFocus 1 Group ", annualPercentageFee: 0.0063 },
+        { id: 252, name: "QSuper LifetimeFocus 2 Group ", annualPercentageFee: 0.0063 },
+        { id: 253, name: "QSuper LifetimeFocus 3 Group ", annualPercentageFee: 0.0063 },
+        { id: 254, name: "QSuper LifetimeOutlook ", annualPercentageFee: 0.0079 },
+        { id: 255, name: "QSuper LifetimeSustain Group 1 ", annualPercentageFee: 0.0049 },
+        { id: 256, name: "QSuper LifetimeSustain Group 2 ", annualPercentageFee: 0.0049 },
+        { id: 257, name: "Suncorp Lifestage FundsSuncorp 1934 Prior ", annualPercentageFee: 0.01006 },
+        { id: 258, name: "Suncorp Lifestage FundsSuncorp 1935 1939 ", annualPercentageFee: 0.01006 },
+        { id: 259, name: "Suncorp Lifestage FundsSuncorp 1940 1944 ", annualPercentageFee: 0.01006 },
+        { id: 260, name: "Suncorp Lifestage FundsSuncorp 1945 1949 ", annualPercentageFee: 0.01006 },
+        { id: 261, name: "Suncorp Lifestage FundsSuncorp 1950 1954 ", annualPercentageFee: 0.01006 },
+        { id: 262, name: "Suncorp Lifestage FundsSuncorp 1955 1959 ", annualPercentageFee: 0.01006 },
+        { id: 263, name: "Suncorp Lifestage FundsSuncorp 1960 1964 ", annualPercentageFee: 0.01006 },
+        { id: 264, name: "Suncorp Lifestage FundsSuncorp 1965 1969 ", annualPercentageFee: 0.01006 },
+        { id: 265, name: "Suncorp Lifestage FundsSuncorp 1970 1974 ", annualPercentageFee: 0.01006 },
+        { id: 266, name: "Suncorp Lifestage FundsSuncorp 1975 1979 ", annualPercentageFee: 0.01006 },
+        { id: 267, name: "Suncorp Lifestage FundsSuncorp 1980 1984 ", annualPercentageFee: 0.01006 },
+        { id: 268, name: "Suncorp Lifestage FundsSuncorp 1985 1989 ", annualPercentageFee: 0.01006 },
+        { id: 269, name: "Suncorp Lifestage FundsSuncorp 1990 1994 ", annualPercentageFee: 0.01006 },
+        { id: 270, name: "Suncorp Lifestage FundsSuncorp 1995 1999 ", annualPercentageFee: 0.01006 },
+        { id: 271, name: "Suncorp Lifestage FundsSuncorp 2000 2004 ", annualPercentageFee: 0.01006 },
+        { id: 272, name: "Sunsuper for LifeAge 54 and under ", annualPercentageFee: 0.00736 },
+        { id: 273, name: "Sunsuper for LifeAge 55 ", annualPercentageFee: 0.00736 },
+        { id: 274, name: "Sunsuper for LifeAge 56 ", annualPercentageFee: 0.00736 },
+        { id: 275, name: "Sunsuper for LifeAge 57 ", annualPercentageFee: 0.00736 },
+        { id: 276, name: "Sunsuper for LifeAge 58 ", annualPercentageFee: 0.00736 },
+        { id: 277, name: "Sunsuper for LifeAge 59 ", annualPercentageFee: 0.00736 },
+        { id: 278, name: "Sunsuper for LifeAge 60 ", annualPercentageFee: 0.00736 },
+        { id: 279, name: "Sunsuper for LifeAge 61 ", annualPercentageFee: 0.00736 },
+        { id: 280, name: "Sunsuper for LifeAge 62 ", annualPercentageFee: 0.00736 },
+        { id: 281, name: "Sunsuper for LifeAge 63 ", annualPercentageFee: 0.00736 },
+        { id: 282, name: "Sunsuper for LifeAge 64 ", annualPercentageFee: 0.00736 },
+        { id: 283, name: "Sunsuper for LifeAge 65 and over ", annualPercentageFee: 0.00736 },
+        { id: 284, name: "AMP No.3AMP SDF 1950s ", annualPercentageFee: 0.0145472 },
+        { id: 285, name: "AMP No.3AMP SDF 1960s ", annualPercentageFee: 0.0150472 },
+        { id: 286, name: "AMP No.3AMP SDF 1970s ", annualPercentageFee: 0.0155472 },
+        { id: 287, name: "AMP No.3AMP SDF 1980s ", annualPercentageFee: 0.0164472 },
+        { id: 288, name: "AMP No.3AMP SDF 1990s ", annualPercentageFee: 0.0164472 },
+        { id: 289, name: "AMP No.3AMP SDF Capital Stable ", annualPercentageFee: 0.0143472 },
+        { id: 290, name: "Tasplan Ontrack Build ", annualPercentageFee: 0.00926 },
+        { id: 291, name: "Tasplan Ontrack Control ", annualPercentageFee: 0.00856 },
+        { id: 292, name: "Tasplan Ontrack Maintain ", annualPercentageFee: 0.00786 },
+        { id: 293, name: "Tasplan Ontrack Sustain ", annualPercentageFee: 0.00896 },
+        { id: 294, name: "Telstra Super Balanced ", annualPercentageFee: 0.01076 },
+        { id: 295, name: "Telstra Super Conservative ", annualPercentageFee: 0.00816 },
+        { id: 296, name: "Telstra Super Growth ", annualPercentageFee: 0.01096 },
+        { id: 297, name: "Bendigo Balanced Index Fund ", annualPercentageFee: 0.00626 },
+        { id: 298, name: "Bendigo Conservative Index Fund ", annualPercentageFee: 0.00608 },
+        { id: 299, name: "Bendigo Growth Index Fund ", annualPercentageFee: 0.00654 },
+        { id: 300, name: "BT Business 1940s LifeStage ", annualPercentageFee: 0.0118 },
+        { id: 301, name: "BT Business 1950s LifeStage ", annualPercentageFee: 0.0119 },
+        { id: 302, name: "BT Business 1960s LifeStage ", annualPercentageFee: 0.0119 },
+        { id: 303, name: "BT Business 1970s LifeStage ", annualPercentageFee: 0.012 },
+        { id: 304, name: "BT Business 1980s LifeStage ", annualPercentageFee: 0.012 },
+        { id: 305, name: "BT Business 1990s LifeStage ", annualPercentageFee: 0.012 },
+        { id: 306, name: "BT Business 2000s LifeStage", annualPercentageFee: 0.012 }
+    ];
+
+    $scope.fundsOther = [{ id: 307, name: "Asgard Infinity Ewrap", contributionFee: 0, adminFee: 0, indirectCostRation: 1.16 },
+        { id: 308, name: "SMSI Non Advice", contributionFee: 0, adminFee: 2499, indirectCostRation: 0 },
+        { id: 309, name: "SMSI Advice", contributionFee: 0, adminFee: 259, indirectCostRation: 0.53 },
+        { id: 310, name: "Australian Super direct share portfolio platform", contributionFee: 0, adminFee: 2673, indirectCostRation: 0 },
+        { id: 311, name: "Investor's own", contributionFee: 0.01134, adminFee: 0, indirectCostRation: 0 }
+    ];
+
+    $scope.fundsOb1 = $scope.fundsMySuper;
+    $scope.fundsOb2 = $scope.fundsMySuper;
+	
+   	$scope.fundA = $scope.fundsOb[0];
+    $scope.fundB = $scope.fundsOb[1];
+    $scope.netReturn = $scope.investOptions[0].netReturn;
+    var tempFundA = $scope.fundsOb[0];
+    var tempFundB = $scope.fundsOb[1];
+    $scope.fundNotFoundA = false;
+    $scope.fundNotFoundB = false;
+    $scope.fundNameA = "Fund A";
+    $scope.fundNameB = "Fund B";
+	
+	$scope.privateSchoolObjects = [{ id: 0, name: "Sydney Grammar School Darlinghurst", address: "College St- Darlinghurst NSW 2010", state: "NSW", upfrontFee: 5489, annualFee: 32644 },
+        { id: 1, name: "PLC Sydney", address: "Boundary St- Croydon NSW 2132", state: "NSW", upfrontFee: 3415, annualFee: 24411 },
+        { id: 2, name: "SCEGGS Darlinghurst", address: "215 Forbes St- Darlinghurst NSW 2010", state: "NSW", upfrontFee: 4950, annualFee: 28348 },
+        { id: 3, name: "The Scotts College Sydney", address: "Victoria Rd- Bellevue Hill NSW 2023", state: "NSW", upfrontFee: 5500, annualFee: 33925 },
+        { id: 4, name: "Pymble Ladies College", address: "Avon Rd- Pymble NSW 2073", state: "NSW", upfrontFee: 3430, annualFee: 24002 },
+        { id: 5, name: "Ascham School", address: "188 New South Head Rd- Edgecliff- NSW 2027", state: "NSW", upfrontFee: 6300, annualFee: 32000 },
+        { id: 6, name: "Abbotsleigh", address: "1666 Pacific Highway- Wahroonga- NSW 2076", state: "NSW", upfrontFee: 1970, annualFee: 28640 },
+        { id: 7, name: "St Aloysius College", address: "47 Upper Pitt Street- Milsons Point 2061 NSW Australia", state: "NSW", upfrontFee: 2650, annualFee: 16278 },
+        { id: 8, name: "Meridan School", address: "10-12 Redmyre Road- Strathfield NSW 2135", state: "NSW", upfrontFee: 1825, annualFee: 28340 },
+        { id: 9, name: "Sydney Church of England Grammar School (SHORE)", address: "Blue Street- North Sydney- NSW- 2060- Australia", state: "NSW", upfrontFee: 2400, annualFee: 24126 },
+        { id: 10, name: "Cranbrook School", address: "5 Victoria Road- Bellevue Hill NSW 2023 Australia", state: "NSW", upfrontFee: 7300, annualFee: 28325 },
+        { id: 11, name: "Knox Grammar School", address: "7 Woodville Ave- Wahroonga 2076 NSW Australia", state: "NSW", upfrontFee: 3000, annualFee: 29430 },
+        { id: 12, name: "The Kings School", address: "87-129 PENNANT HILLS ROAD- NORTH PARRAMATTA- NSW 2151- AUSTRALIA", state: "NSW", upfrontFee: 3850, annualFee: 25345 },
+        { id: 13, name: "ST Ignatius' College", address: "1 Tambourine Bay Road- NSW Lane Cove", state: "NSW", upfrontFee: 4530, annualFee: 23880 },
+        { id: 14, name: "St Joseph's College", address: "Mark Street- Hunters Hill- NSW 2110", state: "NSW", upfrontFee: 3300, annualFee: 29040 },
+        { id: 15, name: "Loreto Normanhurst", address: "91-93 Pennant Hills Road- Normanhurst- Sydney- NSW 2076", state: "NSW", upfrontFee: 3330, annualFee: 19179 },
+        { id: 16, name: "Loreto Kirribilli", address: "85 Carabella Street- Kirribilli NSW 2061- Australia", state: "NSW", upfrontFee: 3220, annualFee: 15645 },
+        { id: 17, name: "Queenswood School for Girls", address: "47 Mandolong Rd- Mosman NSW 2088", state: "NSW", upfrontFee: 4220, annualFee: 25171 },
+        { id: 18, name: "Roseville College", address: "27 Bancroft Avenue Roseville NSW 2069 Australia", state: "NSW", upfrontFee: 1220, annualFee: 20735 },
+        { id: 19, name: "Parramatta Marist High School", address: "2 DARCY ROAD- WESTMEAD NSW AUSTRALIA 2145", state: "NSW", upfrontFee: 1220, annualFee: 4473 },
+        { id: 20, name: "Barker College", address: "91 Pacific Highway Hornsby NSW 2077", state: "NSW", upfrontFee: 3800, annualFee: 25140 },
+        { id: 21, name: "Ruyton Girls' School, Kew.", address: "12 Selbourne Rd- Kew VIC 3101", state: "VIC", upfrontFee: 1610, annualFee: 22360 },
+        { id: 22, name: "Shelford Girls' Grammar, Caulfield.", address: "3 Hood Cres- Caulfield VIC 3161", state: "VIC", upfrontFee: 1100, annualFee: 25518 },
+        { id: 23, name: "Fintona Girls' School, Balwyn.", address: "79 Balwyn Rd- Balwyn VIC 3103", state: "VIC", upfrontFee: 1150, annualFee: 20399 },
+        { id: 24, name: "Lauriston Girls' School, Aramadale.", address: "38 Huntingtower Rd- Armadale VIC 3143", state: "VIC", upfrontFee: 1100, annualFee: 27160 },
+        { id: 25, name: "Loreto Mandeville Hall, Toorak.", address: "10 Mandeville Cres- Toorak VIC 3142", state: "VIC", upfrontFee: 1900, annualFee: 22398 },
+        { id: 26, name: "Prebyterian Ladies' College, Burwood.", address: "141 Burwood Hwy- Burwood VIC 3125", state: "VIC", upfrontFee: 1300, annualFee: 23479 },
+        { id: 27, name: "Camberwell Girls' Grammar School, Canterbury.", address: " 2 Torrington St- Canterbury VIC 3126", state: "VIC", upfrontFee: 1100, annualFee: 19051 },
+        { id: 28, name: "Melbourne Girls Grammar School, South Yarra.", address: "86 Anderson St- South Yarra VIC 3141", state: "VIC", upfrontFee: 1650, annualFee: 27746 },
+        { id: 29, name: "Mentone Girls' Grammar School, Mentone.", address: "11 Mentone Parade- Mentone VIC 3194", state: "VIC", upfrontFee: 1100, annualFee: 22354 },
+        { id: 30, name: "Korowa Anglican Girls' School Glen Iris.", address: "10-16 Ranfurlie Cres- Glen Iris VIC 3146", state: "VIC", upfrontFee: 900, annualFee: 27138 },
+        { id: 31, name: "Camberwell Grammar School, Canterbury.", address: "55 Mont Albert Rd- Canterbury VIC 3126", state: "VIC", upfrontFee: 1330, annualFee: 25600 },
+        { id: 32, name: "Scotch College, Hawthorn. ", address: "1 Morrison St- Hawthorn VIC 3122", state: "VIC", upfrontFee: 1600, annualFee: 29912 },
+        { id: 33, name: "Melbourne Grammar School, South Yarra.", address: "355 St Kilda Rd- Melbourne VIC 3004", state: "VIC", upfrontFee: 3900, annualFee: 24885 },
+        { id: 34, name: "Caulfield Grammar School, St Kilda", address: "217 Glen Eira Road- East St. Kilda- Melbourne- Victoria 3183", state: "VIC", upfrontFee: 2100, annualFee: 23789 },
+        { id: 35, name: "Haileybury College, Keysborough.", address: "855 Springvale Road Keysborough VIC 3173", state: "VIC", upfrontFee: 2500, annualFee: 24702 },
+        { id: 36, name: "Xavier College, Kew.", address: "135 Barkers Road- Melbourne- Kew- Victoria", state: "VIC", upfrontFee: 945, annualFee: 21957 },
+        { id: 37, name: "Trinity Grammar School, Kew.", address: "40 Charles St- Kew- Melbourne Victoria 3101", state: "VIC", upfrontFee: 2360, annualFee: 26349 },
+        { id: 38, name: "St Kevin's College, Toorak.", address: "31 Moonga Rd- Toorak VIC 3142", state: "VIC", upfrontFee: 3000, annualFee: 16290 },
+        { id: 39, name: "Brighton Grammar School, Brighton", address: "90 Outer Cres- Brighton VIC 3186", state: "VIC", upfrontFee: 2200, annualFee: 25247 },
+        { id: 40, name: "Firbank Grammar School, Brighton", address: "51 Outer Crescent- Brighton VIC 3186", state: "VIC", upfrontFee: 1100, annualFee: 24769 },
+        { id: 41, name: "St Leonard's College, Brighton East.", address: "163 South Road- Brighton East VIC 3187", state: "VIC", upfrontFee: 1800, annualFee: 23415 },
+        { id: 42, name: "Brisbane Grammar School", address: "24 Gregory Terrace- Spring Hill QLD 4000", state: "QLD", upfrontFee: 2550, annualFee: 23000 },
+        { id: 43, name: "Brisbane Girls Grammer School", address: "70 Gregory Terrace- Spring Hill QLD 4000", state: "QLD", upfrontFee: 2040, annualFee: 22520 },
+        { id: 44, name: "Ormiston College", address: "97 Dundas St W- Ormiston QLD 4160", state: "QLD", upfrontFee: 795, annualFee: 2527 },
+        { id: 45, name: "Somerville House", address: "17 Graham St- South Brisbane QLD 4101", state: "QLD", upfrontFee: 1530, annualFee: 18292 },
+        { id: 46, name: "Brisbane Boys College", address: "Kensington Terrace- Toowong QLD 4066", state: "QLD", upfrontFee: 1960, annualFee: 18434 },
+        { id: 47, name: "St Aidan's Anglican Girls School", address: "11 Ruthven St- Corinda QLD 4075", state: "QLD", upfrontFee: 1300, annualFee: 17272 },
+        { id: 48, name: "Anglican Church Grammar School", address: "Oaklands Parade- East Brisbane QLD 4169", state: "QLD", upfrontFee: 1930, annualFee: 18813 },
+        { id: 49, name: "Clayfield College", address: "23 Gregory Street- Clayfield QLD 4011", state: "QLD", upfrontFee: 1135, annualFee: 17031 },
+        { id: 50, name: "Cannon Hill Anglican College", address: "Junction Rd- Cannon Hill QLD 4170", state: "QLD", upfrontFee: 1250, annualFee: 10386 },
+        { id: 51, name: "Sheldon College", address: "Taylor Road- Sheldon- QLD 4157", state: "QLD", upfrontFee: 660, annualFee: 11479 },
+        { id: 52, name: "St Margarets Anglican Girls School", address: "11 Petrie St- Ascot QLD 4007", state: "QLD", upfrontFee: 1220, annualFee: 17762 },
+        { id: 53, name: "Hillbrook Anglican School", address: "45 Hurdcotte Street Enoggera QLD 4051", state: "QLD", upfrontFee: 1610, annualFee: 11092 },
+        { id: 54, name: "st peters lutheran college", address: "66 Harts Rd- Indooroopilly QLD 4068", state: "QLD", upfrontFee: 1100, annualFee: 15806 },
+        { id: 55, name: "Moreton Bay College", address: "450 Wondall Rd- Manly West QLD 4179", state: "QLD", upfrontFee: 1100, annualFee: 12532 },
+        { id: 56, name: "St Rita's College, Clayfield", address: "41 Enderley Rd- Clayfield QLD 4011", state: "QLD", upfrontFee: 1100, annualFee: 7120 },
+        { id: 57, name: "The Southport School", address: "2 Winchester St- Southport QLD 4215", state: "QLD", upfrontFee: 1500, annualFee: 15030 },
+        { id: 58, name: "St Joseph's College Gregory Terrace", address: "Gregory Terrace- Brisbane- QLD 4000- Australia", state: "QLD", upfrontFee: 2420, annualFee: 8215 },
+        { id: 59, name: "The Lakes College", address: "2 College St- North Lakes QLD 4509", state: "QLD", upfrontFee: 500, annualFee: 8415 },
+        { id: 60, name: "Redeemer Lutheran College", address: "745 Rochedale Rd- Rochedale QLD 4123", state: "QLD", upfrontFee: 700, annualFee: 8979 },
+        { id: 61, name: "Moreton Bay Boys College", address: "302 Manly Rd- Manly West QLD 4179", state: "QLD", upfrontFee: 1100, annualFee: 11023 },
+        { id: 62, name: "Wilderness School, Medindie.", address: "30 Hawkers Rd- Medindie SA 5081", state: "SA", upfrontFee: 1050, annualFee: 18888 },
+        { id: 63, name: "St Peter's College ", address: "57 Hackney Rd- Hackney SA 5069", state: "SA", upfrontFee: 2600, annualFee: 20520 },
+        { id: 64, name: "St Peter's Girls Collegiate Girls' School", address: "Stonyfell Rd- Stonyfell SA 5066", state: "SA", upfrontFee: 970, annualFee: 17285 },
+        { id: 65, name: "Walford Anglican School for Girls", address: "316 Unley Rd- Hyde Park SA 5061", state: "SA", upfrontFee: 1095, annualFee: 19301 },
+        { id: 66, name: "Prince Alfred College", address: "23 Dequetteville Terrace- Kent Town SA 5067", state: "SA", upfrontFee: 1100, annualFee: 17319 },
+        { id: 67, name: "Seymour College", address: "546 Portrush Rd- Glen Osmond SA 5064", state: "SA", upfrontFee: 1050, annualFee: 19679 },
+        { id: 68, name: "Pulteney Grammar School", address: "190 South Terrace ADELAIDE SA 5000", state: "SA", upfrontFee: 850, annualFee: 18946 },
+        { id: 69, name: "St Aloysius College, Adelaide", address: "53 Wakefield St- Adelaide SA 5000", state: "SA", upfrontFee: 600, annualFee: 7636 },
+        { id: 70, name: "St Dominics Priory College", address: "119/139 Molesworth St- North Adelaide SA 5006", state: "SA", upfrontFee: 0, annualFee: 6674 },
+        { id: 71, name: "St John's Grammar School", address: "29 Gloucester Ave- Belair SA 5052", state: "SA", upfrontFee: 688, annualFee: 11811 },
+        { id: 72, name: "Woodcroft College", address: "143-173 Bains Rd- Morphett Vale SA 5162", state: "SA", upfrontFee: 755, annualFee: 6297 },
+        { id: 73, name: "St Ignatious College, Adelaide", address: "2 Manresa Ct- Athelstone SA 5076", state: "SA", upfrontFee: 975, annualFee: 14013 },
+        { id: 74, name: "Pedare Christian College", address: "2-30 Surrey Farm Dr- Golden Grove SA 5125", state: "SA", upfrontFee: 150, annualFee: 7502 },
+        { id: 75, name: "Westminster School", address: "1-27 Alison Avenue- Marion- South Australia ", state: "SA", upfrontFee: 800, annualFee: 17932 },
+        { id: 76, name: "Kings Baptist Grammar School", address: "no address", state: "SA", upfrontFee: 175, annualFee: 0 },
+        { id: 77, name: "Scotch College Adelaide", address: "Carruth Road- Torrens Park South Australia 5062", state: "SA", upfrontFee: 1150, annualFee: 19668 },
+        { id: 78, name: "Concordia College", address: "45 Cheltenham St- Highgate SA 5063", state: "SA", upfrontFee: 75, annualFee: 8820 },
+        { id: 79, name: "Pembroke School", address: "342 The Parade- Kensington Park SA 5068", state: "SA", upfrontFee: 860, annualFee: 19690 },
+        { id: 80, name: "Loreto College, Marryatville", address: "316 Portrush Rd- Marryatville SA 5068", state: "SA", upfrontFee: 745, annualFee: 14664 },
+        { id: 81, name: "Trinity College, Gawler", address: "Alexander Ave- Evanston South SA 5116", state: "SA", upfrontFee: 540, annualFee: 4622 },
+        { id: 82, name: "Hale School", address: "160 Hale Rd- Wembley Downs WA 6019", state: "WA", upfrontFee: 8250, annualFee: 21450 },
+        { id: 83, name: "Christ Church Grammar School", address: "Queenslea Dr- Claremont WA 6010", state: "WA", upfrontFee: 6700, annualFee: 23088 },
+        { id: 84, name: "All Saints College", address: "Ewing Ave.- Bull Creek WA 6149", state: "WA", upfrontFee: 5423, annualFee: 16534 },
+        { id: 85, name: "St Mary's Anglican Girls School", address: "75 Elliott Rd- Karrinyup WA 6018", state: "WA", upfrontFee: 5545, annualFee: 18394 },
+        { id: 86, name: "St Hilda's Anglican Girls School", address: "26 Bay View Terrace- Mosman Park WA 6012", state: "WA", upfrontFee: 4959, annualFee: 20284 },
+        { id: 87, name: "Presbyterian Ladies' College, Perth", address: "14 McNeil St- Peppermint Grove WA 6011", state: "WA", upfrontFee: 4950, annualFee: 20982 },
+        { id: 88, name: "Perth College", address: "31 Lawley Crescent- Mount Lawley WA 6050", state: "WA", upfrontFee: 5742, annualFee: 18701 },
+        { id: 89, name: "Guildford Grammar School ", address: "11 Terrace Rd- Guildford WA 6055", state: "WA", upfrontFee: 2925, annualFee: 18073 },
+        { id: 90, name: "Penrhos College", address: "6 Morrison Street- Como WA 6152", state: "WA", upfrontFee: 5489, annualFee: 19442 },
+        { id: 91, name: "Scotch College, Perth", address: "76 Shenton Rd- Swanbourne WA 6010", state: "WA", upfrontFee: 6687, annualFee: 23499 },
+        { id: 92, name: "John XXIII College, Perth", address: "Mooro Dr- Mount Claremont WA 6010", state: "WA", upfrontFee: 2110, annualFee: 7710 },
+        { id: 93, name: "Santa Maria College", address: "18 Stoneham Rd- Attadale WA 6156", state: "WA", upfrontFee: 1020, annualFee: 10521 },
+        { id: 94, name: "Wesley College, Perth", address: "40 Coode St- South Perth WA 6151", state: "WA", upfrontFee: 7276, annualFee: 20001 },
+        { id: 95, name: "Methodist Ladies College, Perth", address: "356 Stirling Hwy- Claremont WA 6010", state: "WA", upfrontFee: 5320, annualFee: 21203 },
+        { id: 96, name: "St Marks Anglican Community School", address: "St Marks Dr- Hillarys WA 6025", state: "WA", upfrontFee: 2030, annualFee: 7251 },
+        { id: 97, name: "Aquinas College, Perth", address: "58 Mount Henry Rd- Salter Point WA 6152", state: "WA", upfrontFee: 2832, annualFee: 14013 },
+        { id: 98, name: "Trinity College, Perth", address: "2 Trinity Ave- East Perth WA 6004", state: "WA", upfrontFee: 2243, annualFee: 13602 },
+        { id: 99, name: "Sacred Heart College", address: "Hocking Parade- Sorrento WA 6020", state: "WA", upfrontFee: 805, annualFee: 8220 },
+        { id: 100, name: "Newman College Perth", address: "216 Empire Ave- Churchlands WA 6018", state: "WA", upfrontFee: 1110, annualFee: 5715 },
+        { id: 101, name: "Kingsway Christian College", address: "157 Kingsway- Darch WA 6065", state: "WA", upfrontFee: 1320, annualFee: 7288 },
+        { id: 102, name: "Canberra Grammar School", address: "40 Monaro Cres- Red Hill ACT 2603", state: "ACT", upfrontFee: 2975, annualFee: 18753 },
+        { id: 103, name: "Radford College", address: "1 College St- Bruce ACT 2617", state: "ACT", upfrontFee: 950, annualFee: 12307 },
+        { id: 104, name: "Canberra Girls Grammar School", address: "Melbourne Ave- Deakin ACT 2600", state: "ACT", upfrontFee: 150, annualFee: 16942 },
+        { id: 105, name: "Burgmann Anglican School", address: "Gungahlin Dr & The Valley Avenue- Gungahlin ACT 291", state: "ACT", upfrontFee: 875, annualFee: 8413 },
+        { id: 106, name: "Brindabella Christian College", address: "136 Brigalow St- Lyneham ACT 2602", state: "ACT", upfrontFee: 700, annualFee: 5874 },
+        { id: 107, name: "Marist College", address: "27 Marr St- Pearce ACT 2607", state: "ACT", upfrontFee: 400, annualFee: 8644 },
+        { id: 108, name: "Orana Steiner School", address: "Unwin Place- ACT 2611", state: "ACT", upfrontFee: 550, annualFee: 6467 },
+        { id: 109, name: "Merici College", address: "Wise St- Braddon ACT 2612", state: "ACT", upfrontFee: 50, annualFee: 6277 },
+        { id: 110, name: "Emmaus Christian School", address: "73 Davenport St- Dickson ACT 2602", state: "ACT", upfrontFee: 300, annualFee: 6292 },
+        { id: 111, name: "The Friends School, Hobart", address: "23 Commercial Rd- North Hobart TAS 7000", state: "TAS", upfrontFee: 1200, annualFee: 14254 },
+        { id: 112, name: "Fahan School", address: "Fisher Avenue- Lower Sandy Bay TAS 7005", state: "TAS", upfrontFee: 2100, annualFee: 12412 },
+        { id: 113, name: "St Michael's Collegiate School", address: "218 Macquarie St- Hobart TAS 7000", state: "TAS", upfrontFee: 1110, annualFee: 12908 },
+        { id: 114, name: "The Hutchins School", address: "71 Nelson Rd- Sandy Bay TAS 7005", state: "TAS", upfrontFee: 1610, annualFee: 13400 },
+        { id: 115, name: "St Mary's College, Hobart", address: "164 Harrington St- Hobart TAS 7000", state: "TAS", upfrontFee: 0, annualFee: 3958 },
+        { id: 116, name: "Launceston Chruch Grammar School", address: "36 Button St- Mowbray TAS 7248", state: "TAS", upfrontFee: 100, annualFee: 12900 },
+        { id: 117, name: "Launceston Christian School", address: " 452A W Tamar Hwy- Riverside TAS 7250", state: "TAS", upfrontFee: 1300, annualFee: 4802 }
+    ];
+
+    $scope.privateSchoolObjects_NSW = [{ id: 0, name: "Sydney Grammar School Darlinghurst", address: "College St- Darlinghurst NSW 2010", state: "NSW", upfrontFee: 5489, annualFee: 32644 },
+        { id: 1, name: "PLC Sydney", address: "Boundary St- Croydon NSW 2132", state: "NSW", upfrontFee: 3415, annualFee: 24411 },
+        { id: 2, name: "SCEGGS Darlinghurst", address: "215 Forbes St- Darlinghurst NSW 2010", state: "NSW", upfrontFee: 4950, annualFee: 28348 },
+        { id: 3, name: "The Scotts College Sydney", address: "Victoria Rd- Bellevue Hill NSW 2023", state: "NSW", upfrontFee: 5500, annualFee: 33925 },
+        { id: 4, name: "Pymble Ladies College", address: "Avon Rd- Pymble NSW 2073", state: "NSW", upfrontFee: 3430, annualFee: 24002 },
+        { id: 5, name: "Ascham School", address: "188 New South Head Rd- Edgecliff- NSW 2027", state: "NSW", upfrontFee: 6300, annualFee: 32000 },
+        { id: 6, name: "Abbotsleigh", address: "1666 Pacific Highway- Wahroonga- NSW 2076", state: "NSW", upfrontFee: 1970, annualFee: 28640 },
+        { id: 7, name: "St Aloysius College", address: "47 Upper Pitt Street- Milsons Point 2061 NSW Australia", state: "NSW", upfrontFee: 2650, annualFee: 16278 },
+        { id: 8, name: "Meridan School", address: "10-12 Redmyre Road- Strathfield NSW 2135", state: "NSW", upfrontFee: 1825, annualFee: 28340 },
+        { id: 9, name: "Sydney Church of England Grammar School (SHORE)", address: "Blue Street- North Sydney- NSW- 2060- Australia", state: "NSW", upfrontFee: 2400, annualFee: 24126 },
+        { id: 10, name: "Cranbrook School", address: "5 Victoria Road- Bellevue Hill NSW 2023 Australia", state: "NSW", upfrontFee: 7300, annualFee: 28325 },
+        { id: 11, name: "Knox Grammar School", address: "7 Woodville Ave- Wahroonga 2076 NSW Australia", state: "NSW", upfrontFee: 3000, annualFee: 29430 },
+        { id: 12, name: "The Kings School", address: "87-129 PENNANT HILLS ROAD- NORTH PARRAMATTA- NSW 2151- AUSTRALIA", state: "NSW", upfrontFee: 3850, annualFee: 25345 },
+        { id: 13, name: "ST Ignatius' College", address: "1 Tambourine Bay Road- NSW Lane Cove", state: "NSW", upfrontFee: 4530, annualFee: 23880 },
+        { id: 14, name: "St Joseph's College", address: "Mark Street- Hunters Hill- NSW 2110", state: "NSW", upfrontFee: 3300, annualFee: 29040 },
+        { id: 15, name: "Loreto Normanhurst", address: "91-93 Pennant Hills Road- Normanhurst- Sydney- NSW 2076", state: "NSW", upfrontFee: 3330, annualFee: 19179 },
+        { id: 16, name: "Loreto Kirribilli", address: "85 Carabella Street- Kirribilli NSW 2061- Australia", state: "NSW", upfrontFee: 3220, annualFee: 15645 },
+        { id: 17, name: "Queenswood School for Girls", address: "47 Mandolong Rd- Mosman NSW 2088", state: "NSW", upfrontFee: 4220, annualFee: 25171 },
+        { id: 18, name: "Roseville College", address: "27 Bancroft Avenue Roseville NSW 2069 Australia", state: "NSW", upfrontFee: 1220, annualFee: 20735 },
+        { id: 19, name: "Parramatta Marist High School", address: "2 DARCY ROAD- WESTMEAD NSW AUSTRALIA 2145", state: "NSW", upfrontFee: 1220, annualFee: 4473 },
+        { id: 20, name: "Barker College", address: "91 Pacific Highway Hornsby NSW 2077", state: "NSW", upfrontFee: 3800, annualFee: 25140 }
+    ];
+    $scope.privateSchoolObjects_VIC = [{ id: 21, name: "Ruyton Girls' School, Kew.", address: "12 Selbourne Rd- Kew VIC 3101", state: "VIC", upfrontFee: 1610, annualFee: 22360 },
+        { id: 22, name: "Shelford Girls' Grammar, Caulfield.", address: "3 Hood Cres- Caulfield VIC 3161", state: "VIC", upfrontFee: 1100, annualFee: 25518 },
+        { id: 23, name: "Fintona Girls' School, Balwyn.", address: "79 Balwyn Rd- Balwyn VIC 3103", state: "VIC", upfrontFee: 1150, annualFee: 20399 },
+        { id: 24, name: "Lauriston Girls' School, Aramadale.", address: "38 Huntingtower Rd- Armadale VIC 3143", state: "VIC", upfrontFee: 1100, annualFee: 27160 },
+        { id: 25, name: "Loreto Mandeville Hall, Toorak.", address: "10 Mandeville Cres- Toorak VIC 3142", state: "VIC", upfrontFee: 1900, annualFee: 22398 },
+        { id: 26, name: "Prebyterian Ladies' College, Burwood.", address: "141 Burwood Hwy- Burwood VIC 3125", state: "VIC", upfrontFee: 1300, annualFee: 23479 },
+        { id: 27, name: "Camberwell Girls' Grammar School, Canterbury.", address: " 2 Torrington St- Canterbury VIC 3126", state: "VIC", upfrontFee: 1100, annualFee: 19051 },
+        { id: 28, name: "Melbourne Girls Grammar School, South Yarra.", address: "86 Anderson St- South Yarra VIC 3141", state: "VIC", upfrontFee: 1650, annualFee: 27746 },
+        { id: 29, name: "Mentone Girls' Grammar School, Mentone.", address: "11 Mentone Parade- Mentone VIC 3194", state: "VIC", upfrontFee: 1100, annualFee: 22354 },
+        { id: 30, name: "Korowa Anglican Girls' School Glen Iris.", address: "10-16 Ranfurlie Cres- Glen Iris VIC 3146", state: "VIC", upfrontFee: 900, annualFee: 27138 },
+        { id: 31, name: "Camberwell Grammar School, Canterbury.", address: "55 Mont Albert Rd- Canterbury VIC 3126", state: "VIC", upfrontFee: 1330, annualFee: 25600 },
+        { id: 32, name: "Scotch College, Hawthorn. ", address: "1 Morrison St- Hawthorn VIC 3122", state: "VIC", upfrontFee: 1600, annualFee: 29912 },
+        { id: 33, name: "Melbourne Grammar School, South Yarra.", address: "355 St Kilda Rd- Melbourne VIC 3004", state: "VIC", upfrontFee: 3900, annualFee: 24885 },
+        { id: 34, name: "Caulfield Grammar School, St Kilda", address: "217 Glen Eira Road- East St. Kilda- Melbourne- Victoria 3183", state: "VIC", upfrontFee: 2100, annualFee: 23789 },
+        { id: 35, name: "Haileybury College, Keysborough.", address: "855 Springvale Road Keysborough VIC 3173", state: "VIC", upfrontFee: 2500, annualFee: 24702 },
+        { id: 36, name: "Xavier College, Kew.", address: "135 Barkers Road- Melbourne- Kew- Victoria", state: "VIC", upfrontFee: 945, annualFee: 21957 },
+        { id: 37, name: "Trinity Grammar School, Kew.", address: "40 Charles St- Kew- Melbourne Victoria 3101", state: "VIC", upfrontFee: 2360, annualFee: 26349 },
+        { id: 38, name: "St Kevin's College, Toorak.", address: "31 Moonga Rd- Toorak VIC 3142", state: "VIC", upfrontFee: 3000, annualFee: 16290 },
+        { id: 39, name: "Brighton Grammar School, Brighton", address: "90 Outer Cres- Brighton VIC 3186", state: "VIC", upfrontFee: 2200, annualFee: 25247 },
+        { id: 40, name: "Firbank Grammar School, Brighton", address: "51 Outer Crescent- Brighton VIC 3186", state: "VIC", upfrontFee: 1100, annualFee: 24769 },
+        { id: 41, name: "St Leonard's College, Brighton East.", address: "163 South Road- Brighton East VIC 3187", state: "VIC", upfrontFee: 1800, annualFee: 23415 }
+    ];
+    $scope.privateSchoolObjects_QLD = [{ id: 42, name: "Brisbane Grammar School", address: "24 Gregory Terrace- Spring Hill QLD 4000", state: "QLD", upfrontFee: 2550, annualFee: 23000 },
+        { id: 43, name: "Brisbane Girls Grammer School", address: "70 Gregory Terrace- Spring Hill QLD 4000", state: "QLD", upfrontFee: 2040, annualFee: 22520 },
+        { id: 44, name: "Ormiston College", address: "97 Dundas St W- Ormiston QLD 4160", state: "QLD", upfrontFee: 795, annualFee: 2527 },
+        { id: 45, name: "Somerville House", address: "17 Graham St- South Brisbane QLD 4101", state: "QLD", upfrontFee: 1530, annualFee: 18292 },
+        { id: 46, name: "Brisbane Boys College", address: "Kensington Terrace- Toowong QLD 4066", state: "QLD", upfrontFee: 1960, annualFee: 18434 },
+        { id: 47, name: "St Aidan's Anglican Girls School", address: "11 Ruthven St- Corinda QLD 4075", state: "QLD", upfrontFee: 1300, annualFee: 17272 },
+        { id: 48, name: "Anglican Church Grammar School", address: "Oaklands Parade- East Brisbane QLD 4169", state: "QLD", upfrontFee: 1930, annualFee: 18813 },
+        { id: 49, name: "Clayfield College", address: "23 Gregory Street- Clayfield QLD 4011", state: "QLD", upfrontFee: 1135, annualFee: 17031 },
+        { id: 50, name: "Cannon Hill Anglican College", address: "Junction Rd- Cannon Hill QLD 4170", state: "QLD", upfrontFee: 1250, annualFee: 10386 },
+        { id: 51, name: "Sheldon College", address: "Taylor Road- Sheldon- QLD 4157", state: "QLD", upfrontFee: 660, annualFee: 11479 },
+        { id: 52, name: "St Margarets Anglican Girls School", address: "11 Petrie St- Ascot QLD 4007", state: "QLD", upfrontFee: 1220, annualFee: 17762 },
+        { id: 53, name: "Hillbrook Anglican School", address: "45 Hurdcotte Street Enoggera QLD 4051", state: "QLD", upfrontFee: 1610, annualFee: 11092 },
+        { id: 54, name: "st peters lutheran college", address: "66 Harts Rd- Indooroopilly QLD 4068", state: "QLD", upfrontFee: 1100, annualFee: 15806 },
+        { id: 55, name: "Moreton Bay College", address: "450 Wondall Rd- Manly West QLD 4179", state: "QLD", upfrontFee: 1100, annualFee: 12532 },
+        { id: 56, name: "St Rita's College, Clayfield", address: "41 Enderley Rd- Clayfield QLD 4011", state: "QLD", upfrontFee: 1100, annualFee: 7120 },
+        { id: 57, name: "The Southport School", address: "2 Winchester St- Southport QLD 4215", state: "QLD", upfrontFee: 1500, annualFee: 15030 },
+        { id: 58, name: "St Joseph's College Gregory Terrace", address: "Gregory Terrace- Brisbane- QLD 4000- Australia", state: "QLD", upfrontFee: 2420, annualFee: 8215 },
+        { id: 59, name: "The Lakes College", address: "2 College St- North Lakes QLD 4509", state: "QLD", upfrontFee: 500, annualFee: 8415 },
+        { id: 60, name: "Redeemer Lutheran College", address: "745 Rochedale Rd- Rochedale QLD 4123", state: "QLD", upfrontFee: 700, annualFee: 8979 },
+        { id: 61, name: "Moreton Bay Boys College", address: "302 Manly Rd- Manly West QLD 4179", state: "QLD", upfrontFee: 1100, annualFee: 11023 }
+    ];
+    $scope.privateSchoolObjects_SA = [{ id: 62, name: "Wilderness School, Medindie.", address: "30 Hawkers Rd- Medindie SA 5081", state: "SA", upfrontFee: 1050, annualFee: 18888 },
+        { id: 63, name: "St Peter's College ", address: "57 Hackney Rd- Hackney SA 5069", state: "SA", upfrontFee: 2600, annualFee: 20520 },
+        { id: 64, name: "St Peter's Girls Collegiate Girls' School", address: "Stonyfell Rd- Stonyfell SA 5066", state: "SA", upfrontFee: 970, annualFee: 17285 },
+        { id: 65, name: "Walford Anglican School for Girls", address: "316 Unley Rd- Hyde Park SA 5061", state: "SA", upfrontFee: 1095, annualFee: 19301 },
+        { id: 66, name: "Prince Alfred College", address: "23 Dequetteville Terrace- Kent Town SA 5067", state: "SA", upfrontFee: 1100, annualFee: 17319 },
+        { id: 67, name: "Seymour College", address: "546 Portrush Rd- Glen Osmond SA 5064", state: "SA", upfrontFee: 1050, annualFee: 19679 },
+        { id: 68, name: "Pulteney Grammar School", address: "190 South Terrace ADELAIDE SA 5000", state: "SA", upfrontFee: 850, annualFee: 18946 },
+        { id: 69, name: "St Aloysius College, Adelaide", address: "53 Wakefield St- Adelaide SA 5000", state: "SA", upfrontFee: 600, annualFee: 7636 },
+        { id: 70, name: "St Dominics Priory College", address: "119/139 Molesworth St- North Adelaide SA 5006", state: "SA", upfrontFee: 0, annualFee: 6674 },
+        { id: 71, name: "St John's Grammar School", address: "29 Gloucester Ave- Belair SA 5052", state: "SA", upfrontFee: 688, annualFee: 11811 },
+        { id: 72, name: "Woodcroft College", address: "143-173 Bains Rd- Morphett Vale SA 5162", state: "SA", upfrontFee: 755, annualFee: 6297 },
+        { id: 73, name: "St Ignatious College, Adelaide", address: "2 Manresa Ct- Athelstone SA 5076", state: "SA", upfrontFee: 975, annualFee: 14013 },
+        { id: 74, name: "Pedare Christian College", address: "2-30 Surrey Farm Dr- Golden Grove SA 5125", state: "SA", upfrontFee: 150, annualFee: 7502 },
+        { id: 75, name: "Westminster School", address: "1-27 Alison Avenue- Marion- South Australia ", state: "SA", upfrontFee: 800, annualFee: 17932 },
+        { id: 76, name: "Kings Baptist Grammar School", address: "no address", state: "SA", upfrontFee: 175, annualFee: 0 },
+        { id: 77, name: "Scotch College Adelaide", address: "Carruth Road- Torrens Park South Australia 5062", state: "SA", upfrontFee: 1150, annualFee: 19668 },
+        { id: 78, name: "Concordia College", address: "45 Cheltenham St- Highgate SA 5063", state: "SA", upfrontFee: 75, annualFee: 8820 },
+        { id: 79, name: "Pembroke School", address: "342 The Parade- Kensington Park SA 5068", state: "SA", upfrontFee: 860, annualFee: 19690 },
+        { id: 80, name: "Loreto College, Marryatville", address: "316 Portrush Rd- Marryatville SA 5068", state: "SA", upfrontFee: 745, annualFee: 14664 },
+        { id: 81, name: "Trinity College, Gawler", address: "Alexander Ave- Evanston South SA 5116", state: "SA", upfrontFee: 540, annualFee: 4622 }
+    ];
+    $scope.privateSchoolObjects_WA = [{ id: 82, name: "Hale School", address: "160 Hale Rd- Wembley Downs WA 6019", state: "WA", upfrontFee: 8250, annualFee: 21450 },
+        { id: 83, name: "Christ Church Grammar School", address: "Queenslea Dr- Claremont WA 6010", state: "WA", upfrontFee: 6700, annualFee: 23088 },
+        { id: 84, name: "All Saints College", address: "Ewing Ave.- Bull Creek WA 6149", state: "WA", upfrontFee: 5423, annualFee: 16534 },
+        { id: 85, name: "St Mary's Anglican Girls School", address: "75 Elliott Rd- Karrinyup WA 6018", state: "WA", upfrontFee: 5545, annualFee: 18394 },
+        { id: 86, name: "St Hilda's Anglican Girls School", address: "26 Bay View Terrace- Mosman Park WA 6012", state: "WA", upfrontFee: 4959, annualFee: 20284 },
+        { id: 87, name: "Presbyterian Ladies' College, Perth", address: "14 McNeil St- Peppermint Grove WA 6011", state: "WA", upfrontFee: 4950, annualFee: 20982 },
+        { id: 88, name: "Perth College", address: "31 Lawley Crescent- Mount Lawley WA 6050", state: "WA", upfrontFee: 5742, annualFee: 18701 },
+        { id: 89, name: "Guildford Grammar School ", address: "11 Terrace Rd- Guildford WA 6055", state: "WA", upfrontFee: 2925, annualFee: 18073 },
+        { id: 90, name: "Penrhos College", address: "6 Morrison Street- Como WA 6152", state: "WA", upfrontFee: 5489, annualFee: 19442 },
+        { id: 91, name: "Scotch College, Perth", address: "76 Shenton Rd- Swanbourne WA 6010", state: "WA", upfrontFee: 6687, annualFee: 23499 },
+        { id: 92, name: "John XXIII College, Perth", address: "Mooro Dr- Mount Claremont WA 6010", state: "WA", upfrontFee: 2110, annualFee: 7710 },
+        { id: 93, name: "Santa Maria College", address: "18 Stoneham Rd- Attadale WA 6156", state: "WA", upfrontFee: 1020, annualFee: 10521 },
+        { id: 94, name: "Wesley College, Perth", address: "40 Coode St- South Perth WA 6151", state: "WA", upfrontFee: 7276, annualFee: 20001 },
+        { id: 95, name: "Methodist Ladies College, Perth", address: "356 Stirling Hwy- Claremont WA 6010", state: "WA", upfrontFee: 5320, annualFee: 21203 },
+        { id: 96, name: "St Marks Anglican Community School", address: "St Marks Dr- Hillarys WA 6025", state: "WA", upfrontFee: 2030, annualFee: 7251 },
+        { id: 97, name: "Aquinas College, Perth", address: "58 Mount Henry Rd- Salter Point WA 6152", state: "WA", upfrontFee: 2832, annualFee: 14013 },
+        { id: 98, name: "Trinity College, Perth", address: "2 Trinity Ave- East Perth WA 6004", state: "WA", upfrontFee: 2243, annualFee: 13602 },
+        { id: 99, name: "Sacred Heart College", address: "Hocking Parade- Sorrento WA 6020", state: "WA", upfrontFee: 805, annualFee: 8220 },
+        { id: 100, name: "Newman College Perth", address: "216 Empire Ave- Churchlands WA 6018", state: "WA", upfrontFee: 1110, annualFee: 5715 },
+        { id: 101, name: "Kingsway Christian College", address: "157 Kingsway- Darch WA 6065", state: "WA", upfrontFee: 1320, annualFee: 7288 }
+    ];
+    $scope.privateSchoolObjects_ACT = [{ id: 102, name: "Canberra Grammar School", address: "40 Monaro Cres- Red Hill ACT 2603", state: "ACT", upfrontFee: 2975, annualFee: 18753 },
+        { id: 103, name: "Radford College", address: "1 College St- Bruce ACT 2617", state: "ACT", upfrontFee: 950, annualFee: 12307 },
+        { id: 104, name: "Canberra Girls Grammar School", address: "Melbourne Ave- Deakin ACT 2600", state: "ACT", upfrontFee: 150, annualFee: 16942 },
+        { id: 105, name: "Burgmann Anglican School", address: "Gungahlin Dr & The Valley Avenue- Gungahlin ACT 291", state: "ACT", upfrontFee: 875, annualFee: 8413 },
+        { id: 106, name: "Brindabella Christian College", address: "136 Brigalow St- Lyneham ACT 2602", state: "ACT", upfrontFee: 700, annualFee: 5874 },
+        { id: 107, name: "Marist College", address: "27 Marr St- Pearce ACT 2607", state: "ACT", upfrontFee: 400, annualFee: 8644 },
+        { id: 108, name: "Orana Steiner School", address: "Unwin Place- ACT 2611", state: "ACT", upfrontFee: 550, annualFee: 6467 },
+        { id: 109, name: "Merici College", address: "Wise St- Braddon ACT 2612", state: "ACT", upfrontFee: 50, annualFee: 6277 },
+        { id: 110, name: "Emmaus Christian School", address: "73 Davenport St- Dickson ACT 2602", state: "ACT", upfrontFee: 300, annualFee: 6292 }
+    ];
+    $scope.privateSchoolObjects_TAS = [{ id: 111, name: "The Friends School, Hobart", address: "23 Commercial Rd- North Hobart TAS 7000", state: "TAS", upfrontFee: 1200, annualFee: 14254 },
+        { id: 112, name: "Fahan School", address: "Fisher Avenue- Lower Sandy Bay TAS 7005", state: "TAS", upfrontFee: 2100, annualFee: 12412 },
+        { id: 113, name: "St Michael's Collegiate School", address: "218 Macquarie St- Hobart TAS 7000", state: "TAS", upfrontFee: 1110, annualFee: 12908 },
+        { id: 114, name: "The Hutchins School", address: "71 Nelson Rd- Sandy Bay TAS 7005", state: "TAS", upfrontFee: 1610, annualFee: 13400 },
+        { id: 115, name: "St Mary's College, Hobart", address: "164 Harrington St- Hobart TAS 7000", state: "TAS", upfrontFee: 0, annualFee: 3958 },
+        { id: 116, name: "Launceston Chruch Grammar School", address: "36 Button St- Mowbray TAS 7248", state: "TAS", upfrontFee: 100, annualFee: 12900 },
+        { id: 117, name: "Launceston Christian School", address: " 452A W Tamar Hwy- Riverside TAS 7250", state: "TAS", upfrontFee: 1300, annualFee: 4802 }
+    ];
+
+
+    $scope.publicSchoolObjects = [{ id: 0, name: 'James Ruse Agricultural High School', annualFee: 2150 },
+        { id: 1, name: ' North Sydney Girls High School', annualFee: 1600 },
+        { id: 2, name: ' North Sydney Boys High School', annualFee: 1820 },
+        { id: 3, name: ' Sydney Girls High School', annualFee: 2100 },
+        { id: 4, name: ' Sydney Boys High School', annualFee: 2368 },
+        { id: 5, name: ' Baulkham Hills High School', annualFee: 1000 },
+        { id: 6, name: ' Hornsby Girls High School', annualFee: 1100 },
+        { id: 7, name: ' Northern Beaches Secondary College(Manly Selective)', annualFee: 1400 },
+        { id: 8, name: ' Normanhurst Boys High School', annualFee: 1000 },
+        { id: 9, name: ' Melbourne High School(Selective)', annualFee: 2900 },
+        { id: 10, name: ' Mac.Robertson Girls’ High School(Selective)', annualFee: 1600 },
+        { id: 11, name: ' Nossal High School(Selective)', annualFee: 2000 },
+        { id: 12, name: ' Suzanne Cory High School(Selective)', annualFee: 1600 },
+        { id: 13, name: ' Box Hill High School', annualFee: 625 },
+        { id: 14, name: ' The University High School', annualFee: 520 },
+        { id: 15, name: ' Balwyn High School', annualFee: 520 },
+        { id: 16, name: ' Mansfield State High School', annualFee: 500 },
+        { id: 17, name: ' Indooroopilly State High School', annualFee: 400 },
+        { id: 18, name: ' Kelvin Grove State College', annualFee: 350 },
+        { id: 19, name: ' The Gap State High School', annualFee: 600 },
+        { id: 20, name: ' Cavendish Road State High School', annualFee: 500 },
+        { id: 21, name: ' Kenmore State High School', annualFee: 500 },
+        { id: 22, name: ' Mount Gravatt State High School', annualFee: 500 },
+        { id: 23, name: ' Brisbane State High School', annualFee: 573 },
+        { id: 24, name: ' Centenary State High School', annualFee: 400 },
+        { id: 25, name: ' Stretton State College', annualFee: 390 },
+        { id: 26, name: ' Perth Modern School', annualFee: 1200 },
+        { id: 27, name: ' Shenton College', annualFee: 1000 },
+        { id: 28, name: ' Rossmoyne Senior High School', annualFee: 850 },
+        { id: 29, name: ' Willetton Senior High School', annualFee: 900 },
+        { id: 30, name: ' John Curtin College of the Arts', annualFee: 1150 },
+        { id: 31, name: ' Churchlands Senior High School', annualFee: 1000 },
+        { id: 32, name: ' Applecross Senior High School', annualFee: 800 },
+        { id: 33, name: ' Mount Lawley Senior High School', annualFee: 900 },
+        { id: 34, name: ' Carine Senior High School', annualFee: 800 },
+        { id: 35, name: ' Duncraig Senior High School', annualFee: 900 },
+        { id: 36, name: ' Glenunga International High School', annualFee: 805 },
+        { id: 37, name: ' Marryatville High School', annualFee: 820 },
+        { id: 38, name: ' Adelaide High School', annualFee: 890 },
+        { id: 39, name: ' Mitcham Girls High School', annualFee: 700 },
+        { id: 40, name: ' Norwood Morialta High School', annualFee: 800 },
+        { id: 41, name: ' Open Access College', annualFee: 560 },
+        { id: 42, name: ' Narrabundah College', annualFee: 500 },
+        { id: 43, name: ' Gungahlin College', annualFee: 300 },
+        { id: 44, name: ' Canberra College', annualFee: 350 },
+        { id: 45, name: ' Hawker College', annualFee: 310 },
+        { id: 46, name: ' Lake Tuggeranong College', annualFee: 330 },
+        { id: 47, name: ' Erindale College', annualFee: 300 },
+        { id: 48, name: ' UC Senior Secondary College Lake Ginninderra', annualFee: 410 },
+        { id: 49, name: ' Hellyer College', annualFee: 390 },
+        { id: 50, name: ' Elizabeth College', annualFee: 390 },
+        { id: 51, name: ' The Don College', annualFee: 390 },
+        { id: 52, name: ' Launceston College', annualFee: 390 },
+        { id: 53, name: ' Rosny College', annualFee: 390 },
+        { id: 54, name: ' Newstead College', annualFee: 390 }
+    ];
+    $scope.publicSchoolObjects_NSW = [{ id: 0, name: 'James Ruse Agricultural High School', annualFee: 2150 },
+        { id: 1, name: ' North Sydney Girls High School', annualFee: 1600 },
+        { id: 2, name: ' North Sydney Boys High School', annualFee: 1820 },
+        { id: 3, name: ' Sydney Girls High School', annualFee: 2100 },
+        { id: 4, name: ' Sydney Boys High School', annualFee: 2368 },
+        { id: 5, name: ' Baulkham Hills High School', annualFee: 1000 },
+        { id: 6, name: ' Hornsby Girls High School', annualFee: 1100 },
+        { id: 7, name: ' Northern Beaches Secondary College(Manly Selective)', annualFee: 1400 },
+        { id: 8, name: ' Normanhurst Boys High School', annualFee: 1000 },
+        { id: 9, name: ' Melbourne High School(Selective)', annualFee: 2900 }
+    ];
+    $scope.publicSchoolObjects_VIC = [{ id: 9, name: ' Melbourne High School(Selective)', annualFee: 2900 },
+        { id: 10, name: ' Mac.Robertson Girls’ High School(Selective)', annualFee: 1600 },
+        { id: 11, name: ' Nossal High School(Selective)', annualFee: 2000 },
+        { id: 12, name: ' Suzanne Cory High School(Selective)', annualFee: 1600 },
+        { id: 13, name: ' Box Hill High School', annualFee: 625 },
+        { id: 14, name: ' The University High School', annualFee: 520 },
+        { id: 15, name: ' Balwyn High School', annualFee: 520 }
+    ];
+    $scope.publicSchoolObjects_QLD = [{ id: 16, name: ' Mansfield State High School', annualFee: 500 },
+        { id: 17, name: ' Indooroopilly State High School', annualFee: 400 },
+        { id: 18, name: ' Kelvin Grove State College', annualFee: 350 },
+        { id: 19, name: ' The Gap State High School', annualFee: 600 },
+        { id: 20, name: ' Cavendish Road State High School', annualFee: 500 },
+        { id: 21, name: ' Kenmore State High School', annualFee: 500 },
+        { id: 22, name: ' Mount Gravatt State High School', annualFee: 500 },
+        { id: 23, name: ' Brisbane State High School', annualFee: 573 },
+        { id: 24, name: ' Centenary State High School', annualFee: 400 },
+        { id: 25, name: ' Stretton State College', annualFee: 390 }
+    ];
+    $scope.publicSchoolObjects_SA = [{ id: 36, name: ' Glenunga International High School', annualFee: 805 },
+        { id: 37, name: ' Marryatville High School', annualFee: 820 },
+        { id: 38, name: ' Adelaide High School', annualFee: 890 },
+        { id: 39, name: ' Mitcham Girls High School', annualFee: 700 },
+        { id: 40, name: ' Norwood Morialta High School', annualFee: 800 },
+        { id: 41, name: ' Open Access College', annualFee: 560 }
+    ];
+    $scope.publicSchoolObjects_WA = [{ id: 26, name: ' Perth Modern School', annualFee: 1200 },
+        { id: 27, name: ' Shenton College', annualFee: 1000 },
+        { id: 28, name: ' Rossmoyne Senior High School', annualFee: 850 },
+        { id: 29, name: ' Willetton Senior High School', annualFee: 900 },
+        { id: 30, name: ' John Curtin College of the Arts', annualFee: 1150 },
+        { id: 31, name: ' Churchlands Senior High School', annualFee: 1000 },
+        { id: 32, name: ' Applecross Senior High School', annualFee: 800 },
+        { id: 33, name: ' Mount Lawley Senior High School', annualFee: 900 },
+        { id: 34, name: ' Carine Senior High School', annualFee: 800 },
+        { id: 35, name: ' Duncraig Senior High School', annualFee: 900 }
+    ];
+    $scope.publicSchoolObjects_ACT = [{ id: 42, name: ' Narrabundah College', annualFee: 500 },
+        { id: 43, name: ' Gungahlin College', annualFee: 300 },
+        { id: 44, name: ' Canberra College', annualFee: 350 },
+        { id: 45, name: ' Hawker College', annualFee: 310 },
+        { id: 46, name: ' Lake Tuggeranong College', annualFee: 330 },
+        { id: 47, name: ' Erindale College', annualFee: 300 },
+        { id: 48, name: ' UC Senior Secondary College Lake Ginninderra', annualFee: 410 }
+    ];
+    $scope.publicSchoolObjects_TAS = [{ id: 49, name: ' Hellyer College', annualFee: 390 },
+        { id: 50, name: ' Elizabeth College', annualFee: 390 },
+        { id: 51, name: ' The Don College', annualFee: 390 },
+        { id: 52, name: ' Launceston College', annualFee: 390 },
+        { id: 53, name: ' Rosny College', annualFee: 390 },
+        { id: 54, name: ' Newstead College', annualFee: 390 }
+    ];
+
+    $scope.stateListOb = [{ id: 0, name: "NSW" },
+        { id: 1, name: "VIC" },
+        { id: 2, name: "QLD" },
+        { id: 3, name: "SA" },
+        { id: 4, name: "WA" },
+        { id: 5, name: "ACT" },
+        { id: 6, name: "TAS" }
+    ];
+
+
+    $scope.diffSchoolOption = false;
+
+    $scope.eductionOptionOb = [{ id: 0, name: "Select from the list of high schools in the living state." },
+        { id: 1, name: "If you cannot find a matching high school in the list,please estimate the annual school fee here." }
+    ];
+
+    $scope.schoolTypeOb = [{ id: 0, name: "Private School" },
+        { id: 1, name: "Public School" }
+    ];
+
+    $scope.schoolObjectsShow = $scope.privateSchoolObjects_NSW;
+    $scope.stateListOb = [{ id: 0, name: "NSW" },
+        { id: 1, name: "VIC" },
+        { id: 2, name: "QLD" },
+        { id: 3, name: "SA" },
+        { id: 4, name: "WA" },
+        { id: 5, name: "ACT" },
+        { id: 6, name: "TAS" }
+    ];
+
+
+    $('.spEducationOption').on('change', function() {
+        var spEducationOption = $('.spEducationOption option:selected').val();
+        if (Number(spEducationOption) == 0) {
+            $scope.diffSchoolOption = false;
+        } else {
+            $scope.diffSchoolOption = true;
+        }
+        // console.log(" $scope.diffSchoolOption", $scope.diffSchoolOption);
+        $timeout(0);
+    });
+
+    $('.spState').on('change', function() {
+        schoolOperation();
+    });
+    $('.spSchoolType').on('change', function() {
+        schoolOperation();
+    });
+
+    $('.spSchool').on('change', function() {
+        var spSchool = $('.spSchool option:selected').val();
+        if (Number($('.spSchoolType option:selected').val()) == 0) {
+            $scope.educationExpensePerYearPerChild = $scope.privateSchoolObjects[spSchool].annualFee;
+        } else {
+            $scope.educationExpensePerYearPerChild = $scope.publicSchoolObjects[spSchool].annualFee;
+        }
+        // console.log("educationExpensePerYearPerChildSchool", $scope.privateSchoolObjects[spSchool].name);
+    });
+
+    function schoolOperation() {
+        spState = $('.spState option:selected').val();
+        spSchoolType = $('.spSchoolType option:selected').val()
+
+        if (Number(spSchoolType) == 0) {
+            switch (Number(spState)) {
+                case 0:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.privateSchoolObjects_NSW;
+                    });
+                    break;
+                case 1:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.privateSchoolObjects_VIC;
+                    });
+                    break;
+                case 2:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.privateSchoolObjects_QLD;
+                    });
+                    break;
+                case 3:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.privateSchoolObjects_SA;
+                    });
+                    break;
+                case 4:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.privateSchoolObjects_WA;
+                    });
+                    break;
+                case 5:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.privateSchoolObjects_ACT;
+                    });
+                    break;
+                case 6:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.privateSchoolObjects_TAS;
+                    });
+                    break;
+            };
+        } else {
+            switch (Number(spState)) {
+                case 0:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.publicSchoolObjects_NSW;
+                    });
+                    break;
+                case 1:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.publicSchoolObjects_VIC;
+                    });
+                    break;
+                case 2:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.publicSchoolObjects_QLD;
+                    });
+                    break;
+                case 3:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.publicSchoolObjects_SA;
+                    });
+                    break;
+                case 4:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.publicSchoolObjects_WA;
+                    });
+                    break;
+                case 5:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.publicSchoolObjects_ACT;
+                    });
+                    break;
+                case 6:
+                    $scope.$apply(function() {
+                        $scope.schoolObjectsShow = $scope.publicSchoolObjects_TAS;
+                    });
+                    break;
+            };
+        }
+        // console.log("sel", $scope.schoolObjectsShow);
+        $('.spSchool').selectpicker('refresh');
+        $timeout(0);
+    }
+
+    function updatedSchoolValue() {
+        var spEducationOption = $('.spEducationOption option:selected').val();
+        if (Number(spEducationOption) == 0) {
+            var spSchool = $('.spSchool option:selected').val();
+            if (Number($('.spSchoolType option:selected').val()) == 0) {
+                $scope.educationExpensePerYearPerChild = $scope.privateSchoolObjects[spSchool].annualFee;
+            } else {
+                $scope.educationExpensePerYearPerChild = $scope.publicSchoolObjects[spSchool].annualFee;
+            }
+        } else {
+        }
+    }
+	
+	 $scope.lifeOptions = [
+        { id: 0, name: 'personal' },
+        { id: 1, name: 'super' }
+    ];
 
 
     $scope.fundsOb = [{
@@ -3872,7 +5069,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
     });
 
 
-    $scope.fundA = $scope.fundsOb[0];
+    /*$scope.fundA = $scope.fundsOb[0];
     $scope.fundB = $scope.fundsOb[1];
     $scope.netReturn = $scope.investOptions[0].netReturn;
     var tempFundA = $scope.fundsOb[0];
@@ -3880,7 +5077,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
     $scope.fundNotFoundA = true;
     $scope.fundNotFoundB = true;
     $scope.fundNameA = "Fund A";
-    $scope.fundNameB = "Fund B";
+    $scope.fundNameB = "Fund B";*/
 
     console.log("sadgggggggga");
     var minDrawdown;
@@ -8723,118 +9920,176 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
         $('.spFundB').selectpicker('refresh');
         $timeout(0);
     });
-
-    var selected1 = 0;
+	
+	var selected1 = 0;
     var selected2 = 1;
 
     $('.spFundA').on('shown.bs.select', function(e) {
-        // $scope.fundNotFoundA=false;
-        if ($scope.fundNotFoundB) {
-            // $('.sp1 option[value=' + selected2 + ']').attr('disabled', false);   
-            // $('.sp1').selectpicker('refresh');      
-        } else {
-            $('.spFundA option[value=' + selected2 + ']').attr('disabled', true);
+        var tempValue=$('.spFundB option:selected').val();
+        if(Number(tempValue)!=311){
+            $('.spFundA option[value=' + tempValue + ']').attr('disabled', true);        
             $('.spFundA').selectpicker('refresh');
         }
     });
 
     $('.spFundA').on('hidden.bs.select', function(e) {
-        $('.spFundA option[value=' + selected2 + ']').attr('disabled', false);
-        $('.spFundA').selectpicker('refresh');
+        var tempValue=$('.spFundB option:selected').val();
+        if(Number(tempValue)!=311){
+            $('.spFundA option[value=' + tempValue + ']').attr('disabled', false);        
+            $('.spFundA').selectpicker('refresh');
+        }
     });
 
     $('.spFundB').on('shown.bs.select', function(e) {
-
-        if ($scope.fundNotFoundA) {
-            // $('.sp2 option[value=' + selected1 + ']').attr('disabled', false); 
-            // $('.sp2').selectpicker('refresh');             
-        } else {
-            $('.spFundB option[value=' + selected1 + ']').attr('disabled', true);
+        var tempValue=$('.spFundA option:selected').val();
+        if(Number(tempValue)!=311){
+            $('.spFundB option[value=' + tempValue + ']').attr('disabled', true);
+            $('.spFundB').selectpicker('refresh');
+        }
+        
+    });
+    $('.spFundB').on('hidden.bs.select', function(e) {
+        var tempValue=$('.spFundA option:selected').val();
+        if(Number(tempValue)!=311){
+            $('.spFundB option[value=' + tempValue + ']').attr('disabled', false);
             $('.spFundB').selectpicker('refresh');
         }
     });
 
-    $('.spFundB').on('hidden.bs.select', function(e) {
-        $('.spFundB option[value=' + selected1 + ']').attr('disabled', false);
-        $('.spFundB').selectpicker('refresh');
-    });
 
 
     $('.spFundA').on('change', function() {
-        $scope.fundNotFoundA = false;
-        selected1 = $('.spFundA option:selected').val();
-        $scope.fundA = $scope.fundsOb[selected1];
-        tempFundA = $scope.fundsOb[selected1];
-        // calculateFinal();
+        spFundAChange();
     });
 
     $('.spFundB').on('change', function() {
-        $scope.fundNotFoundB = false;
-        selected2 = $('.spFundB option:selected').val();
-        $scope.fundB = $scope.fundsOb[selected2];
-        tempFundB = $scope.fundsOb[selected2];
-        // calculateFinal();
+        spFundBChange();
     });
 
     $('.spInvestOption').on('change', function() {
-        selected2 = $('.spInvestOption option:selected').val();
-        $scope.netReturn = $scope.investOptions[selected2];
+        spInvestOptionChange();
     });
 
-    $('.spOtherFundA').on('change', function() {
-        selected2 = $('.spOtherFundA option:selected').val();
-        console.log("wert", selected2);
-        $scope.fundNotFoundAChange(selected2);
+    $('.spFundAType').on('change', function() {
+        spFundATypeChange();
     });
 
-    $('.spOtherFundB').on('change', function() {
-        selected2 = $('.spOtherFundB option:selected').val();
-        $scope.fundNotFoundBChange(selected2);
-
+    $('.spFundBType').on('change', function() {
+        spFundBTypeChange();
     });
-
-    $('.spAlterOption').on('change', function() {
-        selected2 = $('.spAlterOption option:selected').val();
-        $scope.alterOptionChange(selected2);
-
-    });
-
-    $scope.fundNotFoundAChange = function(valueA) {
-        $scope.fundNotFoundA = valueA == "1" ? false : true;
-
-        if ($scope.fundNotFoundA) {
-            $scope.fundA = {
-                name: $scope.fundNameA,
-                annualPercentageFee: Number($scope.contributionFeeA.replaceAll('%', '')),
-                adminFee: Number($scope.adminFeeA.replaceAll('$', '').replaceAll(',', '')),
-                indirectCostRation: Number($scope.indirectCostRationA.replaceAll('%', ''))
-            };
+	
+	console.log("ddddddddddddddddddddddddddddddddddddddddddddddddddddd", $scope.fundNotFoundA);
+    function spFundAChange() {
+        selected1 = $('.spFundA option:selected').val();
+        if (Number(selected1) >= 307) {
+            if (Number(selected1) == 311) {
+                $scope.fundNotFoundA = true;
+				console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", $scope.fundNotFoundA);
+                $scope.fundA = {
+                    name: $scope.fundNameA,
+                    annualPercentageFee: Number($scope.contributionFeeA.replaceAll('%', '')),
+                    adminFee: Number($scope.adminFeeA.replaceAll('$', '').replaceAll(',', '')),
+                    indirectCostRation: Number($scope.indirectCostRationA.replaceAll('%', ''))
+                };
+            } else {
+                $scope.fundNotFoundA = false;
+                $scope.fundA = {
+                    name: $scope.fundsOb[selected1].name,
+                    annualPercentageFee: $scope.fundsOb[selected1].contributionFee,
+                    adminFee: $scope.fundsOb[selected1].adminFee,
+                    indirectCostRation: $scope.fundsOb[selected1].indirectCostRation
+                };
+            }
         } else {
-            $scope.fundA = tempFundA;
+            $scope.fundNotFoundA = false;
+            $scope.fundA = $scope.fundsOb[selected1];
         }
+        // console.log("$scope.fundA", $scope.fundA);
         $timeout(0);
     }
 
-    $scope.fundNotFoundBChange = function(valueB) {
-        $scope.fundNotFoundB = valueB == "1" ? false : true;
-
-
-        if ($scope.fundNotFoundB) {
-            $scope.fundB = {
-                name: $scope.fundNameB,
-                annualPercentageFee: Number($scope.contributionFeeB.replaceAll('%', '')),
-                adminFee: Number($scope.adminFeeB.replaceAll('$', '').replaceAll(',', '')),
-                indirectCostRation: Number($scope.indirectCostRationB.replaceAll('%', ''))
-            };
+    function spFundBChange() {
+        selected2 = $('.spFundB option:selected').val();
+        if (Number(selected2) >= 307) {
+            if (Number(selected2) == 311) {
+                $scope.fundNotFoundB = true;
+                $scope.fundB = {
+                    name: $scope.fundNameB,
+                    annualPercentageFee: Number($scope.contributionFeeB.replaceAll('%', '')),
+                    adminFee: Number($scope.adminFeeB.replaceAll('$', '').replaceAll(',', '')),
+                    indirectCostRation: Number($scope.indirectCostRationB.replaceAll('%', ''))
+                };
+            } else {
+                $scope.fundNotFoundB = false;
+                $scope.fundB = {
+                    name: $scope.fundsOb[selected2].name,
+                    annualPercentageFee: $scope.fundsOb[selected2].contributionFee,
+                    adminFee: $scope.fundsOb[selected2].adminFee,
+                    indirectCostRation: $scope.fundsOb[selected2].indirectCostRation
+                };
+            }
         } else {
-            $scope.fundB = tempFundB;
+            $scope.fundNotFoundB = false;
+            $scope.fundB = $scope.fundsOb[selected2];
         }
+        // console.log("$scope.fundB", $scope.fundB);
         $timeout(0);
     }
 
-    $scope.alterOptionChange = function(alter1) {
-        $scope.alterOption = alter1 == "1" ? true : false;
+    function spInvestOptionChange() {
+        selected3 = $('.spInvestOption option:selected').val();
+        //console.log("selected2",selected2);
+        $scope.netReturn = $scope.investOptions[selected3].netReturn;
+        //console.log("$scope.netReturn",$scope.netReturn);
+    }
 
+    function spFundATypeChange() {
+       var spFundAType = $('.spFundAType option:selected').val();
+        switch (Number(spFundAType)) {
+            case 0:
+                $scope.$apply(function() {
+                    $scope.fundsOb1 = $scope.fundsMySuper;
+                });
+                break;
+            case 1:
+                $scope.$apply(function() {
+                    $scope.fundsOb1 = $scope.fundsLifestage;
+                });
+                break;
+
+            case 2:
+                $scope.$apply(function() {
+                    $scope.fundsOb1 = $scope.fundsOther;
+                });
+                break;
+        };
+        // console.log("sel", $scope.fundsOb1);
+        $('.spFundA').selectpicker('refresh');
+        $timeout(0);
+    }
+
+    function spFundBTypeChange() {
+       var spFundBType = $('.spFundBType option:selected').val();
+        switch (Number(spFundBType)) {
+            case 0:
+                $scope.$apply(function() {
+                    $scope.fundsOb2 = $scope.fundsMySuper;
+                });
+                break;
+            case 1:
+                $scope.$apply(function() {
+                    $scope.fundsOb2 = $scope.fundsLifestage;
+                });
+                break;
+
+            case 2:
+                $scope.$apply(function() {
+                    $scope.fundsOb2 = $scope.fundsOther;
+                });
+                break;
+        };
+        // console.log("sel", $scope.fundsOb2);
+        $('.spFundB').selectpicker('refresh');
         $timeout(0);
     }
 
