@@ -196,6 +196,10 @@ a:visited {
     margin-left: 20px !important;
 }
 
+.ml30 {
+    margin-left: 30px !important;
+}
+
 .mr20 {
     margin-right: 20px !important;
 }
@@ -348,10 +352,12 @@ a:visited {
     background-color: rgba(245, 245, 245, 0.18);
     border-color: #f5f5f5;
     border-radius: 0;
-    padding: 14px 16px;
+    /*padding: 14px 16px;*/
     text-transform: uppercase;
     font-size: 20px;
     letter-spacing: 5px;
+    height:56px;
+
 }
 
 .btn-primary:hover,
@@ -360,12 +366,20 @@ a:visited {
     background-color: #fff !important;
 }
 
+.btn-responsive
+{
+    position: absolute;
+    width: 79.5%;
+    bottom:20px;
+}
+
 
 /* Container
 */
 
 .container {
-    width: 762px;
+    /*width: 762px;*/
+    width:90%;
     margin: 0 auto;
     padding: 0;
 }
@@ -409,8 +423,9 @@ table tr:nth-child(even) {
 .main-image {
     background: url(../images/left-view-image.png) no-repeat;
     position: fixed;
-    height: 661px;
-    width: 473px;
+    width: 34.5%;
+    background-size: 100% 100%;
+    height: 100%;
 }
 
 
@@ -665,7 +680,8 @@ table tr:nth-child(even) {
 
 #login-content {
     background: url(../images/main-bg.png) no-repeat;
-    height: 662px;
+    height: 100vh;
+    background-size: 100% 100%;
 }
 
 .login-content {
@@ -853,7 +869,7 @@ table tr:nth-child(even) {
 
 #welcome-content {
     background: url(../images/welcome-bg.png) no-repeat;
-    height: 662px;
+    height: 100vh;
     background-size: 100% 100%;
 }
 
@@ -1074,7 +1090,8 @@ a.edit-action i {
 
 #super-calc-content {
     background: url(../images/super-calc-bg.png) no-repeat;
-    height: 662px;
+    height: 100vh;
+    background-size: 100% 100%;
 }
 
 .super-calc-container,
@@ -1173,7 +1190,8 @@ a.edit-action i {
 
 #goal-based-content {
     background: url(../images/main-bg.png) no-repeat;
-    height: 662px;
+    height: 100vh;
+    background-size: 100% 100%;
 }
 
 .goal-heading h3 {
@@ -1187,7 +1205,7 @@ a.edit-action i {
 
 .goal-block {
     margin-top: 10px;
-    width: 765px;
+    width: 100%;
     height: 260px;
     background: #0d2f47;
     padding: 10px 7px;
@@ -1195,7 +1213,7 @@ a.edit-action i {
 
 .img-block {
     height: 233px;
-    width: 230px;
+    width: 30.5%;
     border: 1px dashed #0f8b8f;
     margin-right: 12px;
     /*margin-top: 14px;
@@ -1261,7 +1279,7 @@ a.edit-action i {
 }
 
 .goal-img {
-    width: 218px;
+    width: 96%;
     height: 220px;
     margin-top: 5px;
     margin-left: 5px;
@@ -1407,7 +1425,8 @@ a.edit-action i {
 
 #contact-us-content {
     background: url(../images/welcome-bg.png) no-repeat;
-    height: 662px;
+    height: 100vh;
+    background-size: 100% 100%;
 }
 
 .contact-content {
@@ -1509,3 +1528,114 @@ a.edit-action i {
 {
     margin-top: 20px;
 }
+
+/*contact-us-ends*/
+
+.heading-bg
+    {
+        width:7%;
+    }
+    
+
+
+
+
+@media screen and (min-width: 1370px)
+{
+
+.body-container {
+    max-width: 1366px;
+    margin: 0 auto;
+    box-shadow: 0 0 25px #999;
+}
+}
+
+@media (max-width: 1024px) and (min-width: 768px)
+{
+.container 
+
+{
+    
+     width: 89.5% !important; 
+}
+
+.intrnl-head
+    {
+        margin-left: 0;
+    }
+    
+.goal-cal-heading
+    {
+        margin-left: 25px;
+    }
+    
+.ml-responsive
+    {
+        margin-left: 11% !important;
+    }
+    
+}
+
+
+@media (max-width: 1197px) and (min-width: 1025px)
+{
+    
+    .ml-responsive
+    {
+        margin-left: 17% !important;
+    }
+    
+}
+
+
+
+@media (max-width: 1265px) and (min-width: 1209px)
+{
+    
+    .ml-responsive
+    {
+        margin-left: 1% !important;
+    }
+    
+}
+
+@media (max-width: 1208px) and (min-width: 1198px)
+{
+    
+    .ml-responsive
+    {
+        margin-left: 0% !important;
+    }
+    
+}
+
+/*login-page-media-queries*/
+
+@media (max-width:1240px)and (min-width:991px)
+{
+    .login-form-header h1
+    {
+        font-size:16px;
+    }
+    
+    
+}
+
+@media (max-width:1130px)and (min-width:991px)
+{
+    
+    
+    .btn-responsive
+    {
+        padding-right: 5%;
+    }
+    
+    .terms span
+    {
+        letter-spacing: 0px;
+    }
+}
+
+
+
+/*login-page-media-queries*/
