@@ -26,8 +26,8 @@
 
         function formTemplate(user) {
             return {
-                "FIRST_NAME": user.name,
-                "LAST_NAME": "d",
+                "FIRST_NAME": user.firstName,
+                "LAST_NAME": user.lastName,
 
                 "CONTACTINFOS": [{
                     "TYPE": "PHONE",
