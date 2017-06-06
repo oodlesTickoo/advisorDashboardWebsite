@@ -23,7 +23,7 @@
                                     <div class="row form-1" ng-class="{menuDrop: isMenuDrop1}">
                                         <div class="col-sm-12 contents">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">First Name *</label>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -157,7 +157,7 @@
                                                             <h4>Tell Us About Your spouse :</h4>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 divider">
                                                         <div class="form-group row">
                                                             <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">First Name *</label>
                                                             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -290,7 +290,8 @@
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(1)">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+                                                        <span>Next</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -316,7 +317,7 @@
                                     <div class="row form-2" ng-class="{menuDrop: isMenuDrop2}">
                                         <div class="col-sm-12 contents">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
                                                         <label for="fyInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Financial Year/Tax Year</label>
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
@@ -420,7 +421,7 @@
                                                         <h4>Assumptions :</h4>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
                                                         <label for="insurancePremiumInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             Insurance Premium per year</label>
@@ -520,7 +521,7 @@
                                                         <h4>Pension Related Details :</h4>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
                                                         <label for="retirementAgeInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Retirement Age</label>
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
@@ -589,7 +590,7 @@
                                                             <h4>Spouse's Account Details :</h4>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 divider">
                                                         <div class="form-group row">
                                                             <label for="annualSalarySpouseInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                                 Annual Salary</label>
@@ -638,7 +639,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 divider">
                                                         <div class="form-group row">
                                                             <label for="insurancePremiumSpouseInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                                 Insurance Premium per year</label>
@@ -731,7 +732,7 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-6 divider">
                                                         <div class="form-group row">
                                                             <label for="retirementAgeSpouseInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                                 Retirement Age</label>
@@ -792,16 +793,44 @@
                                                         <h4>Comparing Superannuation Funds :</h4>
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <div class="col-lg-6 col-sm-5 col-md-5">
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-6 col-md-6">
+                                                        <h3 class="bold" style="    font-weight: bold;    margin-bottom: 15px;">Fund A</h3>
+                                                        <h5 class="bold">Fund Type</h5>
+                                                        <select name="spFundAType" class="selectpicker spFundAType" id="spFundAType">
+                                                            <option ng-repeat="x in fundTypeA" value="{{x.id}}">{{x.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-md-6">
+                                                        <h3 class="bold" style="    font-weight: bold;    margin-bottom: 15px;">Fund B</h3>
+                                                        <h5 class="bold">Fund Type</h5>
+                                                        <select name="spFundBType" class="selectpicker spFundBType" id="spFundBType">
+                                                            <option ng-repeat="x in fundTypeB" value="{{x.id}}">{{x.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row" id="datebox">
+                                                    <div class="col-lg-6 col-sm-6 col-md-6">
+                                                        <h5 class="bold">Fund List</h5>
+                                                        <select name="spFundA" class="selectpicker spFundA" id="spFundA">
+                                                            <option ng-repeat="x in fundsOb1" value="{{x.id}}">{{x.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-6 col-sm-6 col-md-6">
+                                                        <h5 class="bold">Fund List</h5>
+                                                        <select name="spFundB" class="selectpicker spFundB" id="spFundB">
+                                                            <option ng-repeat="x in fundsOb2" value="{{x.id}}">{{x.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <!--<div class="form-group row">
+                                                    <div class="col-lg-6 col-sm-5 col-md-5 divider">
                                                         <h4 class="bold">Fund A(your current fund)</h4>
                                                         <select name="spFundA" class="selectpicker spFundA" id="spFundA">
                                                             <option ng-repeat="x in fundsOb" value="{{x.id}}">{{x.name}}</option>
                                                         </select>
                                                     </div>
-                                                    <!--<div class="col-lg-1 col-sm-1 col-md-1">
-
-                                                </div>-->
+													
                                                     <div class="col-lg-6 col-sm-5 col-md-5">
                                                         <h4 class="bold">Fund B(Alternative Fund)</h4>
                                                         <select name="spFundB" class="selectpicker spFundB">
@@ -819,12 +848,12 @@
                                                             </option>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div>-->
                                                 <div class="row">
                                                     <div class="col-xs-12 white-border"></div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6 divider">
+                                                   <!-- <div class="form-group row">
                                                         <label for="spOtherFundA" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Do you want to specify a fund that is not listed?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                         </div>
@@ -834,8 +863,8 @@
                                                                 <option value="1">No</option>
                                                             </select>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group row" ng-show="fundNotFoundA">
+                                                    </div>-->
+												<div class="form-group row"  ng-show="fundNotFoundA">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the name of the fund?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                         </div>
@@ -875,10 +904,19 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="indirectCostRationAInput" name="indirectCostRationAInput" ng-model="indirectCostRationA">
                                                         </div>
                                                     </div>
+													<div class="form-group row">
+														 <label for="sp3" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                            Investment option</label>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <select name="spInvestOption" class="selectpicker spInvestOption" id="spInvestOption">
+																<option ng-repeat="x in investOptions" value="{{x.id}}">{{x.name}}</option>
+															</select>
+                                                        </div>
+													</div>
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <div class="form-group row">
+                                                    <!--<div class="form-group row">
                                                         <label for="spOtherFundB" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Do you want to specify another fund that is not listed?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                         </div>
@@ -888,7 +926,7 @@
                                                                 <option value="1">No</option>
                                                             </select>
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                     <div class="form-group row" ng-show="fundNotFoundB">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the name of the fund?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -937,7 +975,8 @@
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(2)">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+                                                        <span>Next</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -967,9 +1006,9 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
-                                                        <label for="homeValueInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label"> What is the value of your home $? (look up the value by using the attached link to “My Money”)</label>
+                                                        <label for="homeValueInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label"> What is the value of your home $? (look up the value by using the attached link to “My Money”)</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="homeValueSlider">
                                                             </div>
@@ -1024,7 +1063,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
                                                         <label for="bankAssetsInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             Bank deposits $</label>
@@ -1093,9 +1132,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
-                                                        <label for="netRentalIncomeInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                        <label for="netRentalIncomeInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">
                                                             Net rental income received after interest and outgoings $</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="netRentalIncomeSlider">
@@ -1141,7 +1180,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
                                                         <label for="homeMortgageInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Home Mortgage</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -1210,7 +1249,8 @@
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(3)">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+                                                        <span>Next</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -1236,7 +1276,7 @@
                                     <div class="row form-4" ng-class="{menuDrop: isMenuDrop4}">
                                         <div class="col-sm-12 contents">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
                                                         <label for="numChildrenInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Number of financially dependent children</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -1265,6 +1305,84 @@
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <input type="number" onClick="this.select();" class="form-control" id="ageChildren4Input" name="ageChildren4Input" ng-model="ageChildren4">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="funeralCostInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label mb26">Anticipated Funeral costs $</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="funeralCostSlider">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <input type="text" onClick="this.select();" class="form-control" id="funeralCostInput" name="funeralCostInput" ng-model="funeralCost">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" ng-show="(buyOption && spouseOption)">
+                                                        <label for="valueOfNewPropertyInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the value of that property that you would consider buying? $</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="valueOfNewPropertySlider">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <input type="text" onClick="this.select();" class="form-control" id="valueOfNewPropertyInput" name="valueOfNewPropertyInput" ng-model="valueOfNewProperty">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" ng-show="enabledSpouseOption">
+                                                        <label for="select-spouseWork-option" class="col-xs-11 col-sm-11 col-md-11 col-form-label">
+                                                            Does your spouse or partner currently work and earn a living</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <select class="selectpicker" id="select-spouseWork-option" title="Choose An Option">
+                                                                <option value="0" selected>Yes</option>
+                                                                <option value="1">No</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" ng-show="(buyOption && spouseOption)">
+                                                        <label for="moneyToBeBorrowedInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the anticipated income of your spouse or partner after your death?$</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="moneyToBeBorrowedSlider">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <input type="text" onClick="this.select();" class="form-control" id="moneyToBeBorrowedInput" name="moneyToBeBorrowedInput" ng-model="moneyToBeBorrowed">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="spEducationOption" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Education Expense per year per child</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="spEducationOption">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <select class="selectpickerSingle selectpicker spEducationOption">
+                                                                <option ng-repeat="x in eductionOptionOb" value="{{x.id}}">{{x.name}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!--<div class="form-group row" ng-show="!diffSchoolOption">
+                                                        <label for="spSchool" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Which school is your child be enrolled at?</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="spSchoolType">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                             <select class="selectpickerSingle selectpicker spSchool">
+                                                                <option ng-repeat="x in schoolObjectsShow" value="{{x.id}}">{{x.name}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>-->
+                                                    <div class="form-group row" ng-show="!diffSchoolOption">
+                                                        <label for="spSchoolType" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Which type of school is your child going to?</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="spSchoolType">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <select class="selectpickerSingle selectpicker spSchoolType">
+                                                                <option ng-repeat="x in schoolTypeOb" value="{{x.id}}">{{x.name}}</option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1300,23 +1418,6 @@
                                                             <input type="number" onClick="this.select();" class="form-control" id="ageChildren5Input" name="ageChildren5Input" ng-model="ageChildren5">
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-xs-12 white-border"></div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <label for="funeralCostInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Anticipated Funeral costs $</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="funeralCostSlider">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="funeralCostInput" name="funeralCostInput" ng-model="funeralCost">
-                                                        </div>
-                                                    </div>
                                                     <div class="form-group row" ng-show="enabledSpouseOption">
                                                         <label for="ageSpouseInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             Age of your spouse or partner</label>
@@ -1328,18 +1429,8 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="ageSpouseInput" name="ageSpouseInput" ng-model="ageSpouse">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row" ng-show="(buyOption && spouseOption)">
-                                                        <label for="valueOfNewPropertyInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the value of that property that you would consider buying? $</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="valueOfNewPropertySlider">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="valueOfNewPropertyInput" name="valueOfNewPropertyInput" ng-model="valueOfNewProperty">
-                                                        </div>
-                                                    </div>
                                                     <div class="form-group row" ng-show="enabledSpouseOption">
-                                                        <label for="select-buy-option" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                        <label for="select-buy-option" class="col-xs-11 col-sm-11 col-md-11 col-form-label">
                                                             In the event of your death would your spouse or partner consider selling the family home and moving to a smaller property to reduce or eliminate debt? </label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                         </div>
@@ -1348,19 +1439,6 @@
                                                                 <option value="0" selected>Yes</option>
                                                                 <option value="1">No</option>
                                                             </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group row">
-                                                        <label for="educationExpensePerYearPerChildInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Education expenses per year per child $</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="educationExpensePerYearPerChildSlider">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="educationExpensePerYearPerChildInput" name="educationExpensePerYearPerChildInput" ng-model="educationExpensePerYearPerChild">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row" ng-show="(spouseWorkOption && spouseOption)">
@@ -1373,20 +1451,6 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="spouseSalaryInput" name="spouseSalaryInput" ng-model="spouseSalary">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row" ng-show="enabledSpouseOption">
-                                                        <label for="select-spouseWork-option" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
-                                                            Does your spouse or partner currently work and earn a living</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <select class="selectpicker" id="select-spouseWork-option" title="Choose An Option">
-                                                                <option value="0" selected>Yes</option>
-                                                                <option value="1">No</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
                                                     <div class="form-group row">
                                                         <label for="familyLivingCostPerYearInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Family living costs per year$ (Mortgage or rent and food and utilities) $</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -1397,14 +1461,48 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="familyLivingCostPerYearInput" name="familyLivingCostPerYearInput" ng-model="familyLivingCostPerYear">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row" ng-show="(buyOption && spouseOption)">
-                                                        <label for="moneyToBeBorrowedInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the anticipated income of your spouse or partner after your death?$</label>
+                                                    <div class="form-group row">
+                                                        <label for="familyLivingCostPerYearInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Family Living Cost per year</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="moneyToBeBorrowedSlider">
+                                                            <div class="slider-div" id="familyLivingCostPerYearInput">
                                                             </div>
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="moneyToBeBorrowedInput" name="moneyToBeBorrowedInput" ng-model="moneyToBeBorrowed">
+                                                            <input type="text" onClick="this.select();" class="form-control" id="familyLivingCostPerYearInput" name="familyLivingCostPerYearInput" ng-model="familyLivingCostPerYear">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" ng-show="!diffSchoolOption">
+                                                        <label for="spSchool" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Which school is your child be enrolled at?</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="spSchoolType">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <select class="selectpickerSingle selectpicker spSchool">
+                                                                <option ng-repeat="x in schoolObjectsShow" value="{{x.id}}">{{x.name}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" ng-show="!diffSchoolOption">
+                                                        <label for="spState" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Which state are you living in?</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="spState">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <select class="selectpickerSingle selectpicker spState">
+                                                                <option ng-repeat="x in stateListOb" value="{{x.id}}">{{x.name}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" ng-show="diffSchoolOption">
+                                                        <label for="educationExpensePerYearPerChildInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Education expenses per year per child $</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="educationExpensePerYearPerChildSlider">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <input type="text" onClick="this.select();" class="form-control" id="educationExpensePerYearPerChildInput" name="educationExpensePerYearPerChildInput" ng-model="educationExpensePerYearPerChild">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1418,9 +1516,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
-                                                        <label for="ecLifeInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the amount of life insurance you have from all sources $ ?</label>
+                                                        <label for="ecLifeInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">What is the amount of life insurance you have from all sources $ ?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="ecLifeSlider">
                                                             </div>
@@ -1449,6 +1547,12 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="ecIPInput" name="ecIPInput" ng-model="ecIP">
                                                         </div>
                                                     </div>
+
+                                                    <div class="row">
+                                                        <div class="col-xs-12 col-sm-12 form-heading" style="color: #0a4271;">
+                                                            Note: Please note that trauma cover is only permitted to be owned personally
+                                                        </div>
+                                                    </div>
                                                 </div>
 
                                                 <div class="col-md-6">
@@ -1472,12 +1576,32 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="ecTraumaInput" name="ecTraumaInput" ng-model="ecTrauma">
                                                         </div>
                                                     </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-xs-12 col-sm-12 col-md-12 col-form-label mb26">Who own's the life cover?</label>
+                                                        <div class="col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="ecTraumaSlider">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <select name="sp1" class="selectpicker sp1" id="sp1">
+                                                                <option ng-repeat="x in lifeOptions" value="{{x.id}}">{{x.name}}</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- <div class="col-lg-6 col-sm-6 col-md-6">
+                                                        <h4 class="bold">Who own's the life cover?</h4>
+                                                        <select name="sp1" class="selectpicker sp1" id="sp1">
+                                                            <option ng-repeat="x in lifeOptions" value="{{x.id}}">{{x.name}}</option>
+                                                        </select>
+                                                    </div>-->
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(4)">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+                                                        <span>Next</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -1504,11 +1628,11 @@
                                     <div class="row form-5" ng-class="{menuDrop: isMenuDrop5}">
                                         <div class="col-sm-12 contents">
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row" ng-show="fundNotFoundB">
                                                         <label for="nraInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             What is the net return of your Super in accumulation phase% ?</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                        <div class="col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="nraSlider">
                                                             </div>
                                                         </div>
@@ -1556,7 +1680,8 @@
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(5)">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+                                                        <span>Next</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -1609,7 +1734,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row" ng-show="alterOption">
                                                         <label for="australianShares1Input" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             invest in Australian shares</label>
@@ -1727,12 +1852,13 @@
                                                         <label for="spAlterOption" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Do you want to alter you asset allocation during your selected investment time frame?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                         </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                        <!--<div class="col-xs-12 col-sm-12 col-md-12">
                                                             <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
                                                             </select>
-                                                        </div>
+                                                        </div>-->
                                                     </div>
                                                 </div>
                                             </div>
@@ -1743,7 +1869,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row" ng-show="!alterOption">
                                                         <label for="alterYearInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What year do you want to change your asset allocation and investment strategy?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -1811,7 +1937,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row" ng-show="!alterOption">
                                                         <label for="australianShares2Input" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             invest in Australian shares</label>
@@ -1873,7 +1999,8 @@
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(6)">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+                                                        <span>Next</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -1899,7 +2026,7 @@
                                         <div class="col-sm-12 contents">
 
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row">
                                                         <label for="begnYearInvestmentInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             Beginning of the year of analysis</label>
@@ -1912,7 +2039,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label for="contStartYearInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                        <label for="contStartYearInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">
                                                             What year will you start contributing to the investment portfolio?</label>
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                             <div class="slider-div" id="contStartYearSlider">
@@ -1979,7 +2106,7 @@
                                                         <h4>First Child :</h4>
                                                     </div>
                                                 </div>-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row c1">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">First Child Name</label>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -2018,10 +2145,11 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
+                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <!-- <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
-                                                            </select>
+                                                            </select>-->
                                                         </div>
                                                     </div>
                                                     <div class="form-group row c1">
@@ -2058,7 +2186,7 @@
                                                         <h4>Second Child :</h4>
                                                     </div>
                                                 </div>-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row c2">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Second Child Name</label>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -2097,10 +2225,11 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
+                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <!--<select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
-                                                            </select>
+                                                            </select>-->
                                                         </div>
                                                     </div>
                                                     <div class="form-group row c2">
@@ -2137,7 +2266,7 @@
                                                         <h4>Third Child :</h4>
                                                     </div>
                                                 </div>-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row c3">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Third Child Name</label>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -2176,10 +2305,11 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
+                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <!-- <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
-                                                            </select>
+                                                            </select>-->
                                                         </div>
                                                     </div>
                                                     <div class="form-group row c3">
@@ -2217,7 +2347,7 @@
                                                         <h4>Fourth Child :</h4>
                                                     </div>
                                                 </div>-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row c4">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Fourth Child Name</label>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -2256,10 +2386,11 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
+                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <!-- <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
-                                                            </select>
+                                                            </select>-->
                                                         </div>
                                                     </div>
                                                     <div class="form-group row c4">
@@ -2296,7 +2427,7 @@
                                                         <h4>Fifth Child :</h4>
                                                     </div>
                                                 </div>-->
-                                                <div class="col-md-6">
+                                                <div class="col-md-6 divider">
                                                     <div class="form-group row c5">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Fifth Child Name</label>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -2335,10 +2466,11 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
+                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <!--<select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
-                                                            </select>
+                                                            </select>-->
                                                         </div>
                                                     </div>
                                                     <div class="form-group row c5">
@@ -2370,7 +2502,8 @@
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(7)">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+                                                        <span>Next</span>
                                                     </button>
                                                 </div>
                                             </div>
@@ -2400,7 +2533,7 @@
                                                 <p class="goal-cal-heading">Please select 3 or more goals according to your priorities</p>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row ml30 ml-responsive">
                                                 <div class="col-md-12 no-padding pr25">
                                                     <div class="col-md-4 no-padding goal-based-cal-block" ng-repeat="goals in goalCal">
                                                         <img src="/assets/images/check.png" ng-if="goals.isOpen" class="selected-goal" />
@@ -2449,7 +2582,8 @@
                                             <div class="row">
                                                 <div class="col-xs-12">
                                                     <button class="next-btn" type="button" ng-click="event.preventDefault();nextDiv(8)">
-                                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                                        <!-- <i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+                                                        <span>Next</span>
                                                     </button>
                                                 </div>
                                             </div>
