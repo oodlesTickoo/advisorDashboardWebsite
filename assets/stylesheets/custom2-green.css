@@ -79,20 +79,21 @@
 }
 
 .next-btn,.next-btn:active,.next-btn:focus{
-      float: right;
+     float: right;
     border-radius: 0;
     font-size: 16px;
-    height: 50px;
-    padding: 0px;
-    width: 50px;
-    margin-bottom: 15px;
-    color: #0d2f47;
+    /* height: 50px; */
+    padding: 8px 25px;
+    /* width: 50px; */
+    margin-bottom: 20px;
+    color: #ffffff;
     border: none;
-    background-color: transparent;
+    background-color: #0d2f47;
     /* border: 2px solid #228da5; */
     margin-right: 25px;
-	text-transform: uppercase;
-	font-family: AvantGardeBookBT;
+    text-transform: uppercase;
+    font-family: AvantGardeBookBT;
+    letter-spacing: 2px;
 }
 
 .tumy{
@@ -101,9 +102,9 @@
     height: 80px;
 }
 .next-btn:hover{
-	background-color: transparent;
+/*	background-color: transparent;*/
     /* color: #f1f2ef; */
-    border: 1px solid #0d2f47; 
+/*    border: 1px solid #0d2f47; */
 }
 /*.boxes label {
     font-size:14px;

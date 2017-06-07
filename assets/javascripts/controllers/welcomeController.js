@@ -3,7 +3,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
     //tab toggle btn group
     $scope.fileExist = false;
-    $scope.LOGGED_NAME = sessionService.get('name')
+    $scope.LOGGED_NAME = sessionService.get('name');
     $scope.USER_ROLE = {
         ADVISOR: "ADVISOR",
         CLIENT: "CLIENT",
@@ -15,7 +15,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     $scope.client_advisors = [];
 
     function initialize(){
-        $scope.selectedRole = sessionService.get('role');
+        $scope.selectedRole = "ADMINISTRATOR";      // sessionService.get('role');
         _getPageData();
 
     }

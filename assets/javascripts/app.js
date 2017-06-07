@@ -16,10 +16,12 @@ var app = angular.module('advisorDashboardApp', [
     'ui.grid',
     'ui.grid.autoResize',
     'ui.bootstrap',
-	'uiSwitch'
+	'uiSwitch',
+	'toastr',
+	'angular-loading-bar'
 ]);
 
-app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider) {
+app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider, cfpLoadingBarProvider) {
     $locationProvider.hashPrefix('');
     ScrollBarsProvider.defaults = {
         advanced: {
@@ -28,9 +30,11 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
         scrollInertia: 800,
         axis: 'y', // enable 2 axis scrollbars by default 
         theme: 'light',
-        setHeight: 635,
+        setHeight: '99vh',
         autoHideScrollbar: true
     };
+	
+	cfpLoadingBarProvider.includeBar = false;
 
     $stateProvider
 

@@ -12,6 +12,7 @@ app.controller("MainCtrl", ['$scope', 'sessionService', '$state','$rootScope', f
 	$rootScope.isLoggedIn = false;
 	$rootScope.loginName = '';
 	
+	
 	function init(){
 		var token = sessionService.get('token');
 		if(token && token !== '' && token !== null && token !== 'null'){

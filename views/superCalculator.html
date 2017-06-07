@@ -784,8 +784,66 @@
                                                     </div>
                                                 </div>
 
-
-                                                <div class="row">
+												<div class="row">
+														<div class="col-xs-12 white-border"></div>
+                                                	</div>
+													<div class="row intrnl-head">
+														<div class="col-xs-12">
+															<h4>Comparing Superannuation Funds :</h4>
+														</div>
+													</div>
+													 <div class="col-md-6 divider">
+                                                        <div class="form-group row">
+                                                           <h3 class="bold" style="font-weight: bold; margin-bottom: 15px;">Fund A</h3>
+															<label for="spFundAType" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                                Fund Type</label>
+															<div class="col-xs-12 col-sm-12 col-md-12">
+                                                               <select name="spFundAType" class="selectpicker spFundAType" id="spFundAType">
+																	<option ng-repeat="x in fundTypeA" value="{{x.id}}">{{x.name}}</option>
+																</select>
+                                                            </div>
+                                                        </div>
+                                                       
+                                                        <div class="form-group row">
+                                                            <label for="spFundA" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                                Fund List</label>
+                                                            <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                                <div class="slider-div" id="spFundA">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                <select name="spFundA" class="selectpicker spFundA" id="spFundA">
+																<option ng-repeat="x in fundsOb1" value="{{x.id}}">{{x.name}}</option>
+															</select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+													<div class="col-md-6">
+														<div class="form-group row">
+                                                            <h3 class="bold" style="font-weight: bold; margin-bottom: 15px;">Fund B</h3>
+															<label for="spFundBType" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                                Fund Type</label>
+															<div class="col-xs-12 col-sm-12 col-md-12">
+                                                               <select name="spFundBType" class="selectpicker spFundBType" id="spFundBType">
+																<option ng-repeat="x in fundTypeB" value="{{x.id}}">{{x.name}}</option>
+															</select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row" ng-show="showPensionOptionSpouse">
+                                                            <label for="spFundB" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                                Fund List</label>
+                                                            <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                                <div class="slider-div" id="spFundB">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                                <select name="spFundB" class="selectpicker spFundB" id="spFundB">
+																<option ng-repeat="x in fundsOb2" value="{{x.id}}">{{x.name}}</option>
+															</select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <!--<div class="row">
                                                     <div class="col-xs-12 white-border"></div>
                                                 </div>
                                                 <div class="row intrnl-head">
@@ -795,7 +853,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-lg-6 col-sm-6 col-md-6">
-                                                        <h3 class="bold" style="    font-weight: bold;    margin-bottom: 15px;">Fund A</h3>
+                                                        <h3 class="bold" style="font-weight: bold; margin-bottom: 15px;">Fund A</h3>
                                                         <h5 class="bold">Fund Type</h5>
                                                         <select name="spFundAType" class="selectpicker spFundAType" id="spFundAType">
                                                             <option ng-repeat="x in fundTypeA" value="{{x.id}}">{{x.name}}</option>
@@ -822,7 +880,7 @@
                                                             <option ng-repeat="x in fundsOb2" value="{{x.id}}">{{x.name}}</option>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div>-->
                                                 <!--<div class="form-group row">
                                                     <div class="col-lg-6 col-sm-5 col-md-5 divider">
                                                         <h4 class="bold">Fund A(your current fund)</h4>
@@ -1629,7 +1687,7 @@
                                         <div class="col-sm-12 contents">
                                             <div class="row">
                                                 <div class="col-md-6 divider">
-                                                    <div class="form-group row" ng-show="fundNotFoundB">
+                                                    <div class="form-group row">
                                                         <label for="nraInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             What is the net return of your Super in accumulation phase% ?</label>
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -1640,8 +1698,8 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="nraInput" name="nraInput" ng-model="nra">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row" ng-show="fundNotFoundB">
-                                                        <label for="nrpInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                    <div class="form-group row">
+                                                        <label for="nrpInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label mb26">
                                                             What is the net return of your pension% ?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="nrpSlider">
@@ -1654,7 +1712,7 @@
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <div class="form-group row" ng-show="fundNotFoundB">
+                                                    <div class="form-group row">
                                                         <label for="tfpInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             What Percentage of your current Superannuation balance is tax free%?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -1852,7 +1910,7 @@
                                                         <label for="spAlterOption" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Do you want to alter you asset allocation during your selected investment time frame?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                         </div>
-                                                        <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                        <switch id="spAlterOption" ng-model="enabledAlterOption" off="YES" on="NO" class="green"></switch>
                                                         <!--<div class="col-xs-12 col-sm-12 col-md-12">
                                                             <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
@@ -2145,7 +2203,7 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <switch id="spAlterOption" ng-model="enabledAlterOption" off="YES" on="NO" class="green"></switch>
                                                             <!-- <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
@@ -2225,7 +2283,7 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <switch ng-model="enabledAlterOption" id="spAlterOption" off="YES" on="NO" class="green"></switch>
                                                             <!--<select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
@@ -2305,7 +2363,7 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <switch ng-model="enabledAlterOption" id="spAlterOption" off="YES" on="NO" class="green"></switch>
                                                             <!-- <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
@@ -2386,7 +2444,7 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <switch ng-model="enabledAlterOption" id="spAlterOption" off="YES" on="NO" class="green"></switch>
                                                             <!-- <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>
@@ -2466,7 +2524,7 @@
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <switch id="spAlterOption" off="YES" on="NO" class="green"></switch>
+                                                            <switch ng-model="enabledAlterOption" id="spAlterOption" off="YES" on="NO" class="green"></switch>
                                                             <!--<select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
                                                                 <option value="0">Yes</option>
                                                                 <option value="1" selected>No</option>

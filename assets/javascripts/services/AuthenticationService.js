@@ -7,7 +7,7 @@
 
     function AuthenticationService(sessionService,$http, $timeout, toastr, $rootScope) {
 
-        var cacheSession = function(response) {
+        /*var cacheSession = function(response) {
             var result = response.data.response.me;
             $rootScope.loginName = result.FIRST_NAME + ' ' + result.LAST_NAME;
              sessionService.set('name', result.FIRST_NAME + ' ' + result.LAST_NAME);
@@ -18,7 +18,7 @@
              sessionService.set('contact', result.CONTACT_ID);
 
 
-        };
+        };*/
 
         var uncacheSession = function() {
             //sessionService.unsetAll();
@@ -63,12 +63,24 @@
 
                 var login = $http(req);
                 console.log("login11:",login );
-                login.then(cacheSession);
+                
                 return login;
             },
             isLoggedIn: function() {
                 return sessionService.get('token');
-            }
+            },
+			cacheSession : function(response) {
+            var result = response.data.response.me;
+            $rootScope.loginName = result.FIRST_NAME + ' ' + result.LAST_NAME;
+             sessionService.set('name', result.FIRST_NAME + ' ' + result.LAST_NAME);
+             sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
+             sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
+             sessionService.set('role', response.data.response.role);
+             sessionService.set('token', response.data.response.token);
+             sessionService.set('contact', result.CONTACT_ID);
+
+
+        	}
         };
 
     }
