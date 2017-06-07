@@ -192,6 +192,10 @@ a:visited {
     margin-bottom: 20px !important;
 }
 
+.ml15 {
+    margin-left: 15px !important;
+}
+
 .ml20 {
     margin-left: 20px !important;
 }
@@ -540,21 +544,15 @@ table tr:nth-child(even) {
 
 #menu {
     position: absolute;
-    width: 341px;
-    height: 530px;
+    width: 0px;
+    height: 0px;
     margin: -36px 0 0 36px;
-    /* padding: 50px; */
-    /* padding-top: 125px; */
     background: rgba(12, 28, 38, 0.65);
     list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* display: none; */
-    transform-origin: 0% 0%;
-    transform: translate(-100%, -150%);
-    opacity: 0;
-    /* transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0); */
-    transition: 0.5s all;
-    /* display: none; */
+        opacity: 0;
+    transition: width 10s, height 10s;
+    -webkit-transition: width .5s, height .5s;
+      transform: translate(-100%, 0%);
 }
 
 #menu li {
@@ -595,21 +593,39 @@ table tr:nth-child(even) {
 
 .menu-items a {
     text-align: center;
-    font-size: 32px;
+    font-size: 10px;
     color: white;
     text-transform: uppercase;
     margin: 50px 0 0 0;
     font-family: AvantGardeBookBT;
     letter-spacing: 1px;
+    opacity: 0;
+}
+
+.menufix
+{
+    font-size: 32px !important;
+    color: white !important;
+    transition: font-size 0.7s , opacity 1s;
+    opacity: 1 !important;
 }
 
 .user-menu {
     margin-top: 100px;
+    opacity: 0;
 }
 
+.userfix
+{
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+
+
 .user-left {
-    float: left;
-    width: 50%;
+    
+    width: 100%;
     text-align: center;
 }
 
@@ -640,7 +656,7 @@ table tr:nth-child(even) {
     background: none;
     border: 1px solid white;
         min-width: 100px;
-    left: 35px;
+    left: 35%;
         margin-top: 6px;
         border-radius: 0px;
 }
@@ -669,10 +685,12 @@ table tr:nth-child(even) {
  */
 
 #menuToggle input:checked ~ ul {
-    transform: scale(1.0, 1.0);
-    */ transition: 0.5s all;
+
+  
     opacity: 1;
-    transform: translate(-100%, 0%);
+    width: 341px;
+    height: 531px;
+    -webkit-transition: width .5s, height .5s;
 }
 
 
@@ -1637,5 +1655,20 @@ a.edit-action i {
 }
 
 
-
 /*login-page-media-queries*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

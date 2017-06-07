@@ -48,14 +48,14 @@
                                 </div>
                             </header>
                         </div>
-                        <div ng-if="isLoggedIn === true" class="col-md-6 col-sm-6">
+                        <div  class="col-md-6 col-sm-6">
                             <nav role="navigation">
                                 <div id="menuToggle">
                                     <!--
 							A fake / hidden checkbox is used as click reciever,
 							so you can use the :checked selector on it.
 							-->
-                                    <input type="checkbox" />
+                                    <input type="checkbox" ng-click="fontchange()"/>
 
                                     <!--
 							Some spans to act as a hamburger.
@@ -74,7 +74,7 @@
                                     <ul id="menu">
                                         <li class="menu-items" ng-repeat="item in menuItems" ng-click="select($index)" ng-class="{sel: $index == selected}">
                                             
-											<a ui-sref="{{item.path}}"> {{item.name}}</a>
+											<a ui-sref="{{item.path}}" ng-class="{menufix: showColor}"> {{item.name}}</a>
                                         </li>
                                         <!--<li class="menu-items">
 											<a  ui-sref="app.welcome">Home</a>
@@ -103,7 +103,7 @@
 
 
                                         <!--                                         <a href="#" ui-sref="app.contact">-->
-                                        <li class="user-menu">
+                                        <li class="user-menu" ng-class="{userfix : showUser}">
                                             <ul>
                                                 <li class="user-left"><img src="assets/images/user-icon.png">
                                                     <br/>
