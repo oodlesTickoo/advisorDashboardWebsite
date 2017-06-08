@@ -11,6 +11,8 @@ app.controller("MainCtrl", ['$scope', 'sessionService', '$state','$rootScope', f
 	//to get token
 	$rootScope.isLoggedIn = false;
 	$rootScope.loginName = '';
+    $scope.showColor = false;
+    $scope.showUser = false;
 	
 	
 	function init(){
@@ -49,4 +51,12 @@ app.controller("MainCtrl", ['$scope', 'sessionService', '$state','$rootScope', f
     	$rootScope.isLoggedIn = false;
     	$state.go('login');
     }
+    
+    $scope.fontchange = function(){
+      
+        $scope.showColor = !$scope.showColor;
+        $scope.showUser = !$scope.showUser;
+    }
+    
+    
 }]);

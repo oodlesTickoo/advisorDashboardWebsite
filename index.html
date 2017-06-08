@@ -42,36 +42,41 @@
                 <div class="col-md-4 col-sm-4 no-padding" style="width: 34.5%;">
                     <div class="main-image">
                         <div class="row" style="padding: 65px 66px;">
-                            <div class="col-md-5 col-sm-5">
+                            <div class="col-md-6 col-sm-6">
                                 <header id="header">
                                     <div class="logo">
                                         <a href="#"><img src="assets/images/logo.png" alt="Logo" /></a>
                                     </div>
                                 </header>
                             </div>
-                            <div class="col-md-7 col-sm-7">
+                            <div class="col-md-6 col-sm-6">
                                 <nav role="navigation">
-                                    <div id="menuToggle">
+                                    <div id="menuToggle" ng-class="{removeBackground : showUser}">
                                         <!--
 							A fake / hidden checkbox is used as click reciever,
-							so you can use the :checked selector on it.
-							 ng-if="isLoggedIn === true"-->
-                                        <input type="checkbox" />
+							so you can use the :checked selector on it. ng-if="isLoggedIn === true"
+							-->
+                                        <input type="checkbox" ng-click="fontchange()" />
 
                                         <!--
 							Some spans to act as a hamburger.
 
 							-->
+
                                         <span></span>
                                         <span></span>
                                         <span></span>
 
+                                        <!--
+							Too bad the menu has to be inside of the button
+							but hey, it's pure CSS magic.
+							-->
                                         <ul id="menu">
                                             <li class="menu-items" ng-repeat="item in menuItems" ng-click="select($index)" ng-class="{sel: $index == selected}">
 
-                                                <a ui-sref="{{item.path}}"> {{item.name}}</a>
+                                                <a ui-sref="{{item.path}}" ng-class="{menufix: showColor}"> {{item.name}}</a>
                                             </li>
-                                            <li class="user-menu">
+                                            <li class="user-menu" ng-class="{userfix : showUser}">
                                                 <ul>
                                                     <li class="user-left"><img src="assets/images/user-icon.png">
                                                         <br/>
@@ -84,9 +89,29 @@
                                                             </ul>
                                                         </div>
                                                     </li>
+                                                    <!--  <li class="user-right"><img src="assets/images/user-icon.png">
+                                                    <br/>
+                                                    
+                                                           <div class="dropdown">
+                                                    <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">Advisor<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
+                                                
+                                                    <ul class="dropdown-menu logout-menu">
+                                                      <li ng-click="logout()" class="logout pointer">Logout</li>
+                                                   
+                                                    </ul>
+                                                  </div>
+
+                                                  
+
+                                                </li>
+ -->
                                                 </ul>
+
                                             </li>
+                                            <!--                                        </a>-->
+
                                         </ul>
+
                                     </div>
                                 </nav>
                             </div>
