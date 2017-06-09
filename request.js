@@ -27,14 +27,19 @@ var dataSFC = {
 
 ////ttr/////////
 
-var ageWs = req.query.age;
-    var csesWs = req.query.cses;
-    var nraWs = req.query.nra;
-    var nrpWs = req.query.nrp;
-    var tfpWs = req.query.tfp;
-    var balanceWs = req.query.balance;
-    var fyWs = req.query.fy;
-    var thpWs = req.query.thp;
+
+
+    var data = {
+        "age": 25,
+        "cses": 60000,
+        "thp": 37000,
+        "fy": 2010,
+        "nra": 3,
+        "nrp": 3,
+        "balance": 50000,
+        "tfp": 3
+
+    };
 
 
 ///retirement
@@ -251,7 +256,11 @@ var dataInsurance={
 
 /// SSO
 
-var age = req.query.age;
-    var cses = req.query.cses;
-    var thp = req.query.thp;
-    var fy = req.query.fy;
+var data = {
+        "age": 19,
+        "cses": 80000,
+        "thp": 45000,
+        "fy": 2016
+    };
+
+
