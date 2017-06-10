@@ -1764,7 +1764,7 @@
                                     <div class="row form-6" ng-class="{menuDrop: isMenuDrop6}">
                                         <div class="col-sm-12 contents">
                                             <div class="form-group row">
-                                                <label for="initialInvestmentAmountInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is your chosen asset allocation to consider the long term performance</label>
+                                                <label for="initialInvestmentAmountInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Initial Invest Amount</label>
                                                 <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                     <div class="slider-div" id="initialInvestmentAmountSlider">
                                                     </div>
@@ -1848,16 +1848,19 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="australianListedProperty1Input" name="australianListedProperty1Input" ng-model="australianListedProperty1">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row" ng-show="alterOption">
-                                                        <label for="asset1TotalInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
-                                                            Total Percentage Selected</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col " style="visibility: hidden;">
-                                                            <div class="slider-div" id="asset1TotalSlider">
-                                                            </div>
+                                                    <div class="form-group row">
+                                                        <label for="spAlterOption" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Do you want to alter you asset allocation during your selected investment time frame?</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                         </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="asset1TotalInput" name="asset1TotalInput" ng-model="asset1Total" disabled>
-                                                        </div>
+														<div class="col-xs-12 col-sm-12 col-md-12">
+                                                        <switch id="spAlterOption" ng-model="alterOption" off="NO" on="YES" class="green"></switch>
+														</div>
+                                                        <!--<div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
+                                                                <option value="0">Yes</option>
+                                                                <option value="1" selected>No</option>
+                                                            </select>
+                                                        </div>-->
                                                     </div>
                                                 </div>
 
@@ -1906,17 +1909,26 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="internationalListedProperty1Input" name="internationalListedProperty1Input" ng-model="internationalListedProperty1">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
-                                                        <label for="spAlterOption" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Do you want to alter you asset allocation during your selected investment time frame?</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                    <div class="form-group row" ng-show="alterOption">
+                                                        <label for="asset1TotalInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                            Total Percentage Selected</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col " style="visibility: hidden;">
+                                                            <div class="slider-div" id="asset1TotalSlider">
+                                                            </div>
                                                         </div>
-                                                        <switch id="spAlterOption" ng-model="enabledAlterOption" off="YES" on="NO" class="green"></switch>
-                                                        <!--<div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <select class="selectpicker spAlterOption" id="spAlterOption" title="Choose An Option">
-                                                                <option value="0">Yes</option>
-                                                                <option value="1" selected>No</option>
-                                                            </select>
-                                                        </div>-->
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <input type="text" onClick="this.select();" class="form-control" id="asset1TotalInput" name="asset1TotalInput" ng-model="asset1Total" disabled>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row" ng-show="!alterOption">
+                                                        <label for="alterYearInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What year do you want to change your asset allocation and investment strategy?</label>
+                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
+                                                            <div class="slider-div" id="alterYearSlider">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                                            <input type="text" onClick="this.select();" class="form-control" id="alterYearInput" name="alterYearInput" ng-model="alterYear">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1928,16 +1940,6 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 divider">
-                                                    <div class="form-group row" ng-show="!alterOption">
-                                                        <label for="alterYearInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What year do you want to change your asset allocation and investment strategy?</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                            <div class="slider-div" id="alterYearSlider">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <input type="text" onClick="this.select();" class="form-control" id="alterYearInput" name="alterYearInput" ng-model="alterYear">
-                                                        </div>
-                                                    </div>
                                                     <div class="form-group row" ng-show="!alterOption">
                                                         <label for="internationalShares2Input" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
                                                             International Shares</label>
