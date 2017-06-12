@@ -1,15 +1,5 @@
 app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', function($scope, $rootScope, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker) {
 
-    /*  $scope.config = {
-          autoHideScrollbar: true,
-          theme: 'light',
-          advanced: {
-              updateOnContentResize: true
-          },
-          setHeight: 600,
-          scrollInertia: 0
-      };*/
-	
 	$scope.fundTypeA = [
         { id: 0, name: 'MySuper Fund' },
         { id: 1, name: 'Lifestage Fund' },
@@ -663,6 +653,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
         { id: 310, name: "Australian Super direct share portfolio platform", contributionFee: 0, adminFee: 2673, indirectCostRation: 0 },
         { id: 311, name: "Investor's own", contributionFee: 0.01134, adminFee: 0, indirectCostRation: 0 }
     ];
+
+    $scope.fundsObArray=[$scope.fundsMySuper,$scope.fundsLifestage,$scope.fundsOther];
 
     $scope.fundsOb1 = $scope.fundsMySuper;
     $scope.fundsOb2 = $scope.fundsMySuper;
