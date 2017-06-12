@@ -424,6 +424,16 @@ a:visited {
     margin-right: 0;
 }
 
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar{
+	background-color: #9fe7f7;
+    background-color: rgb(140, 212, 228);
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+    background-color: #9fe7f7;
+    background-color: rgb(140, 212, 228);
+}
+
 
 /*Tables*/
 
@@ -1376,7 +1386,7 @@ a.edit-action i {
     color: #fff;
     position: absolute;
     top: 25%;
-    left: 17%;
+    left: 16%;
 }
 
 .switch .off {
