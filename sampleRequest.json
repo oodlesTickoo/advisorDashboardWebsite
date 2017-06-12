@@ -1,0 +1,56 @@
+{
+  "custom_field": [
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_150",
+      "FIELD_VALUE": $scope.spouseOption
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_154",
+      "FIELD_VALUE": $scope.houseOption
+    },
+    { 
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_155",
+      "FIELD_VALUE": "false"
+    }, 
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_156",
+      "FIELD_VALUE": "dev"
+    },
+    {  
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_157",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_158",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_159",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_160",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_161",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_162",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_163",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_164",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_165",
+      "FIELD_VALUE": "false"
+    }
+  ]
+}
