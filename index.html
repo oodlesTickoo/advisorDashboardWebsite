@@ -23,6 +23,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/javascripts/libs/ng-scrollbar/jquery.mCustomScrollbar.min.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/javascripts/libs/angular-ui-grid/ui-grid.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/javascripts/libs/angular-ui-switch/angular-ui-switch.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/javascripts/libs/angular-loading-bar/loading-bar.css" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/custom-green.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/custom2-green.css" />
@@ -33,90 +34,62 @@
 </head>
 
 <body>
-<div class="body-container">
-    <div ng-app="advisorDashboardApp" ng-controller="MainCtrl">
-        <!--        <ng-view></ng-view>-->
-        <div class="row no-margin">
-        
-            <div class="col-md-4 col-sm-4 no-padding" style="width: 34.5%;">
-                <div class="main-image">
-                    <div class="row" style="padding: 65px 66px;">
-                        <div class="col-md-6 col-sm-6">
-                            <header id="header">
-                                <div class="logo">
-                                    <a href="#"><img src="assets/images/logo.png" alt="Logo" /></a>
-                                </div>
-                            </header>
-                        </div>
-                        <div ng-if="isLoggedIn === true" class="col-md-6 col-sm-6">
-                            <nav role="navigation">
-                                <div id="menuToggle">
-                                    <!--
-							A fake / hidden checkbox is used as click reciever,
-							so you can use the :checked selector on it.
-							-->
-                                    <input type="checkbox" />
+    <div class="body-container">
+        <div ng-app="advisorDashboardApp" ng-controller="MainCtrl">
+            <!--        <ng-view></ng-view>-->
+            <div class="row no-margin">
 
-                                    <!--
+                <div class="col-md-4 col-sm-4 no-padding" style="width: 34.5%;">
+                    <div class="main-image">
+                        <div class="row" style="padding: 65px 66px;">
+                            <div class="col-md-6 col-sm-6">
+                                <header id="header">
+                                    <div class="logo">
+                                        <a href="#"><img src="assets/images/logo.png" alt="Logo" /></a>
+                                    </div>
+                                </header>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <nav role="navigation">
+                                    <div id="menuToggle" ng-class="{removeBackground : showUser}">
+                                        <!--
+							A fake / hidden checkbox is used as click reciever,
+							so you can use the :checked selector on it. ng-if="isLoggedIn === true"
+							-->
+                                        <input type="checkbox" ng-click="fontchange()" />
+
+                                        <!--
 							Some spans to act as a hamburger.
 
-							They are acting like a real hamburger,
-							not that McDonalds stuff.
 							-->
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
 
-                                    <!--
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+
+                                        <!--
 							Too bad the menu has to be inside of the button
 							but hey, it's pure CSS magic.
 							-->
-                                    <ul id="menu">
-                                        <li class="menu-items" ng-repeat="item in menuItems" ng-click="select($index)" ng-class="{sel: $index == selected}">
-                                            
-											<a ui-sref="{{item.path}}"> {{item.name}}</a>
-                                        </li>
-                                        <!--<li class="menu-items">
-											<a  ui-sref="app.welcome">Home</a>
-										</li>
-										<li class="menu-items1">
-											<a  ui-sref="app.superCalculator">Calculators</a>
-										</li>
-										<li class="menu-items1">
-											<a  ui-sref="app.goalBasedAdvice">Goal Based Advice</a>
-										</li>
-										<li class="menu-items1">
-											<a  ui-sref="app.contact">Contact Us</a>
-										</li>-->
-                                        <!-- <a  ui-sref="app.welcome">
-                                            <li class="menu-items">Home</li>
-                                        </a>
-                                        <a href="#" ui-sref="app.superCalculator">
-                                            <li class="menu-items1">Calculators</li>
-                                        </a>
-                                        <a href="#" ui-sref="app.goalBasedAdvice">
-                                            <li class="menu-items1">Goal Based Advice</li>
-                                        </a>
-                                        <a href="#" ui-sref="app.contact">
-                                            <li class="menu-items1">Contact Us</li>
-                                        </a>-->
+                                        <ul id="menu">
+                                            <li class="menu-items" ng-repeat="item in menuItems" ng-click="select($index)" ng-class="{sel: $index == selected}">
 
+                                                <a ui-sref="{{item.path}}" ng-class="{menufix: showColor}"> {{item.name}}</a>
+                                            </li>
+                                            <li class="user-menu" ng-class="{userfix : showUser}">
+                                                <ul>
+                                                    <li class="user-left"><img src="assets/images/user-icon.png">
+                                                        <br/>
+                                                        <div class="dropdown">
+                                                            <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">{{loginName}}<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
 
-                                        <!--                                         <a href="#" ui-sref="app.contact">-->
-                                        <li class="user-menu">
-                                            <ul>
-                                                <li class="user-left"><img src="assets/images/user-icon.png">
-                                                    <br/>
-                                                         <div class="dropdown">
-                                                    <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">{{loginName}}<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
-                                                
-                                                    <ul class="dropdown-menu logout-menu">
-                                                      <li ng-click="logout()" class="logout pointer">Logout</li>
-                                                   
-                                                    </ul>
-                                                  </div>
-                                                </li>
-                                               <!--  <li class="user-right"><img src="assets/images/user-icon.png">
+                                                            <ul class="dropdown-menu logout-menu">
+                                                                <li ng-click="logout()" class="logout pointer">Logout</li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                    <!--  <li class="user-right"><img src="assets/images/user-icon.png">
                                                     <br/>
                                                     
                                                            <div class="dropdown">
@@ -132,25 +105,25 @@
 
                                                 </li>
  -->
-                                            </ul>
+                                                </ul>
 
-                                        </li>
-                                        <!--                                        </a>-->
+                                            </li>
+                                            <!--                                        </a>-->
 
-                                    </ul>
+                                        </ul>
 
-                                </div>
-                            </nav>
+                                    </div>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-8 col-sm-8 no-padding" style="padding: 0; width: 65.5%;">
+                    <div ui-view></div>
+                </div>
             </div>
-            <div class="col-md-8 col-sm-8 no-padding" style="padding: 0; width: 65.5%;">
-                <div ui-view></div>
-            </div>
-        </div>
 
-    </div>
+        </div>
     </div>
     <!-- JAVASCRIPTS -->
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" integrity="sha256-ihAoc6M/JPfrIiIeayPE9xjin4UWjsx2mjW/rtmxLM4=" crossorigin="anonymous"></script>
@@ -189,6 +162,7 @@
     <script src="assets/javascripts/libs/StackBlur.js" type="text/javascript"></script>
     <script src="assets/javascripts/libs/canvg.min.js" type="text/javascript"></script>
     <script src="assets/javascripts/libs/angular-toastr.tpls.min.js" type="text/javascript"></script>
+    <script src="assets/javascripts/libs/angular-loading-bar/loading-bar.js" type="text/javascript"></script>
 
     <script src="https://use.fontawesome.com/ddac04c5c3.js"></script>
 
@@ -214,7 +188,7 @@
     <script src="assets/javascripts/services/sessionService.js" type="text/javascript"></script>
     <script src="assets/javascripts/services/UserService.js" type="text/javascript"></script>
 
-    <!--Directive-->
+    <!--Directives-->
     <script src="assets/javascripts/directive_filters/FileUpload.js" type="text/javascript"></script>
 
     <script src="assets/javascripts/libs/scripts.js" type="text/javascript"></script>

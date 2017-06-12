@@ -3,9 +3,9 @@
 
     app.factory('UserService', UserService);
 
-    UserService.$inject = ['sessionService','$http', '$timeout', 'toastr'];
+    UserService.$inject = ['sessionService','$http', '$timeout'];
 
-    function UserService(sessionService,$http, $timeout, toastr) {
+    function UserService(sessionService,$http, $timeout) {
 
         return {
 

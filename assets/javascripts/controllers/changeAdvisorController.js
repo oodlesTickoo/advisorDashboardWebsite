@@ -1,4 +1,4 @@
-app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advisors', 'UserService', function($scope, $uibModalInstance, advisors, UserService) {
+app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advisors', 'UserService', 'toastr', function($scope, $uibModalInstance, advisors, UserService, toastr) {
     'use strict';
 	
 	console.log("in ChangeAdvisorController", advisors);
@@ -34,8 +34,11 @@ app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advis
     $scope.advisorChanged = function(advisorId){
         console.log('advisorId', advisorId, $scope.selectedAdvisor)
         UserService.linkClientToAdvisor(clientId, advisorId).then(function(result){
-            if(result.status === 200)
-                $scope.ok();
+            if(result.status === 200){
+				$scope.ok();
+				 toastr.success('Hello world!');
+			}
+                
             else
                 $scope.cancel();
         }).catch(function(err){

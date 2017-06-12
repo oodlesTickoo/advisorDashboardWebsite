@@ -1,4 +1,4 @@
-app.controller("LoginController", ['$scope', 'AuthenticationService', '$state','$rootScope', function($scope, AuthenticationService, $state, $rootScope) {
+app.controller("LoginController", ['$scope', 'AuthenticationService', '$state','$rootScope', 'toastr', function($scope, AuthenticationService, $state, $rootScope, toastr) {
     'use strict';
 
     const USER_ROLE = {
@@ -18,17 +18,21 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state','
         console.log("Login: ",data);
         AuthenticationService.login(data).then(function(response) {
             if(response && response.status !== 200){
+				toastr.error('Please fill up all the required fields!', 'Error');
                 return;
             }
             if(response && response.data && response.data.response){
                 console.log(response);
+				AuthenticationService.cacheSession(response)
                 $rootScope.isLoggedIn = true;
                 $state.go('app.welcome');
             } else{
-
+				
+           
             }
         }).catch(function(error) {
             console.log("error", error);
+			toastr.error('Internal Server Error', 'Error');
         });
     };
 
