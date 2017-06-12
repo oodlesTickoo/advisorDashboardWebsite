@@ -1,0 +1,199 @@
+
+  "CUSTOMFIELDS": [
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_1",
+      "FIELD_VALUE": "bad"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_2",
+      "FIELD_VALUE": "spouse"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_5",
+      "FIELD_VALUE": "no"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_6",
+      "FIELD_VALUE": "archana-spousefirst"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_10",
+      "FIELD_VALUE": "1122-mobile"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_11",
+      "FIELD_VALUE": "2016-fy"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_18",
+      "FIELD_VALUE": "123-supertaxrate"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_25",
+      "FIELD_VALUE": "100-infation"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_32",
+      "FIELD_VALUE": "9000-target"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_33",
+      "FIELD_VALUE": "100-annualSPouse"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_39",
+      "FIELD_VALUE": "100-fixedSpouse"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_46",
+      "FIELD_VALUE": "100-pensiondrawdown"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_47",
+      "FIELD_VALUE": "qwe-fundAtype"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_51",
+      "FIELD_VALUE": "medium-investopt"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_56",
+      "FIELD_VALUE": "qwe-fundBname"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_60",
+      "FIELD_VALUE": "100-homeMort"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_65",
+      "FIELD_VALUE": "100-otherloan"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_66",
+      "FIELD_VALUE": "5"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_74",
+      "FIELD_VALUE": "100-familylivingcost"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_75",
+      "FIELD_VALUE": "1-life"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_79",
+      "FIELD_VALUE": "20-sickleave"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_80",
+      "FIELD_VALUE": "100-homevalue"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_91",
+      "FIELD_VALUE": "100-pensionincome"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_92",
+      "FIELD_VALUE": "100-nra"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_95",
+      "FIELD_VALUE": "100=beforettr"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_96",
+      "FIELD_VALUE": "1000-initialinvestamount"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_97",
+      "FIELD_VALUE": "share1"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_107",
+      "FIELD_VALUE": "yes"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_108",
+      "FIELD_VALUE": "5"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_109",
+      "FIELD_VALUE": "share2"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_119",
+      "FIELD_VALUE": "2016-begn"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_122",
+      "FIELD_VALUE": "firstchild"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_127",
+      "FIELD_VALUE": "2dchild"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_132",
+      "FIELD_VALUE": "thirrd"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_138",
+      "FIELD_VALUE": "fourth"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_144",
+      "FIELD_VALUE": "fifth"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_150",
+      "FIELD_VALUE": "CLIENT"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_154",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_155",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_156",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_157",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_158",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_159",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_160",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_161",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_162",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_163",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_164",
+      "FIELD_VALUE": "false"
+    },
+    {
+      "CUSTOM_FIELD_ID": "CONTACT_FIELD_165",
+      "FIELD_VALUE": "false"
+    }
+  ]
