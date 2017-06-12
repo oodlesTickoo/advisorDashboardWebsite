@@ -154,6 +154,7 @@
 .page-content .bootstrap-select.btn-group .dropdown-menu li a{
 	outline: none !important;
 	font-weight: normal;
+    white-space: normal;
 }
 
 .page-content .boxes .bootstrap-select ul.dropdown-menu span.text {
@@ -453,6 +454,7 @@ and (orientation : landscape) {
 
 .ttrForm .bootstrap-select.btn-group .dropdown-menu{
 	min-width: 87%;
+	position: relative;
 }
 
 

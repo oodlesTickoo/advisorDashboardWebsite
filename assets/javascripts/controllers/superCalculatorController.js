@@ -4382,7 +4382,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
         connect: [false, false],
         range: {
             min: [initDate.getFullYear()],
-            max: [$scope.endYearInvestment],
+            max: [$scope.endYearInvestment]
         },
         format: wNumb({
             decimals: 0,

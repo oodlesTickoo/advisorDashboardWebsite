@@ -18,8 +18,7 @@ var app = angular.module('advisorDashboardApp', [
     'ui.bootstrap',
 	'uiSwitch',
 	'toastr',
-	'angular-loading-bar',
-	'ngScrollable'
+	'angular-loading-bar'
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider, cfpLoadingBarProvider) {
