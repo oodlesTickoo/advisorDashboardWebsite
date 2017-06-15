@@ -57,15 +57,18 @@ html {
     /* font-size: 100.01%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;*/
+	height: 100%;
 }
 
 body {
     line-height: 1em;
-    background-size: 100% auto;
+/*    background-size: 100% auto;*/
+	height: 100%;
     /*background-color: #e0e0e0;
 background: url("../images/landingPage-bg.png") no-repeat;
 background-size: cover;*/
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 a {
@@ -293,6 +296,10 @@ a:visited {
 
 .pointer {
     cursor: pointer;
+}
+
+.scroll{
+	overflow-y: scroll !important;
 }
 
 
@@ -1320,14 +1327,27 @@ a.edit-action i {
 /*** Super Calculator ***/
 
 #super-calc-content {
-    background: url(../images/super-calc-bg.png) no-repeat;
+  /*  background: url(../images/super-calc-bg.png) no-repeat;
     height: 100vh;
-    background-size: 100% 100%;
+    background-size: 100% 100%;*/
 }
 
-.super-calc-container,
-.goal-based-container {
-    top: 2px;
+.super-calc-container{
+/*    top: 2px;*/
+ 	background-image: url(../images/super-calc-bg.png);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
+    background-attachment: fixed;
+}
+
+.goal-based-container{
+	 top: 2px;
+ 	background-image: none;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center top;
+    background-attachment: fixed;
 }
 
 .divider {
@@ -1337,6 +1357,7 @@ a.edit-action i {
 .super-calc-container .page-content,
 .goal-based-container .page-content {
     padding-top: 63px;
+    padding-bottom: 25px;
 }
 
 .super-calc-heading h3 {

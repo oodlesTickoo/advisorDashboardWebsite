@@ -7124,27 +7124,18 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
         /*$scope.menuDrop12 = function() {
                $scope.isMenuDrop12 = $scope.isMenuDrop12 ? false : true;
            }*/
+	
+	  /* $timeout( function(){
 
-
+        }, 3000 );*/
+	
+			   
     $(".form-1").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
         if ($scope.isMenuDrop1 && $scope.next1) {
             $scope.isMenuDrop2 = false;
             $timeout(0);
             $scope.next1 = false;
         }
-        /*if ($scope.spouseOption) {
-            if ($scope.isMenuDrop1 && $scope.next1) {
-                $scope.isMenuDrop2 = false;
-                $timeout(0);
-                $scope.next1 = false;
-            }
-        } else {
-            if ($scope.isMenuDrop1 && $scope.next1) {
-                $scope.isMenuDrop3 = false;
-                $timeout(0);
-                $scope.next1 = false;
-            }
-        }*/
     });
     $(".form-2").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
         if ($scope.isMenuDrop2 && $scope.next2) {
@@ -7159,19 +7150,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
             $timeout(0);
             $scope.next3 = false;
         }
-        /*if ($scope.spouseOption) {
-            if ($scope.isMenuDrop3 && $scope.next3) {
-                $scope.isMenuDrop4 = false;
-                $timeout(0);
-                $scope.next3 = false;
-            }
-        } else {
-            if ($scope.isMenuDrop3 && $scope.next3) {
-                $scope.isMenuDrop5 = false;
-                $timeout(0);
-                $scope.next3 = false;
-            }
-        }*/
     });
     $(".form-4").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
         if ($scope.isMenuDrop4 && $scope.next4) {
@@ -7224,57 +7202,54 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
     });*/
 
 
+$scope.nextDiv = function(div_num) {
+			switch (div_num) {
+				case 1:
+					$scope.isMenuDrop1 = true;
+					$scope.next1 = true;
+					break;
+				case 2:
+					$scope.isMenuDrop2 = true;
+					$scope.next2 = true;
+					break;
+				case 3:
+					$scope.isMenuDrop3 = true;
+					$scope.next3 = true;
+					break;
+				case 4:
+					$scope.isMenuDrop4 = true;
+					$scope.next4 = true;
+					break;
+				case 5:
+					$scope.isMenuDrop5 = true;
+					$scope.next5 = true;
+					break;
+				case 6:
+					$scope.isMenuDrop6 = true;
+					$scope.next6 = true;
+					break;
+				case 7:
+					$scope.isMenuDrop7 = true;
+					$scope.next7 = true;
+					break;
+				case 8:
+					$scope.isMenuDrop8 = true;
+					/*$scope.next8 = true;
+					break;
+				case 9:
+					$scope.isMenuDrop9 = true;
+					$scope.next9 = true;
+					break;
+				case 10:
+					$scope.isMenuDrop10 = true;
+					$scope.next10 = true;
+					break;
+				case 11:
+					$scope.isMenuDrop11 = true;*/
+			}
+		}
 
-
-
-
-    $scope.nextDiv = function(div_num) {
-        switch (div_num) {
-            case 1:
-                $scope.isMenuDrop1 = true;
-                $scope.next1 = true;
-                break;
-            case 2:
-                $scope.isMenuDrop2 = true;
-                $scope.next2 = true;
-                break;
-            case 3:
-                $scope.isMenuDrop3 = true;
-                $scope.next3 = true;
-                break;
-            case 4:
-                $scope.isMenuDrop4 = true;
-                $scope.next4 = true;
-                break;
-            case 5:
-                $scope.isMenuDrop5 = true;
-                $scope.next5 = true;
-                break;
-            case 6:
-                $scope.isMenuDrop6 = true;
-                $scope.next6 = true;
-                break;
-            case 7:
-                $scope.isMenuDrop7 = true;
-                $scope.next7 = true;
-                break;
-            case 8:
-                $scope.isMenuDrop8 = true;
-                /*$scope.next8 = true;
-                break;
-            case 9:
-                $scope.isMenuDrop9 = true;
-                $scope.next9 = true;
-                break;
-            case 10:
-                $scope.isMenuDrop10 = true;
-                $scope.next10 = true;
-                break;
-            case 11:
-                $scope.isMenuDrop11 = true;*/
-        }
-    }
-
+ 
     /*if(!$scope.spouseOption){
         colorChange();
     }

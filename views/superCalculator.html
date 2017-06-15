@@ -1,6 +1,6 @@
 <!-- Content -->
 <div id="super-calc-content">
-    <div class="main-container super-calc-container" ng-scrollbars ng-scrollbars-config="config">
+    <div class="main-container super-calc-container">
         <div class="container">
             <div print-remove style="display: block;">
                 <div class="row page-content no-margin" id="inputs">
@@ -764,85 +764,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--<div class="row">
-                                                    <div class="col-xs-12 white-border"></div>
-                                                </div>
-                                                <div class="row intrnl-head">
-                                                    <div class="col-xs-12">
-                                                        <h4>Comparing Superannuation Funds :</h4>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-6 col-sm-6 col-md-6">
-                                                        <h3 class="bold" style="font-weight: bold; margin-bottom: 15px;">Fund A</h3>
-                                                        <h5 class="bold">Fund Type</h5>
-                                                        <select name="spFundAType" class="selectpicker spFundAType" id="spFundAType">
-                                                            <option ng-repeat="x in fundTypeA" value="{{x.id}}">{{x.name}}</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-md-6">
-                                                        <h3 class="bold" style="    font-weight: bold;    margin-bottom: 15px;">Fund B</h3>
-                                                        <h5 class="bold">Fund Type</h5>
-                                                        <select name="spFundBType" class="selectpicker spFundBType" id="spFundBType">
-                                                            <option ng-repeat="x in fundTypeB" value="{{x.id}}">{{x.name}}</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="row" id="datebox">
-                                                    <div class="col-lg-6 col-sm-6 col-md-6">
-                                                        <h5 class="bold">Fund List</h5>
-                                                        <select name="spFundA" class="selectpicker spFundA" id="spFundA">
-                                                            <option ng-repeat="x in fundsOb1" value="{{x.id}}">{{x.name}}</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-lg-6 col-sm-6 col-md-6">
-                                                        <h5 class="bold">Fund List</h5>
-                                                        <select name="spFundB" class="selectpicker spFundB" id="spFundB">
-                                                            <option ng-repeat="x in fundsOb2" value="{{x.id}}">{{x.name}}</option>
-                                                        </select>
-                                                    </div>
-                                                </div>-->
-                                                <!--<div class="form-group row">
-                                                    <div class="col-lg-6 col-sm-5 col-md-5 divider">
-                                                        <h4 class="bold">Fund A(your current fund)</h4>
-                                                        <select name="spFundA" class="selectpicker spFundA" id="spFundA">
-                                                            <option ng-repeat="x in fundsOb" value="{{x.id}}">{{x.name}}</option>
-                                                        </select>
-                                                    </div>
-													
-                                                    <div class="col-lg-6 col-sm-5 col-md-5">
-                                                        <h4 class="bold">Fund B(Alternative Fund)</h4>
-                                                        <select name="spFundB" class="selectpicker spFundB">
-                                                            <option ng-repeat="x in fundsOb" value="{{x.id}}">{{x.name}}</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
-                                                    <label for="spInvestOption" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Your investment Profile</label>
-                                                    <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                    </div>
-                                                    <div class="col-xs-6 col-md-6 col-sm-6">
-                                                        <select class="selectpicker spInvestOption" id="spInvestOption" title="Choose An Option">
-                                                            <option ng-repeat="x in investOptions" value="{{x.id}}">{{x.name}}
-                                                            </option>
-                                                        </select>
-                                                    </div>
-                                                </div>-->
                                                 <div class="row">
                                                     <div class="col-xs-12 white-border"></div>
                                                 </div>
                                                 <div class="col-md-6 divider">
-                                                    <!-- <div class="form-group row">
-                                                        <label for="spOtherFundA" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Do you want to specify a fund that is not listed?</label>
-                                                        <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
-                                                        </div>
-                                                        <div class="col-xs-12 col-sm-12 col-md-12">
-                                                            <select class="selectpicker spOtherFundA" id="spOtherFundA" title="Choose An Option">
-                                                                <option value="0" selected>Yes</option>
-                                                                <option value="1">No</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>-->
                                                     <div class="form-group row" ng-show="fundNotFoundA">
                                                         <label for="first-name" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the name of the fund?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -1066,7 +991,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label for="otherInvestmentInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Other Investments (works of Art, Life Insurance, Education funds Etc)</label>
+                                                        <label for="otherInvestmentInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">Other Investments (works of Art, Life Insurance, Education funds Etc)</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="otherInvestmentSlider">
                                                             </div>
@@ -1442,7 +1367,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row" ng-show="(spouseWorkOption && enabledSpouseOption)">
-                                                        <label for="spouseSalaryInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the income per year of your spouse or partner $ ?</label>
+                                                        <label for="spouseSalaryInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">What is the income per year of your spouse or partner $ ?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="spouseSalarySlider">
                                                             </div>
@@ -1452,7 +1377,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label for="familyLivingCostPerYearInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Family living costs per year$ (Mortgage or rent and food and utilities) $</label>
+                                                        <label for="familyLivingCostPerYearInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">Family living costs per year$ (Mortgage or rent and food and utilities) $</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="familyLivingCostPerYearSlider">
                                                             </div>
@@ -1549,7 +1474,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label for="ecIPInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What amount of income protection insurance do you have from all sources $ ?</label>
+                                                        <label for="ecIPInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">What amount of income protection insurance do you have from all sources $ ?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="ecIPSlider">
                                                             </div>
@@ -1568,7 +1493,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label for="ecTPDInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">What is the amount of TPD that you have from all sources $ ?</label>
+                                                        <label for="ecTPDInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">What is the amount of TPD that you have from all sources $ ?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="ecTPDSlider">
                                                             </div>
@@ -1666,7 +1591,7 @@
 
                                                 <div class="col-md-6">
                                                     <div class="form-group row">
-                                                        <label for="tfpInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label">
+                                                        <label for="tfpInput" class="col-xs-11 col-sm-11 col-md-11 col-form-label">
                                                             What Percentage of your current Superannuation balance is tax free%?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="tfpSlider">
@@ -2462,7 +2387,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="form-group row c5">
-                                                        <label for="spSchool5" class="col-xs-12 col-sm-12 col-md-12 col-form-label mb26">Which school will your child be enrolled at?</label>
+                                                        <label for="spSchool5" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Which school will your child be enrolled at?</label>
                                                         <div class="col-md-5 hidden-xs col-sm-5 slider-col">
                                                         </div>
                                                         <div class="col-xs-12 col-sm-12 col-md-12">

@@ -16,9 +16,18 @@ var app = angular.module('advisorDashboardApp', [
     'ui.grid',
     'ui.grid.autoResize',
     'ui.bootstrap',
-	'uiSwitch',
-	'toastr',
-	'angular-loading-bar'
+    'uiSwitch',
+    'toastr',
+    'angular-loading-bar'
+]);
+
+app.run([
+    "$rootScope", "$state", "$stateParams",
+    function($rootScope, $state, $stateParams) {
+        $rootScope.$state = $state;
+        return $rootScope.$stateParams = $stateParams;
+		console.log("dddddddddddddddddddddddddddddddd",$rootScope.$state, $rootScope.$stateParams);
+    }
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider, cfpLoadingBarProvider) {
@@ -33,8 +42,8 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
         setHeight: '99vh',
         autoHideScrollbar: true
     };
-	
-	cfpLoadingBarProvider.includeBar = false;
+
+    cfpLoadingBarProvider.includeBar = false;
 
     $stateProvider
 
@@ -84,17 +93,3 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
     $urlRouterProvider.otherwise('/login');
 
 });
-
-
-/*$routeProvider
-    .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginController'
-    })
-    .when('/client', {
-        templateUrl: 'views/clientPage.html',
-        controller: 'clientPageController'
-    })
-    .otherwise({
-        redirectTo: '/login'
-    });*/

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="advisorDashboardApp">
 
 <head>
     <title>Test2</title>
@@ -33,9 +33,9 @@
     <script src="assets/javascripts/libs/head.min.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body ng-class="{'scroll' : $state.includes('app.superCalculator')}">
     <div class="body-container">
-        <div ng-app="advisorDashboardApp" ng-controller="MainCtrl">
+        <div ng-controller="MainCtrl">
             <!--        <ng-view></ng-view>-->
             <div class="row no-margin">
 
@@ -72,10 +72,22 @@
 							but hey, it's pure CSS magic.
 							-->
                                         <ul id="menu">
-                                            <li class="menu-items" ng-repeat="item in menuItems" ng-click="select($index)" ng-class="{sel: $index == selected}">
+                                            <li class="menu-items" ng-class="{sel: $state.includes('app.welcome')}">
+												<a ui-sref="app.welcome" ng-class="{menufix: showColor}">Home</a>
+											</li>
+                                            <li class="menu-items" ng-class="{sel: $state.includes('app.superCalculator')}">
+												<a ui-sref="app.superCalculator" ng-class="{menufix: showColor}">Calculators</a>
+											</li>
+                                            <li class="menu-items" ng-class="{sel: $state.includes('app.goalBasedAdvice')}">
+												<a ui-sref="app.goalBasedAdvice" ng-class="{menufix: showColor}">Goal Based Advice</a>
+											</li>
+											<li class="menu-items" ng-class="{sel: $state.includes('app.contact')}">
+												<a ui-sref="app.contact" ng-class="{menufix: showColor}">Contact Us</a>
+											</li>
+                                            <!-- <li class="menu-items" ng-repeat="item in menuItems" ng-click="select($index)" ng-class="{sel: $index == selected}">
 
                                                 <a ui-sref="{{item.path}}" ng-class="{menufix: showColor}"> {{item.name}}</a>
-                                            </li>
+                                            </li>-->
                                             <li class="user-menu" ng-class="{userfix : showUser}">
                                                 <ul>
                                                     <li class="user-left"><img src="assets/images/user-icon.png">
