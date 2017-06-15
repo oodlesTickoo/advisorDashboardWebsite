@@ -1,27 +1,13 @@
-Group: Custom Fields For Contacts
- 
-	User Type	Text Field	  
-	Advisor name	Text Field	  
-	Pdf File ID	Text Field	  
-	Word File ID	Text Field	  
-  	
-Group: personal details
 	Your health?	Text Field	   	
 	Do you have a spouse?	Text Field	  
 	Any family history of disease?	Text Field	  
 	What hospital cover do you have? (Private)	Text Field	  
 	Do you have a will?	Text Field	  
-  	
-Group: Tell Us About Your spouse
- 
 	First Name	Text Field	  
 	Last Name	Text Field	  
 	Gender	Text Field	  
 	Date Of Birth	Text Field	  
 	Mobile Number	Text Field	  
-  	
-Group: Your account details
- 
 	Financial Year/Tax Year	Text Field	  
 	Annual Salary	Text Field	  
 	Gross Income	Text Field	  
@@ -41,12 +27,9 @@ Group: Your account details
 	Rate of Return	Text Field	  
 	Retirement Age	Text Field	  
 	Pension Start Age	Text Field	  
-	Pension Drawdown Value	Text Field	  
-	Pension Drawdown Base	Text Field	  
+	Pension Drawdown Value	Text Field	////  
+	Pension Drawdown Base	Text Field	////  
 	Target Income	Text Field	  
-  	
-Group: Spouse's Account Details
- 
 	Annual Salary	Text Field	  
 	Super Balance	Text Field	  
 	Salary Sacrifice	Text Field	  
@@ -61,9 +44,6 @@ Group: Spouse's Account Details
 	Pension Start	Text Field	  
 	Pension Drawdown Value	Text Field	  
 	Pension Drawdown Base	Text Field	  
-  	
-Group: Assets
- 
 	Fund A type	Text Field	  
 	Fund A list	Text Field	  
 	Fund B type	Text Field	  
@@ -77,18 +57,12 @@ Group: Assets
 	Fund B Contribution Fee	Text Field	  
 	Fund B Admin fee	Text Field	  
 	Fund B Indirect cost ration	Text Field	  
-  	
-Group: Liability
- 
 	Home Mortgage	Text Field	  
 	Investment Property Mortgage	Text Field	  
 	Credit Card Debt	Text Field	  
 	Car Loan	Text Field	  
 	Personal Loan	Text Field	  
 	Other Loan	Text Field	  
-  	
-Group: Other Expense
- 
 	Number of Financially Dependent Children	Text Field	  
 	Age of First Child	Text Field	  
 	Age of Second Child	Text Field	  
@@ -98,17 +72,11 @@ Group: Other Expense
 	Funeral Cost	Text Field	  
 	Education Expense per year per child	Text Field	  
 	Family Living Cost per year	Text Field	  
-  	
-Group: Existing Cover
- 
 	Life	Text Field	  
 	TPD	Text Field	  
 	Income Protection Per Month	Text Field	  
 	Trauma	Text Field	  
 	How many days of accrued sick leave do you have ?	Text Field	  
-  	
-Group: Other Assets
- 
 	Home Value	Text Field	  
 	Home Contents	Text Field	  
 	Vehicle Cost	Text Field	  
@@ -121,16 +89,10 @@ Group: Other Assets
 	Net Rental Income	Text Field	  
 	Other Income	Text Field	  
 	Pension Income	Text Field	  
-  	
-Group: Optimisation of TTR Pension
- 
 	Net Return In Accumulation Phase	Text Field	  
 	Tax Free Percentage Of Your Current Superannuation Balance	Text Field	  
 	Net Return In Pension Phase	Text Field	  
 	Superannuation Balance As At The Transition to Retirement Strategy Implementation Date	Text Field	  
-  	
-Group: Asset Allocation details
- 
 	Initial Investment Amount	Text Field	  
 	Initial Australian Shares	Text Field	  
 	Initial International Shares	Text Field	  
@@ -154,9 +116,6 @@ Group: Asset Allocation details
 	Altered Australian Listed Property	Text Field	  
 	Altered International Listed Property	Text Field	  
 	Altered Total Percentage	Text Field	  
-  	
-Group: Private school fee comparison
- 
 	Beginning of the year of analysis	Text Field	  
 	What year will you start contributing to the investment portfolio?	Text Field	  
 	Which portfolio best suits your needs?	Text Field	  
@@ -188,9 +147,6 @@ Group: Private school fee comparison
 	How many years will your fifth child attend school?	Text Field	  
 	Which school will your fifth child be enrolled at?	Text Field	  
 	What major would your fifth child like to choose at University?	Text Field	  
-  	
-Group: Goal Based Advice
- 
 	Protect my income	Text Field	  
 	Simplify my finances	Text Field	  
 	Give them the best chance	Text Field	  
@@ -203,8 +159,4 @@ Group: Goal Based Advice
 	Invest in property	Text Field	  
 	Be debt free	Text Field	  
 	Retire right	Text Field	  
-What are Custom Fields?
-Custom fields are extra data fields you can add to all contact, organization, opportunity, lead and project records to capture additional information when creating and saving those records. You can add up to 200 additional fields per record in either text format, date format, or chosen from a list of options you specify. You can filter the list of contacts, organizations, opportunities, leads or projects based upon custom field criteria. Data can also be imported into custom fields using the CSV data import feature, and all CSV exported data records include any custom field data too.
 
-Customer Support Blog API  Android App 
-  iPhone App Terms of Service Privacy Policy
