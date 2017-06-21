@@ -1,162 +1,172 @@
-	Your health?	Text Field	   	
-	Do you have a spouse?	Text Field	  
-	Any family history of disease?	Text Field	  
-	What hospital cover do you have? (Private)	Text Field	  
-	Do you have a will?	Text Field	  
-	First Name	Text Field	  
-	Last Name	Text Field	  
-	Gender	Text Field	  
-	Date Of Birth	Text Field	  
-	Mobile Number	Text Field	  
-	Financial Year/Tax Year	Text Field	  
-	Annual Salary	Text Field	  
-	Gross Income	Text Field	  
-	Super Balance	Text Field	  
-	Cash at bank	Text Field	  
-	Salary Sacrifice	Text Field	  
-	Non Concessional Contribution	Text Field	  
-	Super Tax Rate	Text Field	  
-	Desired Minimum Take Home Salary Per Annum	Text Field	  
-	Insurance Premium per year	Text Field	  
-	Investment Return	Text Field	  
-	Variable Fee	Text Field	  
-	Fixed Fee	Text Field	  
-	Employer Contribution Level	Text Field	  
-	Inflation	Text Field	  
-	Wage Increase	Text Field	  
-	Rate of Return	Text Field	  
-	Retirement Age	Text Field	  
-	Pension Start Age	Text Field	  
-	Pension Drawdown Value	Text Field	////  
-	Pension Drawdown Base	Text Field	////  
-	Target Income	Text Field	  
-	Annual Salary	Text Field	  
-	Super Balance	Text Field	  
-	Salary Sacrifice	Text Field	  
-	Insurance Premium per year	Text Field	  
-	Investment Return	Text Field	  
-	Variable Fee	Text Field	  
-	Fixed Fee	Text Field	  
-	Employer Contribution Level	Text Field	  
-	Inflation	Text Field	  
-	Wage Increase	Text Field	  
-	Retirement Age	Text Field	  
-	Pension Start	Text Field	  
-	Pension Drawdown Value	Text Field	  
-	Pension Drawdown Base	Text Field	  
-	Fund A type	Text Field	  
-	Fund A list	Text Field	  
-	Fund B type	Text Field	  
-	Fund B list	Text Field	  
-	Investment option	Text Field	  
-	Fund A Name	Text Field	  
-	Fund A Contribution Fee	Text Field	  
-	Fund A Admin fee	Text Field	  
-	Fund A Indirect cost ration	Text Field	  
-	Fund B Name	Text Field	  
-	Fund B Contribution Fee	Text Field	  
-	Fund B Admin fee	Text Field	  
-	Fund B Indirect cost ration	Text Field	  
-	Home Mortgage	Text Field	  
-	Investment Property Mortgage	Text Field	  
-	Credit Card Debt	Text Field	  
-	Car Loan	Text Field	  
-	Personal Loan	Text Field	  
-	Other Loan	Text Field	  
-	Number of Financially Dependent Children	Text Field	  
-	Age of First Child	Text Field	  
-	Age of Second Child	Text Field	  
-	Age of Third Child	Text Field	  
-	Age of Fourth Child	Text Field	  
-	Age of Fifth Child	Text Field	  
-	Funeral Cost	Text Field	  
-	Education Expense per year per child	Text Field	  
-	Family Living Cost per year	Text Field	  
-	Life	Text Field	  
-	TPD	Text Field	  
-	Income Protection Per Month	Text Field	  
-	Trauma	Text Field	  
-	How many days of accrued sick leave do you have ?	Text Field	  
-	Home Value	Text Field	  
-	Home Contents	Text Field	  
-	Vehicle Cost	Text Field	  
-	Investment Property	Text Field	  
-	Bank Investment	Text Field	  
-	Listed Investment	Text Field	  
-	Margin Loans	Text Field	  
-	Allocated Pension	Text Field	  
-	Other Investment	Text Field	  
-	Net Rental Income	Text Field	  
-	Other Income	Text Field	  
-	Pension Income	Text Field	  
-	Net Return In Accumulation Phase	Text Field	  
-	Tax Free Percentage Of Your Current Superannuation Balance	Text Field	  
-	Net Return In Pension Phase	Text Field	  
-	Superannuation Balance As At The Transition to Retirement Strategy Implementation Date	Text Field	  
-	Initial Investment Amount	Text Field	  
-	Initial Australian Shares	Text Field	  
-	Initial International Shares	Text Field	  
-	Initial International Shares (Hedged)	Text Field	  
-	Initial US Shares	Text Field	  
-	Initial Australian Bonds	Text Field	  
-	Initial International Bonds (Hedged)	Text Field	  
-	Initial Cash	Text Field	  
-	Initial Australian Listed Property	Text Field	  
-	Initial International Listed Property	Text Field	  
-	Initial total percentage	Text Field	  
-	Do you want to change your asset allocation during the investment period?	Text Field	  
-	From which year you would like to alter your investment strategy?	Text Field	  
-	Altered Australian Shares	Text Field	  
-	Altered International Shares	Text Field	  
-	Altered International Shares (Hedged)	Text Field	  
-	Altered US Shares	Text Field	  
-	Altered Australian Bonds	Text Field	  
-	Altered International Bonds (Hedged)	Text Field	  
-	Altered Cash	Text Field	  
-	Altered Australian Listed Property	Text Field	  
-	Altered International Listed Property	Text Field	  
-	Altered Total Percentage	Text Field	  
-	Beginning of the year of analysis	Text Field	  
-	What year will you start contributing to the investment portfolio?	Text Field	  
-	Which portfolio best suits your needs?	Text Field	  
-	First Child Name	Text Field	  
-	Is your first child currently enrolled in school? Yes	Text Field	  
-	No Which year will you enrol your first child in school?	Text Field	  
-	How many years will your first child attend school?	Text Field	  
-	What major would your first child like to choose at University?	Text Field	  
-	Second Child Name	Text Field	  
-	Is your second child currently enrolled in school?	Text Field	  
-	No Which year will you enrol your second child in school?	Text Field	  
-	How many years will your second child attend school?	Text Field	  
-	Which school will your second child be enrolled at?	Text Field	  
-	Third Child Name	Text Field	  
-	Is your third child currently enrolled in school?	Text Field	  
-	No Which year will you enrol your third child in school?	Text Field	  
-	How many years will your third child attend school?	Text Field	  
-	Which school will your third child be enrolled at?	Text Field	  
-	What major would your third child like to choose at University?	Text Field	  
-	Fourth Child Name	Text Field	  
-	Is your fourth child currently enrolled in school?	Text Field	  
-	Which year will you enrol your child in school?	Text Field	  
-	How many years will your fourth child attend school?	Text Field	  
-	Which school will your fourth child be enrolled at?	Text Field	  
-	What major would your fourth child like to choose at University?	Text Field	  
-	Fifth Child Name	Text Field	  
-	Is your fifth child currently enrolled in school?	Text Field	  
-	Which year will you enrol your fifth child in school?	Text Field	  
-	How many years will your fifth child attend school?	Text Field	  
-	Which school will your fifth child be enrolled at?	Text Field	  
-	What major would your fifth child like to choose at University?	Text Field	  
-	Protect my income	Text Field	  
-	Simplify my finances	Text Field	  
-	Give them the best chance	Text Field	  
-	Start accessing my super	Text Field	  
-	Retirement living options	Text Field	  
-	We're married, now what?	Text Field	  
-	Buy a home	Text Field	  
-	Pursue a passion	Text Field	  
-	Save for something big	Text Field	  
-	Invest in property	Text Field	  
-	Be debt free	Text Field	  
-	Retire right	Text Field	  
+	Your health?		   	
+	Do you have a spouse?		  
+	Any family history of disease?		  
+	What hospital cover do you have? (Private)		  
+	Do you have a will?		  
+	First Name		  
+	Last Name		  
+	Gender		  
+	Date Of Birth		  
+	Mobile Number		  
+	Financial Year/Tax Year		  
+	Annual Salary		  
+	Gross Income		  
+	Super Balance		  
+	Cash at bank		  
+	Salary Sacrifice		  
+	Non Concessional Contribution		  
+	Super Tax Rate		  
+	Desired Minimum Take Home Salary Per Annum		  
+	Insurance Premium per year		  
+	Investment Return		  
+	Variable Fee		  
+	Fixed Fee		  
+	Employer Contribution Level		  
+	Inflation		  
+	Wage Increase		  
+	Rate of Return		  
+	Retirement Age		  
+	Pension Start Age		  
+	Pension Drawdown Value		////  
+	Pension Drawdown Base		////  
+	Target Income		  
+	Annual Salary		  
+	Super Balance		  
+	Salary Sacrifice		  
+	Insurance Premium per year		  
+	Investment Return		  
+	Variable Fee		  
+	Fixed Fee		  
+	Employer Contribution Level		  
+	Inflation		  
+	Wage Increase		  
+	Retirement Age		  
+	Pension Start		  
+	Pension Drawdown Value		  
+	Pension Drawdown Base		  
+	Fund A type		  
+	Fund A list		  
+	Fund B type		  
+	Fund B list		  
+	Investment option		  
+	Fund A Name		  
+	Fund A Contribution Fee		  
+	Fund A Admin fee		  
+	Fund A Indirect cost ration		  
+	Fund B Name		  
+	Fund B Contribution Fee		  
+	Fund B Admin fee		  
+	Fund B Indirect cost ration		  
+	Home Mortgage		  
+	Investment Property Mortgage		  
+	Credit Card Debt		  
+	Car Loan		  
+	Personal Loan		  
+	Other Loan		  
+	Number of Financially Dependent Children		  
+	Age of First Child		  
+	Age of Second Child		  
+	Age of Third Child		  
+	Age of Fourth Child		  
+	Age of Fifth Child		  
+	Funeral Cost		  
+	Education Expense per year per child option		  
+	Which state are you living in?		  
+	Which type of school is your child going to?		  
+	Which school is your child be enrolled at?		  
+	Education Expense per year per child		  
+	Family Living Cost per year		  
+	In The Event Of One Death, 		  
+	Estimated Value Of The Small Property?		  
+	Outstanding Mortgage After Sale Residence	
+	Life		  
+	TPD		  
+	Income Protection Per Month		  
+	Trauma		  
+	How many days sick leave do you have ?	
+	Who own's the life cover?	  
+	Home Value		  
+	Home Contents		  
+	Vehicle Cost		  
+	Investment Property		  
+	Bank Investment		  
+	Listed Investment		  
+	Margin Loans		  
+	Allocated Pension		  
+	Other Investment		  
+	Net Rental Income		  
+	Other Income		  
+	Pension Income		  
+	nra Phase		  
+	tfp Of Your Current Superannuation Balance		  
+	Nrp Phase		  
+	Superannuation Balance As At The ttr Implementation Date		  
+	Initial Investment Amount		  
+	Initial Australian Shares		  
+	Initial International Shares		  
+	Initial International Shares (Hedged)		  
+	Initial US Shares		  
+	Initial Australian Bonds		  
+	Initial International Bonds (Hedged)		  
+	Initial Cash		  
+	Initial Australian Listed Property		  
+	Initial International Listed Property		  
+	Initial total percentage		  
+	Do you want to change your asset allocation during the investment period?		  
+	From which year you would like to alter your investment strategy?		  
+	Altered Australian Shares		  
+	Altered International Shares		  
+	Altered International Shares (Hedged)		  
+	Altered US Shares		  
+	Altered Australian Bonds		  
+	Altered International Bonds (Hedged)		  
+	Altered Cash		  
+	Altered Australian Listed Property		  
+	Altered International Listed Property		  
+	Altered Total Percentage		  
+	Beginning of the year of analysis		  
+	What year will you start contributing to the investment portfolio?		  
+	Which portfolio best suits your needs?		  
+	First Child Name		  
+	Is your first child currently enrolled in school? Yes		  
+	No Which year will you enrol your first child in school?		  
+	How many years will your first child attend school?		
+	Which school will your child be enrolled at?  
+	What major would your first child like to choose at University?		  
+	Second Child Name		  
+	Is your second child currently enrolled in school?		  
+	No Which year will you enrol your second child in school?		  
+	How many years will your second child attend school?	
+	Which school will your child be enrolled at?	  
+	What major would your 2nd child like to choose at University?	
+	Third Child Name		  
+	Is your third child currently enrolled in school?		  
+	No Which year will you enrol your third child in school?		  
+	How many years will your third child attend school?		  
+	Which school will your third child be enrolled at?	
+	What major would your third child like to choose at University?		  
+	Fourth Child Name		  
+	Is your fourth child currently enrolled in school?		  
+	Which year will you enrol your child in school?		  
+	How many years will your fourth child attend school?		  
+	Which school will your fourth child be enrolled at?		
+	What major would your fourth child like to choose at University?		  
+	Fifth Child Name		  
+	Is your fifth child currently enrolled in school?		  
+	Which year will you enrol your fifth child in school?		  
+	How many years will your fifth child attend school?		  
+	Which school will your fifth child be enrolled at?		
+	What major would your fifth child like to choose at University?		  
+	Protect my income		  
+	Simplify my finances		  
+	Give them the best chance		  
+	Start accessing my super		  
+	Retirement living options		  
+	We're married, now what?		  
+	Buy a home		  
+	Pursue a passion		  
+	Save for something big		  
+	Invest in property		  
+	Be debt free		  
+	Retire right		  
 

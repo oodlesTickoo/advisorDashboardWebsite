@@ -53,6 +53,18 @@
                     }
                 };
                 return $http(req);
+            },
+            customFieldsUpdate: function(data) {
+                var req = {
+                    method: 'PUT',
+                    url: '/api/v1/custom_field',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionService.get('token')
+                    },
+                    data: data
+                };
+                return $http(req);
             }
         };
     }

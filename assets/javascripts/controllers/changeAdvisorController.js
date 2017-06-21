@@ -16,9 +16,9 @@ app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advis
             $scope.advisorList.push({
                 name: elm.advisor.FIRST_NAME + ' ' + elm.advisor.LAST_NAME,
                 id: elm.advisor.CONTACT_ID+''
-            })
+            });
             index++;
-        })
+        });
         //$scope.selectedAdvisor = $scope.advisorList[selectedIndex];
     }
     _init();
@@ -32,7 +32,7 @@ app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advis
     };
 
     $scope.advisorChanged = function(advisorId){
-        console.log('advisorId', advisorId, $scope.selectedAdvisor)
+        console.log('advisorId', advisorId, $scope.selectedAdvisor);
         UserService.linkClientToAdvisor(clientId, advisorId).then(function(result){
             if(result.status === 200){
 				$scope.ok();
@@ -43,7 +43,7 @@ app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advis
                 $scope.cancel();
         }).catch(function(err){
             $scope.cancel();
-        })
-    }
+        });
+    };
 
 }]);

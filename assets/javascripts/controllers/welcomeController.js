@@ -16,14 +16,15 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     $scope.client_advisors = [];
 
     function initialize(){
-        $scope.selectedRole = "ADMINISTRATOR";      // sessionService.get('role');
+        //$scope.selectedRole = "ADMINISTRATOR";      // sessionService.get('role');
+        $scope.selectedRole =  sessionService.get('role');
         _getPageData();
 
     }
     initialize();
 
     function _getPageData(){
-        console.log("Getting data")
+        console.log("Getting data");
         if($scope.selectedRole !== $scope.USER_ROLE.CLIENT){
             UserService.homePageData().then(function(result){
                 console.log("Response ", result);
@@ -33,12 +34,12 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                 _updateListData();
             }).catch(function(err){
                 console.log(err);
-            })
+            });
         } else{
             UserService.isFileExist('docx').then(function(result){
-                console.log(result)
+                console.log(result);
                 $scope.fileExist = result.data.response.status;
-            })
+            });
         }
     }
 
@@ -48,7 +49,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             ca.client.NAME = ca.client.FIRST_NAME + ' ' + ca.client.LAST_NAME;
             if(ca.advisor)
                 ca.advisor.NAME = ca.advisor.FIRST_NAME + ' ' + ca.advisor.LAST_NAME;
-        })
+        });
 
     }
 
