@@ -11,7 +11,9 @@
                     </div>
 
 
-                    <div class="col-md-12 goal-block" ng-repeat="goal in goalBased">
+                    <div class="col-md-12 goal-block" ng-repeat="goal in goalBasedAdvice">
+                        <i class="selected-goal" ng-if="goal.severity!='false'" ng-click="removeGoal($index, 'Low')"></i>
+						<p class="custom-tooltip" ng-class="{'showInitialTooltip' : showTooltip === $index}">Click here to unselect your goal!</p>
                         <div class="col-md-4 img-block no-padding">
                             <img class="goal-img" src="{{goal.image}}">
                         </div>
@@ -34,11 +36,17 @@
 
                             </div>
 
-                            <div class="col-md-12 no-padding text-margin button-div">
-
-                                <button class="goal-button">ADD GOAL</button>
+                            <div class="col-md-12 no-padding text-margin button-div" ng-if="goal.severity=='false'">
+                                <button class="goal-button" ng-click="addGoal($index, 'Low')">ADD GOAL</button>
                             </div>
-
+                            <div class="col-sm-12 no-padding text-margin button-div" ng-if="goal.severity!='false'">
+                                <p class="goal-cal-text">How important is it to you?</p>
+                                <div class="btn-group">
+                                    <label class="btn btn-success goal-button" ng-model="goal.severity" uib-btn-radio="'Low'" uib-uncheckable="uncheckable">LOW</label>
+                                    <label class="btn btn-success goal-button" ng-model="goal.severity" uib-btn-radio="'Medium'" uib-uncheckable="uncheckable">MEDIUM</label>
+                                    <label class="btn btn-success goal-button" ng-model="goal.severity" uib-btn-radio="'High'" uib-uncheckable="uncheckable">HIGH</label>
+                                </div>
+                            </div>
 
                         </div>
                     </div>

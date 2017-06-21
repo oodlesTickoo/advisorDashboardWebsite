@@ -1,5 +1,22 @@
-app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', function($scope, $rootScope, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker) {
+app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', function($scope, $rootScope, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService) {
+	
+	
+   console.log("In Calc controller", $rootScope.addGoal);
+	$scope.showTooltip= "";
+	
+	
+	//to get goals and custom fields from service
+	$scope.goalBasedAdvice = GoalBasedAdviceService.goalBasedAdvice();
+	$scope.customField = GoalBasedAdviceService.custom_field.customFieldObj;
+    console.log('Calc controllerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',$scope.goalBasedAdvice, $scope.customField);
+	
 
+	
+	//to go to scrollbased advice section
+    $scope.gotoBottom = function() {
+		$window.scrollTo(0, 580);  
+    };
+	
 	$scope.fundTypeA = [
         { id: 0, name: 'MySuper Fund' },
         { id: 1, name: 'Lifestage Fund' },
@@ -7063,19 +7080,27 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', '$timeout',
 
     });
 
-    $scope.isMenuDrop1 = false;
-	$scope.isMenuDrop2 = true;
-    $scope.isMenuDrop3 = true;
-    $scope.isMenuDrop4 = true;
-    $scope.isMenuDrop5 = true;
-    $scope.isMenuDrop6 = true;
-    $scope.isMenuDrop7 = true;
-    $scope.isMenuDrop8 = true;
-//    $scope.isMenuDrop9 = true;
-//    $scope.isMenuDrop10 = true;
-//    $scope.isMenuDrop11 = true;
-    //    $scope.isMenuDrop12 = true;
-
+   if ($rootScope.addGoal == false || $rootScope.addGoal == undefined) {
+        $scope.isMenuDrop1 = false;
+        $scope.isMenuDrop2 = true;
+        $scope.isMenuDrop3 = true;
+        $scope.isMenuDrop4 = true;
+        $scope.isMenuDrop5 = true;
+        $scope.isMenuDrop6 = true;
+        $scope.isMenuDrop7 = true;
+        $scope.isMenuDrop8 = true;
+    }else
+	{
+        $scope.gotoBottom();
+        $scope.isMenuDrop1 = true;
+        $scope.isMenuDrop2 = true;
+        $scope.isMenuDrop3 = true;
+        $scope.isMenuDrop4 = true;
+        $scope.isMenuDrop5 = true;
+        $scope.isMenuDrop6 = true;
+        $scope.isMenuDrop7 = true;
+        $scope.isMenuDrop8 = false;
+    }
     $scope.next1 = false;
 	$scope.next2 = false;
     $scope.next3 = false;
@@ -11221,108 +11246,29 @@ $scope.nextDiv = function(div_num) {
         document.getElementById("inputs").style.display = "block";
 
         $scope.saveWithNew = false;
-    }
-    $scope.goalCal = [
-       
-        {
-            isOpen: false,
-            id:0,
-            goalimg : "/assets/images/cal-goal1.png", 
-            headings: "protect my income"
-        },
-        
-        
-         {
-            isOpen: false,
-            id:1,    
-            goalimg : "/assets/images/cal-goal2.png", 
-            headings: "Simplify my finances"
-        },
-        
-        
-        {
-            isOpen: false,
-            id:2,    
-            goalimg : "/assets/images/cal-goal3.jpg", 
-            headings: "Retire right"
-        },
-        
-          {
-            isOpen: false,
-            id:3,    
-            goalimg : "/assets/images/cal-goal4.png", 
-            headings: "Be debt free"
-        },
-        
-         {
-            isOpen: false,
-            id:4, 
-            goalimg : "/assets/images/cal-goal5.png", 
-            headings: "Invest in property"
-        },
-        
-           {
-            isOpen: false,
-            id:5,   
-            goalimg : "/assets/images/cal-goal6.jpg", 
-            headings: "Save for something big"
-        },
-        
-        {
-            isOpen: false,
-            id:6,
-            goalimg : "/assets/images/cal-goal7.png", 
-            headings: "Pursue a passion"
-        },
-        
-        {
-            isOpen: false,
-            id:7,    
-            goalimg : "/assets/images/cal-goal8.png", 
-            headings: "Buy a home"
-        },
-        
-        {
-            isOpen: false,
-            id:8,
-            goalimg : "/assets/images/cal-goal9.png", 
-            headings: "We're married, now what?"
-        },
-        
-        {
-            isOpen: false,
-            id:9,
-            goalimg : "/assets/images/cal-goal10.png", 
-            headings: "Retirement living options"
-        },
-        
-        {
-            isOpen: false,
-            id:11,
-            goalimg : "/assets/images/cal-goal11.png", 
-            headings: "Start accessing my super"
-        },
-        
-        {
-            isOpen: false,
-            id:12,
-            goalimg : "/assets/images/cal-goal12.png", 
-            headings: "Give them the best chance"
-        },
-    
-    ];
-    
-   $scope.addGoal= function(index) 
-    {
-      for(var i=0;i<$scope.goalCal.length;i++)
-          {
-              if(index == $scope.goalCal[i].id)
-                  {
-                      $scope.goalCal[i].isOpen = true;
-                      break;
-                  }
-          }
-    }
-    
-    
+    };
+	
+	
+	//to add a Goal
+   $scope.addGoal= function(index,severity) {
+	   $scope.showTooltip = index;
+	    $scope.goalBasedAdvice[index].severity= severity;
+	   removeClass();
+   	};
+	
+	
+	//to remove a class to hide intial tooltip
+	var removeClass = function(){
+		  $timeout(function(){
+		  	$scope.showTooltip = "";
+          },3000); 
+	};
+	
+	//to remove a Goal
+   $scope.removeGoal= function(index,severity) {
+	   $scope.showTooltip = "";
+	   $scope.goalBasedAdvice[index].severity= 'false';
+	   console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",$scope.showTooltip, $scope.goalBasedAdvice[index].severity);
+   	};
+	
 }]);

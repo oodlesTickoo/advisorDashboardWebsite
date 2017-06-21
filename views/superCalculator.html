@@ -1386,7 +1386,7 @@
                                                             <input type="text" onClick="this.select();" class="form-control" id="familyLivingCostPerYearInput" name="familyLivingCostPerYearInput" ng-model="familyLivingCostPerYear">
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
+                                                  <!--  <div class="form-group row">
                                                         <label for="familyLivingCostPerYearInput" class="col-xs-12 col-sm-12 col-md-12 col-form-label" ng-class="{'mb26' : (buyOption && enabledSpouseOption)}">Family Living Cost per year</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
                                                             <div class="slider-div" id="familyLivingCostPerYearInput">
@@ -1395,7 +1395,7 @@
                                                         <div class="col-xs-12 col-sm-12 col-md-12">
                                                             <input type="text" onClick="this.select();" class="form-control" id="familyLivingCostPerYearInput" name="familyLivingCostPerYearInput" ng-model="familyLivingCostPerYear">
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                                                     <div class="form-group row" ng-show="!diffSchoolOption">
                                                         <label for="spSchool" class="col-xs-12 col-sm-12 col-md-12 col-form-label">Which school is your child be enrolled at?</label>
                                                         <div class="    col-md-5 hidden-xs col-sm-5 slider-col ">
@@ -1946,7 +1946,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row boxes privateSchoolFee-details" id="assetAllocation-details-div">
+                            <div class="row boxes privateSchoolFee-details" id="privateSchoolFee-details-div">
                                 <div class="col-sm-12 col-xs-12">
                                     <div class="row super-calc" ng-click="menuDrop7();">
                                         <div class="col-sm-1 col-xs-1 heading-bg">
@@ -2449,7 +2449,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row boxes goalBasedAdvice" id="goalBasedAdvice-div">
                                 <div class="col-sm-12 col-xs-12">
                                     <div class="row super-calc" ng-click="menuDrop8();">
@@ -2459,59 +2458,34 @@
                                         <div class="col-sm-11 col-xs-1 heading-bg1 " ng-class="{'accordion-close': isMenuDrop8}">
                                             <h2 class="contents1">Goals Based Advice </h2>
                                         </div>
-                                        <!--<div class="col-sm-2 col-xs-2 heading-bg3">
-                                            <img src="assets/images/upload.svg" id="upload" style="display: none;" class="hollow-icon" alt="Kiwi standing on oval">
-                                            <img src="assets/images/download.svg" id="download" class="hollow-icon" alt="Kiwi standing on oval">
-                                        </div>-->
                                     </div>
                                     <div class="row form-8" ng-class="{menuDrop: isMenuDrop8}">
                                         <div class="col-sm-12 contents">
-                                            <div class="row">
-
+                                            <div class="row ml45">
                                                 <p class="goal-cal-heading">Please select 3 or more goals according to your priorities</p>
                                             </div>
 
                                             <div class="row ml30 ml-responsive">
-                                                <div class="col-md-12 no-padding pr25">
-                                                    <div class="col-md-4 no-padding goal-based-cal-block" ng-repeat="goals in goalCal">
-                                                        <img src="/assets/images/check.png" ng-if="goals.isOpen" class="selected-goal" />
+                                                <div class="col-md-12 pr25">
+                                                    <div class="col-md-4 no-padding goal-based-cal-block" ng-repeat="goal in goalBasedAdvice">
+														<i class="selected-goal" ng-if="goal.severity!='false'" ng-click="removeGoal($index, 'Low')"></i>
+														<p class="custom-tooltip" ng-class="{'showInitialTooltip' : showTooltip === $index}">Click here to unselect your goal!</p>
                                                         <div class="col-sm-12 no-padding"></div>
                                                         <div class="col-sm-12 no-padding">
-                                                            <img class="cal-goal-img" src="{{goals.goalimg}}">
-                                                            <p class="goal-cal-subhead">{{goals.headings}}</p>
+                                                            <img class="cal-goal-img" src="{{goal.goalimg}}">
+                                                            <p class="goal-cal-subhead">{{goal.heading}}&nbsp;<i class="fa fa-info-circle pointer" custom-popover aria-hidden="true" popover-html="Some Popover Text" popover-placement="top"></i></p>
 
                                                         </div>
-                                                        <div class="col-sm-12 no-padding" ng-if="!goals.isOpen">
-                                                            <button class="goal-cal-button" type="button" ng-click="addGoal(goals.id)">ADD GOAL</button>
+                                                        <div class="col-sm-12 no-padding" ng-if="goal.severity == 'false'">
+                                                            <button class="goal-cal-button" type="button" ng-click="addGoal($index, 'Low')">ADD GOAL</button>
                                                         </div>
-                                                        <div class="col-sm-12 no-padding" ng-if="goals.isOpen">
+                                                        <div class="col-sm-12 no-padding" ng-if="goal.severity!='false'">
                                                             <p class="goal-cal-text">How important is it to you?</p>
-                                                            <button class="goal-cal-selected-btn" type="button">LOW</button>
-                                                            <button class="goal-cal-selected-btn2" type="button">MEDIUM</button>
-                                                            <button class="goal-cal-selected-btn2" type="button">HIGH</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col-md-12 pr25">
-                                                        <div class="col-md-4 no-padding goal-based-cal-block" ng-repeat="goals in goalCal">
-                                                            <img src="/assets/images/check.png" ng-if="goals.isOpen" class="selected-goal" />
-                                                            <div class="col-sm-12 no-padding"></div>
-                                                            <div class="col-sm-12 no-padding">
-                                                                <img class="cal-goal-img" src="{{goals.goalimg}}">
-                                                                <p class="goal-cal-subhead">{{goals.headings}}</p>
-
-                                                            </div>
-                                                            <div class="col-sm-12 no-padding" ng-if="!goals.isOpen">
-                                                                <button class="goal-cal-button" type="button" ng-click="addGoal(goals.id)">ADD GOAL</button>
-                                                            </div>
-                                                            <div class="col-sm-12 no-padding" ng-if="goals.isOpen">
-                                                                <p class="goal-cal-text">How important is it to you?</p>
-                                                                <button class="goal-cal-selected-btn" type="button">LOW</button>
-                                                                <button class="goal-cal-selected-btn2" type="button">MEDIUM</button>
-                                                                <button class="goal-cal-selected-btn2" type="button">HIGH</button>
-                                                            </div>
+															<div class="btn-group">
+																<label class="btn btn-success" ng-model="goal.severity" uib-btn-radio="'Low'" uib-uncheckable="uncheckable">LOW</label>
+																<label class="btn btn-success" ng-model="goal.severity" uib-btn-radio="'Medium'" uib-uncheckable="uncheckable">MEDIUM</label>
+																<label class="btn btn-success" ng-model="goal.severity" uib-btn-radio="'High'" uib-uncheckable="uncheckable">HIGH</label>
+															</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2529,14 +2503,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--
-                            <div class="row calculate-row contents">
-                                <div class="col-xs-12">
-                                    <button class="btn btn-block submit-button" type="submit">Click here to see the results</button>
-                                </div>
-                            </div>-->
+							<div class="row calculate-row">
+                            <div class="col-xs-12">
+                                <button class="btn btn-block submit-button" type="submit">Click here to see the results</button>
+                            </div>
+                        </div>
                         </form>
-
                     </div>
                 </div>
                 <div class="row result-content" id="results" style="display: none">

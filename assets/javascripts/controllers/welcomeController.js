@@ -1,6 +1,6 @@
-app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService','$uibModal', function($scope, sessionService, $state, UserService, $uibModal) {
+app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService','$uibModal', '$rootScope', function($scope, sessionService, $state, UserService, $uibModal, $rootScope) {
     'use strict';
-
+	
     //tab toggle btn group
     $scope.fileExist = false;
     $scope.LOGGED_NAME = sessionService.get('name');
@@ -9,7 +9,8 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         CLIENT: "CLIENT",
         ADMIN: "ADMINISTRATOR"
     };
-
+	
+    $rootScope.addGoal = false;
     $scope.my_clients = [];
     $scope.advisors = [];
     $scope.client_advisors = [];

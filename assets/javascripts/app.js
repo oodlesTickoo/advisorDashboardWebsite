@@ -21,14 +21,10 @@ var app = angular.module('advisorDashboardApp', [
     'angular-loading-bar'
 ]);
 
-app.run([
-    "$rootScope", "$state", "$stateParams",
-    function($rootScope, $state, $stateParams) {
-        $rootScope.$state = $state;
-        return $rootScope.$stateParams = $stateParams;
-		console.log("dddddddddddddddddddddddddddddddd",$rootScope.$state, $rootScope.$stateParams);
-    }
-]);
+app.run(function($rootScope, $state, $stateParams, $transitions) {
+    $rootScope.$state = $state;
+    console.log("frfrfrfrfrrfrfrfrrfrf", $rootScope.$state);
+});
 
 app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $locationProvider, cfpLoadingBarProvider) {
     $locationProvider.hashPrefix('');

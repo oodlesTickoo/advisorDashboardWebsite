@@ -275,7 +275,7 @@ and (orientation : landscape) {
 }*/
 
 .submit-button {
-    width: initial;
+	width: initial;
     margin: 0 auto;
     margin-top: 10px;
     font-size: 16px;
@@ -286,10 +286,10 @@ and (orientation : landscape) {
     margin-bottom: 20px;
     margin-top: 20px;
     font-family: LatoRegular;
-    background: white;
-    color: #228da5;
+    background: #9fe7f7;
+    color: #0d2f47;
     border-radius: 23px;
-    border: 2px solid #228da5;
+    border: 2px solid #19394f;
     height: 36px;
     padding: 6px 18px;
     text-transform: none;
