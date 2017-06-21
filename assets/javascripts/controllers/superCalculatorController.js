@@ -11635,3 +11635,4 @@ $scope.customFieldObj={};
 	   console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",$scope.showTooltip, $scope.goalBasedAdvice[index].severity);
    	};
 	
+}]);
