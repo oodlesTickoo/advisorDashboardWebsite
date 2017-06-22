@@ -4242,11 +4242,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         name: "Growth Ambitious"
     }];
 
-    $scope.c1Name = "Max";
-    $scope.c2Name = "Monica";
-    $scope.c3Name = "Adele";
-    $scope.c4Name = "Rita";
-    $scope.c5Name = "Tom";
+    $scope.c1Name = latestObj.CONTACT_FIELD_122;
+    $scope.c2Name = latestObj.CONTACT_FIELD_127;
+    $scope.c3Name = latestObj.CONTACT_FIELD_132;
+    $scope.c4Name = latestObj.CONTACT_FIELD_138;
+    $scope.c5Name = latestObj.CONTACT_FIELD_144;
     $scope.c6Name = "Mike";
     $scope.nameArray = [$scope.c1Name, $scope.c2Name, $scope.c3Name, $scope.c4Name, $scope.c5Name, $scope.c6Name];
 
@@ -4417,20 +4417,20 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     });
 
     var initDate = new Date();
-    $scope.begnYearInvestment = initDate.getFullYear();
+    $scope.begnYearInvestment = CONTACT_FIELD_119;
     $scope.numChildren = 2;
     $scope.investmentReturn = 5000;
-    $scope.contStartYear = initDate.getFullYear();
-    $scope.schoolYear1 = initDate.getFullYear();
-    $scope.schoolDuration1 = 6;
-    $scope.schoolYear2 = initDate.getFullYear();
-    $scope.schoolDuration2 = 6;
-    $scope.schoolYear3 = initDate.getFullYear();
-    $scope.schoolDuration3 = 6;
-    $scope.schoolYear4 = initDate.getFullYear();
-    $scope.schoolDuration4 = 6;
-    $scope.schoolYear5 = initDate.getFullYear();
-    $scope.schoolDuration5 = 6;
+    $scope.contStartYear = CONTACT_FIELD_120;
+    $scope.schoolYear1 = CONTACT_FIELD_124;
+    $scope.schoolDuration1 = CONTACT_FIELD_125;
+    $scope.schoolYear2 = CONTACT_FIELD_129;
+    $scope.schoolDuration2 = CONTACT_FIELD_130;
+    $scope.schoolYear3 = CONTACT_FIELD_134;
+    $scope.schoolDuration3 = CONTACT_FIELD_135;
+    $scope.schoolYear4 = CONTACT_FIELD_140;
+    $scope.schoolDuration4 = CONTACT_FIELD_141;
+    $scope.schoolYear5 = CONTACT_FIELD_146;
+    $scope.schoolDuration5 = CONTACT_FIELD_147;
     /* $scope.schoolYear6 = initDate.getFullYear();
      $scope.schoolDuration6 = 6;*/
     $scope.endYearInvestment = Number($scope.schoolYear2) + Number($scope.schoolDuration2);
@@ -5261,92 +5261,92 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.genderOptionSpouse = false;
     // $scope.spouseOption = false;
     $scope.houseOption = true;
-    $scope.retirementAgeSpouse = 70;
-    $scope.retirementAgeSpouseNew = 70;
-    $scope.annualSalarySpouse = 90000;
-    $scope.annualSalarySpouseNew = 90000;
-    $scope.superBalanceSpouse = 200000;
-    $scope.superBalanceSpouseNew = 200000;
-    $scope.salarySacrificeSpouse = 5000;
-    $scope.pensionStartSpouse = 65;
-    $scope.insurancePremiumSpouse = 0;
-    $scope.investmentReturnSpouse = 5.30;
-    $scope.variableFeeSpouse = 1.11;
-    $scope.fixedFeeSpouse = 300;
-    $scope.pensionDrawdownBase = 40000;
-    $scope.pensionDrawdownBaseSpouse = 30000;
-    $scope.retirementAge = 65;
-    $scope.retirementAgeNew = 65;
+    $scope.retirementAgeSpouse = latestObj.CONTACT_FIELD_43;
+    $scope.retirementAgeSpouseNew = latestObj.CONTACT_FIELD_43;
+    $scope.annualSalarySpouse = latestObj.CONTACT_FIELD_33;
+    $scope.annualSalarySpouseNew = latestObj.CONTACT_FIELD_33;
+    $scope.superBalanceSpouse = latestObj.CONTACT_FIELD_34;
+    $scope.superBalanceSpouseNew = latestObj.CONTACT_FIELD_34;
+    $scope.salarySacrificeSpouse = latestObj.CONTACT_FIELD_35;
+    $scope.pensionStartSpouse = latestObj.CONTACT_FIELD_44;
+    $scope.insurancePremiumSpouse = latestObj.CONTACT_FIELD_36;
+    $scope.investmentReturnSpouse = latestObj.CONTACT_FIELD_37;
+    $scope.variableFeeSpouse = latestObj.CONTACT_FIELD_38;
+    $scope.fixedFeeSpouse = latestObj.CONTACT_FIELD_39;
+    $scope.pensionDrawdownBase = latestObj.CONTACT_FIELD_31;
+    $scope.pensionDrawdownBaseSpouse = latestObj.CONTACT_FIELD_46;
+    $scope.retirementAge = latestObj.CONTACT_FIELD_28;
+    $scope.retirementAgeNew = latestObj.CONTACT_FIELD_28;
     $scope.preservationAge = 55;
     $scope.preservationAgeSpouse = 55;
-    $scope.annualSalary = 260000;
-    $scope.annualSalaryNew = 260000;
-    $scope.employerContributionLevel = 9.50;
-    $scope.employerContributionLevelSpouse = 9.50;
+    $scope.annualSalary = latestObj.CONTACT_FIELD_12;
+    $scope.annualSalaryNew = latestObj.CONTACT_FIELD_12;
+    $scope.employerContributionLevel = latestObj.CONTACT_FIELD_24;
+    $scope.employerContributionLevelSpouse = latestObj.CONTACT_FIELD_40;
     // $scope.inflation = 3.50;
-    $scope.inflationSpouse = 3.50;
+    $scope.inflationSpouse = latestObj.CONTACT_FIELD_41;
     // $scope.superBalance = 500000;
-    $scope.superBalanceNew = 500000;
-    $scope.wageIncrease = 4.00;
-    $scope.wageIncreaseSpouse = 4.00;
-    $scope.insurancePremium = 0;
-    $scope.salarySacrifice = 20000;
-    $scope.pensionStart = 57;
-    $scope.investmentReturn = 5.30;
-    $scope.variableFee = 1.11;
-    $scope.fixedFee = 300;
-    $scope.homeContents = 50000;
-    $scope.vehicleCost = 0;
-    $scope.investmentProperty = 2000;
-    $scope.bankAssets = 20000;
-    $scope.listedInvestment = 0;
-    $scope.marginLoans = 0;
-    $scope.allocatedPension = 60000;
+    $scope.superBalanceNew = latestObj.CONTACT_FIELD_14;
+    $scope.wageIncrease = latestObj.CONTACT_FIELD_26;
+    $scope.wageIncreaseSpouse = latestObj.CONTACT_FIELD_42;
+    $scope.insurancePremium = latestObj.CONTACT_FIELD_20;
+    $scope.salarySacrifice = latestObj.CONTACT_FIELD_16;
+    $scope.pensionStart = latestObj.CONTACT_FIELD_29;
+    $scope.investmentReturn = latestObj.CONTACT_FIELD_21;
+    $scope.variableFee = latestObj.CONTACT_FIELD_22;
+    $scope.fixedFee = latestObj.CONTACT_FIELD_23;
+    $scope.homeContents = latestObj.CONTACT_FIELD_81;
+    $scope.vehicleCost = latestObj.CONTACT_FIELD_82;
+    $scope.investmentProperty = latestObj.CONTACT_FIELD_83;
+    $scope.bankAssets = latestObj.CONTACT_FIELD_84;
+    $scope.listedInvestment = latestObj.CONTACT_FIELD_85;
+    $scope.marginLoans = latestObj.CONTACT_FIELD_86;
+    $scope.allocatedPension = latestObj.CONTACT_FIELD_87;
     // $scope.otherInvestment = 20000;
-    $scope.netRentalIncome = 0;
-    $scope.otherIncome = 0;
-    $scope.pensionIncome = 0;
-    $scope.target = 40000;
-    $scope.targetNew = 40000;
+    $scope.netRentalIncome = latestObj.CONTACT_FIELD_89;
+    $scope.otherIncome = latestObj.CONTACT_FIELD_90;
+    $scope.pensionIncome = latestObj.CONTACT_FIELD_91;
+    $scope.target = latestObj.CONTACT_FIELD_32;
+    $scope.targetNew = latestObj.CONTACT_FIELD_32;
 
     $scope.personalDetails = {};
     $scope.spouseDetails = {};
     $scope.forms = {};
-    $scope.grossAnnualIncome = 120000;
-    $scope.grossAnnualIncomeNew = 120000;
-    $scope.homeMortgage = 500000;
-    $scope.investmentPropertyMortgage = 0;
-    $scope.creditCardDebt = 2000;
-    $scope.carLoan = 20000;
-    $scope.personalLoan = 0;
-    $scope.otherLoan = 0;
-    $scope.homeValue = 800000;
-    $scope.cashAtBank = 20000;
-    $scope.otherInvestment = 20000;
-    $scope.superBalance = 100000;
-    $scope.ecLife = 250000;
-    $scope.ecLifeNew = 250000;
-    $scope.ecTPD = 0;
-    $scope.ecTPDNew = 0;
-    $scope.ecIP = 0;
-    $scope.ecIPNew = 0;
-    $scope.ecTrauma = 0;
-    $scope.ecTraumaNew = 0;
-    $scope.numChildren = 2;
-    $scope.funeralCost = 20000;
-    $scope.educationExpensePerYearPerChild = 5000;
-    $scope.familyLivingCostPerYear = 90000;
-    $scope.inflation = 2;
-    $scope.rateOfReturn = 5;
-    $scope.moneyToBeBorrowed = 400000;
-    $scope.valueOfNewProperty = 500000;
+    $scope.grossAnnualIncome = latestObj.CONTACT_FIELD_13;
+    $scope.grossAnnualIncomeNew = latestObj.CONTACT_FIELD_13;
+    $scope.homeMortgage = latestObj.CONTACT_FIELD_60;
+    $scope.investmentPropertyMortgage = latestObj.CONTACT_FIELD_61;
+    $scope.creditCardDebt = latestObj.CONTACT_FIELD_62;
+    $scope.carLoan = latestObj.CONTACT_FIELD_63;
+    $scope.personalLoan = latestObj.CONTACT_FIELD_64;
+    $scope.otherLoan = latestObj.CONTACT_FIELD_65;
+    $scope.homeValue = latestObj.CONTACT_FIELD_80;
+    $scope.cashAtBank = latestObj.CONTACT_FIELD_15;
+    $scope.otherInvestment = latestObj.CONTACT_FIELD_88;
+    $scope.superBalance = latestObj.CONTACT_FIELD_14;
+    $scope.ecLife = latestObj.CONTACT_FIELD_75;
+    $scope.ecLifeNew = latestObj.CONTACT_FIELD_75;
+    $scope.ecTPD = latestObj.CONTACT_FIELD_76;
+    $scope.ecTPDNew = latestObj.CONTACT_FIELD_76;
+    $scope.ecIP = latestObj.CONTACT_FIELD_77;
+    $scope.ecIPNew = latestObj.CONTACT_FIELD_77;
+    $scope.ecTrauma = latestObj.CONTACT_FIELD_78;
+    $scope.ecTraumaNew = latestObj.CONTACT_FIELD_78;
+    $scope.numChildren = latestObj.CONTACT_FIELD_66;
+    $scope.funeralCost = latestObj.CONTACT_FIELD_72;
+    $scope.educationExpensePerYearPerChild = latestObj.CONTACT_FIELD_73;
+    $scope.familyLivingCostPerYear = latestObj.CONTACT_FIELD_74;
+    $scope.inflation = latestObj.CONTACT_FIELD_25;
+    $scope.rateOfReturn = latestObj.CONTACT_FIELD_27;
+    $scope.moneyToBeBorrowed = latestObj.CONTACT_FIELD_172;
+    $scope.valueOfNewProperty = latestObj.CONTACT_FIELD_171;
     $scope.ageSpouse = 47;
     $scope.spouseSalary = 50000;
-    $scope.ageChildren1 = 3;
-    $scope.ageChildren2 = 5;
-    $scope.ageChildren3 = 10;
-    $scope.ageChildren4 = 10;
-    $scope.ageChildren5 = 10;
+    $scope.ageChildren1 = latestObj.CONTACT_FIELD_67;
+    $scope.ageChildren2 = latestObj.CONTACT_FIELD_68;
+    $scope.ageChildren3 = latestObj.CONTACT_FIELD_69;
+    $scope.ageChildren4 = latestObj.CONTACT_FIELD_70;
+    $scope.ageChildren5 = latestObj.CONTACT_FIELD_71;
 
     $scope.resultPerc = {};
 
@@ -5356,36 +5356,36 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.spouseOption = false;
     $scope.spouseWorkOption = true;
     $scope.buyOption = true;
-    $scope.sickLeaves = 10;
+    $scope.sickLeaves = latestObj.CONTACT_FIELD_79;
 
-    $scope.ncc = 10000;
-    $scope.superTaxRate = 15;
+    $scope.ncc = latestObj.CONTACT_FIELD_17;
+    $scope.superTaxRate = latestObj.CONTACT_FIELD_18;
 
-    $scope.contributionFeeA = 1.50;
-    $scope.adminFeeA = 50;
-    $scope.indirectCostRationA = 1.50;
+    $scope.contributionFeeA = latestObj.CONTACT_FIELD_53;
+    $scope.adminFeeA = latestObj.CONTACT_FIELD_54;
+    $scope.indirectCostRationA = latestObj.CONTACT_FIELD_55;
 
 
-    $scope.contributionFeeB = 1.50;
-    $scope.adminFeeB = 50;
-    $scope.indirectCostRationB = 1.50;
+    $scope.contributionFeeB = latestObj.CONTACT_FIELD_57;
+    $scope.adminFeeB = latestObj.CONTACT_FIELD_58;
+    $scope.indirectCostRationB = latestObj.CONTACT_FIELD_59;
 
-    $scope.nra = 6;
-    $scope.nrp = 7;
-    $scope.tfp = 2;
-    $scope.beforeTTR = 50000;
+    $scope.nra = latestObj.CONTACT_FIELD_92;
+    $scope.nrp = latestObj.CONTACT_FIELD_94;
+    $scope.tfp = latestObj.CONTACT_FIELD_93;
+    $scope.beforeTTR = latestObj.CONTACT_FIELD_95;
 
     $scope.totalPercentageSelected = 100;
 
-    $scope.australianShares1 = 10;
-    $scope.internationalShares1 = 10;
-    $scope.internationalSharesHedged1 = 10;
-    $scope.usShares1 = 10;
-    $scope.australianBonds1 = 10;
-    $scope.internationalBondsHedged1 = 10;
-    $scope.cash1 = 10;
-    $scope.australianListedProperty1 = 10;
-    $scope.internationalListedProperty1 = 20;
+    $scope.australianShares1 = latestObj.CONTACT_FIELD_97;
+    $scope.internationalShares1 = latestObj.CONTACT_FIELD_98;
+    $scope.internationalSharesHedged1 = latestObj.CONTACT_FIELD_99;
+    $scope.usShares1 = latestObj.CONTACT_FIELD_100;
+    $scope.australianBonds1 = latestObj.CONTACT_FIELD_101;
+    $scope.internationalBondsHedged1 = latestObj.CONTACT_FIELD_102;
+    $scope.cash1 = latestObj.CONTACT_FIELD_103;
+    $scope.australianListedProperty1 = latestObj.CONTACT_FIELD_104;
+    $scope.internationalListedProperty1 = latestObj.CONTACT_FIELD_105;
 
     $scope.asset1Total = $scope.australianShares1 + $scope.internationalShares1 +
         $scope.internationalSharesHedged1 + $scope.usShares1 +
@@ -5393,15 +5393,15 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.cash1 + $scope.australianListedProperty1 +
         $scope.internationalListedProperty1 + "%";
 
-    $scope.australianShares2 = 10;
-    $scope.internationalShares2 = 10;
-    $scope.internationalSharesHedged2 = 10;
-    $scope.usShares2 = 10;
-    $scope.australianBonds2 = 10;
-    $scope.internationalBondsHedged2 = 10;
-    $scope.cash2 = 10;
-    $scope.australianListedProperty2 = 10;
-    $scope.internationalListedProperty2 = 20;
+    $scope.australianShares2 = latestObj.CONTACT_FIELD_109;
+    $scope.internationalShares2 = latestObj.CONTACT_FIELD_110;
+    $scope.internationalSharesHedged2 = latestObj.CONTACT_FIELD_111;
+    $scope.usShares2 = latestObj.CONTACT_FIELD_112;
+    $scope.australianBonds2 = latestObj.CONTACT_FIELD_113;
+    $scope.internationalBondsHedged2 = latestObj.CONTACT_FIELD_114;
+    $scope.cash2 = latestObj.CONTACT_FIELD_115;
+    $scope.australianListedProperty2 = latestObj.CONTACT_FIELD_116;
+    $scope.internationalListedProperty2 = latestObj.CONTACT_FIELD_117;
 
     $scope.asset2Total = $scope.australianShares2 + $scope.internationalShares2 +
         $scope.internationalSharesHedged2 + $scope.usShares2 +
@@ -5438,10 +5438,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         postalCode: 1234
     };
     $scope.spouseDetails = {
-        firstName: "Rachel",
-        lastName: "Payne",
+        firstName: latestObj.CONTACT_FIELD_6,
+        lastName: latestObj.CONTACT_FIELD_7,
         email: "rachel@gmail.com",
-        mobile: 412121212,
+        mobile: latestObj.CONTACT_FIELD_10,
     };
 
     var d = document.getElementsByClassName('title-div');
@@ -5465,7 +5465,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     initDate2.setDate(1);
 
     $scope.dob = initDate;
-    $scope.dobSpouse = initDate2;
+    $scope.dobSpouse = latestObj.CONTACT_FIELD_9;
 
     $scope.infoShow = function(value) {
         if (value) {
@@ -9358,7 +9358,7 @@ $scope.nextDiv = function(div_num) {
     $scope.begngInvstmntPrd = Math.max(1991, $scope.dob.getFullYear() + 18);
     $scope.invstmntHorzn = $scope.compYear - $scope.begngInvstmntPrd;
 
-    $scope.initialInvestmentAmount = 50000;
+    $scope.initialInvestmentAmount = latestObj.CONTACT_FIELD_96;
     $scope.alterOption = false;
 
     $('.spAlterOption').on('change', function() {
@@ -9455,7 +9455,7 @@ $scope.nextDiv = function(div_num) {
         $timeout(0);
     }
 
-    $scope.alterYear = 5;
+    $scope.alterYear = latestObj.CONTACT_FIELD_108;
 
     console.log("$scope.alterYear", $scope.alterYear);
     console.log("$scope.invstmntHorzn", $scope.invstmntHorzn);
