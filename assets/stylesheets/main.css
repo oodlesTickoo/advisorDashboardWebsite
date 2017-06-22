@@ -1328,7 +1328,7 @@ a.edit-action i {
     /*    top: 2px;*/
     background-image: url(../images/super-calc-bg.png);
     background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
     background-position: center top;
     background-attachment: fixed;
 }
@@ -1894,7 +1894,12 @@ a.edit-action i {
         margin-left: 25px;
     }
     .ml-responsive {
-        margin-left: 11% !important;
+        margin-left: 9% !important;
+    }
+    
+    .submit-calculator
+    {
+        letter-spacing: 2px;
     }
 }
 
