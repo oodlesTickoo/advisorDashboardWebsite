@@ -65,6 +65,19 @@
                     data: data
                 };
                 return $http(req);
+            },
+            generatePdf: function(data) {
+
+                var req = {
+                    method: 'POST',
+                    url: '/api/v1/pdf',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionService.get('token')
+                    },
+                    data: data
+                };
+                return $http(req);
             }
         };
     }
