@@ -2468,8 +2468,12 @@
                                                         <div class="col-sm-12 no-padding"></div>
                                                         <div class="col-sm-12 no-padding">
                                                             <img class="cal-goal-img" src="{{goal.goalimg}}">
-                                                            <p class="goal-cal-subhead">{{goal.heading}}&nbsp;<i class="fa fa-info-circle pointer" custom-popover aria-hidden="true" popover-html="Some Popover Text" popover-placement="top"></i></p>
-
+															<p class="goal-cal-subhead">{{goal.heading}}</p>
+                                                            <!--<p class="goal-cal-subhead">{{goal.heading}}&nbsp;<i class="fa fa-info-circle pointer" custom-popover aria-hidden="true" title="Information" popover-html="When something happens, like getting sick or injured, you still need to cover the important things like your household expenses and loan repayments" popover-placement="top"></i></p>-->
+															<!--<div class="center">
+															  <span class="qs">? <span class="popover above">Hey bro, cool popover!</span></span>
+															</div>-->
+															<!--<p class="goal-cal-subhead">{{goal.heading}}&nbsp;<i class="fa fa-info-circle pointer qs"><span class="popover above">Hey bro, cool popover!</span></i></p>-->
                                                         </div>
                                                         <div class="col-sm-12 no-padding" ng-if="goal.severity == 'false'">
                                                             <button class="goal-cal-button" type="button" ng-click="addGoal($index, 'Low')">ADD GOAL</button>
@@ -2500,7 +2504,8 @@
                             </div>
 							<div class="row calculate-row">
                             <div class="col-xs-12">
-                                <button class="btn btn-block submit-button" type="submit">Click here to see the results</button>
+								<button type="submit" name="calculatorSubmit" class="btn btn-primary btn-lg btn-block submit-calculator">Click here to see the results</button>
+                                <!--<button class="btn btn-block submit-button" type="submit">Click here to see the results</button>-->
                             </div>
                         </div>
                         </form>
@@ -3904,4 +3909,4 @@
         </div>
     </div>
 </div>
-<!-- /Content
+<!-- /Content -->
