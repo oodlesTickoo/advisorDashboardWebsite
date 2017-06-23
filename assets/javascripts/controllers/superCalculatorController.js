@@ -3200,35 +3200,20 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     });
 
     var initDate = new Date();
-    $scope.begnYearInvestment = CONTACT_FIELD_119;
+    $scope.begnYearInvestment = latestObj.CONTACT_FIELD_119;
     $scope.numChildren = 2;
-/*<<<<<<< HEAD
-    $scope.investmentReturnAmount = 5000;
-    $scope.contStartYear = initDate.getFullYear();
-    $scope.schoolYear1 = initDate.getFullYear();
-    $scope.schoolDuration1 = 6;
-    $scope.schoolYear2 = initDate.getFullYear();
-    $scope.schoolDuration2 = 6;
-    $scope.schoolYear3 = initDate.getFullYear();
-    $scope.schoolDuration3 = 6;
-    $scope.schoolYear4 = initDate.getFullYear();
-    $scope.schoolDuration4 = 6;
-    $scope.schoolYear5 = initDate.getFullYear();
-    $scope.schoolDuration5 = 6;
-=======*/
-    $scope.investmentReturnAmount = CONTACT_FIELD_176;
-    $scope.contStartYear = CONTACT_FIELD_120;
-    $scope.schoolYear1 = CONTACT_FIELD_124;
-    $scope.schoolDuration1 = CONTACT_FIELD_125;
-    $scope.schoolYear2 = CONTACT_FIELD_129;
-    $scope.schoolDuration2 = CONTACT_FIELD_130;
-    $scope.schoolYear3 = CONTACT_FIELD_134;
-    $scope.schoolDuration3 = CONTACT_FIELD_135;
-    $scope.schoolYear4 = CONTACT_FIELD_140;
-    $scope.schoolDuration4 = CONTACT_FIELD_141;
-    $scope.schoolYear5 = CONTACT_FIELD_146;
-    $scope.schoolDuration5 = CONTACT_FIELD_147;
-//>>>>>>> a565fa3df7c1a2482685fcf25a78562698e02875
+    $scope.investmentReturnAmount = latestObj.CONTACT_FIELD_176;
+    $scope.contStartYear = latestObj.CONTACT_FIELD_120;
+    $scope.schoolYear1 = latestObj.CONTACT_FIELD_124;
+    $scope.schoolDuration1 = latestObj.CONTACT_FIELD_125;
+    $scope.schoolYear2 = latestObj.CONTACT_FIELD_129;
+    $scope.schoolDuration2 = latestObj.CONTACT_FIELD_130;
+    $scope.schoolYear3 = latestObj.CONTACT_FIELD_134;
+    $scope.schoolDuration3 = latestObj.CONTACT_FIELD_135;
+    $scope.schoolYear4 = latestObj.CONTACT_FIELD_140;
+    $scope.schoolDuration4 = latestObj.CONTACT_FIELD_141;
+    $scope.schoolYear5 = latestObj.CONTACT_FIELD_146;
+    $scope.schoolDuration5 = latestObj.CONTACT_FIELD_147;
     /* $scope.schoolYear6 = initDate.getFullYear();
      $scope.schoolDuration6 = 6;*/
     $scope.endYearInvestment = Number($scope.schoolYear2) + Number($scope.schoolDuration2);
@@ -4117,42 +4102,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.personalDetails = {};
     $scope.spouseDetails = {};
     $scope.forms = {};
-/*<<<<<<< HEAD
-    $scope.grossAnnualIncome = 120000;
-    $scope.grossAnnualIncomeNew = 120000;
-    $scope.homeMortgage = 500000;
-    $scope.investmentPropertyMortgage = 0;
-    $scope.creditCardDebt = 2000;
-    $scope.carLoan = 20000;
-    $scope.personalLoan = 0;
-    $scope.otherLoan = 0;
-    $scope.homeValue = 800000;
-    $scope.cashAtBank = 20000;
-    $scope.otherInvestment = 20000;
-    $scope.superBalance = 100000;
-    $scope.ecLife = 250000;
-    $scope.ecLifeNew = 250000;
-    $scope.ecTPD = 0;
-    $scope.ecTPDNew = 0;
-    $scope.ecIP = 0;
-    $scope.ecIPNew = 0;
-    $scope.ecTrauma = 0;
-    $scope.ecTraumaNew = 0;
-//    $scope.numChildren = 2;
-    $scope.funeralCost = 20000;
-    $scope.educationExpensePerYearPerChild = 5000;
-    $scope.familyLivingCostPerYear = 90000;
-    $scope.inflation = 2;
-    $scope.rateOfReturn = 5;
-    $scope.moneyToBeBorrowed = 400000;
-    $scope.valueOfNewProperty = 500000;
-    $scope.ageSpouse = 47;
-    $scope.ageChildren1 = 3;
-    $scope.ageChildren2 = 5;
-    $scope.ageChildren3 = 10;
-    $scope.ageChildren4 = 10;
-    $scope.ageChildren5 = 10;
-=======*/
+	
     $scope.grossAnnualIncome = latestObj.CONTACT_FIELD_13;
     $scope.grossAnnualIncomeNew = latestObj.CONTACT_FIELD_13;
     $scope.homeMortgage = latestObj.CONTACT_FIELD_60;
@@ -4188,7 +4138,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.ageChildren3 = latestObj.CONTACT_FIELD_69;
     $scope.ageChildren4 = latestObj.CONTACT_FIELD_70;
     $scope.ageChildren5 = latestObj.CONTACT_FIELD_71;
-//>>>>>>> a565fa3df7c1a2482685fcf25a78562698e02875
 
     $scope.resultPerc = {};
 	
@@ -4212,16 +4161,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.contributionFeeB = latestObj.CONTACT_FIELD_57;
     $scope.adminFeeB = latestObj.CONTACT_FIELD_58;
     $scope.indirectCostRationB = latestObj.CONTACT_FIELD_59;
-
-/*<<<<<<< HEAD
-    $scope.nra = 6;
-    $scope.nrp = 7;
-    $scope.tfp = 2;
-	$scope.cses = 80000;
-    $scope.beforeTTR = 50000;
-	$scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
-    $scope.thp = 45000;
-=======*/
+	
     $scope.nra = latestObj.CONTACT_FIELD_92;
     $scope.nrp = latestObj.CONTACT_FIELD_94;
     $scope.tfp = latestObj.CONTACT_FIELD_93;
@@ -4229,7 +4169,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 	$scope.cses = latestObj.CONTACT_FIELD_177;
 	$scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
     $scope.thp = latestObj.CONTACT_FIELD_19;
-//>>>>>>> a565fa3df7c1a2482685fcf25a78562698e02875
 
     $scope.totalPercentageSelected = 100;
 
@@ -9954,6 +9893,7 @@ $scope.nextDiv = function(div_num) {
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_93", "FIELD_VALUE": $scope.tfp },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_94", "FIELD_VALUE": $scope.nrp },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_95", "FIELD_VALUE": $scope.beforeTTR },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_177", "FIELD_VALUE": $scope.escs },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_96", "FIELD_VALUE": $scope.initialInvestmentAmount },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_97", "FIELD_VALUE": $scope.australianShares1 },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_98", "FIELD_VALUE": $scope.internationalShares1 },
@@ -9979,6 +9919,7 @@ $scope.nextDiv = function(div_num) {
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_118", "FIELD_VALUE": $scope.asset2Total },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_119", "FIELD_VALUE": $scope.begnYearInvestment },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_120", "FIELD_VALUE": $scope.contStartYear },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_176", "FIELD_VALUE": $scope.investmentReturnAmount },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_121", "FIELD_VALUE": $scope.spPort },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_122", "FIELD_VALUE": $scope.c1Name },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_123", "FIELD_VALUE": $scope.spStudyingOption1 },
