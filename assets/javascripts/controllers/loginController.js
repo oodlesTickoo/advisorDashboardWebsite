@@ -1,7 +1,7 @@
 app.controller("LoginController", ['$scope', 'AuthenticationService', '$state','$rootScope', 'toastr', function($scope, AuthenticationService, $state, $rootScope, toastr) {
     'use strict';
 
-    const USER_ROLE = {
+    var USER_ROLE = {
         ADVISOR: "ADVISOR",
         CLIENT: "CLIENT",
         ADMIN: "ADMINISTRATOR"

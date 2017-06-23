@@ -4,7 +4,7 @@ app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advis
 	console.log("in ChangeAdvisorController", advisors);
 	$scope.selectedAdvisor = advisors.selected+'';
 	$scope.advisorList = []; 
-	const clientId = advisors.client;
+	var clientId = advisors.client;
     $scope.name = advisors.name;
 	function _init(){
         var index = 0;

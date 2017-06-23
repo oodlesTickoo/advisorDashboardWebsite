@@ -182,7 +182,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     }
 
     $scope.downloadPdf = function(id){
-        const url = '/api/v1/file?contact_id='+id+'&file_format=pdf';
+        var url = '/api/v1/file?contact_id='+id+'&file_format=pdf';
         var link = document.createElement('a');
         document.body.appendChild(link);
         link.href = url;
