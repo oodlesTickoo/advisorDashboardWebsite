@@ -1190,7 +1190,7 @@ a.upload-word i {
 
 .btn-group .btn {
     width: 33.33%;
-    text-transform: uppercase;
+/*    text-transform: uppercase;*/
     border-radius: 0;
 }
 
@@ -1371,8 +1371,8 @@ a.edit-action i {
 .submit-calculator{
 	margin-top: 20px !important;
     height: 45px;
-    width: 55%;
-    text-transform: inherit;
+    width: 63%;
+    /* text-transform: inherit; */
     font-size: 18px;
     margin: 0px auto;
 }

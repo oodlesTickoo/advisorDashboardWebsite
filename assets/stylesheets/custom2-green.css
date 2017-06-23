@@ -61,10 +61,10 @@
 }
 
 .form-1,.form-2,.form-3,.form-4,.form-5,.form-6,.form-7,.form-8,.form-9,.form-10,.form-11,.form-12{
-  -webkit-transition: max-height 0.9s ease-in;
-  -o-transition: max-height 0.9s ease-in;
-  -moz-transition: max-height 0.9s ease-in;    
-  transition: max-height 0.9s ease-in;
+  -webkit-transition: max-height 1.5s ease-in;
+  -o-transition: max-height 1.5s ease-in;
+  -moz-transition: max-height 1.5s ease-in;    
+  transition: max-height 1.5s ease-in;
   max-height: 2500px;
   overflow: hidden;   
 	position: relative;
@@ -75,7 +75,7 @@
 .menuDrop{
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.9s ease-out;
+  transition: max-height 1.5s ease-out;
 }
 
 .next-btn,.next-btn:active,.next-btn:focus{

@@ -1,4 +1,4 @@
-app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', function($scope, $rootScope,UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService) {
+app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope,UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
 	
 	
    console.log("In Calc controller", $rootScope.addGoal);
@@ -10,7 +10,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 	$scope.customField = GoalBasedAdviceService.custom_field.customFieldObj;
     console.log('Calc controllerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',$scope.goalBasedAdvice, $scope.customField);
 	
-
+	
 	
 	//to go to scrollbased advice section
     $scope.gotoBottom = function() {
@@ -1138,7 +1138,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     $('.spEducationOption').on('change', function() {
         $scope.spEducationOption = $('.spEducationOption option:selected').val();
-        if (spEducationOption === "Select from the list of high schools in the living state.") {
+        if ($scope.spEducationOption === "Select from the list of high schools in the living state.") {
             $scope.diffSchoolOption = false;
         } else {
             $scope.diffSchoolOption = true;
@@ -1215,7 +1215,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
                     break;
             }
         } else {
-            switch (Number(spState)) {
+            switch ($scope.spState) {
                 case "NSW":
                     $scope.$apply(function() {
                         $scope.schoolObjectsShow = $scope.publicSchoolObjects_NSW;
@@ -1275,1224 +1275,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         { id: 1, name: 'super' }
     ];
 
-
-    $scope.fundsOb = [{
-        id: 0,
-        name: 'Asgard Infinity Ewrap Super',
-        annualPercentageFee: 1.25
-    }, {
-        id: 1,
-        name: 'ING Direct Living Super',
-        annualPercentageFee: 0
-    }, {
-        id: 2,
-        name: 'ING Direct Living Super (Balanced) with benefits',
-        annualPercentageFee: 260
-    }, {
-        id: 3,
-        name: 'SMSF (Non advice service)',
-        annualPercentageFee: 2240
-    }, {
-        id: 4,
-        name: 'SMSF (Advice Service)',
-        annualPercentageFee: 0.95
-    }, {
-        id: 5,
-        name: 'Building Unions Super Scheme Queensland BUSSQ',
-        annualPercentageFee: 1.31
-    }, {
-        id: 6,
-        name: 'First Super',
-        annualPercentageFee: 0.89
-    }, {
-        id: 7,
-        name: 'QSuper Lifetime Aspire 1 Group',
-        annualPercentageFee: 0.61
-    }, {
-        id: 8,
-        name: 'QSuper Lifetime Outlook',
-        annualPercentageFee: 0.66
-    }, {
-        id: 9,
-        name: 'QSuper Lifetime Sustain Group 1',
-        annualPercentageFee: 0.45
-    }, {
-        id: 10,
-        name: 'Local Government Strategy AgeBased Investment Conservative',
-        annualPercentageFee: 0.58
-    }, {
-        id: 11,
-        name: 'QSuper Lifetime Focus 1 Group',
-        annualPercentageFee: 0.56
-    }, {
-        id: 12,
-        name: 'QSuper Lifetime Sustain Group 2',
-        annualPercentageFee: 0.45
-    }, {
-        id: 13,
-        name: 'Construction & Building Unions Super Growth Cbus',
-        annualPercentageFee: 1
-    }, {
-        id: 14,
-        name: 'Meat Industry Employees Super MIESF',
-        annualPercentageFee: 0.63
-    }, {
-        id: 15,
-        name: 'QSuper Lifetime Focus 2 Group',
-        annualPercentageFee: 0.56
-    }, {
-        id: 16,
-        name: 'Suncorp Funds 1934 Prior',
-        annualPercentageFee: 1.01
-    }, {
-        id: 17,
-        name: 'QSuper Lifetime Aspire 2 Group',
-        annualPercentageFee: 0.61
-    }, {
-        id: 18,
-        name: 'Aon Defensive',
-        annualPercentageFee: 0.92
-    }, {
-        id: 19,
-        name: 'Suncorp Funds 1935 to 1939',
-        annualPercentageFee: 1.01
-    }, {
-        id: 20,
-        name: 'Statewide Super',
-        annualPercentageFee: 0.91
-    }, {
-        id: 21,
-        name: 'Suncorp Funds 1950 to 1954',
-        annualPercentageFee: 1.01
-    }, {
-        id: 22,
-        name: 'Suncorp Funds 1945 to 1949',
-        annualPercentageFee: 1.01
-    }, {
-        id: 23,
-        name: 'QSuper Lifetime Focus 3 Group',
-        annualPercentageFee: 0.56
-    }, {
-        id: 24,
-        name: 'Suncorp Funds 1955 to 1959',
-        annualPercentageFee: 1.01
-    }, {
-        id: 25,
-        name: 'Suncorp Funds 1940 to 1944',
-        annualPercentageFee: 1.01
-    }, {
-        id: 26,
-        name: 'Local Government Strategy AgeBased Investment Balanced',
-        annualPercentageFee: 0.63
-    }, {
-        id: 27,
-        name: 'Suncorp Funds 1960 to 1964',
-        annualPercentageFee: 1.01
-    }, {
-        id: 28,
-        name: 'Aon 66',
-        annualPercentageFee: 0.92
-    }, {
-        id: 29,
-        name: 'Suncorp Funds 1965 to 1969',
-        annualPercentageFee: 1.01
-    }, {
-        id: 30,
-        name: 'MTAA Super My AutoSuper',
-        annualPercentageFee: 0.84
-    }, {
-        id: 31,
-        name: 'Suncorp Funds 1970 to 1974',
-        annualPercentageFee: 1.01
-    }, {
-        id: 32,
-        name: 'Telstra Super Conservative',
-        annualPercentageFee: 0.82
-    }, {
-        id: 33,
-        name: 'Suncorp Funds 1975 to 1979',
-        annualPercentageFee: 1.01
-    }, {
-        id: 34,
-        name: 'Aon 65',
-        annualPercentageFee: 0.92
-    }, {
-        id: 35,
-        name: 'MyLifeMyMoney Super MyCatholicSuper',
-        annualPercentageFee: 1.04
-    }, {
-        id: 36,
-        name: 'AustralianSuper',
-        annualPercentageFee: 0.73
-    }, {
-        id: 37,
-        name: 'HOSTPLUS Super Balanced',
-        annualPercentageFee: 1.1
-    }, {
-        id: 38,
-        name: 'AustralianSuper Komatsu Plan',
-        annualPercentageFee: 0.83
-    }, {
-        id: 39,
-        name: 'Suncorp Funds 1980 to 1984',
-        annualPercentageFee: 1.01
-    }, {
-        id: 40,
-        name: 'AustralianSuper IBM Plan',
-        annualPercentageFee: 0.84
-    }, {
-        id: 41,
-        name: 'Suncorp Funds 1995 to 1999',
-        annualPercentageFee: 1.01
-    }, {
-        id: 42,
-        name: 'Suncorp Funds 1985 to 1989',
-        annualPercentageFee: 1.01
-    }, {
-        id: 43,
-        name: 'Energy Super',
-        annualPercentageFee: 1.12
-    }, {
-        id: 44,
-        name: 'Suncorp Funds 1990 to 1994',
-        annualPercentageFee: 1.01
-    }, {
-        id: 45,
-        name: 'Suncorp Funds 2000 to 2004',
-        annualPercentageFee: 1.01
-    }, {
-        id: 46,
-        name: 'Rei Super ee Balanced',
-        annualPercentageFee: 0.87
-    }, {
-        id: 47,
-        name: 'Aon 64',
-        annualPercentageFee: 0.92
-    }, {
-        id: 48,
-        name: 'LGIASuper Lifecycle 75 Plus',
-        annualPercentageFee: 0.64
-    }, {
-        id: 49,
-        name: 'Care Super',
-        annualPercentageFee: 1.22
-    }, {
-        id: 50,
-        name: 'Prime Super',
-        annualPercentageFee: 1.12
-    }, {
-        id: 51,
-        name: 'Asgard Employee 1950s',
-        annualPercentageFee: 1.35
-    }, {
-        id: 52,
-        name: 'Mine Wealth and Wellbeing Stable',
-        annualPercentageFee: 0.94
-    }, {
-        id: 53,
-        name: 'CCA Future Directions Conservative',
-        annualPercentageFee: 0.53
-    }, {
-        id: 54,
-        name: 'ANZ Smart Choice SuperFor QBE employees 1940s',
-        annualPercentageFee: 0.54
-    }, {
-        id: 55,
-        name: 'Maritime Super Moderate investment',
-        annualPercentageFee: 1.11
-    }, {
-        id: 56,
-        name: 'Aon 63',
-        annualPercentageFee: 0.92
-    }, {
-        id: 57,
-        name: 'ANZ Smart Choice Super 1940s',
-        annualPercentageFee: 0.6
-    }, {
-        id: 58,
-        name: 'Asgard Employee 1970s',
-        annualPercentageFee: 1.35
-    }, {
-        id: 59,
-        name: 'Asgard Employee 1960s',
-        annualPercentageFee: 1.35
-    }, {
-        id: 60,
-        name: 'Bendigo Conservative Index Fund',
-        annualPercentageFee: 0.61
-    }, {
-        id: 61,
-        name: 'Aon 62',
-        annualPercentageFee: 0.92
-    }, {
-        id: 62,
-        name: 'Asgard Employee 1980s',
-        annualPercentageFee: 1.35
-    }, {
-        id: 63,
-        name: 'Local Government Strategy AgeBased Investment Balanced Growth',
-        annualPercentageFee: 0.67
-    }, {
-        id: 64,
-        name: 'WA Local Government Super',
-        annualPercentageFee: 1.16
-    }, {
-        id: 65,
-        name: 'LGIASuper Lifecycle Under 75',
-        annualPercentageFee: 0.72
-    }, {
-        id: 66,
-        name: 'Sunsuper for Life Age 64',
-        annualPercentageFee: 0.76
-    }, {
-        id: 67,
-        name: 'BT Business 1940s',
-        annualPercentageFee: 1.18
-    }, {
-        id: 68,
-        name: 'Sunsuper for Life Age 61',
-        annualPercentageFee: 0.76
-    }, {
-        id: 69,
-        name: 'Sunsuper for Life Age 65 and over',
-        annualPercentageFee: 0.76
-    }, {
-        id: 70,
-        name: 'Sunsuper for Life Age 60',
-        annualPercentageFee: 0.76
-    }, {
-        id: 71,
-        name: 'Sunsuper for Life Age 62',
-        annualPercentageFee: 0.76
-    }, {
-        id: 72,
-        name: 'Sunsuper for Life Age 58',
-        annualPercentageFee: 0.76
-    }, {
-        id: 73,
-        name: 'Sunsuper for Life Age 59',
-        annualPercentageFee: 0.76
-    }, {
-        id: 74,
-        name: 'Sunsuper for Life Age 63',
-        annualPercentageFee: 0.76
-    }, {
-        id: 75,
-        name: 'Sunsuper for Life Age 55',
-        annualPercentageFee: 0.76
-    }, {
-        id: 76,
-        name: 'Sunsuper for Life Age 56',
-        annualPercentageFee: 0.76
-    }, {
-        id: 77,
-        name: 'AMP Super Savings Woolworths Group',
-        annualPercentageFee: 0.61
-    }, {
-        id: 78,
-        name: 'Sunsuper for Life Age 57',
-        annualPercentageFee: 0.76
-    }, {
-        id: 79,
-        name: 'Sunsuper for Life Age 54 and under',
-        annualPercentageFee: 0.76
-    }, {
-        id: 80,
-        name: 'Mine Wealth and Wellbeing Balanced',
-        annualPercentageFee: 1.04
-    }, {
-        id: 81,
-        name: 'Aon 61',
-        annualPercentageFee: 0.92
-    }, {
-        id: 82,
-        name: "Commonwealth Essential Super 1940's option",
-        annualPercentageFee: 0.94
-    }, {
-        id: 83,
-        name: 'UniSuper UniSuper Balanced',
-        annualPercentageFee: 0.77
-    }, {
-        id: 84,
-        name: 'Health Employees Super Australia Core Pool',
-        annualPercentageFee: 0.96
-    }, {
-        id: 85,
-        name: 'Pitcher Retirement Plan',
-        annualPercentageFee: 2.01
-    }, {
-        id: 86,
-        name: 'Westpac Group Plan 1940s',
-        annualPercentageFee: 0.75
-    }, {
-        id: 87,
-        name: 'Virgin Super Essentials Tracker Balanced Over 60S Mix',
-        annualPercentageFee: 1.11
-    }, {
-        id: 88,
-        name: "Commonwealth Essential Super 1950's option",
-        annualPercentageFee: 0.94
-    }, {
-        id: 89,
-        name: 'Queensland Independent Education & Care Super QIEC',
-        annualPercentageFee: 1.13
-    }, {
-        id: 90,
-        name: 'Aon 60',
-        annualPercentageFee: 0.92
-    }, {
-        id: 91,
-        name: 'CCA Future Directions Moderately Cons',
-        annualPercentageFee: 0.59
-    }, {
-        id: 92,
-        name: 'Asgard Employee 1990s',
-        annualPercentageFee: 1.35
-    }, {
-        id: 93,
-        name: 'Australia Post 1960s',
-        annualPercentageFee: 0.9
-    }, {
-        id: 94,
-        name: 'First State Super Lifecycle Balanced',
-        annualPercentageFee: 0.7
-    }, {
-        id: 95,
-        name: 'Colonial First State FirstChoice Superannuation Trust 194549',
-        annualPercentageFee: 1.12
-    }, {
-        id: 96,
-        name: 'Intrust Super',
-        annualPercentageFee: 1.04
-    }, {
-        id: 97,
-        name: 'TWU Super Balanced',
-        annualPercentageFee: 1.24
-    }, {
-        id: 98,
-        name: 'Mercer WGSP Born prior to 1929',
-        annualPercentageFee: 0.81
-    }, {
-        id: 99,
-        name: 'Colonial First State FirstChoice Superannuation Trust 195054',
-        annualPercentageFee: 1.12
-    }, {
-        id: 100,
-        name: 'AFLPA & Industry 1960s',
-        annualPercentageFee: 1.04
-    }, {
-        id: 101,
-        name: 'Guild Retirement Fund Consolidating',
-        annualPercentageFee: 0.94
-    }, {
-        id: 102,
-        name: 'Australia Post Capital Stable',
-        annualPercentageFee: 0.83
-    }, {
-        id: 103,
-        name: 'Mercy Super',
-        annualPercentageFee: 1.12
-    }, {
-        id: 104,
-        name: 'Media Super Balanced investment accumulation',
-        annualPercentageFee: 0.85
-    }, {
-        id: 105,
-        name: 'The Transport Industry Super TIS',
-        annualPercentageFee: 1.79
-    }, {
-        id: 106,
-        name: 'Commonwealth Bank Group Super Accumulate Plus Balanced',
-        annualPercentageFee: 0.73
-    }, {
-        id: 107,
-        name: 'Club Plus Super Scheme',
-        annualPercentageFee: 0.74
-    }, {
-        id: 108,
-        name: 'The Flexible Benefits Super FlexibleSuper Active Balanced',
-        annualPercentageFee: 0.94
-    }, {
-        id: 109,
-        name: 'Aon 59',
-        annualPercentageFee: 0.92
-    }, {
-        id: 110,
-        name: 'Mine Wealth and Wellbeing Growth',
-        annualPercentageFee: 1.13
-    }, {
-        id: 111,
-        name: 'AFLPA & Industry Capital Stable',
-        annualPercentageFee: 0.97
-    }, {
-        id: 112,
-        name: 'BT Super for Life Employer Super 1940s',
-        annualPercentageFee: 1.2
-    }, {
-        id: 113,
-        name: 'Mercer WGSP 1944 to 1948',
-        annualPercentageFee: 0.83
-    }, {
-        id: 114,
-        name: 'ANZ Smart Choice SuperFor QBE employees 1950s',
-        annualPercentageFee: 0.54
-    }, {
-        id: 115,
-        name: 'ANZ Smart Choice Super 1950s',
-        annualPercentageFee: 0.6
-    }, {
-        id: 116,
-        name: 'Australian Meat Industry Super AMIST',
-        annualPercentageFee: 0.77
-    }, {
-        id: 117,
-        name: 'Mercer WGSP 1929 to 1933',
-        annualPercentageFee: 0.81
-    }, {
-        id: 118,
-        name: 'Australia Post 1950s',
-        annualPercentageFee: 0.85
-    }, {
-        id: 119,
-        name: 'DuluxGroup Employees Super Active Balanced',
-        annualPercentageFee: 1.11
-    }, {
-        id: 120,
-        name: 'Bendigo Balanced Index Fund',
-        annualPercentageFee: 0.63
-    }, {
-        id: 121,
-        name: 'Incitec Pivot Employees Super Active Balanced',
-        annualPercentageFee: 1.11
-    }, {
-        id: 122,
-        name: 'AMP No.2 1960s',
-        annualPercentageFee: 1.41
-    }, {
-        id: 123,
-        name: 'Local Authorities Super Vision',
-        annualPercentageFee: 1.02
-    }, {
-        id: 124,
-        name: 'Mercer WGSP 1934 to 1938',
-        annualPercentageFee: 0.81
-    }, {
-        id: 125,
-        name: 'Mercer WGSP 1939 to 1943',
-        annualPercentageFee: 0.81
-    }, {
-        id: 126,
-        name: 'Mercer SmartPath Born prior to 1929',
-        annualPercentageFee: 1.22
-    }, {
-        id: 127,
-        name: 'Anglican National ANS RIL Conservative',
-        annualPercentageFee: 0.89
-    }, {
-        id: 128,
-        name: 'Christian Super My Ethical',
-        annualPercentageFee: 1.25
-    }, {
-        id: 129,
-        name: 'AFLPA & Industry 1950s',
-        annualPercentageFee: 0.99
-    }, {
-        id: 130,
-        name: 'NGS Super Diversified',
-        annualPercentageFee: 0.9
-    }, {
-        id: 131,
-        name: 'Aon 58',
-        annualPercentageFee: 0.92
-    }, {
-        id: 132,
-        name: 'Tasplan Super',
-        annualPercentageFee: 1.01
-    }, {
-        id: 133,
-        name: 'National Australia Bank Group Super NABGSF',
-        annualPercentageFee: 1.17
-    }, {
-        id: 134,
-        name: 'AMP No.2 Capital Stable',
-        annualPercentageFee: 1.34
-    }, {
-        id: 135,
-        name: 'AMP No.3 SDF 1960s',
-        annualPercentageFee: 1.5
-    }, {
-        id: 136,
-        name: 'ANZ Australian Staff Super Scheme',
-        annualPercentageFee: 0.58
-    }, {
-        id: 137,
-        name: 'AMP No.3 SDF Capital Stable',
-        annualPercentageFee: 1.43
-    }, {
-        id: 138,
-        name: 'Australian Ethical Retail Super Balanced accumulation',
-        annualPercentageFee: 1.72
-    }, {
-        id: 139,
-        name: 'CCA Future Directions Balanced',
-        annualPercentageFee: 0.66
-    }, {
-        id: 140,
-        name: 'Mercer SmartPath 1944 to 1948',
-        annualPercentageFee: 1.24
-    }, {
-        id: 141,
-        name: 'legalSuper Balanced',
-        annualPercentageFee: 0.95
-    }, {
-        id: 142,
-        name: 'Mercer SmartPath 1929 to 1933',
-        annualPercentageFee: 1.22
-    }, {
-        id: 143,
-        name: 'Mercer WGSP 1949 to 1953',
-        annualPercentageFee: 0.82
-    }, {
-        id: 144,
-        name: 'equipSuper EquipSuper',
-        annualPercentageFee: 1.09
-    }, {
-        id: 145,
-        name: 'Quadrant Super Scheme MyChoices_ Investment',
-        annualPercentageFee: 1.31
-    }, {
-        id: 146,
-        name: 'Retail Employees Super REST',
-        annualPercentageFee: 0.88
-    }, {
-        id: 147,
-        name: 'Austsafe Super Balanced',
-        annualPercentageFee: 0.9
-    }, {
-        id: 148,
-        name: 'Aon 57',
-        annualPercentageFee: 0.92
-    }, {
-        id: 149,
-        name: 'AMP No.2 1950s',
-        annualPercentageFee: 1.36
-    }, {
-        id: 150,
-        name: 'Virgin Super Essentials Tracker Balanced 50S Mix',
-        annualPercentageFee: 1.11
-    }, {
-        id: 151,
-        name: 'Rio Tinto Staff Super Growth Product',
-        annualPercentageFee: 0.95
-    }, {
-        id: 152,
-        name: 'Boc Gases Super BOC',
-        annualPercentageFee: 1.18
-    }, {
-        id: 153,
-        name: 'Mercer SmartPath 1934 to 1938',
-        annualPercentageFee: 1.22
-    }, {
-        id: 154,
-        name: 'Mercer SmartPath 1939 to 1943',
-        annualPercentageFee: 1.22
-    }, {
-        id: 155,
-        name: 'Asgard Employee 1940s',
-        annualPercentageFee: 1.36
-    }, {
-        id: 156,
-        name: 'Glidepath Altitude',
-        annualPercentageFee: 1.15
-    }, {
-        id: 157,
-        name: 'AMP No.3 SDF 1950s',
-        annualPercentageFee: 1.45
-    }, {
-        id: 158,
-        name: 'Colonial First State FirstChoice Superannuation Trust 195559',
-        annualPercentageFee: 1.12
-    }, {
-        id: 159,
-        name: 'AvSuper Growth',
-        annualPercentageFee: 1.12
-    }, {
-        id: 160,
-        name: 'Local Government Strategy AgeBased Investment High Growth',
-        annualPercentageFee: 0.71
-    }, {
-        id: 161,
-        name: 'Australia Post 1970s',
-        annualPercentageFee: 0.95
-    }, {
-        id: 162,
-        name: "Perpetual's Select Super",
-        annualPercentageFee: 1.38
-    }, {
-        id: 163,
-        name: 'Glidepath Destination',
-        annualPercentageFee: 1.09
-    }, {
-        id: 164,
-        name: "Smartsave 'Member's Choice' Super Master Plan SmartSave Balanced",
-        annualPercentageFee: 1.25
-    }, {
-        id: 165,
-        name: 'Public Sector Super Accumulation Plan PSSap Balanced',
-        annualPercentageFee: 0.86
-    }, {
-        id: 166,
-        name: 'AFLPA & Industry 1970s',
-        annualPercentageFee: 1.09
-    }, {
-        id: 167,
-        name: 'Aon 56',
-        annualPercentageFee: 0.92
-    }, {
-        id: 168,
-        name: 'Toyota Australia Super Plan Growth',
-        annualPercentageFee: 0.98
-    }, {
-        id: 169,
-        name: 'Toyota Employees Super Growth',
-        annualPercentageFee: 0.98
-    }, {
-        id: 170,
-        name: 'Mercer SmartPath 1949 to 1953',
-        annualPercentageFee: 1.23
-    }, {
-        id: 171,
-        name: 'Westpac Group Plan 1950s',
-        annualPercentageFee: 0.74
-    }, {
-        id: 172,
-        name: 'Kinetic Super Growth',
-        annualPercentageFee: 0.97
-    }, {
-        id: 173,
-        name: 'Mercer WGSP 1954 to 1958',
-        annualPercentageFee: 0.83
-    }, {
-        id: 174,
-        name: 'Mine Wealth and Wellbeing Aggressive',
-        annualPercentageFee: 1.19
-    }, {
-        id: 175,
-        name: 'NESS Super',
-        annualPercentageFee: 1
-    }, {
-        id: 176,
-        name: 'Glidepath Cruising',
-        annualPercentageFee: 1.12
-    }, {
-        id: 177,
-        name: 'Australia Post 1980s',
-        annualPercentageFee: 1.05
-    }, {
-        id: 178,
-        name: 'Australia Post 1990s',
-        annualPercentageFee: 1.04
-    }, {
-        id: 179,
-        name: 'Combined Super',
-        annualPercentageFee: 1.17
-    }, {
-        id: 180,
-        name: 'Russell Supersolution Master General Division',
-        annualPercentageFee: 1.33
-    }, {
-        id: 181,
-        name: 'Club Super',
-        annualPercentageFee: 1.26
-    }, {
-        id: 182,
-        name: 'Mercer Super Santos',
-        annualPercentageFee: 0.91
-    }, {
-        id: 183,
-        name: 'Aon 55',
-        annualPercentageFee: 0.92
-    }, {
-        id: 184,
-        name: 'AMP No.2 1970s',
-        annualPercentageFee: 1.46
-    }, {
-        id: 185,
-        name: 'AFLPA & Industry 1980s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 186,
-        name: "Commonwealth Essential Super 1960's option",
-        annualPercentageFee: 0.94
-    }, {
-        id: 187,
-        name: 'AFLPA & Industry 1990s',
-        annualPercentageFee: 1.18
-    }, {
-        id: 188,
-        name: 'Telstra Super Balanced',
-        annualPercentageFee: 1.06
-    }, {
-        id: 189,
-        name: 'Worsley Alumina Super WASF Default',
-        annualPercentageFee: 0.68
-    }, {
-        id: 190,
-        name: 'AMG Super',
-        annualPercentageFee: 1.13
-    }, {
-        id: 191,
-        name: 'BT Business 1950s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 192,
-        name: 'EmPlus Super',
-        annualPercentageFee: 1.04
-    }, {
-        id: 193,
-        name: 'Asgard Employee 2000s',
-        annualPercentageFee: 1.35
-    }, {
-        id: 194,
-        name: 'Glidepath Take Off',
-        annualPercentageFee: 1.18
-    }, {
-        id: 195,
-        name: 'Bendigo Growth Index Fund',
-        annualPercentageFee: 0.65
-    }, {
-        id: 196,
-        name: 'BT Super for Life Employer Super 1950s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 197,
-        name: 'Mercer SmartPath 1954 to 1958',
-        annualPercentageFee: 1.24
-    }, {
-        id: 198,
-        name: 'First State Super Lifecycle Diversified',
-        annualPercentageFee: 0.72
-    }, {
-        id: 199,
-        name: 'AMP No.3 SDF 1970s',
-        annualPercentageFee: 1.55
-    }, {
-        id: 200,
-        name: 'Aon 54',
-        annualPercentageFee: 0.92
-    }, {
-        id: 201,
-        name: 'BHP Billiton Super Default',
-        annualPercentageFee: 1.06
-    }, {
-        id: 202,
-        name: 'AMP No.2 1980s',
-        annualPercentageFee: 1.55
-    }, {
-        id: 203,
-        name: 'Energy Industries Super Scheme-Pool A Balanced',
-        annualPercentageFee: 0.95
-    }, {
-        id: 204,
-        name: 'AMP No.2 1990s',
-        annualPercentageFee: 1.55
-    }, {
-        id: 205,
-        name: 'Guild Retirement Fund Growing',
-        annualPercentageFee: 1.04
-    }, {
-        id: 206,
-        name: 'AMP Retirement No.1',
-        annualPercentageFee: 0.85
-    }, {
-        id: 207,
-        name: 'Mercer WGSP 1959 to 1963',
-        annualPercentageFee: 0.92
-    }, {
-        id: 208,
-        name: 'Victorian Super Growth',
-        annualPercentageFee: 0.97
-    }, {
-        id: 209,
-        name: 'IOOF Portfolio Service Super',
-        annualPercentageFee: 1.08
-    }, {
-        id: 210,
-        name: 'ANZ Smart Choice SuperFor QBE employees 1960s',
-        annualPercentageFee: 0.54
-    }, {
-        id: 211,
-        name: 'ANZ Smart Choice Super 1960s',
-        annualPercentageFee: 0.6
-    }, {
-        id: 212,
-        name: 'CCA Future Directions Growth',
-        annualPercentageFee: 0.72
-    }, {
-        id: 213,
-        name: "Commonwealth Essential Super 1990's option",
-        annualPercentageFee: 0.94
-    }, {
-        id: 214,
-        name: 'The Universal Super Scheme MLC',
-        annualPercentageFee: 1.23
-    }, {
-        id: 215,
-        name: 'Plum Super',
-        annualPercentageFee: 1.24
-    }, {
-        id: 216,
-        name: 'AMP Super Savings Brookfield Australia',
-        annualPercentageFee: 0.53
-    }, {
-        id: 217,
-        name: "Commonwealth Essential Super 1980's option",
-        annualPercentageFee: 0.94
-    }, {
-        id: 218,
-        name: 'AMP No.3 SDF 1980s',
-        annualPercentageFee: 1.64
-    }, {
-        id: 219,
-        name: 'Nationwide Super NSF',
-        annualPercentageFee: 1.31
-    }, {
-        id: 220,
-        name: 'Aon 53',
-        annualPercentageFee: 0.92
-    }, {
-        id: 221,
-        name: "Commonwealth Essential Super 1970's option",
-        annualPercentageFee: 0.94
-    }, {
-        id: 222,
-        name: 'Concept One The Industry Super Balanced',
-        annualPercentageFee: 0.95
-    }, {
-        id: 223,
-        name: 'AMP No.3 SDF 1990s',
-        annualPercentageFee: 1.64
-    }, {
-        id: 224,
-        name: 'Mercer SmartPath 1959 to 1963',
-        annualPercentageFee: 1.33
-    }, {
-        id: 225,
-        name: 'IAG & NRMA Super Plan',
-        annualPercentageFee: 1.12
-    }, {
-        id: 226,
-        name: 'AMP Super Savings Macquarie Group',
-        annualPercentageFee: 0.79
-    }, {
-        id: 227,
-        name: 'Max Super',
-        annualPercentageFee: 1.09
-    }, {
-        id: 228,
-        name: 'Labour Union Co-Operative Retirement Balanced',
-        annualPercentageFee: 0.95
-    }, {
-        id: 229,
-        name: 'Goldman Sachs & JBWere Super Product',
-        annualPercentageFee: 1.67
-    }, {
-        id: 230,
-        name: 'Aon 52',
-        annualPercentageFee: 0.92
-    }, {
-        id: 231,
-        name: 'Westpac Group Plan 2000s',
-        annualPercentageFee: 0.74
-    }, {
-        id: 232,
-        name: 'Westpac Group Plan 1960s',
-        annualPercentageFee: 0.74
-    }, {
-        id: 233,
-        name: 'Mercer WGSP 1964 to 1968',
-        annualPercentageFee: 0.95
-    }, {
-        id: 234,
-        name: 'Mercer WGSP 1969 to 1973',
-        annualPercentageFee: 0.95
-    }, {
-        id: 235,
-        name: 'Guild Retirement Fund Building',
-        annualPercentageFee: 1.13
-    }, {
-        id: 236,
-        name: 'CCA Future Directions High Growth',
-        annualPercentageFee: 0.73
-    }, {
-        id: 237,
-        name: 'Mercer WGSP 1974 to 1978',
-        annualPercentageFee: 0.95
-    }, {
-        id: 238,
-        name: 'Mercer WGSP 1979 to 1983',
-        annualPercentageFee: 0.95
-    }, {
-        id: 239,
-        name: 'Mercer WGSP 1984 to 1988',
-        annualPercentageFee: 0.95
-    }, {
-        id: 240,
-        name: 'Aon 51',
-        annualPercentageFee: 0.92
-    }, {
-        id: 241,
-        name: 'ANZ Smart Choice SuperFor QBE employees 1970s',
-        annualPercentageFee: 0.54
-    }, {
-        id: 242,
-        name: 'Telstra Super Growth',
-        annualPercentageFee: 1.09
-    }, {
-        id: 243,
-        name: 'Mercer WGSP 1989 to 1993',
-        annualPercentageFee: 0.95
-    }, {
-        id: 244,
-        name: 'Mercer WGSP 1994 to 1998',
-        annualPercentageFee: 0.95
-    }, {
-        id: 245,
-        name: 'United Technologies Corporation Retirement Plan Balanced',
-        annualPercentageFee: 1.21
-    }, {
-        id: 246,
-        name: 'ANZ Smart Choice Super 1970s',
-        annualPercentageFee: 0.6
-    }, {
-        id: 247,
-        name: 'BT Super for Life Employer Super 2000s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 248,
-        name: 'Water Corporation Super Plan Growth',
-        annualPercentageFee: 0.97
-    }, {
-        id: 249,
-        name: 'The Executive Super MyLife',
-        annualPercentageFee: 1.08
-    }, {
-        id: 250,
-        name: 'BT Super for Life Employer Super 1960s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 251,
-        name: 'Mercer SmartPath 1964 to 1968',
-        annualPercentageFee: 1.36
-    }, {
-        id: 252,
-        name: 'Mercer SmartPath 1969 to 1973',
-        annualPercentageFee: 1.36
-    }, {
-        id: 253,
-        name: 'Aon 50',
-        annualPercentageFee: 0.92
-    }, {
-        id: 254,
-        name: 'Virgin Super Essentials Tracker Balanced 40S Mix',
-        annualPercentageFee: 1.11
-    }, {
-        id: 255,
-        name: 'Mercer WGSP 1999 to 2003',
-        annualPercentageFee: 0.95
-    }, {
-        id: 256,
-        name: 'Mercer SmartPath 1974 to 1978',
-        annualPercentageFee: 1.36
-    }, {
-        id: 257,
-        name: 'Mercer SmartPath 1979 to 1983',
-        annualPercentageFee: 1.36
-    }, {
-        id: 258,
-        name: 'Mercer SmartPath 1984 to 1988',
-        annualPercentageFee: 1.36
-    }, {
-        id: 259,
-        name: 'Colonial First State FirstChoice Superannuation Trust 196064',
-        annualPercentageFee: 1.12
-    }, {
-        id: 260,
-        name: 'Anglican National ANS RIL Balanced',
-        annualPercentageFee: 1
-    }, {
-        id: 261,
-        name: 'Mercer SmartPath 1989 to 1993',
-        annualPercentageFee: 1.36
-    }, {
-        id: 262,
-        name: 'Mercer SmartPath 1994 to 1998',
-        annualPercentageFee: 1.36
-    }, {
-        id: 263,
-        name: 'Betros Bros Super No 2',
-        annualPercentageFee: 1.07
-    }, {
-        id: 264,
-        name: 'ANZ Smart Choice SuperFor QBE employees 1980s',
-        annualPercentageFee: 0.54
-    }, {
-        id: 265,
-        name: 'Westpac Group Plan 1970s',
-        annualPercentageFee: 0.74
-    }, {
-        id: 266,
-        name: 'ANZ Smart Choice Super 1980s',
-        annualPercentageFee: 0.6
-    }, {
-        id: 267,
-        name: 'EquitySuper',
-        annualPercentageFee: 1.35
-    }, {
-        id: 268,
-        name: 'ANZ Smart Choice SuperFor QBE employees 1990s',
-        annualPercentageFee: 0.54
-    }, {
-        id: 269,
-        name: 'Aon 49',
-        annualPercentageFee: 0.92
-    }, {
-        id: 270,
-        name: 'ANZ Smart Choice Super 1990s',
-        annualPercentageFee: 0.6
-    }, {
-        id: 271,
-        name: 'LESF Super',
-        annualPercentageFee: 1.32
-    }, {
-        id: 272,
-        name: 'Lutheran Super Balanced Compliant',
-        annualPercentageFee: 0.89
-    }, {
-        id: 273,
-        name: 'Mercer SmartPath 1999 to 2003',
-        annualPercentageFee: 1.36
-    }, {
-        id: 274,
-        name: 'BT Business 1960s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 275,
-        name: 'Westpac Group Plan 1980s',
-        annualPercentageFee: 0.74
-    }, {
-        id: 276,
-        name: 'Aon 48',
-        annualPercentageFee: 0.92
-    }, {
-        id: 277,
-        name: 'BT Super for Life Employer Super 1970s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 278,
-        name: 'Westpac Group Plan 1990s',
-        annualPercentageFee: 0.74
-    }, {
-        id: 279,
-        name: 'Australian Catholic Super and Retirement Balanced',
-        annualPercentageFee: 0.95
-    }, {
-        id: 280,
-        name: 'Aon 47',
-        annualPercentageFee: 0.92
-    }, {
-        id: 281,
-        name: 'Elphinstone Group Super Balanced',
-        annualPercentageFee: 1.21
-    }, {
-        id: 282,
-        name: 'BT Super for Life Employer Super 1980s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 283,
-        name: 'BT Super for Life Employer Super 1990s',
-        annualPercentageFee: 1.19
-    }, {
-        id: 284,
-        name: 'BT Business 2000s',
-        annualPercentageFee: 1.2
-    }, {
-        id: 285,
-        name: 'Colonial First State FirstChoice Superannuation Trust 196569',
-        annualPercentageFee: 1.12
-    }, {
-        id: 286,
-        name: 'Aon 46',
-        annualPercentageFee: 0.92
-    }, {
-        id: 287,
-        name: 'Virgin Super Essentials Tracker Balanced Under 40S Mix',
-        annualPercentageFee: 1.11
-    }, {
-        id: 288,
-        name: 'Colonial First State FirstChoice Superannuation Trust 197074',
-        annualPercentageFee: 1.12
-    }, {
-        id: 289,
-        name: 'Colonial First State FirstChoice Superannuation Trust 199599',
-        annualPercentageFee: 1.12
-    }, {
-        id: 290,
-        name: 'BT Business 1970s',
-        annualPercentageFee: 1.2
-    }, {
-        id: 291,
-        name: 'Colonial First State FirstChoice Superannuation Trust 198589',
-        annualPercentageFee: 1.12
-    }, {
-        id: 292,
-        name: 'Colonial First State FirstChoice Superannuation Trust 197579',
-        annualPercentageFee: 1.12
-    }, {
-        id: 293,
-        name: 'Colonial First State FirstChoice Superannuation Trust 198084',
-        annualPercentageFee: 1.12
-    }, {
-        id: 294,
-        name: 'Aon 45',
-        annualPercentageFee: 0.92
-    }, {
-        id: 295,
-        name: 'Colonial First State FirstChoice Superannuation Trust 199094',
-        annualPercentageFee: 1.12
-    }, {
-        id: 296,
-        name: 'Aon 44',
-        annualPercentageFee: 0.92
-    }, {
-        id: 297,
-        name: 'The Victorian Independent Schools Super VISSF Balanced',
-        annualPercentageFee: 0.92
-    }, {
-        id: 298,
-        name: 'BT Business 1990s',
-        annualPercentageFee: 1.2
-    }, {
-        id: 299,
-        name: 'BT Business 1980s',
-        annualPercentageFee: 1.2
-    }, {
-        id: 300,
-        name: 'Aon 43',
-        annualPercentageFee: 0.92
-    }, {
-        id: 301,
-        name: 'Anglican National ANS RIL Growth',
-        annualPercentageFee: 1.09
-    }, {
-        id: 302,
-        name: 'Aon High Growth',
-        annualPercentageFee: 0.92
-    }, {
-        id: 303,
-        name: 'Anglican National ANS RIL High Growth',
-        annualPercentageFee: 1.19
-    }];
 
     $scope.investOptions = [{
         id: 0,
@@ -4208,7 +2990,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         annualFee: 4802
     }];
 
-    $scope.schoolObjectsShow = $scope.schoolObject_NSW;
+//    $scope.schoolObjectsShow = $scope.schoolObject_NSW;
     $scope.stateListOb = [{
         id: 0,
         name: "NSW"
@@ -4286,6 +3068,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     function privateSchoolOperation() {
         $scope.spState = $('.spState option:selected').val();
+		console.log('privateSchoolOperation',  $scope.spState);
         $scope.publicSchoolFees = publicSchol_avgCostArray[$scope.spState];
         switch ($scope.spState) {
             case "NSW":
@@ -4419,7 +3202,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     var initDate = new Date();
     $scope.begnYearInvestment = initDate.getFullYear();
     $scope.numChildren = 2;
-    $scope.investmentReturn = 5000;
+    $scope.investmentReturnAmount = 5000;
     $scope.contStartYear = initDate.getFullYear();
     $scope.schoolYear1 = initDate.getFullYear();
     $scope.schoolDuration1 = 6;
@@ -4438,7 +3221,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     var begnYearInvestmentSlider = document.getElementById("begnYearInvestmentSlider"),
         contStartYearSlider = document.getElementById("contStartYearSlider"),
         numChildrenSlider = document.getElementById("numChildrenSlider"),
-        investmentReturnSlider = document.getElementById("investmentReturnSlider"),
+        investmentReturnAmountSlider = document.getElementById("investmentReturnAmountSlider"),
         schoolYear1Slider = document.getElementById("schoolYear1Slider"),
         schoolDuration1Slider = document.getElementById("schoolDuration1Slider"),
         schoolYear2Slider = document.getElementById("schoolYear2Slider"),
@@ -4455,7 +3238,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     var begnYearInvestmentInput = document.getElementById("begnYearInvestmentInput"),
         contStartYearInput = document.getElementById("contStartYearInput"),
         numChildrenInput = document.getElementById("numChildrenInput"),
-        investmentReturnInput = document.getElementById("investmentReturnInput"),
+        investmentReturnAmountInput = document.getElementById("investmentReturnAmountInput"),
         schoolYear1Input = document.getElementById("schoolYear1Input"),
         schoolDuration1Input = document.getElementById("schoolDuration1Input"),
         schoolYear2Input = document.getElementById("schoolYear2Input"),
@@ -4508,13 +3291,13 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         })
     });
 
-    noUiSlider.create(investmentReturnSlider, {
-        start: $scope.investmentReturn,
+    noUiSlider.create(investmentReturnAmountSlider, {
+        start: $scope.investmentReturnAmount,
         range: {
             min: [1000],
             max: [10000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -4722,6 +3505,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         numChildrenInput.value = values[handle];
         $scope.numChildren = values[handle];
         changeChildrenInputs(Number($scope.numChildren));
+        $timeout(0);
     });
     numChildrenSlider.noUiSlider.on('set', function(values, handle) {
         //calculate();
@@ -4730,30 +3514,36 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     numChildrenInput.addEventListener("change", function() {
         numChildrenSlider.noUiSlider.set(numChildrenInput.value);
+		changeChildrenInputs(Number($scope.numChildren));
+        $timeout(0);
     });
 
     function changeChildrenInputs(num) {
         for (var i = 1; i <= num; i++) {
-            document.getElementsByClassName("c" + i)[0].style.display = 'block';
+			for(let j=0; j<document.getElementsByClassName("c" + i).length;j++){
+            	document.getElementsByClassName("c" + i)[j].style.display = 'block';
+			}
         }
         for (var i = (num + 1); i <= 5; i++) {
-            document.getElementsByClassName("c" + i)[0].style.display = 'none';
+			for(let j=0; j<document.getElementsByClassName("c" + i).length;j++){
+            	document.getElementsByClassName("c" + i)[j].style.display = 'none';
+			}
         }
     }
 
-    investmentReturnSlider.noUiSlider.on('update', function(values, handle) {
-        investmentReturnInput.value = values[handle];
-        $scope.investmentReturn = values[handle];
+    investmentReturnAmountSlider.noUiSlider.on('update', function(values, handle) {
+        investmentReturnAmountInput.value = values[handle];
+        $scope.investmentReturnAmount = values[handle];
     });
-    investmentReturnSlider.noUiSlider.on('set', function(values, handle) {
-        investmentReturnInput.value = values[handle];
-        $scope.investmentReturn = (values[handle]);
+    investmentReturnAmountSlider.noUiSlider.on('set', function(values, handle) {
+        investmentReturnAmountInput.value = values[handle];
+        $scope.investmentReturnAmount = (values[handle]);
         //calculate();
         $timeout(0);
     });
 
-    investmentReturnInput.addEventListener("change", function() {
-        investmentReturnSlider.noUiSlider.set(investmentReturnInput.value);
+    investmentReturnAmountInput.addEventListener("change", function() {
+        investmentReturnAmountSlider.noUiSlider.set(investmentReturnAmountInput.value);
     });
 
     schoolYear1Slider.noUiSlider.on('update', function(values, handle) {
@@ -5332,7 +4122,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.ecIPNew = 0;
     $scope.ecTrauma = 0;
     $scope.ecTraumaNew = 0;
-    $scope.numChildren = 2;
+//    $scope.numChildren = 2;
     $scope.funeralCost = 20000;
     $scope.educationExpensePerYearPerChild = 5000;
     $scope.familyLivingCostPerYear = 90000;
@@ -5341,7 +4131,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.moneyToBeBorrowed = 400000;
     $scope.valueOfNewProperty = 500000;
     $scope.ageSpouse = 47;
-    $scope.spouseSalary = 50000;
     $scope.ageChildren1 = 3;
     $scope.ageChildren2 = 5;
     $scope.ageChildren3 = 10;
@@ -5349,7 +4138,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.ageChildren5 = 10;
 
     $scope.resultPerc = {};
-
+	
+	var dt = new Date();
 
     $scope.genderOption = true;
     $scope.smokeOption = false;
@@ -5373,7 +4163,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.nra = 6;
     $scope.nrp = 7;
     $scope.tfp = 2;
+	$scope.cses = 80000;
     $scope.beforeTTR = 50000;
+	$scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
+    $scope.thp = 45000;
 
     $scope.totalPercentageSelected = 100;
 
@@ -5513,8 +4306,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     };
 
     $scope.open2 = function() {
-        $scope.secondDp();
         $scope.popup2.opened = true;
+        $scope.secondDp();
     };
 
     $scope.setDate = function(year, month, day) {
@@ -5561,7 +4354,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
         return '';
     }
-    var dt = new Date();
+    
 
     $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
 
@@ -5604,7 +4397,12 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     $scope.buyOption="Yes";
     $('#select-buy-option').on('changed.bs.select', function(e) {
-        $scope.buyOption = $(this).selectpicker('val');
+		if($(this).selectpicker('val') == 'Yes'){
+			$scope.buyOption = true;
+		}
+		else{
+			$scope.buyOption = false;
+		}
         $timeout(0);
     });
 
@@ -5634,7 +4432,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         ecIPSliderNew = document.getElementById('ecIPSliderNew'),
         ecTraumaSlider = document.getElementById('ecTraumaSlider'),
         ecTraumaSliderNew = document.getElementById('ecTraumaSliderNew'),
-        numChildrenSlider = document.getElementById('numChildrenSlider'),
+//        numChildrenSlider = document.getElementById('numChildrenSlider'),
         funeralCostSlider = document.getElementById('funeralCostSlider'),
         educationExpensePerYearPerChildSlider = document.getElementById('educationExpensePerYearPerChildSlider'),
         familyLivingCostPerYearSlider = document.getElementById('familyLivingCostPerYearSlider'),
@@ -5642,8 +4440,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         rateOfReturnSlider = document.getElementById('rateOfReturnSlider'),
         valueOfNewPropertySlider = document.getElementById('valueOfNewPropertySlider'),
         moneyToBeBorrowedSlider = document.getElementById('moneyToBeBorrowedSlider'),
-        ageSpouseSlider = document.getElementById('ageSpouseSlider'),
-        spouseSalarySlider = document.getElementById('spouseSalarySlider'),
+//        ageSpouseSlider = document.getElementById('ageSpouseSlider'),
         ageChildren1Slider = document.getElementById('ageChildren1Slider'),
         ageChildren2Slider = document.getElementById('ageChildren2Slider'),
         ageChildren3Slider = document.getElementById('ageChildren3Slider'),
@@ -5669,7 +4466,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [600000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5685,7 +4482,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [600000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5701,7 +4498,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5717,7 +4514,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5732,7 +4529,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [200000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5747,7 +4544,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [100000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5762,7 +4559,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [200000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5777,7 +4574,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [1000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5793,7 +4590,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5808,7 +4605,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [1000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5823,7 +4620,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [1000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5838,7 +4635,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [3000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5853,7 +4650,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5868,7 +4665,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5884,7 +4681,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5899,7 +4696,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5915,7 +4712,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [50000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5930,7 +4727,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5946,7 +4743,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [2000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -5961,7 +4758,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6003,7 +4800,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [200000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6018,7 +4815,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [200000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6033,7 +4830,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [500000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6076,7 +4873,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6091,7 +4888,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [5000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6100,7 +4897,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         connect: [false, false]
     });
 
-    noUiSlider.create(ageSpouseSlider, {
+    /*noUiSlider.create(ageSpouseSlider, {
         start: [$scope.ageSpouse],
         range: {
             'min': [0],
@@ -6111,22 +4908,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             decimals: 0
         }),
         connect: [false, false]
-    });
-
-    noUiSlider.create(spouseSalarySlider, {
-        start: [$scope.spouseSalary],
-        range: {
-            'min': [0],
-            'max': [2000000]
-        },
-        step: 500,
-        format: wNumb({
-            decimals: 0,
-            prefix: '$',
-            thousand: ','
-        }),
-        connect: [false, false]
-    });
+    });*/
 
     noUiSlider.create(ageChildren1Slider, {
         start: [$scope.ageChildren1],
@@ -6195,7 +4977,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [180000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6211,7 +4993,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [15]
         },
-        step: 0.5,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -6225,7 +5007,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [10]
         },
-        step: 0.5,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -6238,7 +5020,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [200000]
         },
-        step: 100,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6252,7 +5034,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [10]
         },
-        step: 0.5,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -6266,7 +5048,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [10]
         },
-        step: 0.5,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -6279,7 +5061,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [200000]
         },
-        step: 100,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6293,7 +5075,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [10]
         },
-        step: 0.5,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -6307,7 +5089,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             'min': [0],
             'max': [3000000]
         },
-        step: 1000,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -6328,6 +5110,21 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         format: wNumb({
             decimals: 0,
             postfix: '%',
+            thousand: ','
+        }),
+        connect: [false, false]
+    });
+	
+	noUiSlider.create(csesSlider, {
+        start: [$scope.cses],
+        range: {
+            'min': [10000],
+            'max': [300000]
+        },
+        step: 1,
+        format: wNumb({
+            decimals: 0,
+            prefix: '$',
             thousand: ','
         }),
         connect: [false, false]
@@ -6386,7 +5183,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         ecIPInputNew = document.getElementById('ecIPInputNew'),
         ecTraumaInput = document.getElementById('ecTraumaInput'),
         ecTraumaInputNew = document.getElementById('ecTraumaInputNew'),
-        numChildrenInput = document.getElementById('numChildrenInput'),
+//        numChildrenInput = document.getElementById('numChildrenInput'),
         funeralCostInput = document.getElementById('funeralCostInput'),
         educationExpensePerYearPerChildInput = document.getElementById('educationExpensePerYearPerChildInput'),
         familyLivingCostPerYearInput = document.getElementById('familyLivingCostPerYearInput'),
@@ -6394,8 +5191,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         rateOfReturnInput = document.getElementById('rateOfReturnInput'),
         valueOfNewPropertyInput = document.getElementById('valueOfNewPropertyInput'),
         moneyToBeBorrowedInput = document.getElementById('moneyToBeBorrowedInput'),
-        ageSpouseInput = document.getElementById('ageSpouseInput'),
-        spouseSalaryInput = document.getElementById('spouseSalaryInput'),
+//        ageSpouseInput = document.getElementById('ageSpouseInput'),
         ageChildren1Input = document.getElementById('ageChildren1Input'),
         ageChildren2Input = document.getElementById('ageChildren2Input'),
         ageChildren3Input = document.getElementById('ageChildren3Input'),
@@ -6415,7 +5211,81 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         beforeTTRInput = document.getElementById('beforeTTRInput'),
         nraInput = document.getElementById('nraInput'),
         nrpInput = document.getElementById('nrpInput'),
-        thpInput = document.getElementById('thpInput');
+        thpInput = document.getElementById('thpInput'),
+		csesInput = document.getElementById('csesInput');
+	
+	
+	 
+
+    var fySlider = document.getElementById('fySlider'),
+        thpSlider = document.getElementById('thpSlider');
+
+    noUiSlider.create(fySlider, {
+        start: [$scope.fy],
+        range: {
+            'min': [2016],
+            'max': [2025]
+        },
+        step: 1,
+        format: wNumb({
+            decimals: 0,
+        }),
+        connect: [false, false]
+    });
+
+
+
+    noUiSlider.create(thpSlider, {
+        start: [$scope.thp],
+        range: {
+            'min': [1000],
+            'max': [61000]
+        },
+        step: 1,
+        format: wNumb({
+            decimals: 0,
+            prefix: '$',
+            thousand: ','
+        }),
+        connect: [false, false]
+    });
+
+    fySlider.noUiSlider.on('update', function(values, handle) {
+        fyInput.value = values[handle];
+        $scope.fy = Number(values[handle]);
+    });
+
+
+
+    thpSlider.noUiSlider.on('update', function(values, handle) {
+        thpInput.value = values[handle];
+        $scope.thp = (values[handle]);
+    });
+
+    fySlider.noUiSlider.on('set', function(values, handle) {
+        fyInput.value = values[handle];
+        $scope.fy = Number(values[handle]);
+        $scope.ageChange();
+        // $scope.submitForm2(true);
+    });
+
+    thpSlider.noUiSlider.on('set', function(values, handle) {
+        thpInput.value = values[handle];
+        $scope.thp = (values[handle]);
+        // $scope.submitForm2(true);
+    });
+
+    $('#fyInput').on("change", function() {
+        if (this.value < 2016) {
+            $scope.fy = 2016;
+        }
+        fySlider.noUiSlider.set($scope.fy);
+    })
+	
+	
+	
+	
+	
 
     sickLeavesInput.addEventListener("change", function() {
         sickLeavesSlider.noUiSlider.set($scope.sickLeaves);
@@ -6436,14 +5306,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     moneyToBeBorrowedInput.addEventListener("change", function() {
         moneyToBeBorrowedSlider.noUiSlider.set($scope.moneyToBeBorrowed);
     });
-
+/*
     ageSpouseInput.addEventListener("change", function() {
         ageSpouseSlider.noUiSlider.set($scope.ageSpouse);
-    });
-
-    spouseSalaryInput.addEventListener("change", function() {
-        spouseSalarySlider.noUiSlider.set($scope.spouseSalary);
-    });
+    });*/
 
     ageChildren1Input.addEventListener("change", function() {
         ageChildren1Slider.noUiSlider.set($scope.ageChildren1);
@@ -6592,6 +5458,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     tfpInput.addEventListener("change", function() {
         tfpSlider.noUiSlider.set($scope.tfp);
     })
+	
+	csesInput.addEventListener("change", function() {
+        csesSlider.noUiSlider.set($scope.cses);
+    })
 
     nraInput.addEventListener("change", function() {
         nraSlider.noUiSlider.set($scope.nra);
@@ -6600,15 +5470,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     nrpInput.addEventListener("change", function() {
         nrpSlider.noUiSlider.set($scope.nrp);
     })
-
-    function noChildren(num) {
-        for (var i = 1; i <= num; i++) {
-            document.getElementsByClassName("c" + i)[0].style.display = 'block';
-        }
-        for (var i = (num + 1); i <= 5; i++) {
-            document.getElementsByClassName("c" + i)[0].style.display = 'none';
-        }
-    }
 
     grossAnnualIncomeSlider.noUiSlider.on('update', function(values, handle) {
         grossAnnualIncomeInput.value = values[handle];
@@ -6716,11 +5577,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.ecTraumaNew = (values[handle]);
     });
 
-    numChildrenSlider.noUiSlider.on('update', function(values, handle) {
+   /* numChildrenSlider.noUiSlider.on('update', function(values, handle) {
         numChildrenInput.value = values[handle];
         $scope.numChildren = Number(values[handle]);
         noChildren($scope.numChildren);
-    });
+    });*/
 
 
     funeralCostSlider.noUiSlider.on('update', function(values, handle) {
@@ -6758,15 +5619,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.moneyToBeBorrowed = (values[handle]);
     });
 
-    ageSpouseSlider.noUiSlider.on('update', function(values, handle) {
+    /*ageSpouseSlider.noUiSlider.on('update', function(values, handle) {
         ageSpouseInput.value = values[handle];
         $scope.ageSpouse = (values[handle]);
-    });
-
-    spouseSalarySlider.noUiSlider.on('update', function(values, handle) {
-        spouseSalaryInput.value = values[handle];
-        $scope.spouseSalary = (values[handle]);
-    });
+    });*/
 
     ageChildren1Slider.noUiSlider.on('update', function(values, handle) {
         ageChildren1Input.value = values[handle];
@@ -6833,6 +5689,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         tfpInput.value = values[handle];
         $scope.tfp = (values[handle]);
     });
+	csesSlider.noUiSlider.on('update', function(values, handle) {
+        csesInput.value = values[handle];
+        $scope.cses = (values[handle]);
+    });
     nraSlider.noUiSlider.on('update', function(values, handle) {
         nraInput.value = values[handle];
         $scope.nra = (values[handle]);
@@ -6842,10 +5702,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.nrp = (values[handle]);
     });
 
-    numChildrenInput.addEventListener("change", function() {
+  /*  numChildrenInput.addEventListener("change", function() {
         numChildrenSlider.noUiSlider.set($scope.numChildren);
         noChildren($scope.numChildren);
-    })
+    })*/
 
 
     grossAnnualIncomeSlider.noUiSlider.on('set', function(values, handle) {
@@ -7039,12 +5899,12 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.newChangesApplied = false;
     });
 
-    numChildrenSlider.noUiSlider.on('set', function(values, handle) {
+    /*numChildrenSlider.noUiSlider.on('set', function(values, handle) {
         numChildrenInput.value = values[handle];
         $scope.numChildren = Number(values[handle]);
         //calculateFinal();
         $timeout(0);
-    });
+    });*/
 
 
     funeralCostSlider.noUiSlider.on('set', function(values, handle) {
@@ -7096,20 +5956,12 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $timeout(0);
     });
 
-    ageSpouseSlider.noUiSlider.on('set', function(values, handle) {
+    /*ageSpouseSlider.noUiSlider.on('set', function(values, handle) {
         ageSpouseInput.value = values[handle];
         $scope.ageSpouse = (values[handle]);
         //calculateFinal();
         $timeout(0);
-    });
-
-    spouseSalarySlider.noUiSlider.on('set', function(values, handle) {
-        spouseSalaryInput.value = values[handle];
-        $scope.spouseSalary = (values[handle]);
-        //calculateFinal();
-        $timeout(0);
-    });
-
+    });*/
 
     ageChildren1Slider.noUiSlider.on('set', function(values, handle) {
         ageChildren1Input.value = values[handle];
@@ -7196,6 +6048,25 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             // calculateFinal();
             $timeout(0);
     });
+	
+	$scope.calculateMaxTHPSS = function() {
+        var cses1 = $scope.cses.replace("$", "").replace(",", "");
+        var beforeTTR1 = $scope.beforeTTR.replace("$", "").replaceAll(",", "");
+        var tfp1 = $scope.tfp.replace("%", "").replace(",", "");
+        var nra1 = $scope.nra.replace("%", "").replace(",", "");
+        var nrp1 = $scope.nrp.replace("%", "").replace(",", "");
+        var thp1 = $scope.thp.replace("$", "").replace(",", "");
+        return WithSSCalculator.maxTakeHome($scope.age, $scope.fy, Number(cses1), Number(beforeTTR1), Number(tfp1));
+    }
+	$scope.changeMaxTarget = function(endValue) {
+        thpSlider.noUiSlider.updateOptions({
+            range: {
+                'min': 1000,
+                'max': endValue - (endValue % 1000)
+            }
+        });
+    }
+    $scope.changeMaxTarget($scope.calculateMaxTHPSS());
 
     beforeTTRSlider.noUiSlider.on('set', function(values, handle) {
         beforeTTRInput.value = values[handle];
@@ -7210,6 +6081,13 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.changeMaxTarget($scope.calculateMaxTHPSS());
         // $scope.submitForm2(true);
     });
+	
+	csesSlider.noUiSlider.on('set', function(values, handle) {
+        csesInput.value = values[handle];
+        $scope.cses = (values[handle]);
+		$scope.changeMaxTarget($scope.calculateMaxTHPSS());
+        // $scope.submitForm2(true);
+	});
 
     nraSlider.noUiSlider.on('set', function(values, handle) {
         nraInput.value = values[handle];
@@ -7510,14 +6388,22 @@ $scope.nextDiv = function(div_num) {
     });*/
 
     $('#select-pension-drawdown').on('changed.bs.select', function(e) {
-        $scope.showPensionOption = $(this).selectpicker('val') <= 0;
-        // console.log("choose pension option set to", $scope.showPensionOption);
+		if($(this).selectpicker('val') === 'Select Your Own Value'){
+        	$scope.showPensionOption = true;
+		}
+		else{
+			$scope.showPensionOption = false;
+		}
         $timeout(0);
     });
 
     $('#select-pension-drawdown-spouse').on('changed.bs.select', function(e) {
-        $scope.showPensionOptionSpouse = $(this).selectpicker('val') <= 0;
-        // console.log("choose spouse pension option set to", $scope.showPensionOptionSpouse);
+        if($(this).selectpicker('val') === 'Select Your Own Value'){
+        	$scope.showPensionOptionSpouse = true;
+		}
+		else{
+			$scope.showPensionOptionSpouse = false;
+		}
         $timeout(0);
     });
 
@@ -7573,7 +6459,7 @@ $scope.nextDiv = function(div_num) {
             'min': [10000],
             'max': [100000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7589,7 +6475,7 @@ $scope.nextDiv = function(div_num) {
             'min': [10000],
             'max': [100000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7620,7 +6506,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [600000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7636,7 +6522,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [600000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7652,7 +6538,7 @@ $scope.nextDiv = function(div_num) {
             'min': [9],
             'max': [20]
         },
-        step: 0.1,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -7667,7 +6553,7 @@ $scope.nextDiv = function(div_num) {
             'min': [9],
             'max': [20]
         },
-        step: 0.1,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -7682,7 +6568,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [10]
         },
-        step: 0.1,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -7696,7 +6582,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [10]
         },
-        step: 0.1,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -7710,7 +6596,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [3000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7725,7 +6611,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [3000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7741,7 +6627,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [10]
         },
-        step: 0.1,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -7755,7 +6641,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [10]
         },
-        step: 0.1,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -7770,7 +6656,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [20000]
         },
-        step: 100,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7785,7 +6671,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [35000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7807,19 +6693,19 @@ $scope.nextDiv = function(div_num) {
         connect: [false, false]
     });
 
-    /* noUiSlider.create(investmentReturnSlider, {
+     noUiSlider.create(investmentReturnSlider, {
          start: [$scope.investmentReturn],
          range: {
              'min': [0],
              'max': [10]
          },
-         step: 0.1,
+         step: 0.01,
          format: wNumb({
              decimals: 2,
              postfix: '%',
          }),
          connect: [false, false]
-     });*/
+     });
 
     noUiSlider.create(variableFeeSlider, {
         start: [$scope.variableFee],
@@ -7841,7 +6727,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [20000]
         },
-        step: 100,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7856,7 +6742,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [600000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7872,7 +6758,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [600000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7888,7 +6774,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [3000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7903,7 +6789,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [3000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7918,7 +6804,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [20000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7933,7 +6819,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [35000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -7960,7 +6846,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [10]
         },
-        step: 0.1,
+        step: 0.01,
         format: wNumb({
             decimals: 2,
             postfix: '%',
@@ -7989,7 +6875,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [20000]
         },
-        step: 100,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8034,7 +6920,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [60000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8049,7 +6935,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [60000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8064,7 +6950,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [500000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8080,7 +6966,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [500000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8095,7 +6981,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [1000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8110,7 +6996,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [2000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8125,7 +7011,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [1000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8140,7 +7026,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [1000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8156,7 +7042,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [100000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8171,7 +7057,7 @@ $scope.nextDiv = function(div_num) {
     //         'min': [0],
     //         'max': [10000000]
     //     },
-    //     step: 500,
+    //     step: 1,
     //     format: wNumb({
     //         decimals: 0,
     //         prefix: '$',
@@ -8186,7 +7072,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [200000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8201,7 +7087,7 @@ $scope.nextDiv = function(div_num) {
     //         'min': [0],
     //         'max': [10000000]
     //     },
-    //     step: 500,
+    //     step: 1,
     //     format: wNumb({
     //         decimals: 0,
     //         prefix: '$',
@@ -8216,7 +7102,7 @@ $scope.nextDiv = function(div_num) {
     //         'min': [0],
     //         'max': [10000000]
     //     },
-    //     step: 500,
+    //     step: 1,
     //     format: wNumb({
     //         decimals: 0,
     //         prefix: '$',
@@ -8231,7 +7117,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [20000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8246,7 +7132,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [200000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8260,7 +7146,7 @@ $scope.nextDiv = function(div_num) {
             'min': [0],
             'max': [200000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -8662,6 +7548,7 @@ $scope.nextDiv = function(div_num) {
         });
 
         changeCCLimit();
+		$scope.changeMaxTarget($scope.calculateMaxTHPSS());
     }
 
 
@@ -8700,12 +7587,12 @@ $scope.nextDiv = function(div_num) {
                     'max': 75
                 }
             });
-            retirementAgeSpouseSliderNew.noUiSlider.updateOptions({
+            /*retirementAgeSpouseSliderNew.noUiSlider.updateOptions({
                 range: {
                     'min': 60,
                     'max': 75
                 }
-            });
+            });*/
         }
         preservationChange(false);
 
@@ -8721,10 +7608,6 @@ $scope.nextDiv = function(div_num) {
                 }
             });
         }
-
-
-
-
 
         changeCCLimitSpouse();
     }
@@ -9362,7 +8245,13 @@ $scope.nextDiv = function(div_num) {
     $scope.alterOption = false;
 
     $('.spAlterOption').on('change', function() {
-        $scope.alterOption = $('.spAlterOption option:selected').val();
+		if( $('.spAlterOption option:selected').val() == 'Yes'){
+        	$scope.alterOption = true;
+		}
+		else{
+			$scope.alterOption = false;
+		}
+		$timeout(0);
     });
 
     $scope.yesOrNoArray=function(value){
@@ -9383,7 +8272,7 @@ $scope.nextDiv = function(div_num) {
             min: [1000],
             max: [1000000]
         },
-        step: 500,
+        step: 1,
         format: wNumb({
             decimals: 0,
             prefix: '$',
@@ -10009,74 +8898,6 @@ $scope.nextDiv = function(div_num) {
         $scope.internationalListedProperty2 = (values[handle]);
         asset2TotalCalculator();
     });
-
-    $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
-    $scope.thp = 45000;
-
-    var fySlider = document.getElementById('fySlider'),
-        thpSlider = document.getElementById('thpSlider');
-
-    noUiSlider.create(fySlider, {
-        start: [$scope.fy],
-        range: {
-            'min': [2016],
-            'max': [2025]
-        },
-        step: 1,
-        format: wNumb({
-            decimals: 0,
-        }),
-        connect: [false, false]
-    });
-
-
-
-    noUiSlider.create(thpSlider, {
-        start: [$scope.thp],
-        range: {
-            'min': [1000],
-            'max': [61000]
-        },
-        step: 500,
-        format: wNumb({
-            decimals: 0,
-            prefix: '$',
-            thousand: ','
-        }),
-        connect: [false, false]
-    });
-
-    fySlider.noUiSlider.on('update', function(values, handle) {
-        fyInput.value = values[handle];
-        $scope.fy = Number(values[handle]);
-    });
-
-
-
-    thpSlider.noUiSlider.on('update', function(values, handle) {
-        thpInput.value = values[handle];
-        $scope.thp = (values[handle]);
-    });
-
-    fySlider.noUiSlider.on('set', function(values, handle) {
-        fyInput.value = values[handle];
-        $scope.fy = Number(values[handle]);
-        $scope.ageChange();
-        // $scope.submitForm2(true);
-    });
-
-    thpSlider.noUiSlider.on('set', function(values, handle) {
-        thpInput.value = values[handle];
-        $scope.thp = (values[handle]);
-        // $scope.submitForm2(true);
-    });
-
-    $('#fyInput').on("change", function() {
-        if (this.value < 2016) {
-            $scope.fy = 2016;
-        }
-        fySlider.noUiSlider.set($scope.fy);
-    })
 
     $timeout(function() {
         $('.selectpicker').selectpicker({
@@ -11321,7 +10142,7 @@ $scope.nextDiv = function(div_num) {
     var grossAnnualIncome1, homeMortgage1, investmentPropertyMortgage1, creditCardDebt1, carLoan1, personalLoan1,
         otherLoan1, homeValue1, cashAtBank1, otherInvestment1, superBalance1, ecLife1, ecTPD1, ecIP1, ecTrauma1,
         funeralCost1, educationExpensePerYearPerChild1, familyLivingCostPerYear1, inflation1, rateOfReturn1,
-        moneyToBeBorrowed1, valueOfNewProperty1, spouseSalary1;
+        moneyToBeBorrowed1, valueOfNewProperty1;
 
 
     $scope.calculateFinal = function(isValid, closeInputs) {
@@ -11358,7 +10179,6 @@ $scope.nextDiv = function(div_num) {
                 rateOfReturn1 = Number($scope.rateOfReturn.replaceAll("%", "").replaceAll(",", ""));
                 moneyToBeBorrowed1 = Number($scope.moneyToBeBorrowed.replaceAll("$", "").replaceAll(",", ""));
                 valueOfNewProperty1 = Number($scope.valueOfNewProperty.replaceAll("$", "").replaceAll(",", ""));
-                spouseSalary1 = Number($scope.spouseSalary.replaceAll("$", "").replaceAll(",", ""));
 
                 $scope.ecL = ecLife1;
                 $scope.ecT = ecTPD1;
@@ -11391,7 +10211,7 @@ $scope.nextDiv = function(div_num) {
                     if (!$scope.spouseWorkOption) {
                         PVExpenseSpouse = Math.abs(PV($scope.realRateOfReturn, 65 - $scope.ageSpouse, familyLivingCostPerYear1, 0, 0));
                     } else {
-                        PVExpenseSpouse = Math.abs(PV($scope.realRateOfReturn, 65 - $scope.ageSpouse, familyLivingCostPerYear1 - spouseSalary1, 0, 0));
+                        PVExpenseSpouse = Math.abs(PV($scope.realRateOfReturn, 65 - $scope.ageSpouse, familyLivingCostPerYear1, 0, 0));
                     }
                 }
                 //PVExpenseSpouse=1243994.6;
