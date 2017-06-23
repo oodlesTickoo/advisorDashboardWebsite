@@ -4417,20 +4417,20 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     });
 
     var initDate = new Date();
-    $scope.begnYearInvestment = CONTACT_FIELD_119;
+    $scope.begnYearInvestment = latestObj.CONTACT_FIELD_119;
     $scope.numChildren = 2;
     $scope.investmentReturn = 5000;
-    $scope.contStartYear = CONTACT_FIELD_120;
-    $scope.schoolYear1 = CONTACT_FIELD_124;
-    $scope.schoolDuration1 = CONTACT_FIELD_125;
-    $scope.schoolYear2 = CONTACT_FIELD_129;
-    $scope.schoolDuration2 = CONTACT_FIELD_130;
-    $scope.schoolYear3 = CONTACT_FIELD_134;
-    $scope.schoolDuration3 = CONTACT_FIELD_135;
-    $scope.schoolYear4 = CONTACT_FIELD_140;
-    $scope.schoolDuration4 = CONTACT_FIELD_141;
-    $scope.schoolYear5 = CONTACT_FIELD_146;
-    $scope.schoolDuration5 = CONTACT_FIELD_147;
+    $scope.contStartYear = latestObj.CONTACT_FIELD_120;
+    $scope.schoolYear1 = latestObj.CONTACT_FIELD_124;
+    $scope.schoolDuration1 = latestObj.CONTACT_FIELD_125;
+    $scope.schoolYear2 = latestObj.CONTACT_FIELD_129;
+    $scope.schoolDuration2 = latestObj.CONTACT_FIELD_130;
+    $scope.schoolYear3 = latestObj.CONTACT_FIELD_134;
+    $scope.schoolDuration3 = latestObj.CONTACT_FIELD_135;
+    $scope.schoolYear4 = latestObj.CONTACT_FIELD_140;
+    $scope.schoolDuration4 = latestObj.CONTACT_FIELD_141;
+    $scope.schoolYear5 = latestObj.CONTACT_FIELD_146;
+    $scope.schoolDuration5 = latestObj.CONTACT_FIELD_147;
     /* $scope.schoolYear6 = initDate.getFullYear();
      $scope.schoolDuration6 = 6;*/
     $scope.endYearInvestment = Number($scope.schoolYear2) + Number($scope.schoolDuration2);
@@ -11070,6 +11070,7 @@ $scope.nextDiv = function(div_num) {
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_93", "FIELD_VALUE": $scope.tfp },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_94", "FIELD_VALUE": $scope.nrp },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_95", "FIELD_VALUE": $scope.beforeTTR },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_177", "FIELD_VALUE": $scope.escs },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_96", "FIELD_VALUE": $scope.initialInvestmentAmount },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_97", "FIELD_VALUE": $scope.australianShares1 },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_98", "FIELD_VALUE": $scope.internationalShares1 },
@@ -11095,6 +11096,7 @@ $scope.nextDiv = function(div_num) {
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_118", "FIELD_VALUE": $scope.asset2Total },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_119", "FIELD_VALUE": $scope.begnYearInvestment },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_120", "FIELD_VALUE": $scope.contStartYear },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_176", "FIELD_VALUE": $scope.investmentReturnAmount },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_121", "FIELD_VALUE": $scope.spPort },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_122", "FIELD_VALUE": $scope.c1Name },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_123", "FIELD_VALUE": $scope.spStudyingOption1 },
