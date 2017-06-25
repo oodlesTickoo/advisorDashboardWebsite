@@ -6342,20 +6342,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             $scope.next8 = false;
         }
     });
-    /*$(".form-9").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-        if ($scope.isMenuDrop9 && $scope.next9) {
-            $scope.isMenuDrop10 = false;
-            $timeout(0);
-            $scope.next9 = false;
-        }
-    });
-    $(".form-10").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
-        if ($scope.isMenuDrop10 && $scope.next10) {
-            $scope.isMenuDrop11 = false;
-            $timeout(0);
-            $scope.next10 = false;
-        }
-    });*/
 
 
     $scope.nextDiv = function(div_num) {
@@ -6390,67 +6376,12 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
                 break;
             case 8:
                 $scope.isMenuDrop8 = true;
-                /*$scope.next8 = true;
-                    break;
-                case 9:
-                    $scope.isMenuDrop9 = true;
-                    $scope.next9 = true;
-                    break;
-                case 10:
-                    $scope.isMenuDrop10 = true;
-                    $scope.next10 = true;
-                    break;
-                case 11:
-                    $scope.isMenuDrop11 = true;*/
+                break;
         }
     }
 
 
-    /*if(!$scope.spouseOption){
-        colorChange();
-    }
 
-    function colorChange(){
-        var accountDiv = document.getElementById("account-details-div");
-        var assetsDetailsDiv = document.getElementById("assets-details-div");
-        var liabilityDiv = document.getElementById("liability-details-div");
-        var otherExpenseDiv = document.getElementById("otherExpense-details-div");
-        var existingCoverDiv = document.getElementById("existingCover-details-div");
-        var otherAssetsDiv = document.getElementById("other-assets-div");
-        var optimisationTTRDiv = document.getElementById("optimisationTTR-details-div");
-        var assetAllocationDiv = document.getElementById("assetAllocation-details-div");
-
-        accountDiv.classList.toggle("colorChange");
-        assetsDetailsDiv.classList.toggle("colorChange1");
-        liabilityDiv.classList.toggle("colorChange");
-        otherExpenseDiv.classList.toggle("colorChange1");
-        existingCoverDiv.classList.toggle("colorChange");
-        otherAssetsDiv.classList.toggle("colorChange1");
-        optimisationTTRDiv.classList.toggle("colorChange");
-        assetAllocationDiv.classList.toggle("colorChange1");
-
-
-        if ($scope.spouseOption) {
-            accountDiv.style.backgroundColor = "#dbebc9";
-            liabilityDiv.style.backgroundColor = "#f3f5f4";
-            existingCoverDiv.style.backgroundColor = "#f3f5f4";
-            optimisationTTRDiv.style.backgroundColor = "#f3f5f4";
-            assetsDetailsDiv.style.backgroundColor = "#dbebc9";
-            otherExpenseDiv.style.backgroundColor = "#dbebc9";
-            otherAssetsDiv.style.backgroundColor = "#dbebc9";
-            assetAllocationDiv.style.backgroundColor = "#dbebc9";
-        } else {
-            assetsDetailsDiv.style.backgroundColor = "#dbebc9";
-            otherExpenseDiv.style.backgroundColor = "#dbebc9";
-            otherAssetsDiv.style.backgroundColor = "#dbebc9";
-            assetAllocationDiv.style.backgroundColor = "#dbebc9";
-
-            accountDiv.style.backgroundColor = "#f3f5f4";
-            liabilityDiv.style.backgroundColor = "#f3f5f4";
-            existingCoverDiv.style.backgroundColor = "#f3f5f4";
-            optimisationTTRDiv.style.backgroundColor = "#f3f5f4";
-        }
-    }*/
 
     $('#select-gender-option').on('changed.bs.select', function(e) {
         $scope.genderOption = $(this).selectpicker('val') <= 0;
@@ -9125,18 +9056,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         selected3 = $('.spInvestOption option:selected').val();
         $scope.netReturn = $scope.investOptions[selected3].netReturn;
     }
-
-
-
-    
-
-//<<<<<<< Updated upstream
-  /*  $scope.spFundAType="MySuper Fund";*/
-   /* $scope.spFundBType="MySuper Fund";*/
-/*=======
-    $scope.spFundAType = "MySuper Fund";
-    $scope.spFundBType = "MySuper Fund";
->>>>>>> Stashed changes*/
 
     function spFundATypeChange() {
         $scope.spFundAType = $('.spFundAType option:selected').val();
