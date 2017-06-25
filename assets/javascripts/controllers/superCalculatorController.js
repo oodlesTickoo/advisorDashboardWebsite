@@ -1,3 +1,4 @@
+////// Up dated upstream
 app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope,UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
 	
 	
@@ -10,6 +11,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.showPensionOptionSpouse = 'Minimum Pension Only';
 	$scope.spState = $scope.stateListOb[0].name;
   	$scope.genderOption = true;
+    $scope.spouseOption = CONTACT_FIELD_2  ; //yes
     $scope.genderOptionSpouse = false;  
 	$scope.spFundAType="MySuper Fund"; 
 	$scope.spFundBType="MySuper Fund";
@@ -19,12 +21,18 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 	$scope.spSchoolType = $scope.schoolTypeOb[0].name;
 	$scope.lifeOption="Yes";
 	 $scope.alterOption = false;
-	
+
 	 $scope.spStudyingOption1='Yes';
     $scope.spStudyingOption2='Yes';
     $scope.spStudyingOption3='Yes';
     $scope.spStudyingOption4='Yes';
     $scope.spStudyingOption5='Yes';
+	
+	$scope.spStudyingOption1=CONTACT_FIELD_123;
+    $scope.spStudyingOption2=CONTACT_FIELD_128;
+    $scope.spStudyingOption3=CONTACT_FIELD_133;
+    $scope.spStudyingOption4=CONTACT_FIELD_139;
+    $scope.spStudyingOption5=CONTACT_FIELD_145;
 	
  	$scope.schoolSelected1=$scope.privateSchoolObjects[schoolArray[0]].name;
 	$scope.schoolSelected2=$scope.privateSchoolObjects[schoolArray[1]].name;
@@ -32,14 +40,67 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 	$scope.schoolSelected4=$scope.privateSchoolObjects[schoolArray[3]].name;
 	$scope.schoolSelected5=$scope.privateSchoolObjects[schoolArray[4]].name;
 	$scope.schoolSelected6=$scope.privateSchoolObjects[schoolArray[5]].name;
+
+    $scope.schoolSelected1=CONTACT_FIELD_173;
+    $scope.schoolSelected2=CONTACT_FIELD_131;
+    $scope.schoolSelected3=CONTACT_FIELD_136;
+    $scope.schoolSelected4=CONTACT_FIELD_142;
+    $scope.schoolSelected5=CONTACT_FIELD_148;
+    
 	
+	$scope.majorSelected1=CONTACT_FIELD_126;
+    $scope.majorSelected2=CONTACT_FIELD_174;
+    $scope.majorSelected3=CONTACT_FIELD_137;
+    $scope.majorSelected4=CONTACT_FIELD_143;
+    $scope.majorSelected5=CONTACT_FIELD_149;
+
+    $scope.spPort = CONTACT_FIELD_121;
+
 	$scope.majorSelected1=$scope.majorFeesListObj[0].name;
     $scope.majorSelected2=$scope.majorFeesListObj[0].name;
     $scope.majorSelected3=$scope.majorFeesListObj[0].name;
     $scope.majorSelected4=$scope.majorFeesListObj[0].name;
+    $scope.majorSelected5=$scope.majorFeesListObj[0].name;*/
+
+    $scope.fundsObArray = [$scope.fundsMySuper, $scope.fundsLifestage, $scope.fundsOther];
+
+    $scope.fundsOb1 = $scope.fundsMySuper;
+    $scope.fundsOb2 = $scope.fundsMySuper;
+
+    $scope.fundNotFoundA = false;
+    $scope.fundNotFoundB = false;
+    $scope.fundNameA = latestObj.CONTACT_FIELD_52;
+    $scope.fundNameB = latestObj.CONTACT_FIELD_56;
+
+    for(let i=0;i<$scope.investOptions.length;i++){
+        if($scope.netReturn=== $scope.investOptions[i].netReturn){
+            $scope.spInvestOption=$scope.investOptions[i].id;
+        }
+    }
+
+    for(let i=0;i<$scope.fundsOb.length;i++){
     $scope.majorSelected5=$scope.majorFeesListObj[0].name;
+            $scope.spFundAId=$scope.fundsOb[i].id;
+        }
+    }
+
+    for(let i=0;i<$scope.fundsOb.length;i++){
+        if($scope.spFundBName === $scope.fundsOb[i].name){
+            $scope.spFundBId=$scope.fundsOb[i].id;
+        }
+    }
+
+    $scope.fundA = $scope.fundsOb[$scope.spFundAId];
+    $scope.fundB = $scope.fundsOb[$scope.spFundBId];
+
+    spFundAChange();
+    spFundBChange();
 
      $timeout(function() {
+        /*$(".spSpouseWorkOption option[value='"+$scope.spouseWorkOption+"']").attr("selected", true);
+        $(".spGenderOption option[value='"+$scope.genderOption+"']").attr("selected", true);
+        $(".spSmokeOption option[value='"+$scope.smokeOption+"']").attr("selected", true);*/
+        
         $(".spHealthOption option[value='"+$scope.healthOption+"']").attr("selected", true);
         $(".spHospitalCoverOption option[value='"+$scope.hospitalCoverOption+"']").attr("selected", true);
         $("#select-pension-drawdown option[value='"+$scope.showPensionOption+"']").attr("selected", true);
@@ -49,7 +110,9 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $("#select-gender-option-spouse option[value='"+$scope.genderOptionSpouse+"']").attr("selected", true);
         $(".spFundAType option[value='"+$scope.spFundAType+"']").attr("selected", true);
         $(".spFundBType option[value='"+$scope.spFundBType+"']").attr("selected", true);
+        $(".spFundA option[value='"+$scope.spFundAId+"']").attr("selected", true);
         $(".spInvestOption option[value='"+$scope.spFundBType+"']").attr("selected", true);
+        $(".spInvestOption option[value='"+$scope.spInvestOption+"']").attr("selected", true);
 		 
         $("#select-spouseWork-option option[value='"+$scope.spouseWorkOption+"']").attr("selected", true);
         $("#select-buy-option option[value='"+$scope.buyOption+"']").attr("selected", true);
@@ -92,11 +155,28 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 	
 	
 	//to go to scrollbased advice section
+////////////
+app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
+
+
+    console.log("In Calc controller", $rootScope.addGoal);
+    $scope.showTooltip = "";
+
+
+    //to get goals and custom fields from service
+    $scope.goalBasedAdvice = GoalBasedAdviceService.goalBasedAdvice();
+    $scope.customField = GoalBasedAdviceService.custom_field.customFieldObj;
+    console.log('Calc controllerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr', $scope.goalBasedAdvice, $scope.customField);
+
+
+
+    //to go to scrollbased advice section
+/////////// Stashed changes
     $scope.gotoBottom = function() {
-		$window.scrollTo(0, 580);  
+        $window.scrollTo(0, 580);
     };
-	
-	$scope.fundTypeA = [
+
+    $scope.fundTypeA = [
         { id: 0, name: 'MySuper Fund' },
         { id: 1, name: 'Lifestage Fund' },
         { id: 2, name: 'Other Fund' }
@@ -752,20 +832,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         { id: 311, name: "Investor's own", contributionFee: 0.01134, adminFee: 0, indirectCostRation: 0 }
     ];
 
-    $scope.fundsObArray = [$scope.fundsMySuper, $scope.fundsLifestage, $scope.fundsOther];
-
-    $scope.fundsOb1 = $scope.fundsMySuper;
-    $scope.fundsOb2 = $scope.fundsMySuper;
-
-    $scope.fundA = $scope.fundsOb[0];
-    $scope.fundB = $scope.fundsOb[1];
-    $scope.netReturn = $scope.investOptions[0].netReturn;
-    var tempFundA = $scope.fundsOb[0];
-    var tempFundB = $scope.fundsOb[1];
-    $scope.fundNotFoundA = false;
-    $scope.fundNotFoundB = false;
-    $scope.fundNameA = "Fund A";
-    $scope.fundNameB = "Fund B";
+    
 
     $scope.privateSchoolObjects = [{ id: 0, name: "Sydney Grammar School Darlinghurst", address: "College St- Darlinghurst NSW 2010", state: "NSW", upfrontFee: 5489, annualFee: 32644 },
         { id: 1, name: "PLC Sydney", address: "Boundary St- Croydon NSW 2132", state: "NSW", upfrontFee: 3415, annualFee: 24411 },
@@ -1143,37 +1210,37 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         { id: 6, name: "TAS" }
     ];
 
- 
+
 
 
     /*$('select[name=spHealthOption]').val($scope.healthOption);
     $('.selectpicker').selectpicker('refresh');*/
 
     $('.spHealthOption').on('change', function() {
-        $scope.healthOption=$('.spHealthOption option:selected').val();
+        $scope.healthOption = $('.spHealthOption option:selected').val();
         $timeout(0);
-        console.log("spHealthOption:",$scope.healthOption);
+        console.log("spHealthOption:", $scope.healthOption);
     });
 
     $('.spDiseaseOption').on('change', function() {
-        $scope.diseaseOption=$('.spDiseaseOption option:selected').val();
-        console.log("spHealthOption:",$scope.healthOption);
+        $scope.diseaseOption = $('.spDiseaseOption option:selected').val();
+        console.log("spHealthOption:", $scope.healthOption);
         $timeout(0);
     });
 
 
-    
+
 
     $('.spHospitalCoverOption').on('change', function() {
-        $scope.hospitalCoverOption=$('.spHospitalCoverOption option:selected').val();
-        console.log("hospitalCoverOption:",$scope.healthOption);
-        
+        $scope.hospitalCoverOption = $('.spHospitalCoverOption option:selected').val();
+        console.log("hospitalCoverOption:", $scope.healthOption);
+
         $timeout(0);
     });
 
     $('.spWillOption').on('change', function() {
-        $scope.willOption=$('.spWillOption option:selected').val();
-        console.log("spHealthOption:",$scope.healthOption);
+        $scope.willOption = $('.spWillOption option:selected').val();
+        console.log("spHealthOption:", $scope.healthOption);
         $timeout(0);
     });
 
@@ -1197,7 +1264,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         { id: 5, name: "ACT" },
         { id: 6, name: "TAS" }
     ];
-   /* $scope.spEducationOption=$scope.eductionOptionOb[0].name;*/
+/*<<<<<<< Updated upstream
+    $scope.spEducationOption=$scope.eductionOptionOb[0].name;
+=======
+    $scope.spEducationOption = $scope.eductionOptionOb[0].name;
+>>>>>>> Stashed changes*/
 
     $('.spEducationOption').on('change', function() {
         $scope.spEducationOption = $('.spEducationOption option:selected').val();
@@ -1235,7 +1306,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 //    $scope.spState = $scope.stateListOb[0].name;
 //    $scope.spSchoolType = $scope.schoolTypeOb[0].name;
 
-    function schoolOperation(){
+    function schoolOperation() {
         $scope.spState = $('.spState option:selected').val();
         $scope.spSchoolType = $('.spSchoolType option:selected').val();
 
@@ -1338,7 +1409,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         { id: 1, name: 'super' }
     ];
 
-
+	
     $scope.investOptions = [{
         id: 0,
         name: 'Cash',
@@ -1365,14 +1436,30 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         netReturn: 6.60
     }];
 
-	
-	$scope.investOptions = [
-        { id: 0, name: 'Cash', netReturn: 2.90 },
-        { id: 1, name: 'Conservative', netReturn: 4.20 },
-        { id: 2, name: 'Moderate', netReturn: 5.00 },
-        { id: 3, name: 'Balanced', netReturn: 5.70 },
-        { id: 4, name: 'Growth', netReturn: 6.20 },
-        { id: 5, name: 'High Growth', netReturn: 6.60 }
+    $scope.investOptions = [{
+        id: 0,
+        name: 'Cash',
+        netReturn: 2.90
+    }, {
+        id: 1,
+        name: 'Conservative',
+        netReturn: 4.20
+    }, {
+        id: 2,
+        name: 'Moderate',
+        netReturn: 5.00
+    }, {
+        id: 3,
+        name: 'Balanced',
+        netReturn: 5.70
+    }, {
+        id: 4,
+        name: 'Growth',
+        netReturn: 6.20
+    }, {
+        id: 5,
+        name: 'High Growth',
+        netReturn: 6.60
     ];
 
     $scope.schoolObjects = [{
@@ -3037,7 +3124,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         annualFee: 4802
     }];
 
-//    $scope.schoolObjectsShow = $scope.schoolObject_NSW;
+    //    $scope.schoolObjectsShow = $scope.schoolObject_NSW;
     $scope.stateListOb = [{
         id: 0,
         name: "NSW"
@@ -3100,22 +3187,22 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         school5 = "0",
         school6 = "0";
     var schoolArray = [school1, school2, school3, school4, school5, school6];
-    var publicSchol_avgCostArray = {        
-        "NSW":1615.33,
-        "VIC":1395,
-        "QLD":471.25,
-        "SA":762.5,
-        "WA":950,
-        "ACT":357.14,
-        "TAS":390,
-        };
+    var publicSchol_avgCostArray = {
+        "NSW": 1615.33,
+        "VIC": 1395,
+        "QLD": 471.25,
+        "SA": 762.5,
+        "WA": 950,
+        "ACT": 357.14,
+        "TAS": 390,
+    };
     //var publicSchol_avgCostArray = [{name:"",value:1615.33}, 1395, 471.25, 762.5, 950, 357.14, 390];
     $scope.publicSchoolFees = publicSchol_avgCostArray[$scope.spState];
     $scope.showPortfolioOption = false;
 
     function privateSchoolOperation() {
         $scope.spState = $('.spState option:selected').val();
-		console.log('privateSchoolOperation',  $scope.spState);
+        console.log('privateSchoolOperation', $scope.spState);
         $scope.publicSchoolFees = publicSchol_avgCostArray[$scope.spState];
         switch ($scope.spState) {
             case "NSW":
@@ -3172,7 +3259,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     }
 
-//portfolioListOb
     $scope.spPort="Conservative Cautious";
     $('input:radio[name=portfolioRadio]').change(function() {
         $scope.spPort=this.value;
@@ -3188,7 +3274,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     });
 
-    
+
     /*$scope.porfolioChange = function(val) {
         //console.log("port", val);
         $scope.spPort = val;
@@ -3205,14 +3291,14 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     $('.spSchool1').on('change', function() {
         schoolArray[0] = $('.spSchool1 option:selected').val();
-        $scope.schoolSelected1=$scope.privateSchoolObjects[schoolArray[0]].name;
+        $scope.schoolSelected1 = $scope.privateSchoolObjects[schoolArray[0]].name;
         // console.log("schoolArray[0]", schoolArray[0]);
-            //calculateFinal();
+        //calculateFinal();
     });
 
     $('.spSchool2').on('change', function() {
         schoolArray[1] = $('.spSchool2 option:selected').val();
-        $scope.schoolSelected2=$scope.privateSchoolObjects[schoolArray[1]].name;
+        $scope.schoolSelected2 = $scope.privateSchoolObjects[schoolArray[1]].name;
 
         //console.log("schoolArray[1]", schoolArray[1])
         //calculateFinal();
@@ -3220,28 +3306,28 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     $('.spSchool3').on('change', function() {
         schoolArray[2] = $('.spSchool3 option:selected').val();
-        $scope.schoolSelected3=$scope.privateSchoolObjects[schoolArray[2]].name;
+        $scope.schoolSelected3 = $scope.privateSchoolObjects[schoolArray[2]].name;
         //console.log("schoolArray[2]", schoolArray[2])
         //calculateFinal();
     });
 
     $('.spSchool4').on('change', function() {
         schoolArray[3] = $('.spSchool4 option:selected').val();
-        $scope.schoolSelected4=$scope.privateSchoolObjects[schoolArray[3]].name;
+        $scope.schoolSelected4 = $scope.privateSchoolObjects[schoolArray[3]].name;
         //console.log("schoolArray[3]", schoolArray[3])
         //calculateFinal();
     });
 
     $('.spSchool5').on('change', function() {
         schoolArray[4] = $('.spSchool5 option:selected').val();
-        $scope.schoolSelected5=$scope.privateSchoolObjects[schoolArray[4]].name;
+        $scope.schoolSelected5 = $scope.privateSchoolObjects[schoolArray[4]].name;
         //console.log("schoolArray[4]", schoolArray[4])
         //calculateFinal();
     });
 
     $('.spSchool6').on('change', function() {
         schoolArray[5] = $('.spSchool6 option:selected').val();
-        $scope.schoolSelected6=$scope.privateSchoolObjects[schoolArray[5]].name;
+        $scope.schoolSelected6 = $scope.privateSchoolObjects[schoolArray[5]].name;
         //console.log("schoolArray[5]", schoolArray[5])
         //calculateFinal();
     });
@@ -3561,20 +3647,20 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     numChildrenInput.addEventListener("change", function() {
         numChildrenSlider.noUiSlider.set(numChildrenInput.value);
-		changeChildrenInputs(Number($scope.numChildren));
+        changeChildrenInputs(Number($scope.numChildren));
         $timeout(0);
     });
 
     function changeChildrenInputs(num) {
         for (var i = 1; i <= num; i++) {
-			for(let j=0; j<document.getElementsByClassName("c" + i).length;j++){
-            	document.getElementsByClassName("c" + i)[j].style.display = 'block';
-			}
+            for (let j = 0; j < document.getElementsByClassName("c" + i).length; j++) {
+                document.getElementsByClassName("c" + i)[j].style.display = 'block';
+            }
         }
         for (var i = (num + 1); i <= 5; i++) {
-			for(let j=0; j<document.getElementsByClassName("c" + i).length;j++){
-            	document.getElementsByClassName("c" + i)[j].style.display = 'none';
-			}
+            for (let j = 0; j < document.getElementsByClassName("c" + i).length; j++) {
+                document.getElementsByClassName("c" + i)[j].style.display = 'none';
+            }
         }
     }
 
@@ -3773,63 +3859,71 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         schoolDuration6Slider.noUiSlider.set(schoolDuration6Input.value);
     });*/
 
+/*<<<<<<< Updated upstream
    /* $scope.spStudyingOption1='Yes';
     $scope.spStudyingOption2='Yes';
     $scope.spStudyingOption3='Yes';
     $scope.spStudyingOption4='Yes';
-    $scope.spStudyingOption5='Yes';*/
-
+    $scope.spStudyingOption5='Yes';
+=======
+    $scope.spStudyingOption1 = 'Yes';
+    $scope.spStudyingOption2 = 'Yes';
+    $scope.spStudyingOption3 = 'Yes';
+    $scope.spStudyingOption4 = 'Yes';
+    $scope.spStudyingOption5 = 'Yes';
+>>>>>>> Stashed changes
+*/
     $('.spStudyingOption1').on('change', function() {
         let temp;
-        $scope.spStudyingOption1=$('.spStudyingOption1 option:selected').val();
-        if($scope.spStudyingOption1=== "Yes"){
-            temp=true;
-        }else{
-            temp=false;
+        $scope.spStudyingOption1 = $('.spStudyingOption1 option:selected').val();
+        if ($scope.spStudyingOption1 === "Yes") {
+            temp = true;
+        } else {
+            temp = false;
         }
         $scope.studyingOption1Change(temp);
         $timeout(0);
     });
     $('.spStudyingOption2').on('change', function() {
         let temp;
-        $scope.spStudyingOption2=$('.spStudyingOption2 option:selected').val();
-        if($scope.spStudyingOption2=== "Yes"){
-            temp=true;
-        }else{
-            temp=false;
+        $scope.spStudyingOption2 = $('.spStudyingOption2 option:selected').val();
+        if ($scope.spStudyingOption2 === "Yes") {
+            temp = true;
+        } else {
+            temp = false;
         }
         $scope.studyingOption2Change(temp);
         $timeout(0);
     });
     $('.spStudyingOption3').on('change', function() {
         let temp;
-        $scope.spStudyingOption3=$('.spStudyingOption3 option:selected').val();
-        if($scope.spStudyingOption3=== "Yes"){
-            temp=true;
-        }else{
-            temp=false;
+        $scope.spStudyingOption3 = $('.spStudyingOption3 option:selected').val();
+        if ($scope.spStudyingOption3 === "Yes") {
+            temp = true;
+        } else {
+            temp = false;
         }
         $scope.studyingOption3Change(temp);
         $timeout(0);
     });
     $('.spStudyingOption4').on('change', function() {
         let temp;
-        $scope.spStudyingOption4=$('.spStudyingOption4 option:selected').val();
-        if($scope.spStudyingOption4=== "Yes"){
-            temp=true;
-        }else{
-            temp=false;
+        $scope.spStudyingOption4 = $('.spStudyingOption4 option:selected').val();
+        if ($scope.spStudyingOption4 === "Yes") {
+            temp = true;
+        } else {
+            temp = false;
         }
         $scope.studyingOption4Change(temp);
         $timeout(0);
     });
     $('.spStudyingOption5').on('change', function() {
         let temp;
-        $scope.spStudyingOption5=$('.spStudyingOption5 option:selected').val();
-        if($scope.spStudyingOption5=== "Yes"){
-            temp=true;
-        }else{
-            temp=false;
+        $scope.spStudyingOption5 = $('.spStudyingOption5 option:selected').val();
+        if ($scope.spStudyingOption5 === "Yes") {
+            temp = true;
+        } else {
+            temp = false;
         }
         $scope.studyingOption5Change(temp);
         $timeout(0);
@@ -4028,39 +4122,47 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     var remainderUnivFeeArray = [];
     var propertyPurchasingPowerArray = [];
 
+/*<<<<<<< Updated upstream
     /*$scope.majorSelected1=$scope.majorFeesListObj[0].name;
     $scope.majorSelected2=$scope.majorFeesListObj[0].name;
     $scope.majorSelected3=$scope.majorFeesListObj[0].name;
     $scope.majorSelected4=$scope.majorFeesListObj[0].name;
-    $scope.majorSelected5=$scope.majorFeesListObj[0].name;*/
+    $scope.majorSelected5=$scope.majorFeesListObj[0].name;
+=======
+    $scope.majorSelected1 = $scope.majorFeesListObj[0].name;
+    $scope.majorSelected2 = $scope.majorFeesListObj[0].name;
+    $scope.majorSelected3 = $scope.majorFeesListObj[0].name;
+    $scope.majorSelected4 = $scope.majorFeesListObj[0].name;
+    $scope.majorSelected5 = $scope.majorFeesListObj[0].name;
+>>>>>>> Stashed changes*/
 
     $('.spMajor1').on('change', function() {
         majorSelectedArray[0] = $('.spMajor1 option:selected').val();
-        $scope.majorSelected1=$scope.majorFeesListObj[majorSelectedArray[0]].name;
+        $scope.majorSelected1 = $scope.majorFeesListObj[majorSelectedArray[0]].name;
         // console.log("majorSelectedArray[0]", majorSelectedArray[0]);
         //calculateFinal();
     });
     $('.spMajor2').on('change', function() {
         majorSelectedArray[1] = $('.spMajor2 option:selected').val();
-        $scope.majorSelected2=$scope.majorFeesListObj[majorSelectedArray[1]].name;
+        $scope.majorSelected2 = $scope.majorFeesListObj[majorSelectedArray[1]].name;
         //console.log("schoolArray[5]", schoolArray[5])
         //calculateFinal();
     });
     $('.spMajor3').on('change', function() {
         majorSelectedArray[2] = $('.spMajor3 option:selected').val();
-        $scope.majorSelected3=$scope.majorFeesListObj[majorSelectedArray[2]].name;
+        $scope.majorSelected3 = $scope.majorFeesListObj[majorSelectedArray[2]].name;
         //console.log("schoolArray[5]", schoolArray[5])
         //calculateFinal();
     });
     $('.spMajor4').on('change', function() {
         majorSelectedArray[3] = $('.spMajor4 option:selected').val();
-        $scope.majorSelected4=$scope.majorFeesListObj[majorSelectedArray[3]].name;
+        $scope.majorSelected4 = $scope.majorFeesListObj[majorSelectedArray[3]].name;
         //console.log("schoolArray[5]", schoolArray[5])
         //calculateFinal();
     });
     $('.spMajor5').on('change', function() {
         majorSelectedArray[4] = $('.spMajor5 option:selected').val();
-        $scope.majorSelected5=$scope.majorFeesListObj[majorSelectedArray[4]].name;
+        $scope.majorSelected5 = $scope.majorFeesListObj[majorSelectedArray[4]].name;
         //console.log("schoolArray[5]", schoolArray[5])
         //calculateFinal();
     });
@@ -4149,7 +4251,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.personalDetails = {};
     $scope.spouseDetails = {};
     $scope.forms = {};
-	
+
     $scope.grossAnnualIncome = latestObj.CONTACT_FIELD_13;
     $scope.grossAnnualIncomeNew = latestObj.CONTACT_FIELD_13;
     $scope.homeMortgage = latestObj.CONTACT_FIELD_60;
@@ -4187,12 +4289,12 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.ageChildren5 = latestObj.CONTACT_FIELD_71;
 
     $scope.resultPerc = {};
-	
-	var dt = new Date();
+
+    var dt = new Date();
 
   /*  $scope.genderOption = true;*/
-    $scope.smokeOption = false;
-    $scope.spouseOption = false;
+    // $scope.smokeOption = false;
+    // $scope.spouseOption = false;
 //    $scope.spouseWorkOption = true;
 //    $scope.buyOption = true;
     $scope.sickLeaves = latestObj.CONTACT_FIELD_79;
@@ -4208,16 +4310,20 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.contributionFeeB = latestObj.CONTACT_FIELD_57;
     $scope.adminFeeB = latestObj.CONTACT_FIELD_58;
     $scope.indirectCostRationB = latestObj.CONTACT_FIELD_59;
-	
+
     $scope.nra = latestObj.CONTACT_FIELD_92;
     $scope.nrp = latestObj.CONTACT_FIELD_94;
     $scope.tfp = latestObj.CONTACT_FIELD_93;
     $scope.beforeTTR = latestObj.CONTACT_FIELD_95;
-	$scope.cses = latestObj.CONTACT_FIELD_177;
-	$scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
+    $scope.cses = latestObj.CONTACT_FIELD_177;
+    
     $scope.thp = latestObj.CONTACT_FIELD_19;
 
     $scope.totalPercentageSelected = 100;
+
+    $scope.asset1Total=latestObj.CONTACT_FIELD_106;
+    $scope.asset2Total=latestObj.CONTACT_FIELD_118;
+
 
     $scope.australianShares1 = latestObj.CONTACT_FIELD_97;
     $scope.internationalShares1 = latestObj.CONTACT_FIELD_98;
@@ -4403,7 +4509,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
         return '';
     }
-    
+
 
     $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
 
@@ -4444,18 +4550,25 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $timeout(0);
     });
 
-    /*$scope.buyOption="Yes";*/
+/*<<<<<<< Updated upstream
+    $scope.buyOption="Yes";
+=======
+    $scope.buyOption = "Yes";
+>>>>>>> Stashed changes*/
     $('#select-buy-option').on('changed.bs.select', function(e) {
-		if($(this).selectpicker('val') == 'Yes'){
-			$scope.buyOption = true;
-		}
-		else{
-			$scope.buyOption = false;
-		}
+        if ($(this).selectpicker('val') == 'Yes') {
+            $scope.buyOption = true;
+        } else {
+            $scope.buyOption = false;
+        }
         $timeout(0);
     });
 
+/*<<<<<<< Updated upstream
 //    $scope.lifeOption="Yes";
+=======
+    $scope.lifeOption = "Yes";
+>>>>>>> Stashed changes*/
     $('#spLifeOption').on('changed.bs.select', function(e) {
         $scope.lifeOption = $(this).selectpicker('val');
         $timeout(0);
@@ -4481,7 +4594,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         ecIPSliderNew = document.getElementById('ecIPSliderNew'),
         ecTraumaSlider = document.getElementById('ecTraumaSlider'),
         ecTraumaSliderNew = document.getElementById('ecTraumaSliderNew'),
-//        numChildrenSlider = document.getElementById('numChildrenSlider'),
+        //        numChildrenSlider = document.getElementById('numChildrenSlider'),
         funeralCostSlider = document.getElementById('funeralCostSlider'),
         educationExpensePerYearPerChildSlider = document.getElementById('educationExpensePerYearPerChildSlider'),
         familyLivingCostPerYearSlider = document.getElementById('familyLivingCostPerYearSlider'),
@@ -4489,7 +4602,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         rateOfReturnSlider = document.getElementById('rateOfReturnSlider'),
         valueOfNewPropertySlider = document.getElementById('valueOfNewPropertySlider'),
         moneyToBeBorrowedSlider = document.getElementById('moneyToBeBorrowedSlider'),
-//        ageSpouseSlider = document.getElementById('ageSpouseSlider'),
+        //        ageSpouseSlider = document.getElementById('ageSpouseSlider'),
         ageChildren1Slider = document.getElementById('ageChildren1Slider'),
         ageChildren2Slider = document.getElementById('ageChildren2Slider'),
         ageChildren3Slider = document.getElementById('ageChildren3Slider'),
@@ -5163,8 +5276,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         }),
         connect: [false, false]
     });
-	
-	noUiSlider.create(csesSlider, {
+
+    noUiSlider.create(csesSlider, {
         start: [$scope.cses],
         range: {
             'min': [10000],
@@ -5232,7 +5345,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         ecIPInputNew = document.getElementById('ecIPInputNew'),
         ecTraumaInput = document.getElementById('ecTraumaInput'),
         ecTraumaInputNew = document.getElementById('ecTraumaInputNew'),
-//        numChildrenInput = document.getElementById('numChildrenInput'),
+        //        numChildrenInput = document.getElementById('numChildrenInput'),
         funeralCostInput = document.getElementById('funeralCostInput'),
         educationExpensePerYearPerChildInput = document.getElementById('educationExpensePerYearPerChildInput'),
         familyLivingCostPerYearInput = document.getElementById('familyLivingCostPerYearInput'),
@@ -5240,7 +5353,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         rateOfReturnInput = document.getElementById('rateOfReturnInput'),
         valueOfNewPropertyInput = document.getElementById('valueOfNewPropertyInput'),
         moneyToBeBorrowedInput = document.getElementById('moneyToBeBorrowedInput'),
-//        ageSpouseInput = document.getElementById('ageSpouseInput'),
+        //        ageSpouseInput = document.getElementById('ageSpouseInput'),
         ageChildren1Input = document.getElementById('ageChildren1Input'),
         ageChildren2Input = document.getElementById('ageChildren2Input'),
         ageChildren3Input = document.getElementById('ageChildren3Input'),
@@ -5261,10 +5374,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         nraInput = document.getElementById('nraInput'),
         nrpInput = document.getElementById('nrpInput'),
         thpInput = document.getElementById('thpInput'),
-		csesInput = document.getElementById('csesInput');
-	
-	
-	 
+        csesInput = document.getElementById('csesInput');
+
+
+
 
     var fySlider = document.getElementById('fySlider'),
         thpSlider = document.getElementById('thpSlider');
@@ -5330,11 +5443,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         }
         fySlider.noUiSlider.set($scope.fy);
     })
-	
-	
-	
-	
-	
+
+
+
+
+
 
     sickLeavesInput.addEventListener("change", function() {
         sickLeavesSlider.noUiSlider.set($scope.sickLeaves);
@@ -5355,10 +5468,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     moneyToBeBorrowedInput.addEventListener("change", function() {
         moneyToBeBorrowedSlider.noUiSlider.set($scope.moneyToBeBorrowed);
     });
-/*
-    ageSpouseInput.addEventListener("change", function() {
-        ageSpouseSlider.noUiSlider.set($scope.ageSpouse);
-    });*/
+    /*
+        ageSpouseInput.addEventListener("change", function() {
+            ageSpouseSlider.noUiSlider.set($scope.ageSpouse);
+        });*/
 
     ageChildren1Input.addEventListener("change", function() {
         ageChildren1Slider.noUiSlider.set($scope.ageChildren1);
@@ -5507,8 +5620,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     tfpInput.addEventListener("change", function() {
         tfpSlider.noUiSlider.set($scope.tfp);
     })
-	
-	csesInput.addEventListener("change", function() {
+
+    csesInput.addEventListener("change", function() {
         csesSlider.noUiSlider.set($scope.cses);
     })
 
@@ -5626,11 +5739,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.ecTraumaNew = (values[handle]);
     });
 
-   /* numChildrenSlider.noUiSlider.on('update', function(values, handle) {
-        numChildrenInput.value = values[handle];
-        $scope.numChildren = Number(values[handle]);
-        noChildren($scope.numChildren);
-    });*/
+    /* numChildrenSlider.noUiSlider.on('update', function(values, handle) {
+         numChildrenInput.value = values[handle];
+         $scope.numChildren = Number(values[handle]);
+         noChildren($scope.numChildren);
+     });*/
 
 
     funeralCostSlider.noUiSlider.on('update', function(values, handle) {
@@ -5738,7 +5851,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         tfpInput.value = values[handle];
         $scope.tfp = (values[handle]);
     });
-	csesSlider.noUiSlider.on('update', function(values, handle) {
+    csesSlider.noUiSlider.on('update', function(values, handle) {
         csesInput.value = values[handle];
         $scope.cses = (values[handle]);
     });
@@ -5751,10 +5864,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.nrp = (values[handle]);
     });
 
-  /*  numChildrenInput.addEventListener("change", function() {
-        numChildrenSlider.noUiSlider.set($scope.numChildren);
-        noChildren($scope.numChildren);
-    })*/
+    /*  numChildrenInput.addEventListener("change", function() {
+          numChildrenSlider.noUiSlider.set($scope.numChildren);
+          noChildren($scope.numChildren);
+      })*/
 
 
     grossAnnualIncomeSlider.noUiSlider.on('set', function(values, handle) {
@@ -6097,8 +6210,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
             // calculateFinal();
             $timeout(0);
     });
-	
-	$scope.calculateMaxTHPSS = function() {
+
+    $scope.calculateMaxTHPSS = function() {
         var cses1 = $scope.cses.replace("$", "").replace(",", "");
         var beforeTTR1 = $scope.beforeTTR.replace("$", "").replaceAll(",", "");
         var tfp1 = $scope.tfp.replace("%", "").replace(",", "");
@@ -6107,7 +6220,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         var thp1 = $scope.thp.replace("$", "").replace(",", "");
         return WithSSCalculator.maxTakeHome($scope.age, $scope.fy, Number(cses1), Number(beforeTTR1), Number(tfp1));
     }
-	$scope.changeMaxTarget = function(endValue) {
+    $scope.changeMaxTarget = function(endValue) {
         thpSlider.noUiSlider.updateOptions({
             range: {
                 'min': 1000,
@@ -6130,13 +6243,13 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.changeMaxTarget($scope.calculateMaxTHPSS());
         // $scope.submitForm2(true);
     });
-	
-	csesSlider.noUiSlider.on('set', function(values, handle) {
+
+    csesSlider.noUiSlider.on('set', function(values, handle) {
         csesInput.value = values[handle];
         $scope.cses = (values[handle]);
-		$scope.changeMaxTarget($scope.calculateMaxTHPSS());
+        $scope.changeMaxTarget($scope.calculateMaxTHPSS());
         // $scope.submitForm2(true);
-	});
+    });
 
     nraSlider.noUiSlider.on('set', function(values, handle) {
         nraInput.value = values[handle];
@@ -6154,7 +6267,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     var leMember2 = $scope.genderOptionSpouse ? maleExpectancy[$scope.ageSpouse] : femaleExpectancy[$scope.ageSpouse];
 
-    
+
 
     $('#select-spouse-option').on('changed.bs.select', function(e) {
         $scope.spouseOption = $(this).selectpicker('val') <= 0;
@@ -6163,7 +6276,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     });
 
-   if ($rootScope.addGoal == false || $rootScope.addGoal == undefined) {
+    if ($rootScope.addGoal == false || $rootScope.addGoal == undefined) {
         $scope.isMenuDrop1 = false;
         $scope.isMenuDrop2 = true;
         $scope.isMenuDrop3 = true;
@@ -6172,8 +6285,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $scope.isMenuDrop6 = true;
         $scope.isMenuDrop7 = true;
         $scope.isMenuDrop8 = true;
-    }else
-	{
+    } else {
         $scope.gotoBottom();
         $scope.isMenuDrop1 = true;
         $scope.isMenuDrop2 = true;
@@ -6232,12 +6344,12 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         /*$scope.menuDrop12 = function() {
                $scope.isMenuDrop12 = $scope.isMenuDrop12 ? false : true;
            }*/
-	
-	  /* $timeout( function(){
+
+    /* $timeout( function(){
 
         }, 3000 );*/
-	
-			   
+
+
     $(".form-1").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function() {
         if ($scope.isMenuDrop1 && $scope.next1) {
             $scope.isMenuDrop2 = false;
@@ -6310,54 +6422,54 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     });*/
 
 
-$scope.nextDiv = function(div_num) {
-			switch (div_num) {
-				case 1:
-					$scope.isMenuDrop1 = true;
-					$scope.next1 = true;
-					break;
-				case 2:
-					$scope.isMenuDrop2 = true;
-					$scope.next2 = true;
-					break;
-				case 3:
-					$scope.isMenuDrop3 = true;
-					$scope.next3 = true;
-					break;
-				case 4:
-					$scope.isMenuDrop4 = true;
-					$scope.next4 = true;
-					break;
-				case 5:
-					$scope.isMenuDrop5 = true;
-					$scope.next5 = true;
-					break;
-				case 6:
-					$scope.isMenuDrop6 = true;
-					$scope.next6 = true;
-					break;
-				case 7:
-					$scope.isMenuDrop7 = true;
-					$scope.next7 = true;
-					break;
-				case 8:
-					$scope.isMenuDrop8 = true;
-					/*$scope.next8 = true;
-					break;
-				case 9:
-					$scope.isMenuDrop9 = true;
-					$scope.next9 = true;
-					break;
-				case 10:
-					$scope.isMenuDrop10 = true;
-					$scope.next10 = true;
-					break;
-				case 11:
-					$scope.isMenuDrop11 = true;*/
-			}
-		}
+    $scope.nextDiv = function(div_num) {
+        switch (div_num) {
+            case 1:
+                $scope.isMenuDrop1 = true;
+                $scope.next1 = true;
+                break;
+            case 2:
+                $scope.isMenuDrop2 = true;
+                $scope.next2 = true;
+                break;
+            case 3:
+                $scope.isMenuDrop3 = true;
+                $scope.next3 = true;
+                break;
+            case 4:
+                $scope.isMenuDrop4 = true;
+                $scope.next4 = true;
+                break;
+            case 5:
+                $scope.isMenuDrop5 = true;
+                $scope.next5 = true;
+                break;
+            case 6:
+                $scope.isMenuDrop6 = true;
+                $scope.next6 = true;
+                break;
+            case 7:
+                $scope.isMenuDrop7 = true;
+                $scope.next7 = true;
+                break;
+            case 8:
+                $scope.isMenuDrop8 = true;
+                /*$scope.next8 = true;
+                    break;
+                case 9:
+                    $scope.isMenuDrop9 = true;
+                    $scope.next9 = true;
+                    break;
+                case 10:
+                    $scope.isMenuDrop10 = true;
+                    $scope.next10 = true;
+                    break;
+                case 11:
+                    $scope.isMenuDrop11 = true;*/
+        }
+    }
 
- 
+
     /*if(!$scope.spouseOption){
         colorChange();
     }
@@ -6437,22 +6549,20 @@ $scope.nextDiv = function(div_num) {
     });*/
 
     $('#select-pension-drawdown').on('changed.bs.select', function(e) {
-		if($(this).selectpicker('val') === 'Select Your Own Value'){
-        	$scope.showPensionOption = true;
-		}
-		else{
-			$scope.showPensionOption = false;
-		}
+        if ($(this).selectpicker('val') === 'Select Your Own Value') {
+            $scope.showPensionOption = true;
+        } else {
+            $scope.showPensionOption = false;
+        }
         $timeout(0);
     });
 
     $('#select-pension-drawdown-spouse').on('changed.bs.select', function(e) {
-        if($(this).selectpicker('val') === 'Select Your Own Value'){
-        	$scope.showPensionOptionSpouse = true;
-		}
-		else{
-			$scope.showPensionOptionSpouse = false;
-		}
+        if ($(this).selectpicker('val') === 'Select Your Own Value') {
+            $scope.showPensionOptionSpouse = true;
+        } else {
+            $scope.showPensionOptionSpouse = false;
+        }
         $timeout(0);
     });
 
@@ -6742,19 +6852,19 @@ $scope.nextDiv = function(div_num) {
         connect: [false, false]
     });
 
-     noUiSlider.create(investmentReturnSlider, {
-         start: [$scope.investmentReturn],
-         range: {
-             'min': [0],
-             'max': [10]
-         },
-         step: 0.01,
-         format: wNumb({
-             decimals: 2,
-             postfix: '%',
-         }),
-         connect: [false, false]
-     });
+    noUiSlider.create(investmentReturnSlider, {
+        start: [$scope.investmentReturn],
+        range: {
+            'min': [0],
+            'max': [10]
+        },
+        step: 0.01,
+        format: wNumb({
+            decimals: 2,
+            postfix: '%',
+        }),
+        connect: [false, false]
+    });
 
     noUiSlider.create(variableFeeSlider, {
         start: [$scope.variableFee],
@@ -7597,7 +7707,7 @@ $scope.nextDiv = function(div_num) {
         });
 
         changeCCLimit();
-		$scope.changeMaxTarget($scope.calculateMaxTHPSS());
+        $scope.changeMaxTarget($scope.calculateMaxTHPSS());
     }
 
 
@@ -8294,17 +8404,16 @@ $scope.nextDiv = function(div_num) {
 //    $scope.alterOption = false;
 
     $('.spAlterOption').on('change', function() {
-		if( $('.spAlterOption option:selected').val() == 'Yes'){
-        	$scope.alterOption = true;
-		}
-		else{
-			$scope.alterOption = false;
-		}
-		$timeout(0);
+        if ($('.spAlterOption option:selected').val() == 'Yes') {
+            $scope.alterOption = true;
+        } else {
+            $scope.alterOption = false;
+        }
+        $timeout(0);
     });
 
-    $scope.yesOrNoArray=function(value){
-        return value?"Yes":"No";
+    $scope.yesOrNoArray = function(value) {
+        return value ? "Yes" : "No";
     };
 
 
@@ -8953,7 +9062,7 @@ $scope.nextDiv = function(div_num) {
             style: 'btn-default',
             size: 10
         });
-        $('.spFundB option[value="1"]').attr("selected", true);
+        // $('.spFundB option[value="1"]').attr("selected", true);
         $('.spFundB').selectpicker('refresh');
         $timeout(0);
     });
@@ -9020,7 +9129,7 @@ $scope.nextDiv = function(div_num) {
 
     function spFundAChange() {
         selected1 = $('.spFundA option:selected').val();
-        $scope.spFundAName= $scope.fundsOb[selected1].name;
+        $scope.spFundAName = $scope.fundsOb[selected1].name;
         if (Number(selected1) >= 307) {
             if (Number(selected1) == 311) {
                 $scope.fundNotFoundA = true;
@@ -9050,7 +9159,7 @@ $scope.nextDiv = function(div_num) {
 
     function spFundBChange() {
         selected2 = $('.spFundB option:selected').val();
-        $scope.spFundBName= $scope.fundsOb[selected2].name;
+        $scope.spFundBName = $scope.fundsOb[selected2].name;
         if (Number(selected2) >= 307) {
             if (Number(selected2) == 311) {
                 $scope.fundNotFoundB = true;
@@ -9250,7 +9359,7 @@ $scope.nextDiv = function(div_num) {
 
             var pensionStart = Number($scope.pensionStart);
 
-            var minPension = false;//!$scope.showPensionOption; //to be checked
+            var minPension = false; //!$scope.showPensionOption; //to be checked
 
 
             var ddBase = Number($scope.pensionDrawdownBase.replaceAll('$', '').replaceAll(',', ''));
@@ -9285,7 +9394,7 @@ $scope.nextDiv = function(div_num) {
 
             var pensionStart = Number($scope.pensionStartSpouse);
 
-            var minPension = false;//!$scope.showPensionOptionSpouse;  //to be checked
+            var minPension = false; //!$scope.showPensionOptionSpouse;  //to be checked
 
             var ddBase = Number($scope.pensionDrawdownBaseSpouse.replaceAll('$', '').replaceAll(',', ''));
 
@@ -9825,7 +9934,7 @@ $scope.nextDiv = function(div_num) {
             }
         }
         http.send(params);
-        
+
     }
 
     $scope.final_data = {
@@ -9859,8 +9968,8 @@ $scope.nextDiv = function(div_num) {
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_27", "FIELD_VALUE": $scope.rateOfReturn },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_28", "FIELD_VALUE": $scope.retirementAge },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_29", "FIELD_VALUE": $scope.pensionStart },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_30", "FIELD_VALUE": $scope.showPensionOption }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_31", "FIELD_VALUE": $scope.pensionDrawdownBase }, 
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_30", "FIELD_VALUE": $scope.showPensionOption },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_31", "FIELD_VALUE": $scope.pensionDrawdownBase },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_32", "FIELD_VALUE": $scope.target },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_33", "FIELD_VALUE": $scope.annualSalarySpouse },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_34", "FIELD_VALUE": $scope.superBalanceSpouse },
@@ -9902,13 +10011,13 @@ $scope.nextDiv = function(div_num) {
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_70", "FIELD_VALUE": $scope.ageChildren4 },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_71", "FIELD_VALUE": $scope.ageChildren5 },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_72", "FIELD_VALUE": $scope.funeralCost },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_166", "FIELD_VALUE": $scope.spEducationOption }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_167", "FIELD_VALUE": $scope.spState }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_168", "FIELD_VALUE": $scope.spSchoolType }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_169", "FIELD_VALUE": $scope.spSchoolName }, 
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_166", "FIELD_VALUE": $scope.spEducationOption },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_167", "FIELD_VALUE": $scope.spState },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_168", "FIELD_VALUE": $scope.spSchoolType },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_169", "FIELD_VALUE": $scope.spSchoolName },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_73", "FIELD_VALUE": $scope.educationExpensePerYearPerChild },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_74", "FIELD_VALUE": $scope.familyLivingCostPerYear },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_170", "FIELD_VALUE": $scope.buyOption }, 
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_170", "FIELD_VALUE": $scope.buyOption },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_171", "FIELD_VALUE": $scope.valueOfNewProperty },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_172", "FIELD_VALUE": $scope.moneyToBeBorrowed },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_75", "FIELD_VALUE": $scope.ecLife },
@@ -9916,7 +10025,7 @@ $scope.nextDiv = function(div_num) {
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_77", "FIELD_VALUE": $scope.ecIP },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_78", "FIELD_VALUE": $scope.ecTrauma },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_79", "FIELD_VALUE": $scope.sickLeaves },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_175", "FIELD_VALUE": $scope.lifeOption }, 
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_175", "FIELD_VALUE": $scope.lifeOption },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_80", "FIELD_VALUE": $scope.homeValue },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_81", "FIELD_VALUE": $scope.homeContents },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_82", "FIELD_VALUE": $scope.vehicleCost },
@@ -9991,175 +10100,265 @@ $scope.nextDiv = function(div_num) {
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_147", "FIELD_VALUE": $scope.schoolDuration5 },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_148", "FIELD_VALUE": $scope.schoolSelected5 },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_149", "FIELD_VALUE": $scope.majorSelected5 }
-        ]
+        ],
+        "iaObj": {
+            "age": 50,
+            "grossAnnualIncome": 120000,
+            "funeralCost": 20000,
+            "familyLivingCostPerYear": 90000,
+            "hasSpouse": true,
+            "hasChildren": true,
+            "sickLeaves": 20,
+            "assets": {
+                "homeValue": 800000,
+                "cashAtBank": 20000,
+                "otherInvestment": 20000,
+                "superBalance": 100000
+            },
+            "existingCovers": {
+                "life": 20000,
+                "TPD": 0,
+                "IP": 0,
+                "trauma": 0
+            },
+            "assumptions": {
+                "inflation": 2,
+                "rateOfReturn": 5
+            },
+            "liabilities": {
+                "homeMortgage": 20000,
+                "investmentPropertyMortgage": 10000,
+                "creditCardDebt": 3000,
+                "carLoan": 20000,
+                "personalLoan": 10000,
+                "otherLoan": 0
+            },
+            "spouseDetails": {
+                "age": 47,
+                "isWorking": true,
+                "salary": 50000,
+                "moveToSmallerProperty": true,
+                "valueOfNewProperty": 500000,
+                "moneyToBeBorrowed": 400000
+            },
+            "childrenDetails": {
+                "numChildren": 0,
+                "ages": [3, 7],
+                "educationExpensePerYearPerChild": 2000
+            },
+            "width": "1100",
+            "height": "600"
+        },
+        "itObj": {
+            "annualSalary": 60000,
+            "paymentFrequency": 1,
+            "width": "660",
+            "height": "360"
+        },
+        "raObj": {
+            "spouseOption": false,
+            "houseOption": true,
+            "targetIncome": 10000,
+            "userDetails": {
+                "gender": "male",
+                "age": 56,
+                "retirementAge": 65,
+                "annualSalary": 260000,
+                "superBalance": 500000,
+                "salarySacrifice": 15384,
+                "pensionStartAge": 57
+            },
+            "userAssumptions": {
+                "insurancePremium": 0,
+                "investmentReturn": 5.30,
+                "variableFee": 1.11,
+                "fixedFee": 300,
+                "employerContributionLevel": 9.50,
+                "inflation": 3.50,
+                "wageIncrease": 4.00,
+                "pensionDrawdown": 1,
+                "pensionDrawdownBase": 40000
+            },
+            "spouseDetails": {
+                "gender": "female",
+                "age": 50,
+                "retirementAge": 70,
+                "annualSalary": 90000,
+                "superBalance": 200000,
+                "salarySacrifice": 5000,
+                "pensionStartAge": 65
+            },
+            "spouseAssumptions": {
+                "insurancePremium": 0,
+                "investmentReturn": 5.30,
+                "variableFee": 1.11,
+                "fixedFee": 300,
+                "employerContributionLevel": 9.50,
+                "inflation": 3.50,
+                "wageIncrease": 4.00,
+                "pensionDrawdown": 1,
+                "pensionDrawdownBase": 30000
+            },
+            "otherAssets": {
+                "homeContents": 50000,
+                "vehicleCost": 0,
+                "investmentProperty": 2000,
+                "bankAssets": 20000,
+                "listedInvestments": 0,
+                "marginLoans": 0,
+                "otherInvestment": 20000,
+                "netRentalIncome": 0,
+                "otherIncome": 0,
+                "pensionIncome": 0,
+                "allocatedPension": 60000
+            },
+            "width": "1039",
+            "height": "441"
+        },
+        "sfcObj": {
+            "age": 47,
+            "retirementAge": 67,
+            "annualSalary": 60000,
+            "superBalance": 100000,
+            "cc": 10000,
+            "ncc": 10000,
+            "ecLevel": 9.5,
+            "inflation": 2.5,
+            "wageIncrease": 3.5,
+            "insurancePremiumPerYear": 200,
+            "netReturn": 2.90,
+            "fundASelectedId": 0,
+            "fundNameA": "Special fund 1",
+            "contributionFeeA": 1.50,
+            "adminFeeA": 100,
+            "indirectCostRationA": 1.50,
+            "fundBSelectedId": 1,
+            "fundNameB": "Special fund 2",
+            "contributionFeeB": 1.50,
+            "adminFeeB": 100,
+            "indirectCostRationB": 1.50,
+            "width": "741",
+            "height": "690"
+        },
+        "ssoObj": {
+            "age": 19,
+            "cses": 80000,
+            "thp": 45000,
+            "fy": 2016,
+            "width": "741",
+            "height": "744"
+        },
+        "ttrObj": {
+            "age": 46,
+            "cses": 80000,
+            "thp": 45000,
+            "fy": 2016,
+            "nra": 6,
+            "nrp": 7,
+            "balance": 50000,
+            "tfp": 2,
+            "width": "700",
+            "height": "741"
+        },
+        "psfObj": {
+            "begnYearInvestment": 2017,
+            "numChildren": 2,
+            "contStartYear": 2017,
+            "spState": 0,
+            "spPort": 0,
+            "firstChild": {
+                "c1Name": "Max",
+                "schoolId1": true,
+                "schoolYear1": 2017,
+                "schoolDuration1": 6,
+                "major1": 0,
+                "studyingOption1": 0
+            },
+            "secondChild": {
+                "c2Name": "Monica",
+                "schoolId2": true,
+                "schoolYear2": 2017,
+                "schoolDuration2": 6,
+                "major2": 0,
+                "studyingOption2": 0
+            },
+            "thirdChild": {
+                "c3Name": "john",
+                "schoolId3": true,
+                "schoolYear3": 2017,
+                "schoolDuration3": 6,
+                "major3": 0,
+                "studyingOption3": 0
+            },
+            "fourthChild": {
+                "c4Name": "Rita",
+                "schoolId4": true,
+                "schoolYear4": 2017,
+                "schoolDuration4": 6,
+                "major4": 0,
+                "studyingOption4": 0
+            },
+            "fifthChild": {
+                "c5Name": "Tom",
+                "schoolId5": true,
+                "schoolYear5": 2017,
+                "schoolDuration5": 6,
+                "major5": 0,
+                "studyingOption5": 0
+            },
+            "sixthChild": {
+                "c6Name": "Mike",
+                "schoolId6": true,
+                "schoolYear6": 2017,
+                "schoolDuration6": 6,
+                "major6": 0,
+                "studyingOption6": 0
+            },
+            "width": "110",
+            "height": "110"
+        },
+        "aaObj": {
+            "initialInvestmentAmount": 50000,
+            "alterOption": true,
+            "alterYear": 1,
+            "birthYear": 1997,
+            "birthMonth": 1,
+            "birthDay": 1,
+            "initial": {
+                "australianShares1": 10,
+                "internationalShares1": 10,
+                "internationalSharesHedged1": 10,
+                "usShares1": 10,
+                "australianBonds1": 10,
+                "internationalBondsHedged1": 10,
+                "cash1": 10,
+                "australianListedProperty1": 10,
+                "internationalListedProperty1": 20
+            },
+            "altered": {
+                "australianShares2": 10,
+                "internationalShares2": 10,
+                "internationalSharesHedged2": 10,
+                "usShares2": 10,
+                "australianBonds2": 10,
+                "internationalBondsHedged2": 10,
+                "cash2": 30,
+                "australianListedProperty2": 10,
+                "internationalListedProperty2": 0
+            },
+            "width": "110",
+            "height": "110"
+        }
     };
-    /*$scope.custom_field =[
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_1", "FIELD_VALUE": $scope.healthOption },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_2", "FIELD_VALUE": $scope.spouseOption },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_3", "FIELD_VALUE": $scope.diseaseOption },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_4", "FIELD_VALUE": $scope.hospitalCoverOption },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_5", "FIELD_VALUE": $scope.willOption },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_6", "FIELD_VALUE": $scope.spouseDetails.firstName },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_7", "FIELD_VALUE": $scope.spouseDetails.lastName },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_8", "FIELD_VALUE": $scope.genderOptionSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_9", "FIELD_VALUE": $scope.dobSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_10", "FIELD_VALUE": $scope.spouseDetails.mobile },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_11", "FIELD_VALUE": $scope.fy },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_12", "FIELD_VALUE": $scope.annualSalary },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_13", "FIELD_VALUE": $scope.grossAnnualIncome },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_14", "FIELD_VALUE": $scope.superBalance },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_15", "FIELD_VALUE": $scope.cashAtBank },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_16", "FIELD_VALUE": $scope.salarySacrifice },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_17", "FIELD_VALUE": $scope.ncc },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_18", "FIELD_VALUE": $scope.superTaxRate },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_19", "FIELD_VALUE": $scope.thp },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_20", "FIELD_VALUE": $scope.insurancePremium },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_21", "FIELD_VALUE": $scope.investmentReturn },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_22", "FIELD_VALUE": $scope.variableFee },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_23", "FIELD_VALUE": $scope.fixedFee },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_24", "FIELD_VALUE": $scope.employerContributionLevel },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_25", "FIELD_VALUE": $scope.inflation },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_26", "FIELD_VALUE": $scope.wageIncrease },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_27", "FIELD_VALUE": $scope.rateOfReturn },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_28", "FIELD_VALUE": $scope.retirementAge },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_29", "FIELD_VALUE": $scope.pensionStart },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_30", "FIELD_VALUE": $scope.showPensionOption }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_31", "FIELD_VALUE": $scope.pensionDrawdownBase }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_32", "FIELD_VALUE": $scope.target },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_33", "FIELD_VALUE": $scope.annualSalarySpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_34", "FIELD_VALUE": $scope.superBalanceSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_35", "FIELD_VALUE": $scope.salarySacrificeSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_36", "FIELD_VALUE": $scope.insurancePremiumSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_37", "FIELD_VALUE": $scope.investmentReturnSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_38", "FIELD_VALUE": $scope.variableFeeSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_39", "FIELD_VALUE": $scope.fixedFeeSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_40", "FIELD_VALUE": $scope.employerContributionLevelSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_41", "FIELD_VALUE": $scope.inflationSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_42", "FIELD_VALUE": $scope.wageIncreaseSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_43", "FIELD_VALUE": $scope.retirementAgeSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_44", "FIELD_VALUE": $scope.pensionStartSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_45", "FIELD_VALUE": $scope.showPensionOptionSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_46", "FIELD_VALUE": $scope.pensionDrawdownBaseSpouse },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_47", "FIELD_VALUE": $scope.spFundAType },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_48", "FIELD_VALUE": $scope.spFundBType },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_49", "FIELD_VALUE": $scope.spFundAName },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_50", "FIELD_VALUE": $scope.spFundBName },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_51", "FIELD_VALUE": $scope.netReturn },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_52", "FIELD_VALUE": $scope.fundNameA },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_53", "FIELD_VALUE": $scope.contributionFeeA },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_54", "FIELD_VALUE": $scope.adminFeeA },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_55", "FIELD_VALUE": $scope.indirectCostRationA },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_56", "FIELD_VALUE": $scope.fundNameB },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_57", "FIELD_VALUE": $scope.contributionFeeB },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_58", "FIELD_VALUE": $scope.adminFeeB },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_59", "FIELD_VALUE": $scope.indirectCostRationB },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_60", "FIELD_VALUE": $scope.homeMortgage },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_61", "FIELD_VALUE": $scope.investmentPropertyMortgage },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_62", "FIELD_VALUE": $scope.creditCardDebt },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_63", "FIELD_VALUE": $scope.carLoan },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_64", "FIELD_VALUE": $scope.personalLoan },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_65", "FIELD_VALUE": $scope.otherLoan },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_66", "FIELD_VALUE": $scope.numChildren },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_67", "FIELD_VALUE": $scope.ageChildren1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_68", "FIELD_VALUE": $scope.ageChildren2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_69", "FIELD_VALUE": $scope.ageChildren3 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_70", "FIELD_VALUE": $scope.ageChildren4 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_71", "FIELD_VALUE": $scope.ageChildren5 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_72", "FIELD_VALUE": $scope.funeralCost },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_166", "FIELD_VALUE": $scope.spEducationOption }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_167", "FIELD_VALUE": $scope.spState }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_168", "FIELD_VALUE": $scope.spSchoolType }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_169", "FIELD_VALUE": $scope.spSchoolName }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_73", "FIELD_VALUE": $scope.educationExpensePerYearPerChild },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_74", "FIELD_VALUE": $scope.familyLivingCostPerYear },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_170", "FIELD_VALUE": $scope.buyOption }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_171", "FIELD_VALUE": $scope.valueOfNewProperty },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_172", "FIELD_VALUE": $scope.moneyToBeBorrowed },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_75", "FIELD_VALUE": $scope.ecLife },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_76", "FIELD_VALUE": $scope.ecTPD },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_77", "FIELD_VALUE": $scope.ecIP },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_78", "FIELD_VALUE": $scope.ecTrauma },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_79", "FIELD_VALUE": $scope.sickLeaves },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_175", "FIELD_VALUE": $scope.lifeOption }, 
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_80", "FIELD_VALUE": $scope.homeValue },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_81", "FIELD_VALUE": $scope.homeContents },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_82", "FIELD_VALUE": $scope.vehicleCost },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_83", "FIELD_VALUE": $scope.investmentProperty },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_84", "FIELD_VALUE": $scope.bankAssets },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_85", "FIELD_VALUE": $scope.listedInvestment },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_86", "FIELD_VALUE": $scope.marginLoans },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_87", "FIELD_VALUE": $scope.allocatedPension },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_88", "FIELD_VALUE": $scope.otherInvestment },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_89", "FIELD_VALUE": $scope.netRentalIncome },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_90", "FIELD_VALUE": $scope.otherIncome },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_91", "FIELD_VALUE": $scope.pensionIncome },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_92", "FIELD_VALUE": $scope.nra },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_93", "FIELD_VALUE": $scope.tfp },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_94", "FIELD_VALUE": $scope.nrp },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_95", "FIELD_VALUE": $scope.beforeTTR },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_96", "FIELD_VALUE": $scope.initialInvestmentAmount },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_97", "FIELD_VALUE": $scope.australianShares1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_98", "FIELD_VALUE": $scope.internationalShares1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_99", "FIELD_VALUE": $scope.internationalSharesHedged1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_100", "FIELD_VALUE": $scope.usShares1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_101", "FIELD_VALUE": $scope.australianBonds1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_102", "FIELD_VALUE": $scope.internationalBondsHedged1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_103", "FIELD_VALUE": $scope.cash1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_104", "FIELD_VALUE": $scope.australianListedProperty1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_105", "FIELD_VALUE": $scope.internationalListedProperty1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_106", "FIELD_VALUE": $scope.asset1Total },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_107", "FIELD_VALUE": $scope.yesOrNoArray($scope.alterOption) },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_108", "FIELD_VALUE": $scope.alterYear },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_109", "FIELD_VALUE": $scope.australianShares2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_110", "FIELD_VALUE": $scope.internationalShares2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_111", "FIELD_VALUE": $scope.internationalSharesHedged2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_112", "FIELD_VALUE": $scope.usShares2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_113", "FIELD_VALUE": $scope.australianBonds2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_114", "FIELD_VALUE": $scope.internationalBondsHedged2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_115", "FIELD_VALUE": $scope.cash2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_116", "FIELD_VALUE": $scope.australianListedProperty2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_117", "FIELD_VALUE": $scope.internationalListedProperty2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_118", "FIELD_VALUE": $scope.asset2Total },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_119", "FIELD_VALUE": $scope.begnYearInvestment },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_120", "FIELD_VALUE": $scope.contStartYear },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_121", "FIELD_VALUE": $scope.spPort },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_122", "FIELD_VALUE": $scope.c1Name },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_123", "FIELD_VALUE": $scope.spStudyingOption1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_124", "FIELD_VALUE": $scope.schoolYear1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_125", "FIELD_VALUE": $scope.schoolDuration1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_173", "FIELD_VALUE": $scope.schoolSelected1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_126", "FIELD_VALUE": $scope.majorSelected1 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_127", "FIELD_VALUE": $scope.c2Name },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_128", "FIELD_VALUE": $scope.spStudyingOption2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_129", "FIELD_VALUE": $scope.schoolYear2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_130", "FIELD_VALUE": $scope.schoolDuration2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_131", "FIELD_VALUE": $scope.schoolSelected2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_174", "FIELD_VALUE": $scope.majorSelected2 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_132", "FIELD_VALUE": $scope.c3Name },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_133", "FIELD_VALUE": $scope.spStudyingOption3 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_134", "FIELD_VALUE": $scope.schoolYear3 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_135", "FIELD_VALUE": $scope.schoolDuration3 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_136", "FIELD_VALUE": $scope.schoolSelected3 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_137", "FIELD_VALUE": $scope.majorSelected3 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_138", "FIELD_VALUE": $scope.c4Name },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_139", "FIELD_VALUE": $scope.spStudyingOption4 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_140", "FIELD_VALUE": $scope.schoolYear4 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_141", "FIELD_VALUE": $scope.schoolDuration4 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_142", "FIELD_VALUE": $scope.schoolSelected4 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_143", "FIELD_VALUE": $scope.majorSelected4 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_144", "FIELD_VALUE": $scope.c5Name },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_145", "FIELD_VALUE": $scope.spStudyingOption5 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_146", "FIELD_VALUE": $scope.schoolYear5 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_147", "FIELD_VALUE": $scope.schoolDuration5 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_148", "FIELD_VALUE": $scope.schoolSelected5 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_149", "FIELD_VALUE": $scope.majorSelected5 }
-        ];*/
-    
-/*$scope.customFieldObj={};
-    for(i=0; i<$scope.custom_field.length;i++){ 
-     $scope.customFieldObj[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE ;
- } 
- console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", $scope.customFieldObj);*/
+
+
+
+
+    /*$scope.customFieldObj={};
+        for(i=0; i<$scope.custom_field.length;i++){ 
+         $scope.customFieldObj[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE ;
+     } 
+     console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", $scope.customFieldObj);*/
 
 
     $scope.calculatePdf = function() {
@@ -10167,9 +10366,9 @@ $scope.nextDiv = function(div_num) {
      $scope.customFieldObj[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE 
  } 
  console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", $scope.customFieldObj);*/
- UserService.customFieldsUpdate($scope.final_data);
- UserService.generatePdf($scope.final_data);
- console.log("requsest sent");
+        UserService.customFieldsUpdate($scope.final_data);
+        UserService.generatePdf($scope.final_data);
+        console.log("requsest sent");
     }
 
 
@@ -10639,28 +10838,28 @@ $scope.nextDiv = function(div_num) {
 
         $scope.saveWithNew = false;
     };
-	
-	
-	//to add a Goal
-   $scope.addGoal= function(index,severity) {
-	   $scope.showTooltip = index;
-	    $scope.goalBasedAdvice[index].severity= severity;
-	   removeClass();
-   	};
-	
-	
-	//to remove a class to hide intial tooltip
-	var removeClass = function(){
-		  $timeout(function(){
-		  	$scope.showTooltip = "";
-          },3000); 
-	};
-	
-	//to remove a Goal
-   $scope.removeGoal= function(index,severity) {
-	   $scope.showTooltip = "";
-	   $scope.goalBasedAdvice[index].severity= 'false';
-	   console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq",$scope.showTooltip, $scope.goalBasedAdvice[index].severity);
-   	};
-	
+
+
+    //to add a Goal
+    $scope.addGoal = function(index, severity) {
+        $scope.showTooltip = index;
+        $scope.goalBasedAdvice[index].severity = severity;
+        removeClass();
+    };
+
+
+    //to remove a class to hide intial tooltip
+    var removeClass = function() {
+        $timeout(function() {
+            $scope.showTooltip = "";
+        }, 3000);
+    };
+
+    //to remove a Goal
+    $scope.removeGoal = function(index, severity) {
+        $scope.showTooltip = "";
+        $scope.goalBasedAdvice[index].severity = 'false';
+        console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", $scope.showTooltip, $scope.goalBasedAdvice[index].severity);
+    };
+
 }]);
