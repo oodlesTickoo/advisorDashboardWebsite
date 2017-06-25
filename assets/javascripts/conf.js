@@ -20,7 +20,7 @@ app.config(function ($httpProvider) {
             },
             response: function(response){
              
-              return response
+              return response;
             }
         };
     });

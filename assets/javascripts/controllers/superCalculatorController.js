@@ -1,45 +1,48 @@
 ////// Up dated upstream
 app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope,UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
-	
-	
-
-    $scope.healthOption="Excellent";       
-    $scope.diseaseOption  ="Yes";     
-    $scope.hospitalCoverOption ="Full Cover";      
-    $scope.willOption ="No";
-    $scope.showPensionOption = 'Select Your Own Value';
-    $scope.showPensionOptionSpouse = 'Minimum Pension Only';
-	$scope.spState = $scope.stateListOb[0].name;
-  	$scope.genderOption = true;
+    
+    // $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
+    $scope.fy = CONTACT_FIELD_11;
+    $scope.smokeOption = false;
+    $scope.healthOption=CONTACT_FIELD_1;       
+    $scope.diseaseOption  =CONTACT_FIELD_3;     
+    $scope.hospitalCoverOption =CONTACT_FIELD_4;      
+    $scope.willOption =CONTACT_FIELD_5;
+    $scope.showPensionOption = CONTACT_FIELD_30;
+    $scope.showPensionOptionSpouse = CONTACT_FIELD_45;
+    $scope.spState = CONTACT_FIELD_167;//$scope.stateListOb[0].name;
+    $scope.genderOption = true;
     $scope.spouseOption = CONTACT_FIELD_2  ; //yes
-    $scope.genderOptionSpouse = false;  
-	$scope.spFundAType="MySuper Fund"; 
-	$scope.spFundBType="MySuper Fund";
-    $scope.spouseWorkOption = true;
-	$scope.buyOption="Yes"; 
-	$scope.spEducationOption=$scope.eductionOptionOb[0].name; 
-	$scope.spSchoolType = $scope.schoolTypeOb[0].name;
-	$scope.lifeOption="Yes";
-	 $scope.alterOption = false;
+    $scope.genderOptionSpouse = CONTACT_FIELD_8;   ///true
+    $scope.spFundAType=CONTACT_FIELD_47; 
+    $scope.spFundBType=CONTACT_FIELD_48;
+    $scope.spFundAName=CONTACT_FIELD_49;
+    $scope.spFundBName=CONTACT_FIELD_50;
 
-	 $scope.spStudyingOption1='Yes';
-    $scope.spStudyingOption2='Yes';
-    $scope.spStudyingOption3='Yes';
-    $scope.spStudyingOption4='Yes';
-    $scope.spStudyingOption5='Yes';
-	
-	$scope.spStudyingOption1=CONTACT_FIELD_123;
+     
+
+    $scope.netReturn= CONTACT_FIELD_51;//$scope.investOptions[0].netReturn;
+    $scope.spouseWorkOption = true;
+    $scope.buyOption=CONTACT_FIELD_170; 
+    $scope.spEducationOption=CONTACT_FIELD_166;//$scope.eductionOptionOb[0].name; 
+    $scope.spSchoolType =CONTACT_FIELD_168; //$scope.schoolTypeOb[0].name;
+    $scope.lifeOption=CONTACT_FIELD_175;
+    $scope.alterOption = CONTACT_FIELD_107; //
+
+    $scope.spSchoolName = CONTACT_FIELD_169;//`$scope.privateSchoolObjects[0].name;
+    
+    $scope.spStudyingOption1=CONTACT_FIELD_123;
     $scope.spStudyingOption2=CONTACT_FIELD_128;
     $scope.spStudyingOption3=CONTACT_FIELD_133;
     $scope.spStudyingOption4=CONTACT_FIELD_139;
     $scope.spStudyingOption5=CONTACT_FIELD_145;
-	
- 	$scope.schoolSelected1=$scope.privateSchoolObjects[schoolArray[0]].name;
-	$scope.schoolSelected2=$scope.privateSchoolObjects[schoolArray[1]].name;
-	$scope.schoolSelected3=$scope.privateSchoolObjects[schoolArray[2]].name;
-	$scope.schoolSelected4=$scope.privateSchoolObjects[schoolArray[3]].name;
-	$scope.schoolSelected5=$scope.privateSchoolObjects[schoolArray[4]].name;
-	$scope.schoolSelected6=$scope.privateSchoolObjects[schoolArray[5]].name;
+    
+    /*$scope.schoolSelected1=$scope.privateSchoolObjects[schoolArray[0]].name;
+    $scope.schoolSelected2=$scope.privateSchoolObjects[schoolArray[1]].name;
+    $scope.schoolSelected3=$scope.privateSchoolObjects[schoolArray[2]].name;
+    $scope.schoolSelected4=$scope.privateSchoolObjects[schoolArray[3]].name;
+    $scope.schoolSelected5=$scope.privateSchoolObjects[schoolArray[4]].name;
+    $scope.schoolSelected6=$scope.privateSchoolObjects[schoolArray[5]].name;*/
 
     $scope.schoolSelected1=CONTACT_FIELD_173;
     $scope.schoolSelected2=CONTACT_FIELD_131;
@@ -47,8 +50,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     $scope.schoolSelected4=CONTACT_FIELD_142;
     $scope.schoolSelected5=CONTACT_FIELD_148;
     
-	
-	$scope.majorSelected1=CONTACT_FIELD_126;
+    
+    $scope.majorSelected1=CONTACT_FIELD_126;
     $scope.majorSelected2=CONTACT_FIELD_174;
     $scope.majorSelected3=CONTACT_FIELD_137;
     $scope.majorSelected4=CONTACT_FIELD_143;
@@ -56,7 +59,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
 
     $scope.spPort = CONTACT_FIELD_121;
 
-	$scope.majorSelected1=$scope.majorFeesListObj[0].name;
+    /*$scope.majorSelected1=$scope.majorFeesListObj[0].name;
     $scope.majorSelected2=$scope.majorFeesListObj[0].name;
     $scope.majorSelected3=$scope.majorFeesListObj[0].name;
     $scope.majorSelected4=$scope.majorFeesListObj[0].name;
@@ -79,7 +82,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
     }
 
     for(let i=0;i<$scope.fundsOb.length;i++){
-    $scope.majorSelected5=$scope.majorFeesListObj[0].name;
+        if($scope.spFundAName === $scope.fundsOb[i].name){
             $scope.spFundAId=$scope.fundsOb[i].id;
         }
     }
@@ -111,16 +114,16 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $(".spFundAType option[value='"+$scope.spFundAType+"']").attr("selected", true);
         $(".spFundBType option[value='"+$scope.spFundBType+"']").attr("selected", true);
         $(".spFundA option[value='"+$scope.spFundAId+"']").attr("selected", true);
-        $(".spInvestOption option[value='"+$scope.spFundBType+"']").attr("selected", true);
+        $(".spFundB option[value='"+$scope.spFundBId+"']").attr("selected", true);
         $(".spInvestOption option[value='"+$scope.spInvestOption+"']").attr("selected", true);
-		 
+         
         $("#select-spouseWork-option option[value='"+$scope.spouseWorkOption+"']").attr("selected", true);
         $("#select-buy-option option[value='"+$scope.buyOption+"']").attr("selected", true);
         $(".spEducationOption option[value='"+$scope.spEducationOption+"']").attr("selected", true);
         $(".spSchoolType option[value='"+$scope.spSchoolType+"']").attr("selected", true);
         $(".spLifeOption option[value='"+$scope.lifeOption+"']").attr("selected", true);
         $(".spAlterOption option[value='"+$scope.alterOption+"']").attr("selected", true);
-		 
+         
         $(".spStudyingOption1 option[value='"+$scope.spStudyingOption1+"']").attr("selected", true);
         $(".spStudyingOption2 option[value='"+$scope.spStudyingOption2+"']").attr("selected", true);
         $(".spStudyingOption3 option[value='"+$scope.spStudyingOption3+"']").attr("selected", true);
@@ -132,29 +135,29 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope','UserService
         $(".spSchool4 option[value='"+$scope.schoolSelected4+"']").attr("selected", true);
         $(".spSchool5 option[value='"+$scope.schoolSelected5+"']").attr("selected", true);
         $(".spSchool6 option[value='"+$scope.schoolSelected6+"']").attr("selected", true);
-		 
+         
         $(".spMajor1 option[value='"+$scope.majorSelected1+"']").attr("selected", true);
         $(".spMajor2 option[value='"+$scope.majorSelected2+"']").attr("selected", true);
         $(".spMajor3 option[value='"+$scope.majorSelected3+"']").attr("selected", true);
         $(".spMajor4 option[value='"+$scope.majorSelected4+"']").attr("selected", true);
         $(".spMajor5 option[value='"+$scope.majorSelected5+"']").attr("selected", true);
-		 
-		 
+         
+         
         $timeout(0);
     });
-	
+    
    console.log("In Calc controller", $rootScope.addGoal);
-	$scope.showTooltip= "";
-	
-	
-	//to get goals and custom fields from service
-	$scope.goalBasedAdvice = GoalBasedAdviceService.goalBasedAdvice();
-	$scope.customField = GoalBasedAdviceService.custom_field.customFieldObj;
+    $scope.showTooltip= "";
+    
+    
+    //to get goals and custom fields from service
+    $scope.goalBasedAdvice = GoalBasedAdviceService.goalBasedAdvice();
+    $scope.customField = GoalBasedAdviceService.custom_field.customFieldObj;
     console.log('Calc controllerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr',$scope.goalBasedAdvice, $scope.customField);
-	
-	
-	
-	//to go to scrollbased advice section
+    
+    
+    
+    //to go to scrollbased advice section
 ////////////
 app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
 
@@ -1212,10 +1215,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
 
 
 
-
-    /*$('select[name=spHealthOption]').val($scope.healthOption);
-    $('.selectpicker').selectpicker('refresh');*/
-
     $('.spHealthOption').on('change', function() {
         $scope.healthOption = $('.spHealthOption option:selected').val();
         $timeout(0);
@@ -1289,7 +1288,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         schoolOperation();
     });
 
-    $scope.spSchoolName=$scope.privateSchoolObjects[0].name;
+    // $scope.spSchoolName = $scope.privateSchoolObjects[0].name; ****
 
     $('.spSchool').on('change', function() {
         $scope.spSchool = $('.spSchool option:selected').val();
@@ -1409,58 +1408,15 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         { id: 1, name: 'super' }
     ];
 
-	
-    $scope.investOptions = [{
-        id: 0,
-        name: 'Cash',
-        netReturn: 2.90
-    }, {
-        id: 1,
-        name: 'Conservative',
-        netReturn: 4.20
-    }, {
-        id: 2,
-        name: 'Moderate',
-        netReturn: 5.00
-    }, {
-        id: 3,
-        name: 'Balanced',
-        netReturn: 5.70
-    }, {
-        id: 4,
-        name: 'Growth',
-        netReturn: 6.20
-    }, {
-        id: 5,
-        name: 'High Growth',
-        netReturn: 6.60
-    }];
-
-    $scope.investOptions = [{
-        id: 0,
-        name: 'Cash',
-        netReturn: 2.90
-    }, {
-        id: 1,
-        name: 'Conservative',
-        netReturn: 4.20
-    }, {
-        id: 2,
-        name: 'Moderate',
-        netReturn: 5.00
-    }, {
-        id: 3,
-        name: 'Balanced',
-        netReturn: 5.70
-    }, {
-        id: 4,
-        name: 'Growth',
-        netReturn: 6.20
-    }, {
-        id: 5,
-        name: 'High Growth',
-        netReturn: 6.60
-    ];
+    
+    /*$scope.investOptions = [
+        { id: 0, name: 'Cash', netReturn: 2.90 },
+        { id: 1, name: 'Conservative', netReturn: 4.20 },
+        { id: 2, name: 'Moderate', netReturn: 5.00 },
+        { id: 3, name: 'Balanced', netReturn: 5.70 },
+        { id: 4, name: 'Growth', netReturn: 6.20 },
+        { id: 5, name: 'High Growth', netReturn: 6.60 }
+    ];*/
 
     $scope.schoolObjects = [{
         id: 0,
@@ -3259,35 +3215,15 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
 
     }
 
-    $scope.spPort="Conservative Cautious";
+    // $scope.spPort = "Conservative Cautious";
     $('input:radio[name=portfolioRadio]').change(function() {
-        $scope.spPort=this.value;
-        /*if (this.value == 'Conservative Cautious') {
-            $scope.porfolioChange(0);
-        } else if (this.value == 'Balanced Optimistic') {
-            $scope.porfolioChange(1);
-        } else {
-            $scope.porfolioChange(2);
-        }*/
+        $scope.spPort = this.value;
+        
 
         $timeout(0);
 
     });
 
-
-    /*$scope.porfolioChange = function(val) {
-        //console.log("port", val);
-        $scope.spPort = val;
-        $timeout(0);
-    };*/
-
-       /* $scope.schoolSelected1=$scope.privateSchoolObjects[schoolArray[0]].name;
-        $scope.schoolSelected2=$scope.privateSchoolObjects[schoolArray[1]].name;
-        $scope.schoolSelected3=$scope.privateSchoolObjects[schoolArray[2]].name;
-        $scope.schoolSelected4=$scope.privateSchoolObjects[schoolArray[3]].name;
-        $scope.schoolSelected5=$scope.privateSchoolObjects[schoolArray[4]].name;
-        $scope.schoolSelected6=$scope.privateSchoolObjects[schoolArray[5]].name;*/
-    
 
     $('.spSchool1').on('change', function() {
         schoolArray[0] = $('.spSchool1 option:selected').val();
@@ -3860,7 +3796,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     });*/
 
 /*<<<<<<< Updated upstream
-   /* $scope.spStudyingOption1='Yes';
+    $scope.spStudyingOption1='Yes';
     $scope.spStudyingOption2='Yes';
     $scope.spStudyingOption3='Yes';
     $scope.spStudyingOption4='Yes';
@@ -4123,7 +4059,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     var propertyPurchasingPowerArray = [];
 
 /*<<<<<<< Updated upstream
-    /*$scope.majorSelected1=$scope.majorFeesListObj[0].name;
+    $scope.majorSelected1=$scope.majorFeesListObj[0].name;
     $scope.majorSelected2=$scope.majorFeesListObj[0].name;
     $scope.majorSelected3=$scope.majorFeesListObj[0].name;
     $scope.majorSelected4=$scope.majorFeesListObj[0].name;
@@ -9124,8 +9060,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         spFundBTypeChange();
     });
 
-    $scope.spFundAName=$scope.fundsOb[0].name;
-    $scope.spFundBName=$scope.fundsOb[1].name;
+    /*$scope.spFundAName = $scope.fundsOb[0].name;
+    $scope.spFundBName = $scope.fundsOb[1].name;*/
 
     function spFundAChange() {
         selected1 = $('.spFundA option:selected').val();
@@ -9194,8 +9130,13 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
 
     
 
+//<<<<<<< Updated upstream
   /*  $scope.spFundAType="MySuper Fund";*/
    /* $scope.spFundBType="MySuper Fund";*/
+/*=======
+    $scope.spFundAType = "MySuper Fund";
+    $scope.spFundBType = "MySuper Fund";
+>>>>>>> Stashed changes*/
 
     function spFundATypeChange() {
         $scope.spFundAType = $('.spFundAType option:selected').val();
