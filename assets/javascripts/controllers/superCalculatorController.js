@@ -10409,7 +10409,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         var link = document.createElement('a');
         document.body.appendChild(link);
         link.href = fileURL;
-        link.target = '_blank';
+        //link.target = '_blank';
         link.click();
         $rootScope.isLoading = false;
         $timeout(0);
