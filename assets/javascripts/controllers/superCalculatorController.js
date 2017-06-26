@@ -10385,21 +10385,14 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     };
 
     console.log("$scope.final_data",$scope.final_data);
-
-
-
-    /*var customFieldObj1={};
-    for(i=0; i<$scope.custom_field1.length;i++){ 
-        customFieldObj1[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE ;
-    } 
-     console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", customFieldObj1);
-*/
+    $scope.customFieldObj22={};
 
     $scope.calculatePdf = function() {
-        /*for(i=0; i<$scope.custom_field.length;i++){ 
-     $scope.customFieldObj[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE 
- } 
- console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", $scope.customFieldObj);*/
+        for(i=0; i<$scope.final_data.custom_field.length;i++){ 
+            $scope.customFieldObj22[$scope.final_data.custom_field[i].CUSTOM_FIELD_ID] = $scope.final_data.custom_field[i].FIELD_VALUE ;
+        } 
+        console.log("customFieldObj22", $scope.customFieldObj22);
+        $scope.final_data[customFieldMap]=$scope.customFieldObj22;
         //UserService.customFieldsUpdate($scope.final_data);
         UserService.generatePdf($scope.final_data);
         console.log("requsest sent");
