@@ -10400,11 +10400,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         console.log("customFieldObj22", $scope.customFieldObj22);
         $scope.final_data["customFieldMap"]=$scope.customFieldObj22;
         UserService.customFieldsUpdate($scope.final_data);
-        UserService.generatePdf($scope.final_data).then(function(data111){
+        /*UserService.generatePdf($scope.final_data).then(function(data111){
             console.log("response aaaaaaaaaaaa gyaaaaaaa",data111);
             console.log("response aaaaaaaaaaaa gyaaaaaaa 11111111111",data111.data.response.filePath);
             SaveToDisk(data111.data.response.filePath,data111.data.response.fileName);
-         });
+         });*/
         console.log("requsest sent");
     }
 
