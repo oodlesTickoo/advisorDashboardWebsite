@@ -1,7 +1,10 @@
 (function() {
     'use strict';
 
-    app.factory("GoalBasedAdviceService", function($rootScope) {
+    app.factory("GoalBasedAdviceService", function($rootScope,$state) {
+            if($rootScope.latestObj===undefined){
+                    $state.go('login');
+            }
 
         var customFieldObj = {
             CONTACT_FIELD_154: $rootScope.latestObj.CONTACT_FIELD_154,
