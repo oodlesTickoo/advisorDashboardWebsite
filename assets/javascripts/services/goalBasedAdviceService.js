@@ -1,22 +1,22 @@
 (function() {
     'use strict';
 
-    app.factory("GoalBasedAdviceService", function() {
+    app.factory("GoalBasedAdviceService", function($rootScope) {
 
         var customFieldObj = {
-            CONTACT_FIELD_154: "false",
-            CONTACT_FIELD_155: "Low",
-            CONTACT_FIELD_156: "false",
-            CONTACT_FIELD_157: "false",
-            CONTACT_FIELD_158: "false",
-            CONTACT_FIELD_159: "Medium",
-            CONTACT_FIELD_160: "High",
-            CONTACT_FIELD_161: "false",
-            CONTACT_FIELD_162: "false",
-            CONTACT_FIELD_163: "false",
-            CONTACT_FIELD_164: "false",
-            CONTACT_FIELD_165: "false"
-        }
+            CONTACT_FIELD_154: $rootScope.latestObj.CONTACT_FIELD_154,
+            CONTACT_FIELD_155: $rootScope.latestObj.CONTACT_FIELD_155,
+            CONTACT_FIELD_156: $rootScope.latestObj.CONTACT_FIELD_156,
+            CONTACT_FIELD_157: $rootScope.latestObj.CONTACT_FIELD_157,
+            CONTACT_FIELD_158: $rootScope.latestObj.CONTACT_FIELD_158,
+            CONTACT_FIELD_159: $rootScope.latestObj.CONTACT_FIELD_159,
+            CONTACT_FIELD_160: $rootScope.latestObj.CONTACT_FIELD_160,
+            CONTACT_FIELD_161: $rootScope.latestObj.CONTACT_FIELD_161,
+            CONTACT_FIELD_162: $rootScope.latestObj.CONTACT_FIELD_162,
+            CONTACT_FIELD_163: $rootScope.latestObj.CONTACT_FIELD_163,
+            CONTACT_FIELD_164: $rootScope.latestObj.CONTACT_FIELD_164,
+            CONTACT_FIELD_165: $rootScope.latestObj.CONTACT_FIELD_165
+        };
 
         var goalBasedAdvices = [{
             severity: customFieldObj.CONTACT_FIELD_154,

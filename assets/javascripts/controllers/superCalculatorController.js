@@ -1,16 +1,16 @@
 app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
-    var latestObj = {
+    $rootScope.latestObj = {
         CONTACT_FIELD_1: "Excellent",
-        CONTACT_FIELD_2: false,
+        CONTACT_FIELD_2: "No", //false
         CONTACT_FIELD_3: "Yes",
         CONTACT_FIELD_4: "Full Cover",
         CONTACT_FIELD_5: "No",
         CONTACT_FIELD_6: "Rachel",
         CONTACT_FIELD_7: "Payne",
-        CONTACT_FIELD_8: false,
-        CONTACT_FIELD_9: Sun Jan 01 1984 04: 09: 09 GMT + 0530(IST),
-        CONTACT_FIELD_10: 412121212,
-        CONTACT_FIELD_11: 2016,
+        CONTACT_FIELD_8: "No", //false
+        CONTACT_FIELD_9: "Sun Jan 01 1984 04: 09: 09 GMT + 0530(IST)",
+        CONTACT_FIELD_10: "4123333333",
+        CONTACT_FIELD_11: "2016",
         CONTACT_FIELD_12: "$260,000",
         CONTACT_FIELD_13: "$120,000",
         CONTACT_FIELD_14: "$100,000",
@@ -50,7 +50,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         CONTACT_FIELD_48: "MySuper Fund",
         CONTACT_FIELD_49: "Asgard Infinity Ewrap Super",
         CONTACT_FIELD_50: "ING Direct Living Super",
-        CONTACT_FIELD_51: 2.9,
+        CONTACT_FIELD_51: "2.9",
         CONTACT_FIELD_52: "Fund A",
         CONTACT_FIELD_53: "1.50%",
         CONTACT_FIELD_54: "$100",
@@ -65,12 +65,12 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         CONTACT_FIELD_63: "$20,000",
         CONTACT_FIELD_64: "$0",
         CONTACT_FIELD_65: "$0",
-        CONTACT_FIELD_66: 2,
-        CONTACT_FIELD_67: 3,
-        CONTACT_FIELD_68: 5,
-        CONTACT_FIELD_69: 10,
-        CONTACT_FIELD_70: 10,
-        CONTACT_FIELD_71: 10,
+        CONTACT_FIELD_66: "2",
+        CONTACT_FIELD_67: "3",
+        CONTACT_FIELD_68: "5",
+        CONTACT_FIELD_69: "10",
+        CONTACT_FIELD_70: "10",
+        CONTACT_FIELD_71: "10",
         CONTACT_FIELD_72: "$20,000",
         CONTACT_FIELD_73: "$5,000",
         CONTACT_FIELD_74: "$90,000",
@@ -107,7 +107,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         CONTACT_FIELD_105: "20%",
         CONTACT_FIELD_106: "100%",
         CONTACT_FIELD_107: "No",
-        CONTACT_FIELD_108: 5,
+        CONTACT_FIELD_108: "5",
         CONTACT_FIELD_109: "10%",
         CONTACT_FIELD_110: "10%",
         CONTACT_FIELD_111: "10%",
@@ -158,9 +158,34 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         CONTACT_FIELD_172: "$400,000",
         CONTACT_FIELD_173: "Sydney Grammar School Darlinghurst",
         CONTACT_FIELD_174: "Major in Commerce",
-        CONTACT_FIELD_175: "Yes"
+        CONTACT_FIELD_175: "Yes",
+        CONTACT_FIELD_176: "$3000",
+        CONTACT_FIELD_177: "$20,000",
+        CONTACT_FIELD_154: "false",
+        CONTACT_FIELD_155: "Low",
+        CONTACT_FIELD_156: "false",
+        CONTACT_FIELD_157: "false",
+        CONTACT_FIELD_158: "false",
+        CONTACT_FIELD_159: "Medium",
+        CONTACT_FIELD_160: "High",
+        CONTACT_FIELD_161: "false",
+        CONTACT_FIELD_162: "false",
+        CONTACT_FIELD_163: "false",
+        CONTACT_FIELD_164: "false",
+        CONTACT_FIELD_165: "false",
+        CONTACT_FIELD_178: "Yes",
+        CONTACT_FIELD_179: "No",
+        CONTACT_FIELD_180: "Male",
+        CONTACT_FIELD_181: "1234",
+        CONTACT_FIELD_182: "Yes",
+        CONTACT_FIELD_183: "10",
+        CONTACT_FIELD_184: "10",
+        CONTACT_FIELD_185: "1985",
+        CONTACT_FIELD_186: "02",
+        CONTACT_FIELD_187: "05",
+        CONTACT_FIELD_188: "1987",
     };
-    
+
     $scope.fundTypeA = [
         { id: 0, name: 'MySuper Fund' },
         { id: 1, name: 'Lifestage Fund' },
@@ -1214,1564 +1239,1552 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         { id: 1, name: 'super' }
     ];
 
-    $scope.schoolObjects = [
-        {
-            id: 0,
-            name: "Sydney Grammar School Darlinghurst",
-            address: "College St- Darlinghurst NSW 2010",
-            state: "NSW",
-            upfrontFee: 5489,
-            annualFee: 32644
-        }, {
-            id: 1,
-            name: "PLC Sydney",
-            address: "Boundary St- Croydon NSW 2132",
-            state: "NSW",
-            upfrontFee: 3415,
-            annualFee: 24411
-        }, {
-            id: 2,
-            name: "SCEGGS Darlinghurst",
-            address: "215 Forbes St- Darlinghurst NSW 2010",
-            state: "NSW",
-            upfrontFee: 4950,
-            annualFee: 28348
-        }, {
-            id: 3,
-            name: "The Scotts College Sydney",
-            address: "Victoria Rd- Bellevue Hill NSW 2023",
-            state: "NSW",
-            upfrontFee: 5500,
-            annualFee: 33925
-        }, {
-            id: 4,
-            name: "Pymble Ladies College",
-            address: "Avon Rd- Pymble NSW 2073",
-            state: "NSW",
-            upfrontFee: 3430,
-            annualFee: 24002
-        }, {
-            id: 5,
-            name: "Ascham School",
-            address: "188 New South Head Rd- Edgecliff- NSW 2027",
-            state: "NSW",
-            upfrontFee: 6300,
-            annualFee: 32000
-        }, {
-            id: 6,
-            name: "Abbotsleigh",
-            address: "1666 Pacific Highway- Wahroonga- NSW 2076",
-            state: "NSW",
-            upfrontFee: 1970,
-            annualFee: 28640
-        }, {
-            id: 7,
-            name: "St Aloysius College",
-            address: "47 Upper Pitt Street- Milsons Point 2061 NSW Australia",
-            state: "NSW",
-            upfrontFee: 2650,
-            annualFee: 16278
-        }, {
-            id: 8,
-            name: "Meridan School",
-            address: "10-12 Redmyre Road- Strathfield NSW 2135",
-            state: "NSW",
-            upfrontFee: 1825,
-            annualFee: 28340
-        }, {
-            id: 9,
-            name: "Sydney Church of England Grammar School (SHORE)",
-            address: "Blue Street- North Sydney- NSW- 2060- Australia",
-            state: "NSW",
-            upfrontFee: 2400,
-            annualFee: 24126
-        }, {
-            id: 10,
-            name: "Cranbrook School",
-            address: "5 Victoria Road- Bellevue Hill NSW 2023 Australia",
-            state: "NSW",
-            upfrontFee: 7300,
-            annualFee: 28325
-        }, {
-            id: 11,
-            name: "Knox Grammar School",
-            address: "7 Woodville Ave- Wahroonga 2076 NSW Australia",
-            state: "NSW",
-            upfrontFee: 3000,
-            annualFee: 29430
-        }, {
-            id: 12,
-            name: "The Kings School",
-            address: "87-129 PENNANT HILLS ROAD- NORTH PARRAMATTA- NSW 2151- AUSTRALIA",
-            state: "NSW",
-            upfrontFee: 3850,
-            annualFee: 25345
-        }, {
-            id: 13,
-            name: "ST Ignatius' College",
-            address: "1 Tambourine Bay Road- NSW Lane Cove",
-            state: "NSW",
-            upfrontFee: 4530,
-            annualFee: 23880
-        }, {
-            id: 14,
-            name: "St Joseph's College",
-            address: "Mark Street- Hunters Hill- NSW 2110",
-            state: "NSW",
-            upfrontFee: 3300,
-            annualFee: 29040
-        }, {
-            id: 15,
-            name: "Loreto Normanhurst",
-            address: "91-93 Pennant Hills Road- Normanhurst- Sydney- NSW 2076",
-            state: "NSW",
-            upfrontFee: 3330,
-            annualFee: 19179
-        }, {
-            id: 16,
-            name: "Loreto Kirribilli",
-            address: "85 Carabella Street- Kirribilli NSW 2061- Australia",
-            state: "NSW",
-            upfrontFee: 3220,
-            annualFee: 15645
-        }, {
-            id: 17,
-            name: "Queenswood School for Girls",
-            address: "47 Mandolong Rd- Mosman NSW 2088",
-            state: "NSW",
-            upfrontFee: 4220,
-            annualFee: 25171
-        }, {
-            id: 18,
-            name: "Roseville College",
-            address: "27 Bancroft Avenue Roseville NSW 2069 Australia",
-            state: "NSW",
-            upfrontFee: 1220,
-            annualFee: 20735
-        }, {
-            id: 19,
-            name: "Parramatta Marist High School",
-            address: "2 DARCY ROAD- WESTMEAD NSW AUSTRALIA 2145",
-            state: "NSW",
-            upfrontFee: 1220,
-            annualFee: 4473
-        }, {
-            id: 20,
-            name: "Barker College",
-            address: "91 Pacific Highway Hornsby NSW 2077",
-            state: "NSW",
-            upfrontFee: 3800,
-            annualFee: 25140
-        }, {
-            id: 21,
-            name: "Ruyton Girls' School, Kew.",
-            address: "12 Selbourne Rd- Kew VIC 3101",
-            state: "VIC",
-            upfrontFee: 1610,
-            annualFee: 22360
-        }, {
-            id: 22,
-            name: "Shelford Girls' Grammar, Caulfield.",
-            address: "3 Hood Cres- Caulfield VIC 3161",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 25518
-        }, {
-            id: 23,
-            name: "Fintona Girls' School, Balwyn.",
-            address: "79 Balwyn Rd- Balwyn VIC 3103",
-            state: "VIC",
-            upfrontFee: 1150,
-            annualFee: 20399
-        }, {
-            id: 24,
-            name: "Lauriston Girls' School, Aramadale.",
-            address: "38 Huntingtower Rd- Armadale VIC 3143",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 27160
-        }, {
-            id: 25,
-            name: "Loreto Mandeville Hall, Toorak.",
-            address: "10 Mandeville Cres- Toorak VIC 3142",
-            state: "VIC",
-            upfrontFee: 1900,
-            annualFee: 22398
-        }, {
-            id: 26,
-            name: "Prebyterian Ladies' College, Burwood.",
-            address: "141 Burwood Hwy- Burwood VIC 3125",
-            state: "VIC",
-            upfrontFee: 1300,
-            annualFee: 23479
-        }, {
-            id: 27,
-            name: "Camberwell Girls' Grammar School, Canterbury.",
-            address: " 2 Torrington St- Canterbury VIC 3126",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 19051
-        }, {
-            id: 28,
-            name: "Melbourne Girls Grammar School, South Yarra.",
-            address: "86 Anderson St- South Yarra VIC 3141",
-            state: "VIC",
-            upfrontFee: 1650,
-            annualFee: 27746
-        }, {
-            id: 29,
-            name: "Mentone Girls' Grammar School, Mentone.",
-            address: "11 Mentone Parade- Mentone VIC 3194",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 22354
-        }, {
-            id: 30,
-            name: "Korowa Anglican Girls' School Glen Iris.",
-            address: "10-16 Ranfurlie Cres- Glen Iris VIC 3146",
-            state: "VIC",
-            upfrontFee: 900,
-            annualFee: 27138
-        }, {
-            id: 31,
-            name: "Camberwell Grammar School, Canterbury.",
-            address: "55 Mont Albert Rd- Canterbury VIC 3126",
-            state: "VIC",
-            upfrontFee: 1330,
-            annualFee: 25600
-        }, {
-            id: 32,
-            name: "Scotch College, Hawthorn. ",
-            address: "1 Morrison St- Hawthorn VIC 3122",
-            state: "VIC",
-            upfrontFee: 1600,
-            annualFee: 29912
-        }, {
-            id: 33,
-            name: "Melbourne Grammar School, South Yarra.",
-            address: "355 St Kilda Rd- Melbourne VIC 3004",
-            state: "VIC",
-            upfrontFee: 3900,
-            annualFee: 24885
-        }, {
-            id: 34,
-            name: "Caulfield Grammar School, St Kilda",
-            address: "217 Glen Eira Road- East St. Kilda- Melbourne- Victoria 3183",
-            state: "VIC",
-            upfrontFee: 2100,
-            annualFee: 23789
-        }, {
-            id: 35,
-            name: "Haileybury College, Keysborough.",
-            address: "855 Springvale Road Keysborough VIC 3173",
-            state: "VIC",
-            upfrontFee: 2500,
-            annualFee: 24702
-        }, {
-            id: 36,
-            name: "Xavier College, Kew.",
-            address: "135 Barkers Road- Melbourne- Kew- Victoria",
-            state: "VIC",
-            upfrontFee: 945,
-            annualFee: 21957
-        }, {
-            id: 37,
-            name: "Trinity Grammar School, Kew.",
-            address: "40 Charles St- Kew- Melbourne Victoria 3101",
-            state: "VIC",
-            upfrontFee: 2360,
-            annualFee: 26349
-        }, {
-            id: 38,
-            name: "St Kevin's College, Toorak.",
-            address: "31 Moonga Rd- Toorak VIC 3142",
-            state: "VIC",
-            upfrontFee: 3000,
-            annualFee: 16290
-        }, {
-            id: 39,
-            name: "Brighton Grammar School, Brighton",
-            address: "90 Outer Cres- Brighton VIC 3186",
-            state: "VIC",
-            upfrontFee: 2200,
-            annualFee: 25247
-        }, {
-            id: 40,
-            name: "Firbank Grammar School, Brighton",
-            address: "51 Outer Crescent- Brighton VIC 3186",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 24769
-        }, {
-            id: 41,
-            name: "St Leonard's College, Brighton East.",
-            address: "163 South Road- Brighton East VIC 3187",
-            state: "VIC",
-            upfrontFee: 1800,
-            annualFee: 23415
-        }, {
-            id: 42,
-            name: "Brisbane Grammar School",
-            address: "24 Gregory Terrace- Spring Hill QLD 4000",
-            state: "QLD",
-            upfrontFee: 2550,
-            annualFee: 23000
-        }, {
-            id: 43,
-            name: "Brisbane Girls Grammer School",
-            address: "70 Gregory Terrace- Spring Hill QLD 4000",
-            state: "QLD",
-            upfrontFee: 2040,
-            annualFee: 22520
-        }, {
-            id: 44,
-            name: "Ormiston College",
-            address: "97 Dundas St W- Ormiston QLD 4160",
-            state: "QLD",
-            upfrontFee: 795,
-            annualFee: 2527
-        }, {
-            id: 45,
-            name: "Somerville House",
-            address: "17 Graham St- South Brisbane QLD 4101",
-            state: "QLD",
-            upfrontFee: 1530,
-            annualFee: 18292
-        }, {
-            id: 46,
-            name: "Brisbane Boys College",
-            address: "Kensington Terrace- Toowong QLD 4066",
-            state: "QLD",
-            upfrontFee: 1960,
-            annualFee: 18434
-        }, {
-            id: 47,
-            name: "St Aidan's Anglican Girls School",
-            address: "11 Ruthven St- Corinda QLD 4075",
-            state: "QLD",
-            upfrontFee: 1300,
-            annualFee: 17272
-        }, {
-            id: 48,
-            name: "Anglican Church Grammar School",
-            address: "Oaklands Parade- East Brisbane QLD 4169",
-            state: "QLD",
-            upfrontFee: 1930,
-            annualFee: 18813
-        }, {
-            id: 49,
-            name: "Clayfield College",
-            address: "23 Gregory Street- Clayfield QLD 4011",
-            state: "QLD",
-            upfrontFee: 1135,
-            annualFee: 17031
-        }, {
-            id: 50,
-            name: "Cannon Hill Anglican College",
-            address: "Junction Rd- Cannon Hill QLD 4170",
-            state: "QLD",
-            upfrontFee: 1250,
-            annualFee: 10386
-        }, {
-            id: 51,
-            name: "Sheldon College",
-            address: "Taylor Road- Sheldon- QLD 4157",
-            state: "QLD",
-            upfrontFee: 660,
-            annualFee: 11479
-        }, {
-            id: 52,
-            name: "St Margarets Anglican Girls School",
-            address: "11 Petrie St- Ascot QLD 4007",
-            state: "QLD",
-            upfrontFee: 1220,
-            annualFee: 17762
-        }, {
-            id: 53,
-            name: "Hillbrook Anglican School",
-            address: "45 Hurdcotte Street Enoggera QLD 4051",
-            state: "QLD",
-            upfrontFee: 1610,
-            annualFee: 11092
-        }, {
-            id: 54,
-            name: "st peters lutheran college",
-            address: "66 Harts Rd- Indooroopilly QLD 4068",
-            state: "QLD",
-            upfrontFee: 1100,
-            annualFee: 15806
-        }, {
-            id: 55,
-            name: "Moreton Bay College",
-            address: "450 Wondall Rd- Manly West QLD 4179",
-            state: "QLD",
-            upfrontFee: 1100,
-            annualFee: 12532
-        }, {
-            id: 56,
-            name: "St Rita's College, Clayfield",
-            address: "41 Enderley Rd- Clayfield QLD 4011",
-            state: "QLD",
-            upfrontFee: 1100,
-            annualFee: 7120
-        }, {
-            id: 57,
-            name: "The Southport School",
-            address: "2 Winchester St- Southport QLD 4215",
-            state: "QLD",
-            upfrontFee: 1500,
-            annualFee: 15030
-        }, {
-            id: 58,
-            name: "St Joseph's College Gregory Terrace",
-            address: "Gregory Terrace- Brisbane- QLD 4000- Australia",
-            state: "QLD",
-            upfrontFee: 2420,
-            annualFee: 8215
-        }, {
-            id: 59,
-            name: "The Lakes College",
-            address: "2 College St- North Lakes QLD 4509",
-            state: "QLD",
-            upfrontFee: 500,
-            annualFee: 8415
-        }, {
-            id: 60,
-            name: "Redeemer Lutheran College",
-            address: "745 Rochedale Rd- Rochedale QLD 4123",
-            state: "QLD",
-            upfrontFee: 700,
-            annualFee: 8979
-        }, {
-            id: 61,
-            name: "Moreton Bay Boys College",
-            address: "302 Manly Rd- Manly West QLD 4179",
-            state: "QLD",
-            upfrontFee: 1100,
-            annualFee: 11023
-        }, {
-            id: 62,
-            name: "Wilderness School, Medindie.",
-            address: "30 Hawkers Rd- Medindie SA 5081",
-            state: "SA",
-            upfrontFee: 1050,
-            annualFee: 18888
-        }, {
-            id: 63,
-            name: "St Peter's College ",
-            address: "57 Hackney Rd- Hackney SA 5069",
-            state: "SA",
-            upfrontFee: 2600,
-            annualFee: 20520
-        }, {
-            id: 64,
-            name: "St Peter's Girls Collegiate Girls' School",
-            address: "Stonyfell Rd- Stonyfell SA 5066",
-            state: "SA",
-            upfrontFee: 970,
-            annualFee: 17285
-        }, {
-            id: 65,
-            name: "Walford Anglican School for Girls",
-            address: "316 Unley Rd- Hyde Park SA 5061",
-            state: "SA",
-            upfrontFee: 1095,
-            annualFee: 19301
-        }, {
-            id: 66,
-            name: "Prince Alfred College",
-            address: "23 Dequetteville Terrace- Kent Town SA 5067",
-            state: "SA",
-            upfrontFee: 1100,
-            annualFee: 17319
-        }, {
-            id: 67,
-            name: "Seymour College",
-            address: "546 Portrush Rd- Glen Osmond SA 5064",
-            state: "SA",
-            upfrontFee: 1050,
-            annualFee: 19679
-        }, {
-            id: 68,
-            name: "Pulteney Grammar School",
-            address: "190 South Terrace ADELAIDE SA 5000",
-            state: "SA",
-            upfrontFee: 850,
-            annualFee: 18946
-        }, {
-            id: 69,
-            name: "St Aloysius College, Adelaide",
-            address: "53 Wakefield St- Adelaide SA 5000",
-            state: "SA",
-            upfrontFee: 600,
-            annualFee: 7636
-        }, {
-            id: 70,
-            name: "St Dominics Priory College",
-            address: "119/139 Molesworth St- North Adelaide SA 5006",
-            state: "SA",
-            upfrontFee: 0,
-            annualFee: 6674
-        }, {
-            id: 71,
-            name: "St John's Grammar School",
-            address: "29 Gloucester Ave- Belair SA 5052",
-            state: "SA",
-            upfrontFee: 688,
-            annualFee: 11811
-        }, {
-            id: 72,
-            name: "Woodcroft College",
-            address: "143-173 Bains Rd- Morphett Vale SA 5162",
-            state: "SA",
-            upfrontFee: 755,
-            annualFee: 6297
-        }, {
-            id: 73,
-            name: "St Ignatious College, Adelaide",
-            address: "2 Manresa Ct- Athelstone SA 5076",
-            state: "SA",
-            upfrontFee: 975,
-            annualFee: 14013
-        }, {
-            id: 74,
-            name: "Pedare Christian College",
-            address: "2-30 Surrey Farm Dr- Golden Grove SA 5125",
-            state: "SA",
-            upfrontFee: 150,
-            annualFee: 7502
-        }, {
-            id: 75,
-            name: "Westminster School",
-            address: "1-27 Alison Avenue- Marion- South Australia ",
-            state: "SA",
-            upfrontFee: 800,
-            annualFee: 17932
-        }, {
-            id: 76,
-            name: "Kings Baptist Grammar School",
-            address: "no address",
-            state: "SA",
-            upfrontFee: 175,
-            annualFee: 0
-        }, {
-            id: 77,
-            name: "Scotch College Adelaide",
-            address: "Carruth Road- Torrens Park South Australia 5062",
-            state: "SA",
-            upfrontFee: 1150,
-            annualFee: 19668
-        }, {
-            id: 78,
-            name: "Concordia College",
-            address: "45 Cheltenham St- Highgate SA 5063",
-            state: "SA",
-            upfrontFee: 75,
-            annualFee: 8820
-        }, {
-            id: 79,
-            name: "Pembroke School",
-            address: "342 The Parade- Kensington Park SA 5068",
-            state: "SA",
-            upfrontFee: 860,
-            annualFee: 19690
-        }, {
-            id: 80,
-            name: "Loreto College, Marryatville",
-            address: "316 Portrush Rd- Marryatville SA 5068",
-            state: "SA",
-            upfrontFee: 745,
-            annualFee: 14664
-        }, {
-            id: 81,
-            name: "Trinity College, Gawler",
-            address: "Alexander Ave- Evanston South SA 5116",
-            state: "SA",
-            upfrontFee: 540,
-            annualFee: 4622
-        }, {
-            id: 82,
-            name: "Hale School",
-            address: "160 Hale Rd- Wembley Downs WA 6019",
-            state: "WA",
-            upfrontFee: 8250,
-            annualFee: 21450
-        }, {
-            id: 83,
-            name: "Christ Church Grammar School",
-            address: "Queenslea Dr- Claremont WA 6010",
-            state: "WA",
-            upfrontFee: 6700,
-            annualFee: 23088
-        }, {
-            id: 84,
-            name: "All Saints College",
-            address: "Ewing Ave.- Bull Creek WA 6149",
-            state: "WA",
-            upfrontFee: 5423,
-            annualFee: 16534
-        }, {
-            id: 85,
-            name: "St Mary's Anglican Girls School",
-            address: "75 Elliott Rd- Karrinyup WA 6018",
-            state: "WA",
-            upfrontFee: 5545,
-            annualFee: 18394
-        }, {
-            id: 86,
-            name: "St Hilda's Anglican Girls School",
-            address: "26 Bay View Terrace- Mosman Park WA 6012",
-            state: "WA",
-            upfrontFee: 4959,
-            annualFee: 20284
-        }, {
-            id: 87,
-            name: "Presbyterian Ladies' College, Perth",
-            address: "14 McNeil St- Peppermint Grove WA 6011",
-            state: "WA",
-            upfrontFee: 4950,
-            annualFee: 20982
-        }, {
-            id: 88,
-            name: "Perth College",
-            address: "31 Lawley Crescent- Mount Lawley WA 6050",
-            state: "WA",
-            upfrontFee: 5742,
-            annualFee: 18701
-        }, {
-            id: 89,
-            name: "Guildford Grammar School ",
-            address: "11 Terrace Rd- Guildford WA 6055",
-            state: "WA",
-            upfrontFee: 2925,
-            annualFee: 18073
-        }, {
-            id: 90,
-            name: "Penrhos College",
-            address: "6 Morrison Street- Como WA 6152",
-            state: "WA",
-            upfrontFee: 5489,
-            annualFee: 19442
-        }, {
-            id: 91,
-            name: "Scotch College, Perth",
-            address: "76 Shenton Rd- Swanbourne WA 6010",
-            state: "WA",
-            upfrontFee: 6687,
-            annualFee: 23499
-        }, {
-            id: 92,
-            name: "John XXIII College, Perth",
-            address: "Mooro Dr- Mount Claremont WA 6010",
-            state: "WA",
-            upfrontFee: 2110,
-            annualFee: 7710
-        }, {
-            id: 93,
-            name: "Santa Maria College",
-            address: "18 Stoneham Rd- Attadale WA 6156",
-            state: "WA",
-            upfrontFee: 1020,
-            annualFee: 10521
-        }, {
-            id: 94,
-            name: "Wesley College, Perth",
-            address: "40 Coode St- South Perth WA 6151",
-            state: "WA",
-            upfrontFee: 7276,
-            annualFee: 20001
-        }, {
-            id: 95,
-            name: "Methodist Ladies College, Perth",
-            address: "356 Stirling Hwy- Claremont WA 6010",
-            state: "WA",
-            upfrontFee: 5320,
-            annualFee: 21203
-        }, {
-            id: 96,
-            name: "St Marks Anglican Community School",
-            address: "St Marks Dr- Hillarys WA 6025",
-            state: "WA",
-            upfrontFee: 2030,
-            annualFee: 7251
-        }, {
-            id: 97,
-            name: "Aquinas College, Perth",
-            address: "58 Mount Henry Rd- Salter Point WA 6152",
-            state: "WA",
-            upfrontFee: 2832,
-            annualFee: 14013
-        }, {
-            id: 98,
-            name: "Trinity College, Perth",
-            address: "2 Trinity Ave- East Perth WA 6004",
-            state: "WA",
-            upfrontFee: 2243,
-            annualFee: 13602
-        }, {
-            id: 99,
-            name: "Sacred Heart College",
-            address: "Hocking Parade- Sorrento WA 6020",
-            state: "WA",
-            upfrontFee: 805,
-            annualFee: 8220
-        }, {
-            id: 100,
-            name: "Newman College Perth",
-            address: "216 Empire Ave- Churchlands WA 6018",
-            state: "WA",
-            upfrontFee: 1110,
-            annualFee: 5715
-        }, {
-            id: 101,
-            name: "Kingsway Christian College",
-            address: "157 Kingsway- Darch WA 6065",
-            state: "WA",
-            upfrontFee: 1320,
-            annualFee: 7288
-        }, {
-            id: 102,
-            name: "Canberra Grammar School",
-            address: "40 Monaro Cres- Red Hill ACT 2603",
-            state: "ACT",
-            upfrontFee: 2975,
-            annualFee: 18753
-        }, {
-            id: 103,
-            name: "Radford College",
-            address: "1 College St- Bruce ACT 2617",
-            state: "ACT",
-            upfrontFee: 950,
-            annualFee: 12307
-        }, {
-            id: 104,
-            name: "Canberra Girls Grammar School",
-            address: "Melbourne Ave- Deakin ACT 2600",
-            state: "ACT",
-            upfrontFee: 150,
-            annualFee: 16942
-        }, {
-            id: 105,
-            name: "Burgmann Anglican School",
-            address: "Gungahlin Dr & The Valley Avenue- Gungahlin ACT 291",
-            state: "ACT",
-            upfrontFee: 875,
-            annualFee: 8413
-        }, {
-            id: 106,
-            name: "Brindabella Christian College",
-            address: "136 Brigalow St- Lyneham ACT 2602",
-            state: "ACT",
-            upfrontFee: 700,
-            annualFee: 5874
-        }, {
-            id: 107,
-            name: "Marist College",
-            address: "27 Marr St- Pearce ACT 2607",
-            state: "ACT",
-            upfrontFee: 400,
-            annualFee: 8644
-        }, {
-            id: 108,
-            name: "Orana Steiner School",
-            address: "Unwin Place- ACT 2611",
-            state: "ACT",
-            upfrontFee: 550,
-            annualFee: 6467
-        }, {
-            id: 109,
-            name: "Merici College",
-            address: "Wise St- Braddon ACT 2612",
-            state: "ACT",
-            upfrontFee: 50,
-            annualFee: 6277
-        }, {
-            id: 110,
-            name: "Emmaus Christian School",
-            address: "73 Davenport St- Dickson ACT 2602",
-            state: "ACT",
-            upfrontFee: 300,
-            annualFee: 6292
-        }, {
-            id: 111,
-            name: "The Friends School, Hobart",
-            address: "23 Commercial Rd- North Hobart TAS 7000",
-            state: "TAS",
-            upfrontFee: 1200,
-            annualFee: 14254
-        }, {
-            id: 112,
-            name: "Fahan School",
-            address: "Fisher Avenue- Lower Sandy Bay TAS 7005",
-            state: "TAS",
-            upfrontFee: 2100,
-            annualFee: 12412
-        }, {
-            id: 113,
-            name: "St Michael's Collegiate School",
-            address: "218 Macquarie St- Hobart TAS 7000",
-            state: "TAS",
-            upfrontFee: 1110,
-            annualFee: 12908
-        }, {
-            id: 114,
-            name: "The Hutchins School",
-            address: "71 Nelson Rd- Sandy Bay TAS 7005",
-            state: "TAS",
-            upfrontFee: 1610,
-            annualFee: 13400
-        }, {
-            id: 115,
-            name: "St Mary's College, Hobart",
-            address: "164 Harrington St- Hobart TAS 7000",
-            state: "TAS",
-            upfrontFee: 0,
-            annualFee: 3958
-        }, {
-            id: 116,
-            name: "Launceston Chruch Grammar School",
-            address: "36 Button St- Mowbray TAS 7248",
-            state: "TAS",
-            upfrontFee: 100,
-            annualFee: 12900
-        }, {
-            id: 117,
-            name: "Launceston Christian School",
-            address: " 452A W Tamar Hwy- Riverside TAS 7250",
-            state: "TAS",
-            upfrontFee: 1300,
-            annualFee: 4802
-        }
-    ];
-    $scope.schoolObject_NSW = [
-        {
-            id: 0,
-            name: "Sydney Grammar School Darlinghurst",
-            address: "College St- Darlinghurst NSW 2010",
-            state: "NSW",
-            upfrontFee: 5489,
-            annualFee: 32644
-        }, {
-            id: 1,
-            name: "PLC Sydney",
-            address: "Boundary St- Croydon NSW 2132",
-            state: "NSW",
-            upfrontFee: 3415,
-            annualFee: 24411
-        }, {
-            id: 2,
-            name: "SCEGGS Darlinghurst",
-            address: "215 Forbes St- Darlinghurst NSW 2010",
-            state: "NSW",
-            upfrontFee: 4950,
-            annualFee: 28348
-        }, {
-            id: 3,
-            name: "The Scotts College Sydney",
-            address: "Victoria Rd- Bellevue Hill NSW 2023",
-            state: "NSW",
-            upfrontFee: 5500,
-            annualFee: 33925
-        }, {
-            id: 4,
-            name: "Pymble Ladies College",
-            address: "Avon Rd- Pymble NSW 2073",
-            state: "NSW",
-            upfrontFee: 3430,
-            annualFee: 24002
-        }, {
-            id: 5,
-            name: "Ascham School",
-            address: "188 New South Head Rd- Edgecliff- NSW 2027",
-            state: "NSW",
-            upfrontFee: 6300,
-            annualFee: 32000
-        }, {
-            id: 6,
-            name: "Abbotsleigh",
-            address: "1666 Pacific Highway- Wahroonga- NSW 2076",
-            state: "NSW",
-            upfrontFee: 1970,
-            annualFee: 28640
-        }, {
-            id: 7,
-            name: "St Aloysius College",
-            address: "47 Upper Pitt Street- Milsons Point 2061 NSW Australia",
-            state: "NSW",
-            upfrontFee: 2650,
-            annualFee: 16278
-        }, {
-            id: 8,
-            name: "Meridan School",
-            address: "10-12 Redmyre Road- Strathfield NSW 2135",
-            state: "NSW",
-            upfrontFee: 1825,
-            annualFee: 28340
-        }, {
-            id: 9,
-            name: "Sydney Church of England Grammar School (SHORE)",
-            address: "Blue Street- North Sydney- NSW- 2060- Australia",
-            state: "NSW",
-            upfrontFee: 2400,
-            annualFee: 24126
-        }, {
-            id: 10,
-            name: "Cranbrook School",
-            address: "5 Victoria Road- Bellevue Hill NSW 2023 Australia",
-            state: "NSW",
-            upfrontFee: 7300,
-            annualFee: 28325
-        }, {
-            id: 11,
-            name: "Knox Grammar School",
-            address: "7 Woodville Ave- Wahroonga 2076 NSW Australia",
-            state: "NSW",
-            upfrontFee: 3000,
-            annualFee: 29430
-        }, {
-            id: 12,
-            name: "The Kings School",
-            address: "87-129 PENNANT HILLS ROAD- NORTH PARRAMATTA- NSW 2151- AUSTRALIA",
-            state: "NSW",
-            upfrontFee: 3850,
-            annualFee: 25345
-        }, {
-            id: 13,
-            name: "ST Ignatius' College",
-            address: "1 Tambourine Bay Road- NSW Lane Cove",
-            state: "NSW",
-            upfrontFee: 4530,
-            annualFee: 23880
-        }, {
-            id: 14,
-            name: "St Joseph's College",
-            address: "Mark Street- Hunters Hill- NSW 2110",
-            state: "NSW",
-            upfrontFee: 3300,
-            annualFee: 29040
-        }, {
-            id: 15,
-            name: "Loreto Normanhurst",
-            address: "91-93 Pennant Hills Road- Normanhurst- Sydney- NSW 2076",
-            state: "NSW",
-            upfrontFee: 3330,
-            annualFee: 19179
-        }, {
-            id: 16,
-            name: "Loreto Kirribilli",
-            address: "85 Carabella Street- Kirribilli NSW 2061- Australia",
-            state: "NSW",
-            upfrontFee: 3220,
-            annualFee: 15645
-        }, {
-            id: 17,
-            name: "Queenswood School for Girls",
-            address: "47 Mandolong Rd- Mosman NSW 2088",
-            state: "NSW",
-            upfrontFee: 4220,
-            annualFee: 25171
-        }, {
-            id: 18,
-            name: "Roseville College",
-            address: "27 Bancroft Avenue Roseville NSW 2069 Australia",
-            state: "NSW",
-            upfrontFee: 1220,
-            annualFee: 20735
-        }, {
-            id: 19,
-            name: "Parramatta Marist High School",
-            address: "2 DARCY ROAD- WESTMEAD NSW AUSTRALIA 2145",
-            state: "NSW",
-            upfrontFee: 1220,
-            annualFee: 4473
-        }, {
-            id: 20,
-            name: "Barker College",
-            address: "91 Pacific Highway Hornsby NSW 2077",
-            state: "NSW",
-            upfrontFee: 3800,
-            annualFee: 25140
-        }
-    ];
-    $scope.schoolObject_VIC = [
-        {
-            id: 21,
-            name: "Ruyton Girls' School, Kew.",
-            address: "12 Selbourne Rd- Kew VIC 3101",
-            state: "VIC",
-            upfrontFee: 1610,
-            annualFee: 22360
-        }, {
-            id: 22,
-            name: "Shelford Girls' Grammar, Caulfield.",
-            address: "3 Hood Cres- Caulfield VIC 3161",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 25518
-        }, {
-            id: 23,
-            name: "Fintona Girls' School, Balwyn.",
-            address: "79 Balwyn Rd- Balwyn VIC 3103",
-            state: "VIC",
-            upfrontFee: 1150,
-            annualFee: 20399
-        }, {
-            id: 24,
-            name: "Lauriston Girls' School, Aramadale.",
-            address: "38 Huntingtower Rd- Armadale VIC 3143",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 27160
-        }, {
-            id: 25,
-            name: "Loreto Mandeville Hall, Toorak.",
-            address: "10 Mandeville Cres- Toorak VIC 3142",
-            state: "VIC",
-            upfrontFee: 1900,
-            annualFee: 22398
-        }, {
-            id: 26,
-            name: "Prebyterian Ladies' College, Burwood.",
-            address: "141 Burwood Hwy- Burwood VIC 3125",
-            state: "VIC",
-            upfrontFee: 1300,
-            annualFee: 23479
-        }, {
-            id: 27,
-            name: "Camberwell Girls' Grammar School, Canterbury.",
-            address: " 2 Torrington St- Canterbury VIC 3126",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 19051
-        }, {
-            id: 28,
-            name: "Melbourne Girls Grammar School, South Yarra.",
-            address: "86 Anderson St- South Yarra VIC 3141",
-            state: "VIC",
-            upfrontFee: 1650,
-            annualFee: 27746
-        }, {
-            id: 29,
-            name: "Mentone Girls' Grammar School, Mentone.",
-            address: "11 Mentone Parade- Mentone VIC 3194",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 22354
-        }, {
-            id: 30,
-            name: "Korowa Anglican Girls' School Glen Iris.",
-            address: "10-16 Ranfurlie Cres- Glen Iris VIC 3146",
-            state: "VIC",
-            upfrontFee: 900,
-            annualFee: 27138
-        }, {
-            id: 31,
-            name: "Camberwell Grammar School, Canterbury.",
-            address: "55 Mont Albert Rd- Canterbury VIC 3126",
-            state: "VIC",
-            upfrontFee: 1330,
-            annualFee: 25600
-        }, {
-            id: 32,
-            name: "Scotch College, Hawthorn. ",
-            address: "1 Morrison St- Hawthorn VIC 3122",
-            state: "VIC",
-            upfrontFee: 1600,
-            annualFee: 29912
-        }, {
-            id: 33,
-            name: "Melbourne Grammar School, South Yarra.",
-            address: "355 St Kilda Rd- Melbourne VIC 3004",
-            state: "VIC",
-            upfrontFee: 3900,
-            annualFee: 24885
-        }, {
-            id: 34,
-            name: "Caulfield Grammar School, St Kilda",
-            address: "217 Glen Eira Road- East St. Kilda- Melbourne- Victoria 3183",
-            state: "VIC",
-            upfrontFee: 2100,
-            annualFee: 23789
-        }, {
-            id: 35,
-            name: "Haileybury College, Keysborough.",
-            address: "855 Springvale Road Keysborough VIC 3173",
-            state: "VIC",
-            upfrontFee: 2500,
-            annualFee: 24702
-        }, {
-            id: 36,
-            name: "Xavier College, Kew.",
-            address: "135 Barkers Road- Melbourne- Kew- Victoria",
-            state: "VIC",
-            upfrontFee: 945,
-            annualFee: 21957
-        }, {
-            id: 37,
-            name: "Trinity Grammar School, Kew.",
-            address: "40 Charles St- Kew- Melbourne Victoria 3101",
-            state: "VIC",
-            upfrontFee: 2360,
-            annualFee: 26349
-        }, {
-            id: 38,
-            name: "St Kevin's College, Toorak.",
-            address: "31 Moonga Rd- Toorak VIC 3142",
-            state: "VIC",
-            upfrontFee: 3000,
-            annualFee: 16290
-        }, {
-            id: 39,
-            name: "Brighton Grammar School, Brighton",
-            address: "90 Outer Cres- Brighton VIC 3186",
-            state: "VIC",
-            upfrontFee: 2200,
-            annualFee: 25247
-        }, {
-            id: 40,
-            name: "Firbank Grammar School, Brighton",
-            address: "51 Outer Crescent- Brighton VIC 3186",
-            state: "VIC",
-            upfrontFee: 1100,
-            annualFee: 24769
-        }, {
-            id: 41,
-            name: "St Leonard's College, Brighton East.",
-            address: "163 South Road- Brighton East VIC 3187",
-            state: "VIC",
-            upfrontFee: 1800,
-            annualFee: 23415
-        }
-    ];
-    $scope.schoolObject_QLD = [
-        {
-            id: 42,
-            name: "Brisbane Grammar School",
-            address: "24 Gregory Terrace- Spring Hill QLD 4000",
-            state: "QLD",
-            upfrontFee: 2550,
-            annualFee: 23000
-        }, {
-            id: 43,
-            name: "Brisbane Girls Grammer School",
-            address: "70 Gregory Terrace- Spring Hill QLD 4000",
-            state: "QLD",
-            upfrontFee: 2040,
-            annualFee: 22520
-        }, {
-            id: 44,
-            name: "Ormiston College",
-            address: "97 Dundas St W- Ormiston QLD 4160",
-            state: "QLD",
-            upfrontFee: 795,
-            annualFee: 2527
-        }, {
-            id: 45,
-            name: "Somerville House",
-            address: "17 Graham St- South Brisbane QLD 4101",
-            state: "QLD",
-            upfrontFee: 1530,
-            annualFee: 18292
-        }, {
-            id: 46,
-            name: "Brisbane Boys College",
-            address: "Kensington Terrace- Toowong QLD 4066",
-            state: "QLD",
-            upfrontFee: 1960,
-            annualFee: 18434
-        }, {
-            id: 47,
-            name: "St Aidan's Anglican Girls School",
-            address: "11 Ruthven St- Corinda QLD 4075",
-            state: "QLD",
-            upfrontFee: 1300,
-            annualFee: 17272
-        }, {
-            id: 48,
-            name: "Anglican Church Grammar School",
-            address: "Oaklands Parade- East Brisbane QLD 4169",
-            state: "QLD",
-            upfrontFee: 1930,
-            annualFee: 18813
-        }, {
-            id: 49,
-            name: "Clayfield College",
-            address: "23 Gregory Street- Clayfield QLD 4011",
-            state: "QLD",
-            upfrontFee: 1135,
-            annualFee: 17031
-        }, {
-            id: 50,
-            name: "Cannon Hill Anglican College",
-            address: "Junction Rd- Cannon Hill QLD 4170",
-            state: "QLD",
-            upfrontFee: 1250,
-            annualFee: 10386
-        }, {
-            id: 51,
-            name: "Sheldon College",
-            address: "Taylor Road- Sheldon- QLD 4157",
-            state: "QLD",
-            upfrontFee: 660,
-            annualFee: 11479
-        }, {
-            id: 52,
-            name: "St Margarets Anglican Girls School",
-            address: "11 Petrie St- Ascot QLD 4007",
-            state: "QLD",
-            upfrontFee: 1220,
-            annualFee: 17762
-        }, {
-            id: 53,
-            name: "Hillbrook Anglican School",
-            address: "45 Hurdcotte Street Enoggera QLD 4051",
-            state: "QLD",
-            upfrontFee: 1610,
-            annualFee: 11092
-        }, {
-            id: 54,
-            name: "st peters lutheran college",
-            address: "66 Harts Rd- Indooroopilly QLD 4068",
-            state: "QLD",
-            upfrontFee: 1100,
-            annualFee: 15806
-        }, {
-            id: 55,
-            name: "Moreton Bay College",
-            address: "450 Wondall Rd- Manly West QLD 4179",
-            state: "QLD",
-            upfrontFee: 1100,
-            annualFee: 12532
-        }, {
-            id: 56,
-            name: "St Rita's College, Clayfield",
-            address: "41 Enderley Rd- Clayfield QLD 4011",
-            state: "QLD",
-            upfrontFee: 1100,
-            annualFee: 7120
-        }, {
-            id: 57,
-            name: "The Southport School",
-            address: "2 Winchester St- Southport QLD 4215",
-            state: "QLD",
-            upfrontFee: 1500,
-            annualFee: 15030
-        }, {
-            id: 58,
-            name: "St Joseph's College Gregory Terrace",
-            address: "Gregory Terrace- Brisbane- QLD 4000- Australia",
-            state: "QLD",
-            upfrontFee: 2420,
-            annualFee: 8215
-        }, {
-            id: 59,
-            name: "The Lakes College",
-            address: "2 College St- North Lakes QLD 4509",
-            state: "QLD",
-            upfrontFee: 500,
-            annualFee: 8415
-        }, {
-            id: 60,
-            name: "Redeemer Lutheran College",
-            address: "745 Rochedale Rd- Rochedale QLD 4123",
-            state: "QLD",
-            upfrontFee: 700,
-            annualFee: 8979
-        }, {
-            id: 61,
-            name: "Moreton Bay Boys College",
-            address: "302 Manly Rd- Manly West QLD 4179",
-            state: "QLD",
-            upfrontFee: 1100,
-            annualFee: 11023
-        }
-    ];
-    $scope.schoolObject_SA = [
-        {
-            id: 62,
-            name: "Wilderness School, Medindie.",
-            address: "30 Hawkers Rd- Medindie SA 5081",
-            state: "SA",
-            upfrontFee: 1050,
-            annualFee: 18888
-        }, {
-            id: 63,
-            name: "St Peter's College ",
-            address: "57 Hackney Rd- Hackney SA 5069",
-            state: "SA",
-            upfrontFee: 2600,
-            annualFee: 20520
-        }, {
-            id: 64,
-            name: "St Peter's Girls Collegiate Girls' School",
-            address: "Stonyfell Rd- Stonyfell SA 5066",
-            state: "SA",
-            upfrontFee: 970,
-            annualFee: 17285
-        }, {
-            id: 65,
-            name: "Walford Anglican School for Girls",
-            address: "316 Unley Rd- Hyde Park SA 5061",
-            state: "SA",
-            upfrontFee: 1095,
-            annualFee: 19301
-        }, {
-            id: 66,
-            name: "Prince Alfred College",
-            address: "23 Dequetteville Terrace- Kent Town SA 5067",
-            state: "SA",
-            upfrontFee: 1100,
-            annualFee: 17319
-        }, {
-            id: 67,
-            name: "Seymour College",
-            address: "546 Portrush Rd- Glen Osmond SA 5064",
-            state: "SA",
-            upfrontFee: 1050,
-            annualFee: 19679
-        }, {
-            id: 68,
-            name: "Pulteney Grammar School",
-            address: "190 South Terrace ADELAIDE SA 5000",
-            state: "SA",
-            upfrontFee: 850,
-            annualFee: 18946
-        }, {
-            id: 69,
-            name: "St Aloysius College, Adelaide",
-            address: "53 Wakefield St- Adelaide SA 5000",
-            state: "SA",
-            upfrontFee: 600,
-            annualFee: 7636
-        }, {
-            id: 70,
-            name: "St Dominics Priory College",
-            address: "119/139 Molesworth St- North Adelaide SA 5006",
-            state: "SA",
-            upfrontFee: 0,
-            annualFee: 6674
-        }, {
-            id: 71,
-            name: "St John's Grammar School",
-            address: "29 Gloucester Ave- Belair SA 5052",
-            state: "SA",
-            upfrontFee: 688,
-            annualFee: 11811
-        }, {
-            id: 72,
-            name: "Woodcroft College",
-            address: "143-173 Bains Rd- Morphett Vale SA 5162",
-            state: "SA",
-            upfrontFee: 755,
-            annualFee: 6297
-        }, {
-            id: 73,
-            name: "St Ignatious College, Adelaide",
-            address: "2 Manresa Ct- Athelstone SA 5076",
-            state: "SA",
-            upfrontFee: 975,
-            annualFee: 14013
-        }, {
-            id: 74,
-            name: "Pedare Christian College",
-            address: "2-30 Surrey Farm Dr- Golden Grove SA 5125",
-            state: "SA",
-            upfrontFee: 150,
-            annualFee: 7502
-        }, {
-            id: 75,
-            name: "Westminster School",
-            address: "1-27 Alison Avenue- Marion- South Australia ",
-            state: "SA",
-            upfrontFee: 800,
-            annualFee: 17932
-        }, {
-            id: 76,
-            name: "Kings Baptist Grammar School",
-            address: "no address",
-            state: "SA",
-            upfrontFee: 175,
-            annualFee: 0
-        }, {
-            id: 77,
-            name: "Scotch College Adelaide",
-            address: "Carruth Road- Torrens Park South Australia 5062",
-            state: "SA",
-            upfrontFee: 1150,
-            annualFee: 19668
-        }, {
-            id: 78,
-            name: "Concordia College",
-            address: "45 Cheltenham St- Highgate SA 5063",
-            state: "SA",
-            upfrontFee: 75,
-            annualFee: 8820
-        }, {
-            id: 79,
-            name: "Pembroke School",
-            address: "342 The Parade- Kensington Park SA 5068",
-            state: "SA",
-            upfrontFee: 860,
-            annualFee: 19690
-        }, {
-            id: 80,
-            name: "Loreto College, Marryatville",
-            address: "316 Portrush Rd- Marryatville SA 5068",
-            state: "SA",
-            upfrontFee: 745,
-            annualFee: 14664
-        }, {
-            id: 81,
-            name: "Trinity College, Gawler",
-            address: "Alexander Ave- Evanston South SA 5116",
-            state: "SA",
-            upfrontFee: 540,
-            annualFee: 4622
-        }
-    ];
-    $scope.schoolObject_WA = [
-        {
-            id: 82,
-            name: "Hale School",
-            address: "160 Hale Rd- Wembley Downs WA 6019",
-            state: "WA",
-            upfrontFee: 8250,
-            annualFee: 21450
-        }, {
-            id: 83,
-            name: "Christ Church Grammar School",
-            address: "Queenslea Dr- Claremont WA 6010",
-            state: "WA",
-            upfrontFee: 6700,
-            annualFee: 23088
-        }, {
-            id: 84,
-            name: "All Saints College",
-            address: "Ewing Ave.- Bull Creek WA 6149",
-            state: "WA",
-            upfrontFee: 5423,
-            annualFee: 16534
-        }, {
-            id: 85,
-            name: "St Mary's Anglican Girls School",
-            address: "75 Elliott Rd- Karrinyup WA 6018",
-            state: "WA",
-            upfrontFee: 5545,
-            annualFee: 18394
-        }, {
-            id: 86,
-            name: "St Hilda's Anglican Girls School",
-            address: "26 Bay View Terrace- Mosman Park WA 6012",
-            state: "WA",
-            upfrontFee: 4959,
-            annualFee: 20284
-        }, {
-            id: 87,
-            name: "Presbyterian Ladies' College, Perth",
-            address: "14 McNeil St- Peppermint Grove WA 6011",
-            state: "WA",
-            upfrontFee: 4950,
-            annualFee: 20982
-        }, {
-            id: 88,
-            name: "Perth College",
-            address: "31 Lawley Crescent- Mount Lawley WA 6050",
-            state: "WA",
-            upfrontFee: 5742,
-            annualFee: 18701
-        }, {
-            id: 89,
-            name: "Guildford Grammar School ",
-            address: "11 Terrace Rd- Guildford WA 6055",
-            state: "WA",
-            upfrontFee: 2925,
-            annualFee: 18073
-        }, {
-            id: 90,
-            name: "Penrhos College",
-            address: "6 Morrison Street- Como WA 6152",
-            state: "WA",
-            upfrontFee: 5489,
-            annualFee: 19442
-        }, {
-            id: 91,
-            name: "Scotch College, Perth",
-            address: "76 Shenton Rd- Swanbourne WA 6010",
-            state: "WA",
-            upfrontFee: 6687,
-            annualFee: 23499
-        }, {
-            id: 92,
-            name: "John XXIII College, Perth",
-            address: "Mooro Dr- Mount Claremont WA 6010",
-            state: "WA",
-            upfrontFee: 2110,
-            annualFee: 7710
-        }, {
-            id: 93,
-            name: "Santa Maria College",
-            address: "18 Stoneham Rd- Attadale WA 6156",
-            state: "WA",
-            upfrontFee: 1020,
-            annualFee: 10521
-        }, {
-            id: 94,
-            name: "Wesley College, Perth",
-            address: "40 Coode St- South Perth WA 6151",
-            state: "WA",
-            upfrontFee: 7276,
-            annualFee: 20001
-        }, {
-            id: 95,
-            name: "Methodist Ladies College, Perth",
-            address: "356 Stirling Hwy- Claremont WA 6010",
-            state: "WA",
-            upfrontFee: 5320,
-            annualFee: 21203
-        }, {
-            id: 96,
-            name: "St Marks Anglican Community School",
-            address: "St Marks Dr- Hillarys WA 6025",
-            state: "WA",
-            upfrontFee: 2030,
-            annualFee: 7251
-        }, {
-            id: 97,
-            name: "Aquinas College, Perth",
-            address: "58 Mount Henry Rd- Salter Point WA 6152",
-            state: "WA",
-            upfrontFee: 2832,
-            annualFee: 14013
-        }, {
-            id: 98,
-            name: "Trinity College, Perth",
-            address: "2 Trinity Ave- East Perth WA 6004",
-            state: "WA",
-            upfrontFee: 2243,
-            annualFee: 13602
-        }, {
-            id: 99,
-            name: "Sacred Heart College",
-            address: "Hocking Parade- Sorrento WA 6020",
-            state: "WA",
-            upfrontFee: 805,
-            annualFee: 8220
-        }, {
-            id: 100,
-            name: "Newman College Perth",
-            address: "216 Empire Ave- Churchlands WA 6018",
-            state: "WA",
-            upfrontFee: 1110,
-            annualFee: 5715
-        }, {
-            id: 101,
-            name: "Kingsway Christian College",
-            address: "157 Kingsway- Darch WA 6065",
-            state: "WA",
-            upfrontFee: 1320,
-            annualFee: 7288
-        }
-    ];
+    $scope.schoolObjects = [{
+        id: 0,
+        name: "Sydney Grammar School Darlinghurst",
+        address: "College St- Darlinghurst NSW 2010",
+        state: "NSW",
+        upfrontFee: 5489,
+        annualFee: 32644
+    }, {
+        id: 1,
+        name: "PLC Sydney",
+        address: "Boundary St- Croydon NSW 2132",
+        state: "NSW",
+        upfrontFee: 3415,
+        annualFee: 24411
+    }, {
+        id: 2,
+        name: "SCEGGS Darlinghurst",
+        address: "215 Forbes St- Darlinghurst NSW 2010",
+        state: "NSW",
+        upfrontFee: 4950,
+        annualFee: 28348
+    }, {
+        id: 3,
+        name: "The Scotts College Sydney",
+        address: "Victoria Rd- Bellevue Hill NSW 2023",
+        state: "NSW",
+        upfrontFee: 5500,
+        annualFee: 33925
+    }, {
+        id: 4,
+        name: "Pymble Ladies College",
+        address: "Avon Rd- Pymble NSW 2073",
+        state: "NSW",
+        upfrontFee: 3430,
+        annualFee: 24002
+    }, {
+        id: 5,
+        name: "Ascham School",
+        address: "188 New South Head Rd- Edgecliff- NSW 2027",
+        state: "NSW",
+        upfrontFee: 6300,
+        annualFee: 32000
+    }, {
+        id: 6,
+        name: "Abbotsleigh",
+        address: "1666 Pacific Highway- Wahroonga- NSW 2076",
+        state: "NSW",
+        upfrontFee: 1970,
+        annualFee: 28640
+    }, {
+        id: 7,
+        name: "St Aloysius College",
+        address: "47 Upper Pitt Street- Milsons Point 2061 NSW Australia",
+        state: "NSW",
+        upfrontFee: 2650,
+        annualFee: 16278
+    }, {
+        id: 8,
+        name: "Meridan School",
+        address: "10-12 Redmyre Road- Strathfield NSW 2135",
+        state: "NSW",
+        upfrontFee: 1825,
+        annualFee: 28340
+    }, {
+        id: 9,
+        name: "Sydney Church of England Grammar School (SHORE)",
+        address: "Blue Street- North Sydney- NSW- 2060- Australia",
+        state: "NSW",
+        upfrontFee: 2400,
+        annualFee: 24126
+    }, {
+        id: 10,
+        name: "Cranbrook School",
+        address: "5 Victoria Road- Bellevue Hill NSW 2023 Australia",
+        state: "NSW",
+        upfrontFee: 7300,
+        annualFee: 28325
+    }, {
+        id: 11,
+        name: "Knox Grammar School",
+        address: "7 Woodville Ave- Wahroonga 2076 NSW Australia",
+        state: "NSW",
+        upfrontFee: 3000,
+        annualFee: 29430
+    }, {
+        id: 12,
+        name: "The Kings School",
+        address: "87-129 PENNANT HILLS ROAD- NORTH PARRAMATTA- NSW 2151- AUSTRALIA",
+        state: "NSW",
+        upfrontFee: 3850,
+        annualFee: 25345
+    }, {
+        id: 13,
+        name: "ST Ignatius' College",
+        address: "1 Tambourine Bay Road- NSW Lane Cove",
+        state: "NSW",
+        upfrontFee: 4530,
+        annualFee: 23880
+    }, {
+        id: 14,
+        name: "St Joseph's College",
+        address: "Mark Street- Hunters Hill- NSW 2110",
+        state: "NSW",
+        upfrontFee: 3300,
+        annualFee: 29040
+    }, {
+        id: 15,
+        name: "Loreto Normanhurst",
+        address: "91-93 Pennant Hills Road- Normanhurst- Sydney- NSW 2076",
+        state: "NSW",
+        upfrontFee: 3330,
+        annualFee: 19179
+    }, {
+        id: 16,
+        name: "Loreto Kirribilli",
+        address: "85 Carabella Street- Kirribilli NSW 2061- Australia",
+        state: "NSW",
+        upfrontFee: 3220,
+        annualFee: 15645
+    }, {
+        id: 17,
+        name: "Queenswood School for Girls",
+        address: "47 Mandolong Rd- Mosman NSW 2088",
+        state: "NSW",
+        upfrontFee: 4220,
+        annualFee: 25171
+    }, {
+        id: 18,
+        name: "Roseville College",
+        address: "27 Bancroft Avenue Roseville NSW 2069 Australia",
+        state: "NSW",
+        upfrontFee: 1220,
+        annualFee: 20735
+    }, {
+        id: 19,
+        name: "Parramatta Marist High School",
+        address: "2 DARCY ROAD- WESTMEAD NSW AUSTRALIA 2145",
+        state: "NSW",
+        upfrontFee: 1220,
+        annualFee: 4473
+    }, {
+        id: 20,
+        name: "Barker College",
+        address: "91 Pacific Highway Hornsby NSW 2077",
+        state: "NSW",
+        upfrontFee: 3800,
+        annualFee: 25140
+    }, {
+        id: 21,
+        name: "Ruyton Girls' School, Kew.",
+        address: "12 Selbourne Rd- Kew VIC 3101",
+        state: "VIC",
+        upfrontFee: 1610,
+        annualFee: 22360
+    }, {
+        id: 22,
+        name: "Shelford Girls' Grammar, Caulfield.",
+        address: "3 Hood Cres- Caulfield VIC 3161",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 25518
+    }, {
+        id: 23,
+        name: "Fintona Girls' School, Balwyn.",
+        address: "79 Balwyn Rd- Balwyn VIC 3103",
+        state: "VIC",
+        upfrontFee: 1150,
+        annualFee: 20399
+    }, {
+        id: 24,
+        name: "Lauriston Girls' School, Aramadale.",
+        address: "38 Huntingtower Rd- Armadale VIC 3143",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 27160
+    }, {
+        id: 25,
+        name: "Loreto Mandeville Hall, Toorak.",
+        address: "10 Mandeville Cres- Toorak VIC 3142",
+        state: "VIC",
+        upfrontFee: 1900,
+        annualFee: 22398
+    }, {
+        id: 26,
+        name: "Prebyterian Ladies' College, Burwood.",
+        address: "141 Burwood Hwy- Burwood VIC 3125",
+        state: "VIC",
+        upfrontFee: 1300,
+        annualFee: 23479
+    }, {
+        id: 27,
+        name: "Camberwell Girls' Grammar School, Canterbury.",
+        address: " 2 Torrington St- Canterbury VIC 3126",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 19051
+    }, {
+        id: 28,
+        name: "Melbourne Girls Grammar School, South Yarra.",
+        address: "86 Anderson St- South Yarra VIC 3141",
+        state: "VIC",
+        upfrontFee: 1650,
+        annualFee: 27746
+    }, {
+        id: 29,
+        name: "Mentone Girls' Grammar School, Mentone.",
+        address: "11 Mentone Parade- Mentone VIC 3194",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 22354
+    }, {
+        id: 30,
+        name: "Korowa Anglican Girls' School Glen Iris.",
+        address: "10-16 Ranfurlie Cres- Glen Iris VIC 3146",
+        state: "VIC",
+        upfrontFee: 900,
+        annualFee: 27138
+    }, {
+        id: 31,
+        name: "Camberwell Grammar School, Canterbury.",
+        address: "55 Mont Albert Rd- Canterbury VIC 3126",
+        state: "VIC",
+        upfrontFee: 1330,
+        annualFee: 25600
+    }, {
+        id: 32,
+        name: "Scotch College, Hawthorn. ",
+        address: "1 Morrison St- Hawthorn VIC 3122",
+        state: "VIC",
+        upfrontFee: 1600,
+        annualFee: 29912
+    }, {
+        id: 33,
+        name: "Melbourne Grammar School, South Yarra.",
+        address: "355 St Kilda Rd- Melbourne VIC 3004",
+        state: "VIC",
+        upfrontFee: 3900,
+        annualFee: 24885
+    }, {
+        id: 34,
+        name: "Caulfield Grammar School, St Kilda",
+        address: "217 Glen Eira Road- East St. Kilda- Melbourne- Victoria 3183",
+        state: "VIC",
+        upfrontFee: 2100,
+        annualFee: 23789
+    }, {
+        id: 35,
+        name: "Haileybury College, Keysborough.",
+        address: "855 Springvale Road Keysborough VIC 3173",
+        state: "VIC",
+        upfrontFee: 2500,
+        annualFee: 24702
+    }, {
+        id: 36,
+        name: "Xavier College, Kew.",
+        address: "135 Barkers Road- Melbourne- Kew- Victoria",
+        state: "VIC",
+        upfrontFee: 945,
+        annualFee: 21957
+    }, {
+        id: 37,
+        name: "Trinity Grammar School, Kew.",
+        address: "40 Charles St- Kew- Melbourne Victoria 3101",
+        state: "VIC",
+        upfrontFee: 2360,
+        annualFee: 26349
+    }, {
+        id: 38,
+        name: "St Kevin's College, Toorak.",
+        address: "31 Moonga Rd- Toorak VIC 3142",
+        state: "VIC",
+        upfrontFee: 3000,
+        annualFee: 16290
+    }, {
+        id: 39,
+        name: "Brighton Grammar School, Brighton",
+        address: "90 Outer Cres- Brighton VIC 3186",
+        state: "VIC",
+        upfrontFee: 2200,
+        annualFee: 25247
+    }, {
+        id: 40,
+        name: "Firbank Grammar School, Brighton",
+        address: "51 Outer Crescent- Brighton VIC 3186",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 24769
+    }, {
+        id: 41,
+        name: "St Leonard's College, Brighton East.",
+        address: "163 South Road- Brighton East VIC 3187",
+        state: "VIC",
+        upfrontFee: 1800,
+        annualFee: 23415
+    }, {
+        id: 42,
+        name: "Brisbane Grammar School",
+        address: "24 Gregory Terrace- Spring Hill QLD 4000",
+        state: "QLD",
+        upfrontFee: 2550,
+        annualFee: 23000
+    }, {
+        id: 43,
+        name: "Brisbane Girls Grammer School",
+        address: "70 Gregory Terrace- Spring Hill QLD 4000",
+        state: "QLD",
+        upfrontFee: 2040,
+        annualFee: 22520
+    }, {
+        id: 44,
+        name: "Ormiston College",
+        address: "97 Dundas St W- Ormiston QLD 4160",
+        state: "QLD",
+        upfrontFee: 795,
+        annualFee: 2527
+    }, {
+        id: 45,
+        name: "Somerville House",
+        address: "17 Graham St- South Brisbane QLD 4101",
+        state: "QLD",
+        upfrontFee: 1530,
+        annualFee: 18292
+    }, {
+        id: 46,
+        name: "Brisbane Boys College",
+        address: "Kensington Terrace- Toowong QLD 4066",
+        state: "QLD",
+        upfrontFee: 1960,
+        annualFee: 18434
+    }, {
+        id: 47,
+        name: "St Aidan's Anglican Girls School",
+        address: "11 Ruthven St- Corinda QLD 4075",
+        state: "QLD",
+        upfrontFee: 1300,
+        annualFee: 17272
+    }, {
+        id: 48,
+        name: "Anglican Church Grammar School",
+        address: "Oaklands Parade- East Brisbane QLD 4169",
+        state: "QLD",
+        upfrontFee: 1930,
+        annualFee: 18813
+    }, {
+        id: 49,
+        name: "Clayfield College",
+        address: "23 Gregory Street- Clayfield QLD 4011",
+        state: "QLD",
+        upfrontFee: 1135,
+        annualFee: 17031
+    }, {
+        id: 50,
+        name: "Cannon Hill Anglican College",
+        address: "Junction Rd- Cannon Hill QLD 4170",
+        state: "QLD",
+        upfrontFee: 1250,
+        annualFee: 10386
+    }, {
+        id: 51,
+        name: "Sheldon College",
+        address: "Taylor Road- Sheldon- QLD 4157",
+        state: "QLD",
+        upfrontFee: 660,
+        annualFee: 11479
+    }, {
+        id: 52,
+        name: "St Margarets Anglican Girls School",
+        address: "11 Petrie St- Ascot QLD 4007",
+        state: "QLD",
+        upfrontFee: 1220,
+        annualFee: 17762
+    }, {
+        id: 53,
+        name: "Hillbrook Anglican School",
+        address: "45 Hurdcotte Street Enoggera QLD 4051",
+        state: "QLD",
+        upfrontFee: 1610,
+        annualFee: 11092
+    }, {
+        id: 54,
+        name: "st peters lutheran college",
+        address: "66 Harts Rd- Indooroopilly QLD 4068",
+        state: "QLD",
+        upfrontFee: 1100,
+        annualFee: 15806
+    }, {
+        id: 55,
+        name: "Moreton Bay College",
+        address: "450 Wondall Rd- Manly West QLD 4179",
+        state: "QLD",
+        upfrontFee: 1100,
+        annualFee: 12532
+    }, {
+        id: 56,
+        name: "St Rita's College, Clayfield",
+        address: "41 Enderley Rd- Clayfield QLD 4011",
+        state: "QLD",
+        upfrontFee: 1100,
+        annualFee: 7120
+    }, {
+        id: 57,
+        name: "The Southport School",
+        address: "2 Winchester St- Southport QLD 4215",
+        state: "QLD",
+        upfrontFee: 1500,
+        annualFee: 15030
+    }, {
+        id: 58,
+        name: "St Joseph's College Gregory Terrace",
+        address: "Gregory Terrace- Brisbane- QLD 4000- Australia",
+        state: "QLD",
+        upfrontFee: 2420,
+        annualFee: 8215
+    }, {
+        id: 59,
+        name: "The Lakes College",
+        address: "2 College St- North Lakes QLD 4509",
+        state: "QLD",
+        upfrontFee: 500,
+        annualFee: 8415
+    }, {
+        id: 60,
+        name: "Redeemer Lutheran College",
+        address: "745 Rochedale Rd- Rochedale QLD 4123",
+        state: "QLD",
+        upfrontFee: 700,
+        annualFee: 8979
+    }, {
+        id: 61,
+        name: "Moreton Bay Boys College",
+        address: "302 Manly Rd- Manly West QLD 4179",
+        state: "QLD",
+        upfrontFee: 1100,
+        annualFee: 11023
+    }, {
+        id: 62,
+        name: "Wilderness School, Medindie.",
+        address: "30 Hawkers Rd- Medindie SA 5081",
+        state: "SA",
+        upfrontFee: 1050,
+        annualFee: 18888
+    }, {
+        id: 63,
+        name: "St Peter's College ",
+        address: "57 Hackney Rd- Hackney SA 5069",
+        state: "SA",
+        upfrontFee: 2600,
+        annualFee: 20520
+    }, {
+        id: 64,
+        name: "St Peter's Girls Collegiate Girls' School",
+        address: "Stonyfell Rd- Stonyfell SA 5066",
+        state: "SA",
+        upfrontFee: 970,
+        annualFee: 17285
+    }, {
+        id: 65,
+        name: "Walford Anglican School for Girls",
+        address: "316 Unley Rd- Hyde Park SA 5061",
+        state: "SA",
+        upfrontFee: 1095,
+        annualFee: 19301
+    }, {
+        id: 66,
+        name: "Prince Alfred College",
+        address: "23 Dequetteville Terrace- Kent Town SA 5067",
+        state: "SA",
+        upfrontFee: 1100,
+        annualFee: 17319
+    }, {
+        id: 67,
+        name: "Seymour College",
+        address: "546 Portrush Rd- Glen Osmond SA 5064",
+        state: "SA",
+        upfrontFee: 1050,
+        annualFee: 19679
+    }, {
+        id: 68,
+        name: "Pulteney Grammar School",
+        address: "190 South Terrace ADELAIDE SA 5000",
+        state: "SA",
+        upfrontFee: 850,
+        annualFee: 18946
+    }, {
+        id: 69,
+        name: "St Aloysius College, Adelaide",
+        address: "53 Wakefield St- Adelaide SA 5000",
+        state: "SA",
+        upfrontFee: 600,
+        annualFee: 7636
+    }, {
+        id: 70,
+        name: "St Dominics Priory College",
+        address: "119/139 Molesworth St- North Adelaide SA 5006",
+        state: "SA",
+        upfrontFee: 0,
+        annualFee: 6674
+    }, {
+        id: 71,
+        name: "St John's Grammar School",
+        address: "29 Gloucester Ave- Belair SA 5052",
+        state: "SA",
+        upfrontFee: 688,
+        annualFee: 11811
+    }, {
+        id: 72,
+        name: "Woodcroft College",
+        address: "143-173 Bains Rd- Morphett Vale SA 5162",
+        state: "SA",
+        upfrontFee: 755,
+        annualFee: 6297
+    }, {
+        id: 73,
+        name: "St Ignatious College, Adelaide",
+        address: "2 Manresa Ct- Athelstone SA 5076",
+        state: "SA",
+        upfrontFee: 975,
+        annualFee: 14013
+    }, {
+        id: 74,
+        name: "Pedare Christian College",
+        address: "2-30 Surrey Farm Dr- Golden Grove SA 5125",
+        state: "SA",
+        upfrontFee: 150,
+        annualFee: 7502
+    }, {
+        id: 75,
+        name: "Westminster School",
+        address: "1-27 Alison Avenue- Marion- South Australia ",
+        state: "SA",
+        upfrontFee: 800,
+        annualFee: 17932
+    }, {
+        id: 76,
+        name: "Kings Baptist Grammar School",
+        address: "no address",
+        state: "SA",
+        upfrontFee: 175,
+        annualFee: 0
+    }, {
+        id: 77,
+        name: "Scotch College Adelaide",
+        address: "Carruth Road- Torrens Park South Australia 5062",
+        state: "SA",
+        upfrontFee: 1150,
+        annualFee: 19668
+    }, {
+        id: 78,
+        name: "Concordia College",
+        address: "45 Cheltenham St- Highgate SA 5063",
+        state: "SA",
+        upfrontFee: 75,
+        annualFee: 8820
+    }, {
+        id: 79,
+        name: "Pembroke School",
+        address: "342 The Parade- Kensington Park SA 5068",
+        state: "SA",
+        upfrontFee: 860,
+        annualFee: 19690
+    }, {
+        id: 80,
+        name: "Loreto College, Marryatville",
+        address: "316 Portrush Rd- Marryatville SA 5068",
+        state: "SA",
+        upfrontFee: 745,
+        annualFee: 14664
+    }, {
+        id: 81,
+        name: "Trinity College, Gawler",
+        address: "Alexander Ave- Evanston South SA 5116",
+        state: "SA",
+        upfrontFee: 540,
+        annualFee: 4622
+    }, {
+        id: 82,
+        name: "Hale School",
+        address: "160 Hale Rd- Wembley Downs WA 6019",
+        state: "WA",
+        upfrontFee: 8250,
+        annualFee: 21450
+    }, {
+        id: 83,
+        name: "Christ Church Grammar School",
+        address: "Queenslea Dr- Claremont WA 6010",
+        state: "WA",
+        upfrontFee: 6700,
+        annualFee: 23088
+    }, {
+        id: 84,
+        name: "All Saints College",
+        address: "Ewing Ave.- Bull Creek WA 6149",
+        state: "WA",
+        upfrontFee: 5423,
+        annualFee: 16534
+    }, {
+        id: 85,
+        name: "St Mary's Anglican Girls School",
+        address: "75 Elliott Rd- Karrinyup WA 6018",
+        state: "WA",
+        upfrontFee: 5545,
+        annualFee: 18394
+    }, {
+        id: 86,
+        name: "St Hilda's Anglican Girls School",
+        address: "26 Bay View Terrace- Mosman Park WA 6012",
+        state: "WA",
+        upfrontFee: 4959,
+        annualFee: 20284
+    }, {
+        id: 87,
+        name: "Presbyterian Ladies' College, Perth",
+        address: "14 McNeil St- Peppermint Grove WA 6011",
+        state: "WA",
+        upfrontFee: 4950,
+        annualFee: 20982
+    }, {
+        id: 88,
+        name: "Perth College",
+        address: "31 Lawley Crescent- Mount Lawley WA 6050",
+        state: "WA",
+        upfrontFee: 5742,
+        annualFee: 18701
+    }, {
+        id: 89,
+        name: "Guildford Grammar School ",
+        address: "11 Terrace Rd- Guildford WA 6055",
+        state: "WA",
+        upfrontFee: 2925,
+        annualFee: 18073
+    }, {
+        id: 90,
+        name: "Penrhos College",
+        address: "6 Morrison Street- Como WA 6152",
+        state: "WA",
+        upfrontFee: 5489,
+        annualFee: 19442
+    }, {
+        id: 91,
+        name: "Scotch College, Perth",
+        address: "76 Shenton Rd- Swanbourne WA 6010",
+        state: "WA",
+        upfrontFee: 6687,
+        annualFee: 23499
+    }, {
+        id: 92,
+        name: "John XXIII College, Perth",
+        address: "Mooro Dr- Mount Claremont WA 6010",
+        state: "WA",
+        upfrontFee: 2110,
+        annualFee: 7710
+    }, {
+        id: 93,
+        name: "Santa Maria College",
+        address: "18 Stoneham Rd- Attadale WA 6156",
+        state: "WA",
+        upfrontFee: 1020,
+        annualFee: 10521
+    }, {
+        id: 94,
+        name: "Wesley College, Perth",
+        address: "40 Coode St- South Perth WA 6151",
+        state: "WA",
+        upfrontFee: 7276,
+        annualFee: 20001
+    }, {
+        id: 95,
+        name: "Methodist Ladies College, Perth",
+        address: "356 Stirling Hwy- Claremont WA 6010",
+        state: "WA",
+        upfrontFee: 5320,
+        annualFee: 21203
+    }, {
+        id: 96,
+        name: "St Marks Anglican Community School",
+        address: "St Marks Dr- Hillarys WA 6025",
+        state: "WA",
+        upfrontFee: 2030,
+        annualFee: 7251
+    }, {
+        id: 97,
+        name: "Aquinas College, Perth",
+        address: "58 Mount Henry Rd- Salter Point WA 6152",
+        state: "WA",
+        upfrontFee: 2832,
+        annualFee: 14013
+    }, {
+        id: 98,
+        name: "Trinity College, Perth",
+        address: "2 Trinity Ave- East Perth WA 6004",
+        state: "WA",
+        upfrontFee: 2243,
+        annualFee: 13602
+    }, {
+        id: 99,
+        name: "Sacred Heart College",
+        address: "Hocking Parade- Sorrento WA 6020",
+        state: "WA",
+        upfrontFee: 805,
+        annualFee: 8220
+    }, {
+        id: 100,
+        name: "Newman College Perth",
+        address: "216 Empire Ave- Churchlands WA 6018",
+        state: "WA",
+        upfrontFee: 1110,
+        annualFee: 5715
+    }, {
+        id: 101,
+        name: "Kingsway Christian College",
+        address: "157 Kingsway- Darch WA 6065",
+        state: "WA",
+        upfrontFee: 1320,
+        annualFee: 7288
+    }, {
+        id: 102,
+        name: "Canberra Grammar School",
+        address: "40 Monaro Cres- Red Hill ACT 2603",
+        state: "ACT",
+        upfrontFee: 2975,
+        annualFee: 18753
+    }, {
+        id: 103,
+        name: "Radford College",
+        address: "1 College St- Bruce ACT 2617",
+        state: "ACT",
+        upfrontFee: 950,
+        annualFee: 12307
+    }, {
+        id: 104,
+        name: "Canberra Girls Grammar School",
+        address: "Melbourne Ave- Deakin ACT 2600",
+        state: "ACT",
+        upfrontFee: 150,
+        annualFee: 16942
+    }, {
+        id: 105,
+        name: "Burgmann Anglican School",
+        address: "Gungahlin Dr & The Valley Avenue- Gungahlin ACT 291",
+        state: "ACT",
+        upfrontFee: 875,
+        annualFee: 8413
+    }, {
+        id: 106,
+        name: "Brindabella Christian College",
+        address: "136 Brigalow St- Lyneham ACT 2602",
+        state: "ACT",
+        upfrontFee: 700,
+        annualFee: 5874
+    }, {
+        id: 107,
+        name: "Marist College",
+        address: "27 Marr St- Pearce ACT 2607",
+        state: "ACT",
+        upfrontFee: 400,
+        annualFee: 8644
+    }, {
+        id: 108,
+        name: "Orana Steiner School",
+        address: "Unwin Place- ACT 2611",
+        state: "ACT",
+        upfrontFee: 550,
+        annualFee: 6467
+    }, {
+        id: 109,
+        name: "Merici College",
+        address: "Wise St- Braddon ACT 2612",
+        state: "ACT",
+        upfrontFee: 50,
+        annualFee: 6277
+    }, {
+        id: 110,
+        name: "Emmaus Christian School",
+        address: "73 Davenport St- Dickson ACT 2602",
+        state: "ACT",
+        upfrontFee: 300,
+        annualFee: 6292
+    }, {
+        id: 111,
+        name: "The Friends School, Hobart",
+        address: "23 Commercial Rd- North Hobart TAS 7000",
+        state: "TAS",
+        upfrontFee: 1200,
+        annualFee: 14254
+    }, {
+        id: 112,
+        name: "Fahan School",
+        address: "Fisher Avenue- Lower Sandy Bay TAS 7005",
+        state: "TAS",
+        upfrontFee: 2100,
+        annualFee: 12412
+    }, {
+        id: 113,
+        name: "St Michael's Collegiate School",
+        address: "218 Macquarie St- Hobart TAS 7000",
+        state: "TAS",
+        upfrontFee: 1110,
+        annualFee: 12908
+    }, {
+        id: 114,
+        name: "The Hutchins School",
+        address: "71 Nelson Rd- Sandy Bay TAS 7005",
+        state: "TAS",
+        upfrontFee: 1610,
+        annualFee: 13400
+    }, {
+        id: 115,
+        name: "St Mary's College, Hobart",
+        address: "164 Harrington St- Hobart TAS 7000",
+        state: "TAS",
+        upfrontFee: 0,
+        annualFee: 3958
+    }, {
+        id: 116,
+        name: "Launceston Chruch Grammar School",
+        address: "36 Button St- Mowbray TAS 7248",
+        state: "TAS",
+        upfrontFee: 100,
+        annualFee: 12900
+    }, {
+        id: 117,
+        name: "Launceston Christian School",
+        address: " 452A W Tamar Hwy- Riverside TAS 7250",
+        state: "TAS",
+        upfrontFee: 1300,
+        annualFee: 4802
+    }];
+    $scope.schoolObject_NSW = [{
+        id: 0,
+        name: "Sydney Grammar School Darlinghurst",
+        address: "College St- Darlinghurst NSW 2010",
+        state: "NSW",
+        upfrontFee: 5489,
+        annualFee: 32644
+    }, {
+        id: 1,
+        name: "PLC Sydney",
+        address: "Boundary St- Croydon NSW 2132",
+        state: "NSW",
+        upfrontFee: 3415,
+        annualFee: 24411
+    }, {
+        id: 2,
+        name: "SCEGGS Darlinghurst",
+        address: "215 Forbes St- Darlinghurst NSW 2010",
+        state: "NSW",
+        upfrontFee: 4950,
+        annualFee: 28348
+    }, {
+        id: 3,
+        name: "The Scotts College Sydney",
+        address: "Victoria Rd- Bellevue Hill NSW 2023",
+        state: "NSW",
+        upfrontFee: 5500,
+        annualFee: 33925
+    }, {
+        id: 4,
+        name: "Pymble Ladies College",
+        address: "Avon Rd- Pymble NSW 2073",
+        state: "NSW",
+        upfrontFee: 3430,
+        annualFee: 24002
+    }, {
+        id: 5,
+        name: "Ascham School",
+        address: "188 New South Head Rd- Edgecliff- NSW 2027",
+        state: "NSW",
+        upfrontFee: 6300,
+        annualFee: 32000
+    }, {
+        id: 6,
+        name: "Abbotsleigh",
+        address: "1666 Pacific Highway- Wahroonga- NSW 2076",
+        state: "NSW",
+        upfrontFee: 1970,
+        annualFee: 28640
+    }, {
+        id: 7,
+        name: "St Aloysius College",
+        address: "47 Upper Pitt Street- Milsons Point 2061 NSW Australia",
+        state: "NSW",
+        upfrontFee: 2650,
+        annualFee: 16278
+    }, {
+        id: 8,
+        name: "Meridan School",
+        address: "10-12 Redmyre Road- Strathfield NSW 2135",
+        state: "NSW",
+        upfrontFee: 1825,
+        annualFee: 28340
+    }, {
+        id: 9,
+        name: "Sydney Church of England Grammar School (SHORE)",
+        address: "Blue Street- North Sydney- NSW- 2060- Australia",
+        state: "NSW",
+        upfrontFee: 2400,
+        annualFee: 24126
+    }, {
+        id: 10,
+        name: "Cranbrook School",
+        address: "5 Victoria Road- Bellevue Hill NSW 2023 Australia",
+        state: "NSW",
+        upfrontFee: 7300,
+        annualFee: 28325
+    }, {
+        id: 11,
+        name: "Knox Grammar School",
+        address: "7 Woodville Ave- Wahroonga 2076 NSW Australia",
+        state: "NSW",
+        upfrontFee: 3000,
+        annualFee: 29430
+    }, {
+        id: 12,
+        name: "The Kings School",
+        address: "87-129 PENNANT HILLS ROAD- NORTH PARRAMATTA- NSW 2151- AUSTRALIA",
+        state: "NSW",
+        upfrontFee: 3850,
+        annualFee: 25345
+    }, {
+        id: 13,
+        name: "ST Ignatius' College",
+        address: "1 Tambourine Bay Road- NSW Lane Cove",
+        state: "NSW",
+        upfrontFee: 4530,
+        annualFee: 23880
+    }, {
+        id: 14,
+        name: "St Joseph's College",
+        address: "Mark Street- Hunters Hill- NSW 2110",
+        state: "NSW",
+        upfrontFee: 3300,
+        annualFee: 29040
+    }, {
+        id: 15,
+        name: "Loreto Normanhurst",
+        address: "91-93 Pennant Hills Road- Normanhurst- Sydney- NSW 2076",
+        state: "NSW",
+        upfrontFee: 3330,
+        annualFee: 19179
+    }, {
+        id: 16,
+        name: "Loreto Kirribilli",
+        address: "85 Carabella Street- Kirribilli NSW 2061- Australia",
+        state: "NSW",
+        upfrontFee: 3220,
+        annualFee: 15645
+    }, {
+        id: 17,
+        name: "Queenswood School for Girls",
+        address: "47 Mandolong Rd- Mosman NSW 2088",
+        state: "NSW",
+        upfrontFee: 4220,
+        annualFee: 25171
+    }, {
+        id: 18,
+        name: "Roseville College",
+        address: "27 Bancroft Avenue Roseville NSW 2069 Australia",
+        state: "NSW",
+        upfrontFee: 1220,
+        annualFee: 20735
+    }, {
+        id: 19,
+        name: "Parramatta Marist High School",
+        address: "2 DARCY ROAD- WESTMEAD NSW AUSTRALIA 2145",
+        state: "NSW",
+        upfrontFee: 1220,
+        annualFee: 4473
+    }, {
+        id: 20,
+        name: "Barker College",
+        address: "91 Pacific Highway Hornsby NSW 2077",
+        state: "NSW",
+        upfrontFee: 3800,
+        annualFee: 25140
+    }];
+    $scope.schoolObject_VIC = [{
+        id: 21,
+        name: "Ruyton Girls' School, Kew.",
+        address: "12 Selbourne Rd- Kew VIC 3101",
+        state: "VIC",
+        upfrontFee: 1610,
+        annualFee: 22360
+    }, {
+        id: 22,
+        name: "Shelford Girls' Grammar, Caulfield.",
+        address: "3 Hood Cres- Caulfield VIC 3161",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 25518
+    }, {
+        id: 23,
+        name: "Fintona Girls' School, Balwyn.",
+        address: "79 Balwyn Rd- Balwyn VIC 3103",
+        state: "VIC",
+        upfrontFee: 1150,
+        annualFee: 20399
+    }, {
+        id: 24,
+        name: "Lauriston Girls' School, Aramadale.",
+        address: "38 Huntingtower Rd- Armadale VIC 3143",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 27160
+    }, {
+        id: 25,
+        name: "Loreto Mandeville Hall, Toorak.",
+        address: "10 Mandeville Cres- Toorak VIC 3142",
+        state: "VIC",
+        upfrontFee: 1900,
+        annualFee: 22398
+    }, {
+        id: 26,
+        name: "Prebyterian Ladies' College, Burwood.",
+        address: "141 Burwood Hwy- Burwood VIC 3125",
+        state: "VIC",
+        upfrontFee: 1300,
+        annualFee: 23479
+    }, {
+        id: 27,
+        name: "Camberwell Girls' Grammar School, Canterbury.",
+        address: " 2 Torrington St- Canterbury VIC 3126",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 19051
+    }, {
+        id: 28,
+        name: "Melbourne Girls Grammar School, South Yarra.",
+        address: "86 Anderson St- South Yarra VIC 3141",
+        state: "VIC",
+        upfrontFee: 1650,
+        annualFee: 27746
+    }, {
+        id: 29,
+        name: "Mentone Girls' Grammar School, Mentone.",
+        address: "11 Mentone Parade- Mentone VIC 3194",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 22354
+    }, {
+        id: 30,
+        name: "Korowa Anglican Girls' School Glen Iris.",
+        address: "10-16 Ranfurlie Cres- Glen Iris VIC 3146",
+        state: "VIC",
+        upfrontFee: 900,
+        annualFee: 27138
+    }, {
+        id: 31,
+        name: "Camberwell Grammar School, Canterbury.",
+        address: "55 Mont Albert Rd- Canterbury VIC 3126",
+        state: "VIC",
+        upfrontFee: 1330,
+        annualFee: 25600
+    }, {
+        id: 32,
+        name: "Scotch College, Hawthorn. ",
+        address: "1 Morrison St- Hawthorn VIC 3122",
+        state: "VIC",
+        upfrontFee: 1600,
+        annualFee: 29912
+    }, {
+        id: 33,
+        name: "Melbourne Grammar School, South Yarra.",
+        address: "355 St Kilda Rd- Melbourne VIC 3004",
+        state: "VIC",
+        upfrontFee: 3900,
+        annualFee: 24885
+    }, {
+        id: 34,
+        name: "Caulfield Grammar School, St Kilda",
+        address: "217 Glen Eira Road- East St. Kilda- Melbourne- Victoria 3183",
+        state: "VIC",
+        upfrontFee: 2100,
+        annualFee: 23789
+    }, {
+        id: 35,
+        name: "Haileybury College, Keysborough.",
+        address: "855 Springvale Road Keysborough VIC 3173",
+        state: "VIC",
+        upfrontFee: 2500,
+        annualFee: 24702
+    }, {
+        id: 36,
+        name: "Xavier College, Kew.",
+        address: "135 Barkers Road- Melbourne- Kew- Victoria",
+        state: "VIC",
+        upfrontFee: 945,
+        annualFee: 21957
+    }, {
+        id: 37,
+        name: "Trinity Grammar School, Kew.",
+        address: "40 Charles St- Kew- Melbourne Victoria 3101",
+        state: "VIC",
+        upfrontFee: 2360,
+        annualFee: 26349
+    }, {
+        id: 38,
+        name: "St Kevin's College, Toorak.",
+        address: "31 Moonga Rd- Toorak VIC 3142",
+        state: "VIC",
+        upfrontFee: 3000,
+        annualFee: 16290
+    }, {
+        id: 39,
+        name: "Brighton Grammar School, Brighton",
+        address: "90 Outer Cres- Brighton VIC 3186",
+        state: "VIC",
+        upfrontFee: 2200,
+        annualFee: 25247
+    }, {
+        id: 40,
+        name: "Firbank Grammar School, Brighton",
+        address: "51 Outer Crescent- Brighton VIC 3186",
+        state: "VIC",
+        upfrontFee: 1100,
+        annualFee: 24769
+    }, {
+        id: 41,
+        name: "St Leonard's College, Brighton East.",
+        address: "163 South Road- Brighton East VIC 3187",
+        state: "VIC",
+        upfrontFee: 1800,
+        annualFee: 23415
+    }];
+    $scope.schoolObject_QLD = [{
+        id: 42,
+        name: "Brisbane Grammar School",
+        address: "24 Gregory Terrace- Spring Hill QLD 4000",
+        state: "QLD",
+        upfrontFee: 2550,
+        annualFee: 23000
+    }, {
+        id: 43,
+        name: "Brisbane Girls Grammer School",
+        address: "70 Gregory Terrace- Spring Hill QLD 4000",
+        state: "QLD",
+        upfrontFee: 2040,
+        annualFee: 22520
+    }, {
+        id: 44,
+        name: "Ormiston College",
+        address: "97 Dundas St W- Ormiston QLD 4160",
+        state: "QLD",
+        upfrontFee: 795,
+        annualFee: 2527
+    }, {
+        id: 45,
+        name: "Somerville House",
+        address: "17 Graham St- South Brisbane QLD 4101",
+        state: "QLD",
+        upfrontFee: 1530,
+        annualFee: 18292
+    }, {
+        id: 46,
+        name: "Brisbane Boys College",
+        address: "Kensington Terrace- Toowong QLD 4066",
+        state: "QLD",
+        upfrontFee: 1960,
+        annualFee: 18434
+    }, {
+        id: 47,
+        name: "St Aidan's Anglican Girls School",
+        address: "11 Ruthven St- Corinda QLD 4075",
+        state: "QLD",
+        upfrontFee: 1300,
+        annualFee: 17272
+    }, {
+        id: 48,
+        name: "Anglican Church Grammar School",
+        address: "Oaklands Parade- East Brisbane QLD 4169",
+        state: "QLD",
+        upfrontFee: 1930,
+        annualFee: 18813
+    }, {
+        id: 49,
+        name: "Clayfield College",
+        address: "23 Gregory Street- Clayfield QLD 4011",
+        state: "QLD",
+        upfrontFee: 1135,
+        annualFee: 17031
+    }, {
+        id: 50,
+        name: "Cannon Hill Anglican College",
+        address: "Junction Rd- Cannon Hill QLD 4170",
+        state: "QLD",
+        upfrontFee: 1250,
+        annualFee: 10386
+    }, {
+        id: 51,
+        name: "Sheldon College",
+        address: "Taylor Road- Sheldon- QLD 4157",
+        state: "QLD",
+        upfrontFee: 660,
+        annualFee: 11479
+    }, {
+        id: 52,
+        name: "St Margarets Anglican Girls School",
+        address: "11 Petrie St- Ascot QLD 4007",
+        state: "QLD",
+        upfrontFee: 1220,
+        annualFee: 17762
+    }, {
+        id: 53,
+        name: "Hillbrook Anglican School",
+        address: "45 Hurdcotte Street Enoggera QLD 4051",
+        state: "QLD",
+        upfrontFee: 1610,
+        annualFee: 11092
+    }, {
+        id: 54,
+        name: "st peters lutheran college",
+        address: "66 Harts Rd- Indooroopilly QLD 4068",
+        state: "QLD",
+        upfrontFee: 1100,
+        annualFee: 15806
+    }, {
+        id: 55,
+        name: "Moreton Bay College",
+        address: "450 Wondall Rd- Manly West QLD 4179",
+        state: "QLD",
+        upfrontFee: 1100,
+        annualFee: 12532
+    }, {
+        id: 56,
+        name: "St Rita's College, Clayfield",
+        address: "41 Enderley Rd- Clayfield QLD 4011",
+        state: "QLD",
+        upfrontFee: 1100,
+        annualFee: 7120
+    }, {
+        id: 57,
+        name: "The Southport School",
+        address: "2 Winchester St- Southport QLD 4215",
+        state: "QLD",
+        upfrontFee: 1500,
+        annualFee: 15030
+    }, {
+        id: 58,
+        name: "St Joseph's College Gregory Terrace",
+        address: "Gregory Terrace- Brisbane- QLD 4000- Australia",
+        state: "QLD",
+        upfrontFee: 2420,
+        annualFee: 8215
+    }, {
+        id: 59,
+        name: "The Lakes College",
+        address: "2 College St- North Lakes QLD 4509",
+        state: "QLD",
+        upfrontFee: 500,
+        annualFee: 8415
+    }, {
+        id: 60,
+        name: "Redeemer Lutheran College",
+        address: "745 Rochedale Rd- Rochedale QLD 4123",
+        state: "QLD",
+        upfrontFee: 700,
+        annualFee: 8979
+    }, {
+        id: 61,
+        name: "Moreton Bay Boys College",
+        address: "302 Manly Rd- Manly West QLD 4179",
+        state: "QLD",
+        upfrontFee: 1100,
+        annualFee: 11023
+    }];
+    $scope.schoolObject_SA = [{
+        id: 62,
+        name: "Wilderness School, Medindie.",
+        address: "30 Hawkers Rd- Medindie SA 5081",
+        state: "SA",
+        upfrontFee: 1050,
+        annualFee: 18888
+    }, {
+        id: 63,
+        name: "St Peter's College ",
+        address: "57 Hackney Rd- Hackney SA 5069",
+        state: "SA",
+        upfrontFee: 2600,
+        annualFee: 20520
+    }, {
+        id: 64,
+        name: "St Peter's Girls Collegiate Girls' School",
+        address: "Stonyfell Rd- Stonyfell SA 5066",
+        state: "SA",
+        upfrontFee: 970,
+        annualFee: 17285
+    }, {
+        id: 65,
+        name: "Walford Anglican School for Girls",
+        address: "316 Unley Rd- Hyde Park SA 5061",
+        state: "SA",
+        upfrontFee: 1095,
+        annualFee: 19301
+    }, {
+        id: 66,
+        name: "Prince Alfred College",
+        address: "23 Dequetteville Terrace- Kent Town SA 5067",
+        state: "SA",
+        upfrontFee: 1100,
+        annualFee: 17319
+    }, {
+        id: 67,
+        name: "Seymour College",
+        address: "546 Portrush Rd- Glen Osmond SA 5064",
+        state: "SA",
+        upfrontFee: 1050,
+        annualFee: 19679
+    }, {
+        id: 68,
+        name: "Pulteney Grammar School",
+        address: "190 South Terrace ADELAIDE SA 5000",
+        state: "SA",
+        upfrontFee: 850,
+        annualFee: 18946
+    }, {
+        id: 69,
+        name: "St Aloysius College, Adelaide",
+        address: "53 Wakefield St- Adelaide SA 5000",
+        state: "SA",
+        upfrontFee: 600,
+        annualFee: 7636
+    }, {
+        id: 70,
+        name: "St Dominics Priory College",
+        address: "119/139 Molesworth St- North Adelaide SA 5006",
+        state: "SA",
+        upfrontFee: 0,
+        annualFee: 6674
+    }, {
+        id: 71,
+        name: "St John's Grammar School",
+        address: "29 Gloucester Ave- Belair SA 5052",
+        state: "SA",
+        upfrontFee: 688,
+        annualFee: 11811
+    }, {
+        id: 72,
+        name: "Woodcroft College",
+        address: "143-173 Bains Rd- Morphett Vale SA 5162",
+        state: "SA",
+        upfrontFee: 755,
+        annualFee: 6297
+    }, {
+        id: 73,
+        name: "St Ignatious College, Adelaide",
+        address: "2 Manresa Ct- Athelstone SA 5076",
+        state: "SA",
+        upfrontFee: 975,
+        annualFee: 14013
+    }, {
+        id: 74,
+        name: "Pedare Christian College",
+        address: "2-30 Surrey Farm Dr- Golden Grove SA 5125",
+        state: "SA",
+        upfrontFee: 150,
+        annualFee: 7502
+    }, {
+        id: 75,
+        name: "Westminster School",
+        address: "1-27 Alison Avenue- Marion- South Australia ",
+        state: "SA",
+        upfrontFee: 800,
+        annualFee: 17932
+    }, {
+        id: 76,
+        name: "Kings Baptist Grammar School",
+        address: "no address",
+        state: "SA",
+        upfrontFee: 175,
+        annualFee: 0
+    }, {
+        id: 77,
+        name: "Scotch College Adelaide",
+        address: "Carruth Road- Torrens Park South Australia 5062",
+        state: "SA",
+        upfrontFee: 1150,
+        annualFee: 19668
+    }, {
+        id: 78,
+        name: "Concordia College",
+        address: "45 Cheltenham St- Highgate SA 5063",
+        state: "SA",
+        upfrontFee: 75,
+        annualFee: 8820
+    }, {
+        id: 79,
+        name: "Pembroke School",
+        address: "342 The Parade- Kensington Park SA 5068",
+        state: "SA",
+        upfrontFee: 860,
+        annualFee: 19690
+    }, {
+        id: 80,
+        name: "Loreto College, Marryatville",
+        address: "316 Portrush Rd- Marryatville SA 5068",
+        state: "SA",
+        upfrontFee: 745,
+        annualFee: 14664
+    }, {
+        id: 81,
+        name: "Trinity College, Gawler",
+        address: "Alexander Ave- Evanston South SA 5116",
+        state: "SA",
+        upfrontFee: 540,
+        annualFee: 4622
+    }];
+    $scope.schoolObject_WA = [{
+        id: 82,
+        name: "Hale School",
+        address: "160 Hale Rd- Wembley Downs WA 6019",
+        state: "WA",
+        upfrontFee: 8250,
+        annualFee: 21450
+    }, {
+        id: 83,
+        name: "Christ Church Grammar School",
+        address: "Queenslea Dr- Claremont WA 6010",
+        state: "WA",
+        upfrontFee: 6700,
+        annualFee: 23088
+    }, {
+        id: 84,
+        name: "All Saints College",
+        address: "Ewing Ave.- Bull Creek WA 6149",
+        state: "WA",
+        upfrontFee: 5423,
+        annualFee: 16534
+    }, {
+        id: 85,
+        name: "St Mary's Anglican Girls School",
+        address: "75 Elliott Rd- Karrinyup WA 6018",
+        state: "WA",
+        upfrontFee: 5545,
+        annualFee: 18394
+    }, {
+        id: 86,
+        name: "St Hilda's Anglican Girls School",
+        address: "26 Bay View Terrace- Mosman Park WA 6012",
+        state: "WA",
+        upfrontFee: 4959,
+        annualFee: 20284
+    }, {
+        id: 87,
+        name: "Presbyterian Ladies' College, Perth",
+        address: "14 McNeil St- Peppermint Grove WA 6011",
+        state: "WA",
+        upfrontFee: 4950,
+        annualFee: 20982
+    }, {
+        id: 88,
+        name: "Perth College",
+        address: "31 Lawley Crescent- Mount Lawley WA 6050",
+        state: "WA",
+        upfrontFee: 5742,
+        annualFee: 18701
+    }, {
+        id: 89,
+        name: "Guildford Grammar School ",
+        address: "11 Terrace Rd- Guildford WA 6055",
+        state: "WA",
+        upfrontFee: 2925,
+        annualFee: 18073
+    }, {
+        id: 90,
+        name: "Penrhos College",
+        address: "6 Morrison Street- Como WA 6152",
+        state: "WA",
+        upfrontFee: 5489,
+        annualFee: 19442
+    }, {
+        id: 91,
+        name: "Scotch College, Perth",
+        address: "76 Shenton Rd- Swanbourne WA 6010",
+        state: "WA",
+        upfrontFee: 6687,
+        annualFee: 23499
+    }, {
+        id: 92,
+        name: "John XXIII College, Perth",
+        address: "Mooro Dr- Mount Claremont WA 6010",
+        state: "WA",
+        upfrontFee: 2110,
+        annualFee: 7710
+    }, {
+        id: 93,
+        name: "Santa Maria College",
+        address: "18 Stoneham Rd- Attadale WA 6156",
+        state: "WA",
+        upfrontFee: 1020,
+        annualFee: 10521
+    }, {
+        id: 94,
+        name: "Wesley College, Perth",
+        address: "40 Coode St- South Perth WA 6151",
+        state: "WA",
+        upfrontFee: 7276,
+        annualFee: 20001
+    }, {
+        id: 95,
+        name: "Methodist Ladies College, Perth",
+        address: "356 Stirling Hwy- Claremont WA 6010",
+        state: "WA",
+        upfrontFee: 5320,
+        annualFee: 21203
+    }, {
+        id: 96,
+        name: "St Marks Anglican Community School",
+        address: "St Marks Dr- Hillarys WA 6025",
+        state: "WA",
+        upfrontFee: 2030,
+        annualFee: 7251
+    }, {
+        id: 97,
+        name: "Aquinas College, Perth",
+        address: "58 Mount Henry Rd- Salter Point WA 6152",
+        state: "WA",
+        upfrontFee: 2832,
+        annualFee: 14013
+    }, {
+        id: 98,
+        name: "Trinity College, Perth",
+        address: "2 Trinity Ave- East Perth WA 6004",
+        state: "WA",
+        upfrontFee: 2243,
+        annualFee: 13602
+    }, {
+        id: 99,
+        name: "Sacred Heart College",
+        address: "Hocking Parade- Sorrento WA 6020",
+        state: "WA",
+        upfrontFee: 805,
+        annualFee: 8220
+    }, {
+        id: 100,
+        name: "Newman College Perth",
+        address: "216 Empire Ave- Churchlands WA 6018",
+        state: "WA",
+        upfrontFee: 1110,
+        annualFee: 5715
+    }, {
+        id: 101,
+        name: "Kingsway Christian College",
+        address: "157 Kingsway- Darch WA 6065",
+        state: "WA",
+        upfrontFee: 1320,
+        annualFee: 7288
+    }];
     $scope.schoolObject_ACT = [
 
         {
@@ -2837,108 +2850,130 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             state: "ACT",
             upfrontFee: 300,
             annualFee: 6292
-        }];
-        $scope.schoolObject_TAS = [{
-            id: 111,
-            name: "The Friends School, Hobart",
-            address: "23 Commercial Rd- North Hobart TAS 7000",
-            state: "TAS",
-            upfrontFee: 1200,
-            annualFee: 14254
-        }, {
-            id: 112,
-            name: "Fahan School",
-            address: "Fisher Avenue- Lower Sandy Bay TAS 7005",
-            state: "TAS",
-            upfrontFee: 2100,
-            annualFee: 12412
-        }, {
-            id: 113,
-            name: "St Michael's Collegiate School",
-            address: "218 Macquarie St- Hobart TAS 7000",
-            state: "TAS",
-            upfrontFee: 1110,
-            annualFee: 12908
-        }, {
-            id: 114,
-            name: "The Hutchins School",
-            address: "71 Nelson Rd- Sandy Bay TAS 7005",
-            state: "TAS",
-            upfrontFee: 1610,
-            annualFee: 13400
-        }, {
-            id: 115,
-            name: "St Mary's College, Hobart",
-            address: "164 Harrington St- Hobart TAS 7000",
-            state: "TAS",
-            upfrontFee: 0,
-            annualFee: 3958
-        }, {
-            id: 116,
-            name: "Launceston Chruch Grammar School",
-            address: "36 Button St- Mowbray TAS 7248",
-            state: "TAS",
-            upfrontFee: 100,
-            annualFee: 12900
-        }, {
-            id: 117,
-            name: "Launceston Christian School",
-            address: " 452A W Tamar Hwy- Riverside TAS 7250",
-            state: "TAS",
-            upfrontFee: 1300,
-            annualFee: 4802
         }
     ];
+    $scope.schoolObject_TAS = [{
+        id: 111,
+        name: "The Friends School, Hobart",
+        address: "23 Commercial Rd- North Hobart TAS 7000",
+        state: "TAS",
+        upfrontFee: 1200,
+        annualFee: 14254
+    }, {
+        id: 112,
+        name: "Fahan School",
+        address: "Fisher Avenue- Lower Sandy Bay TAS 7005",
+        state: "TAS",
+        upfrontFee: 2100,
+        annualFee: 12412
+    }, {
+        id: 113,
+        name: "St Michael's Collegiate School",
+        address: "218 Macquarie St- Hobart TAS 7000",
+        state: "TAS",
+        upfrontFee: 1110,
+        annualFee: 12908
+    }, {
+        id: 114,
+        name: "The Hutchins School",
+        address: "71 Nelson Rd- Sandy Bay TAS 7005",
+        state: "TAS",
+        upfrontFee: 1610,
+        annualFee: 13400
+    }, {
+        id: 115,
+        name: "St Mary's College, Hobart",
+        address: "164 Harrington St- Hobart TAS 7000",
+        state: "TAS",
+        upfrontFee: 0,
+        annualFee: 3958
+    }, {
+        id: 116,
+        name: "Launceston Chruch Grammar School",
+        address: "36 Button St- Mowbray TAS 7248",
+        state: "TAS",
+        upfrontFee: 100,
+        annualFee: 12900
+    }, {
+        id: 117,
+        name: "Launceston Christian School",
+        address: " 452A W Tamar Hwy- Riverside TAS 7250",
+        state: "TAS",
+        upfrontFee: 1300,
+        annualFee: 4802
+    }];
 
-    $scope.portfolioListOb = [
-        {
-            id: 0,
-            name: "Conservative Cautious"
-        }, {
-            id: 1,
-            name: "Balanced Optimistic"
-        }, {
-            id: 2,
-            name: "Growth Ambitious"
+    $scope.portfolioListOb = [{
+        id: 0,
+        name: "Conservative Cautious"
+    }, {
+        id: 1,
+        name: "Balanced Optimistic"
+    }, {
+        id: 2,
+        name: "Growth Ambitious"
+    }];
+    var latestObj1 = {};
+
+    for (var key in $rootScope.latestObj) {
+        if ($rootScope.latestObj.hasOwnProperty(key)) {
+            if (key == "CONTACT_FIELD_1" || key == "CONTACT_FIELD_3" || key == "CONTACT_FIELD_4" || key == "CONTACT_FIELD_5" || key == "CONTACT_FIELD_6" || key == "CONTACT_FIELD_7" || key == "CONTACT_FIELD_9" || key == "CONTACT_FIELD_30" || key == "CONTACT_FIELD_45" || key == "CONTACT_FIELD_47" || key == "CONTACT_FIELD_48" || key == "CONTACT_FIELD_49" || key == "CONTACT_FIELD_50" || key == "CONTACT_FIELD_52" || key == "CONTACT_FIELD_56" || key == "CONTACT_FIELD_107" || key == "CONTACT_FIELD_121" || key == "CONTACT_FIELD_122" || key == "CONTACT_FIELD_123" || key == "CONTACT_FIELD_126" || key == "CONTACT_FIELD_127" || key == "CONTACT_FIELD_128" || key == "CONTACT_FIELD_131" || key == "CONTACT_FIELD_132" || key == "CONTACT_FIELD_133" || key == "CONTACT_FIELD_136" || key == "CONTACT_FIELD_137" || key == "CONTACT_FIELD_138" || key == "CONTACT_FIELD_139" || key == "CONTACT_FIELD_142" || key == "CONTACT_FIELD_143" || key == "CONTACT_FIELD_144" || key == "CONTACT_FIELD_145" || key == "CONTACT_FIELD_148" || key == "CONTACT_FIELD_149" || key == "CONTACT_FIELD_166" || key == "CONTACT_FIELD_167" || key == "CONTACT_FIELD_168" || key == "CONTACT_FIELD_169" || key == "CONTACT_FIELD_170" || key == "CONTACT_FIELD_173" || key == "CONTACT_FIELD_174" || key == "CONTACT_FIELD_175" || key == "CONTACT_FIELD_154" || key == "CONTACT_FIELD_155" || key == "CONTACT_FIELD_156" || key == "CONTACT_FIELD_157" || key == "CONTACT_FIELD_158" || key == "CONTACT_FIELD_159" || key == "CONTACT_FIELD_160" || key == "CONTACT_FIELD_161" || key == "CONTACT_FIELD_162" || key == "CONTACT_FIELD_163" || key == "CONTACT_FIELD_164" || key == "CONTACT_FIELD_165" || key == "CONTACT_FIELD_2" || key == "CONTACT_FIELD_8") {
+                latestObj1[key] = $rootScope.latestObj[key];
+            } else {
+                latestObj1[key] = Number($rootScope.latestObj[key].replace("$", "").replace("%", "").replace(",", ""));
+
+            }
         }
-    ];    
+    }
+
+    console.log("latestObj1:", latestObj1);
+
+
 
 
     // $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
-    $scope.fy = CONTACT_FIELD_11;
-    $scope.smokeOption = false;
-    $scope.healthOption = CONTACT_FIELD_1;
-    $scope.diseaseOption = CONTACT_FIELD_3;
-    $scope.hospitalCoverOption = CONTACT_FIELD_4;
-    $scope.willOption = CONTACT_FIELD_5;
-    $scope.showPensionOption = CONTACT_FIELD_30;
-    $scope.showPensionOptionSpouse = CONTACT_FIELD_45;
-    $scope.spState = CONTACT_FIELD_167; //$scope.stateListOb[0].name;
-    $scope.genderOption = true;
-    $scope.spouseOption = CONTACT_FIELD_2; //yes
-    $scope.genderOptionSpouse = CONTACT_FIELD_8; ///true
-    $scope.spFundAType = CONTACT_FIELD_47;
-    $scope.spFundBType = CONTACT_FIELD_48;
-    $scope.spFundAName = CONTACT_FIELD_49;
-    $scope.spFundBName = CONTACT_FIELD_50;
+
+    $scope.dayOfBirth = $rootScope.latestObj.CONTACT_FIELD_183;
+    $scope.monthOfBirth = $rootScope.latestObj.CONTACT_FIELD_184;
+    $scope.yearOfBirth = $rootScope.latestObj.CONTACT_FIELD_185;
+    $scope.dayOfBirthSpouse = $rootScope.latestObj.CONTACT_FIELD_186;
+    $scope.monthOfBirthSpouse = $rootScope.latestObj.CONTACT_FIELD_187;
+    $scope.yearOfBirthSpouse = $rootScope.latestObj.CONTACT_FIELD_188;
+
+    $scope.fy = $rootScope.latestObj.CONTACT_FIELD_11;
+    $scope.smokeOption = $rootScope.latestObj.CONTACT_FIELD_179;
+    $scope.healthOption = $rootScope.latestObj.CONTACT_FIELD_1;
+    $scope.diseaseOption = $rootScope.latestObj.CONTACT_FIELD_3;
+    $scope.hospitalCoverOption = $rootScope.latestObj.CONTACT_FIELD_4;
+    $scope.willOption = $rootScope.latestObj.CONTACT_FIELD_5;
+    $scope.showPensionOption = $rootScope.latestObj.CONTACT_FIELD_30;
+    $scope.showPensionOptionSpouse = $rootScope.latestObj.CONTACT_FIELD_45;
+    $scope.spState = $rootScope.latestObj.CONTACT_FIELD_167; //$scope.stateListOb[0].name;
+    $scope.genderOption = ($rootScope.latestObj.CONTACT_FIELD_180 == 'Yes');
+    $scope.spouseOption = ($rootScope.latestObj.CONTACT_FIELD_2 == 'Yes');
+    $scope.genderOptionSpouse = ($rootScope.latestObj.CONTACT_FIELD_8 == 'Yes');
+    $scope.spFundAType = $rootScope.latestObj.CONTACT_FIELD_47;
+    $scope.spFundBType = $rootScope.latestObj.CONTACT_FIELD_48;
+    $scope.spFundAName = $rootScope.latestObj.CONTACT_FIELD_49;
+    $scope.spFundBName = $rootScope.latestObj.CONTACT_FIELD_50;
 
 
 
-    $scope.netReturn = CONTACT_FIELD_51; //$scope.investOptions[0].netReturn;
-    $scope.spouseWorkOption = true;
-    $scope.buyOption = CONTACT_FIELD_170;
-    $scope.spEducationOption = CONTACT_FIELD_166; //$scope.eductionOptionOb[0].name; 
-    $scope.spSchoolType = CONTACT_FIELD_168; //$scope.schoolTypeOb[0].name;
-    $scope.lifeOption = CONTACT_FIELD_175;
-    $scope.alterOption = CONTACT_FIELD_107; //
+    $scope.netReturn = $rootScope.latestObj.CONTACT_FIELD_51; //$scope.investOptions[0].netReturn;
+    $scope.spouseWorkOption = $rootScope.latestObj.CONTACT_FIELD_182;
+    $scope.buyOption = $rootScope.latestObj.CONTACT_FIELD_170;
+    $scope.spEducationOption = $rootScope.latestObj.CONTACT_FIELD_166; //$scope.eductionOptionOb[0].name; 
+    $scope.spSchoolType = $rootScope.latestObj.CONTACT_FIELD_168; //$scope.schoolTypeOb[0].name;
+    $scope.lifeOption = $rootScope.latestObj.CONTACT_FIELD_175;
+    $scope.alterOption = $rootScope.latestObj.CONTACT_FIELD_107; //
 
-    $scope.spSchoolName = CONTACT_FIELD_169; //`$scope.privateSchoolObjects[0].name;
+    $scope.spSchoolName = $rootScope.latestObj.CONTACT_FIELD_169; //`$scope.privateSchoolObjects[0].name;
 
-    $scope.spStudyingOption1 = CONTACT_FIELD_123;
-    $scope.spStudyingOption2 = CONTACT_FIELD_128;
-    $scope.spStudyingOption3 = CONTACT_FIELD_133;
-    $scope.spStudyingOption4 = CONTACT_FIELD_139;
-    $scope.spStudyingOption5 = CONTACT_FIELD_145;
+    $scope.spStudyingOption1 = $rootScope.latestObj.CONTACT_FIELD_123;
+    $scope.spStudyingOption2 = $rootScope.latestObj.CONTACT_FIELD_128;
+    $scope.spStudyingOption3 = $rootScope.latestObj.CONTACT_FIELD_133;
+    $scope.spStudyingOption4 = $rootScope.latestObj.CONTACT_FIELD_139;
+    $scope.spStudyingOption5 = $rootScope.latestObj.CONTACT_FIELD_145;
 
     /*$scope.schoolSelected1=$scope.privateSchoolObjects[schoolArray[0]].name;
     $scope.schoolSelected2=$scope.privateSchoolObjects[schoolArray[1]].name;
@@ -2947,20 +2982,20 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     $scope.schoolSelected5=$scope.privateSchoolObjects[schoolArray[4]].name;
     $scope.schoolSelected6=$scope.privateSchoolObjects[schoolArray[5]].name;*/
 
-    $scope.schoolSelected1 = CONTACT_FIELD_173;
-    $scope.schoolSelected2 = CONTACT_FIELD_131;
-    $scope.schoolSelected3 = CONTACT_FIELD_136;
-    $scope.schoolSelected4 = CONTACT_FIELD_142;
-    $scope.schoolSelected5 = CONTACT_FIELD_148;
+    $scope.schoolSelected1 = $rootScope.latestObj.CONTACT_FIELD_173;
+    $scope.schoolSelected2 = $rootScope.latestObj.CONTACT_FIELD_131;
+    $scope.schoolSelected3 = $rootScope.latestObj.CONTACT_FIELD_136;
+    $scope.schoolSelected4 = $rootScope.latestObj.CONTACT_FIELD_142;
+    $scope.schoolSelected5 = $rootScope.latestObj.CONTACT_FIELD_148;
 
 
-    $scope.majorSelected1 = CONTACT_FIELD_126;
-    $scope.majorSelected2 = CONTACT_FIELD_174;
-    $scope.majorSelected3 = CONTACT_FIELD_137;
-    $scope.majorSelected4 = CONTACT_FIELD_143;
-    $scope.majorSelected5 = CONTACT_FIELD_149;
+    $scope.majorSelected1 = $rootScope.latestObj.CONTACT_FIELD_126;
+    $scope.majorSelected2 = $rootScope.latestObj.CONTACT_FIELD_174;
+    $scope.majorSelected3 = $rootScope.latestObj.CONTACT_FIELD_137;
+    $scope.majorSelected4 = $rootScope.latestObj.CONTACT_FIELD_143;
+    $scope.majorSelected5 = $rootScope.latestObj.CONTACT_FIELD_149;
 
-    $scope.spPort = CONTACT_FIELD_121;
+    $scope.spPort = $rootScope.latestObj.CONTACT_FIELD_121;
 
     /*$scope.majorSelected1=$scope.majorFeesListObj[0].name;
     $scope.majorSelected2=$scope.majorFeesListObj[0].name;
@@ -2975,8 +3010,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
 
     $scope.fundNotFoundA = false;
     $scope.fundNotFoundB = false;
-    $scope.fundNameA = latestObj.CONTACT_FIELD_52;
-    $scope.fundNameB = latestObj.CONTACT_FIELD_56;
+    $scope.fundNameA = $rootScope.latestObj.CONTACT_FIELD_52;
+    $scope.fundNameB = $rootScope.latestObj.CONTACT_FIELD_56;
 
     for (let i = 0; i < $scope.investOptions.length; i++) {
         if ($scope.netReturn === $scope.investOptions[i].netReturn) {
@@ -2999,8 +3034,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     $scope.fundA = $scope.fundsOb[$scope.spFundAId];
     $scope.fundB = $scope.fundsOb[$scope.spFundBId];
 
-    spFundAChange();
-    spFundBChange();
+
 
     $timeout(function() {
         /*$(".spSpouseWorkOption option[value='"+$scope.spouseWorkOption+"']").attr("selected", true);
@@ -3047,7 +3081,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
 
 
         $timeout(0);
+        spFundAChange();
+        spFundBChange();
     });
+
+
 
     console.log("In Calc controller", $rootScope.addGoal);
     $scope.showTooltip = "";
@@ -3082,11 +3120,439 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     //app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
 
 
+    var minDrawdown;
+    $scope.listOb = [{
+        id: 0,
+        name: "Minimum Pension Only"
+    }, {
+        id: 1,
+        name: "Choose you own pension"
+    }];
+    var maleExpectancy = [80.3, 79.6, 78.6, 77.6, 76.6, 75.6, 74.6, 73.6, 72.7, 71.7, 70.7, 69.7, 68.7, 67.7, 66.7, 65.7, 64.7, 63.7, 62.8, 61.8, 60.8, 59.9, 58.9, 57.9, 57, 56, 55, 54.1, 53.1, 52.2, 51.2, 50.2, 49.3, 48.3, 47.3, 46.4, 45.4, 44.5, 43.5, 42.6, 41.6, 40.7, 39.8, 38.8, 37.9, 37, 36, 35.1, 34.2, 33.3, 32.4, 31.4, 30.5, 29.6, 28.8, 27.9, 27, 26.1, 25.3, 24.4, 23.5, 22.7, 21.9, 21, 20.2, 19.4, 18.6, 17.8, 17, 16.3, 15.5, 14.8, 14, 13.3, 12.6, 11.9, 11.2, 10.6, 9.9, 9.3, 8.7, 8.2, 7.6, 7.1, 6.6, 6.1, 5.7, 5.3, 4.9, 4.5, 4.2, 3.9, 3.6, 3.4, 3.2, 3, 2.8, 2.6, 2.5, 2.4, 2.3];
+
+    var femaleExpectancy = [84.4, 83.7, 82.7, 81.7, 80.7, 79.7, 78.7, 77.7, 76.8, 75.8, 74.8, 73.8, 72.8, 71.8, 70.8, 69.8, 68.8, 67.8, 66.8, 65.9, 64.9, 63.9, 62.9, 61.9, 60.9, 60, 59, 58, 57, 56, 55, 54.1, 53.1, 52.1, 51.1, 50.1, 49.2, 48.2, 47.2, 46.3, 45.3, 44.3, 43.4, 42.4, 41.4, 40.5, 39.5, 38.6, 37.6, 36.7, 35.8, 34.8, 33.9, 33, 32, 31.1, 30.2, 29.3, 28.4, 27.5, 26.6, 25.7, 24.8, 23.9, 23, 22.2, 21.3, 20.4, 19.6, 18.8, 17.9, 17.1, 16.3, 15.5, 14.7, 13.9, 13.2, 12.4, 11.7, 11, 10.3, 9.6, 9, 8.3, 7.7, 7.2, 6.6, 6.1, 5.7, 5.2, 4.8, 4.4, 4.1, 3.8, 3.5, 3.3, 3, 2.9, 2.7, 2.5, 2.4];
+
+    // $scope.genderOption = true;
+    //    $scope.genderOptionSpouse = false;
+    // $scope.spouseOption = false;
+    $scope.houseOption = $rootScope.latestObj.CONTACT_FIELD_178;
+    $scope.retirementAgeSpouse = $rootScope.latestObj.CONTACT_FIELD_43;
+    $scope.retirementAgeSpouseNew = $rootScope.latestObj.CONTACT_FIELD_43;
+    $scope.annualSalarySpouse = $rootScope.latestObj.CONTACT_FIELD_33;
+    $scope.annualSalarySpouseNew = $rootScope.latestObj.CONTACT_FIELD_33;
+    $scope.superBalanceSpouse = $rootScope.latestObj.CONTACT_FIELD_34;
+    $scope.superBalanceSpouseNew = $rootScope.latestObj.CONTACT_FIELD_34;
+    $scope.salarySacrificeSpouse = $rootScope.latestObj.CONTACT_FIELD_35;
+    $scope.pensionStartSpouse = $rootScope.latestObj.CONTACT_FIELD_44;
+    $scope.insurancePremiumSpouse = $rootScope.latestObj.CONTACT_FIELD_36;
+    $scope.investmentReturnSpouse = $rootScope.latestObj.CONTACT_FIELD_37;
+    $scope.variableFeeSpouse = $rootScope.latestObj.CONTACT_FIELD_38;
+    $scope.fixedFeeSpouse = $rootScope.latestObj.CONTACT_FIELD_39;
+    $scope.pensionDrawdownBase = $rootScope.latestObj.CONTACT_FIELD_31;
+    $scope.pensionDrawdownBaseSpouse = $rootScope.latestObj.CONTACT_FIELD_46;
+    $scope.retirementAge = $rootScope.latestObj.CONTACT_FIELD_28;
+    $scope.retirementAgeNew = $rootScope.latestObj.CONTACT_FIELD_28;
+    $scope.preservationAge = 55;
+    $scope.preservationAgeSpouse = 55;
+    $scope.annualSalary = $rootScope.latestObj.CONTACT_FIELD_12;
+    $scope.annualSalaryNew = $rootScope.latestObj.CONTACT_FIELD_12;
+    $scope.employerContributionLevel = $rootScope.latestObj.CONTACT_FIELD_24;
+    $scope.employerContributionLevelSpouse = $rootScope.latestObj.CONTACT_FIELD_40;
+    // $scope.inflation = 3.50;
+    $scope.inflationSpouse = $rootScope.latestObj.CONTACT_FIELD_41;
+    // $scope.superBalance = 500000;
+    $scope.superBalanceNew = $rootScope.latestObj.CONTACT_FIELD_14;
+    $scope.wageIncrease = $rootScope.latestObj.CONTACT_FIELD_26;
+    $scope.wageIncreaseSpouse = $rootScope.latestObj.CONTACT_FIELD_42;
+    $scope.insurancePremium = $rootScope.latestObj.CONTACT_FIELD_20;
+    $scope.salarySacrifice = $rootScope.latestObj.CONTACT_FIELD_16;
+    $scope.pensionStart = $rootScope.latestObj.CONTACT_FIELD_29;
+    $scope.investmentReturn = $rootScope.latestObj.CONTACT_FIELD_21;
+    $scope.variableFee = $rootScope.latestObj.CONTACT_FIELD_22;
+    $scope.fixedFee = $rootScope.latestObj.CONTACT_FIELD_23;
+    $scope.homeContents = $rootScope.latestObj.CONTACT_FIELD_81;
+    $scope.vehicleCost = $rootScope.latestObj.CONTACT_FIELD_82;
+    $scope.investmentProperty = $rootScope.latestObj.CONTACT_FIELD_83;
+    $scope.bankAssets = $rootScope.latestObj.CONTACT_FIELD_84;
+    $scope.listedInvestment = $rootScope.latestObj.CONTACT_FIELD_85;
+    $scope.marginLoans = $rootScope.latestObj.CONTACT_FIELD_86;
+    $scope.allocatedPension = $rootScope.latestObj.CONTACT_FIELD_87;
+    // $scope.otherInvestment = 20000;
+    $scope.netRentalIncome = $rootScope.latestObj.CONTACT_FIELD_89;
+    $scope.otherIncome = $rootScope.latestObj.CONTACT_FIELD_90;
+    $scope.pensionIncome = $rootScope.latestObj.CONTACT_FIELD_91;
+    $scope.target = $rootScope.latestObj.CONTACT_FIELD_32;
+    $scope.targetNew = $rootScope.latestObj.CONTACT_FIELD_32;
+
+    $scope.personalDetails = {};
+    $scope.spouseDetails = {};
+    $scope.forms = {};
+
+    $scope.grossAnnualIncome = $rootScope.latestObj.CONTACT_FIELD_13;
+    $scope.grossAnnualIncomeNew = $rootScope.latestObj.CONTACT_FIELD_13;
+    $scope.homeMortgage = $rootScope.latestObj.CONTACT_FIELD_60;
+    $scope.investmentPropertyMortgage = $rootScope.latestObj.CONTACT_FIELD_61;
+    $scope.creditCardDebt = $rootScope.latestObj.CONTACT_FIELD_62;
+    $scope.carLoan = $rootScope.latestObj.CONTACT_FIELD_63;
+    $scope.personalLoan = $rootScope.latestObj.CONTACT_FIELD_64;
+    $scope.otherLoan = $rootScope.latestObj.CONTACT_FIELD_65;
+    $scope.homeValue = $rootScope.latestObj.CONTACT_FIELD_80;
+    $scope.cashAtBank = $rootScope.latestObj.CONTACT_FIELD_15;
+    $scope.otherInvestment = $rootScope.latestObj.CONTACT_FIELD_88;
+    $scope.superBalance = $rootScope.latestObj.CONTACT_FIELD_14;
+    $scope.ecLife = $rootScope.latestObj.CONTACT_FIELD_75;
+    $scope.ecLifeNew = $rootScope.latestObj.CONTACT_FIELD_75;
+    $scope.ecTPD = $rootScope.latestObj.CONTACT_FIELD_76;
+    $scope.ecTPDNew = $rootScope.latestObj.CONTACT_FIELD_76;
+    $scope.ecIP = $rootScope.latestObj.CONTACT_FIELD_77;
+    $scope.ecIPNew = $rootScope.latestObj.CONTACT_FIELD_77;
+    $scope.ecTrauma = $rootScope.latestObj.CONTACT_FIELD_78;
+    $scope.ecTraumaNew = $rootScope.latestObj.CONTACT_FIELD_78;
+    $scope.numChildren = $rootScope.latestObj.CONTACT_FIELD_66;
+    $scope.funeralCost = $rootScope.latestObj.CONTACT_FIELD_72;
+    $scope.educationExpensePerYearPerChild = $rootScope.latestObj.CONTACT_FIELD_73;
+    $scope.familyLivingCostPerYear = $rootScope.latestObj.CONTACT_FIELD_74;
+    $scope.inflation = $rootScope.latestObj.CONTACT_FIELD_25;
+    $scope.rateOfReturn = $rootScope.latestObj.CONTACT_FIELD_27;
+    $scope.moneyToBeBorrowed = $rootScope.latestObj.CONTACT_FIELD_172;
+    $scope.valueOfNewProperty = $rootScope.latestObj.CONTACT_FIELD_171;
+    // $scope.ageSpouse = 47;
+    // $scope.spouseSalary = 50000;
+    $scope.ageChildren1 = $rootScope.latestObj.CONTACT_FIELD_67;
+    $scope.ageChildren2 = $rootScope.latestObj.CONTACT_FIELD_68;
+    $scope.ageChildren3 = $rootScope.latestObj.CONTACT_FIELD_69;
+    $scope.ageChildren4 = $rootScope.latestObj.CONTACT_FIELD_70;
+    $scope.ageChildren5 = $rootScope.latestObj.CONTACT_FIELD_71;
+
+    $scope.resultPerc = {};
+
+    var dt = new Date();
+
+    /*  $scope.genderOption = true;*/
+    // $scope.smokeOption = false;
+    // $scope.spouseOption = false;
+    //    $scope.spouseWorkOption = true;
+    //    $scope.buyOption = true;
+    $scope.sickLeaves = $rootScope.latestObj.CONTACT_FIELD_79;
+
+    $scope.ncc = $rootScope.latestObj.CONTACT_FIELD_17;
+    $scope.superTaxRate = $rootScope.latestObj.CONTACT_FIELD_18;
+
+    $scope.contributionFeeA = $rootScope.latestObj.CONTACT_FIELD_53;
+    $scope.adminFeeA = $rootScope.latestObj.CONTACT_FIELD_54;
+    $scope.indirectCostRationA = $rootScope.latestObj.CONTACT_FIELD_55;
+
+
+    $scope.contributionFeeB = $rootScope.latestObj.CONTACT_FIELD_57;
+    $scope.adminFeeB = $rootScope.latestObj.CONTACT_FIELD_58;
+    $scope.indirectCostRationB = $rootScope.latestObj.CONTACT_FIELD_59;
+
+    $scope.nra = $rootScope.latestObj.CONTACT_FIELD_92;
+    $scope.nrp = $rootScope.latestObj.CONTACT_FIELD_94;
+    $scope.tfp = $rootScope.latestObj.CONTACT_FIELD_93;
+    $scope.beforeTTR = $rootScope.latestObj.CONTACT_FIELD_95;
+    $scope.cses = $rootScope.latestObj.CONTACT_FIELD_177;
+
+    $scope.thp = $rootScope.latestObj.CONTACT_FIELD_19;
+
+    $scope.totalPercentageSelected = 100;
+
+    $scope.asset1Total = $rootScope.latestObj.CONTACT_FIELD_106;
+    $scope.asset2Total = $rootScope.latestObj.CONTACT_FIELD_118;
+
+
+    $scope.australianShares1 = $rootScope.latestObj.CONTACT_FIELD_97;
+    $scope.internationalShares1 = $rootScope.latestObj.CONTACT_FIELD_98;
+    $scope.internationalSharesHedged1 = $rootScope.latestObj.CONTACT_FIELD_99;
+    $scope.usShares1 = $rootScope.latestObj.CONTACT_FIELD_100;
+    $scope.australianBonds1 = $rootScope.latestObj.CONTACT_FIELD_101;
+    $scope.internationalBondsHedged1 = $rootScope.latestObj.CONTACT_FIELD_102;
+    $scope.cash1 = $rootScope.latestObj.CONTACT_FIELD_103;
+    $scope.australianListedProperty1 = $rootScope.latestObj.CONTACT_FIELD_104;
+    $scope.internationalListedProperty1 = $rootScope.latestObj.CONTACT_FIELD_105;
+
+    $scope.asset1Total = $scope.australianShares1 + $scope.internationalShares1 +
+        $scope.internationalSharesHedged1 + $scope.usShares1 +
+        $scope.australianBonds1 + $scope.internationalBondsHedged1 +
+        $scope.cash1 + $scope.australianListedProperty1 +
+        $scope.internationalListedProperty1 + "%";
+
+    $scope.australianShares2 = $rootScope.latestObj.CONTACT_FIELD_109;
+    $scope.internationalShares2 = $rootScope.latestObj.CONTACT_FIELD_110;
+    $scope.internationalSharesHedged2 = $rootScope.latestObj.CONTACT_FIELD_111;
+    $scope.usShares2 = $rootScope.latestObj.CONTACT_FIELD_112;
+    $scope.australianBonds2 = $rootScope.latestObj.CONTACT_FIELD_113;
+    $scope.internationalBondsHedged2 = $rootScope.latestObj.CONTACT_FIELD_114;
+    $scope.cash2 = $rootScope.latestObj.CONTACT_FIELD_115;
+    $scope.australianListedProperty2 = $rootScope.latestObj.CONTACT_FIELD_116;
+    $scope.internationalListedProperty2 = $rootScope.latestObj.CONTACT_FIELD_117;
+
+    $scope.asset2Total = $scope.australianShares2 + $scope.internationalShares2 +
+        $scope.internationalSharesHedged2 + $scope.usShares2 +
+        $scope.australianBonds2 + $scope.internationalBondsHedged2 +
+        $scope.cash2 + $scope.australianListedProperty2 +
+        $scope.internationalListedProperty2 + "%";
+
+    $scope.calculateWaitingPeriod = function(leaves) {
+        if (leaves <= 30) {
+            return 30;
+        }
+        if (leaves > 30 && leaves <= 60) {
+            return 60;
+        }
+        if (leaves > 60) {
+            return 90;
+        }
+    }
+
+    $scope.waitingPeriod = $scope.calculateWaitingPeriod($scope.sickLeaves);
+
+    String.prototype.replaceAll = function(search, replacement) {
+        var targetTemp = this;
+        return targetTemp.split(search).join(replacement);
+    };
+
+    $scope.forms = {};
+
+    $scope.personalDetails = {
+        firstName: "Dexter",
+        lastName: "Payne",
+        email: "dexter@gmail.com",
+        mobile: 412121212,
+        postalCode: Number($rootScope.latestObj.CONTACT_FIELD_181)
+    };
+    $scope.spouseDetails = {
+        firstName: $rootScope.latestObj.CONTACT_FIELD_6,
+        lastName: $rootScope.latestObj.CONTACT_FIELD_7,
+        email: "rachel@gmail.com",
+        mobile: Number($rootScope.latestObj.CONTACT_FIELD_10),
+    };
+
+    var d = document.getElementsByClassName('title-div');
+
+    $scope.chartOneOpen = true;
+    $scope.chartTwoOpen = false;
+    $scope.chartThreeOpen = false;
+    $scope.chartFourOpen = false;
+    $scope.needSS = true;
+
+
+
+    var initDate = new Date();
+    initDate.setYear($scope.yearOfBirth);
+    initDate.setMonth($scope.monthOfBirth);
+    initDate.setDate($scope.dayOfBirth);
+
+    var initDate2 = new Date();
+    initDate2.setYear($scope.yearOfBirthSpouse);
+    initDate2.setMonth($scope.monthOfBirthSpouse);
+    initDate2.setDate($scope.dayOfBirthSpouse);
+
+    $scope.dob = initDate;
+    $scope.dobSpouse = initDate2;
+    // $scope.dobSpouse = $rootScope.latestObj.CONTACT_FIELD_9;
+
+    $scope.infoShow = function(value) {
+        if (value) {
+            document.getElementsByClassName("information-overlay")[0].style.visibility = "visible";
+            document.getElementsByClassName("information-overlay")[0].style.zIndex = "9999";
+            document.getElementsByClassName("information-overlay")[0].style.position = "inline-block";
+            document.getElementsByClassName("information-overlay")[0].style.height = "" + (document.getElementsByClassName("otrp-calculator")[0].clientHeight - 10) + "px";
+        } else {
+            document.getElementsByClassName("information-overlay")[0].style.visibility = "hidden";
+        }
+    }
+
+    $scope.firstDP = function() {
+        $scope.dateOptions.maxDate = new Date($scope.fy - 18, 5, 30);
+        $scope.dateOptions.minDate = new Date(1950, 0, 1);
+    }
+
+    $scope.secondDp = function() {
+        delete $scope.dateOptions.maxDate;
+    }
+
+    $scope.today = function() {
+        $scope.dt = new Date();
+    };
+    $scope.today();
+
+    $scope.clear = function() {
+        $scope.dt = null;
+    };
+
+    $scope.inlineOptions = {
+        customClass: getDayClass,
+        showWeeks: true
+    };
+
+    $scope.dateOptions = {
+        formatYear: 'yy',
+        startingDay: 1,
+        showWeeks: false
+    };
+
+    $scope.open1 = function() {
+        $scope.popup1.opened = true;
+        $scope.firstDP();
+    };
+
+    $scope.open2 = function() {
+        $scope.popup2.opened = true;
+        $scope.secondDp();
+    };
+
+    $scope.setDate = function(year, month, day) {
+        $scope.dt = new Date(year, month, day);
+    };
+
+    $scope.formats = ['dd-MMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate', 'dd/MM/yyyy', 'd!/M!/yyyy'];
+    $scope.format = $scope.formats[5];
+
+    $scope.popup1 = {
+        opened: false
+    };
+
+    $scope.popup2 = {
+        opened: false
+    };
+
+    var tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    var afterTomorrow = new Date();
+    afterTomorrow.setDate(tomorrow.getDate() + 1);
+    $scope.events = [{
+        date: tomorrow,
+        status: 'full'
+    }, {
+        date: afterTomorrow,
+        status: 'partially'
+    }];
+
+    function getDayClass(data) {
+        var date = data.date,
+            mode = data.mode;
+        if (mode === 'day') {
+            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
+
+            for (var i = 0; i < $scope.events.length; i++) {
+                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
+
+                if (dayToCheck === currentDay) {
+                    return $scope.events[i].status;
+                }
+            }
+        }
+
+        return '';
+    }
+
+
+    $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
+
+    $scope.age = AgeCalculator.getAgeInit($scope.dayOfBirth, $scope.monthOfBirth, $scope.yearOfBirth, $scope.fy);
+    $scope.ageSpouse = AgeCalculator.getAgeInit($scope.dayOfBirthSpouse, $scope.monthOfBirthSpouse, $scope.yearOfBirthSpouse, $scope.fy);
+
+
+    /*$scope.ageChange = function() {
+        var dobText = document.getElementById("dobText");
+        // console.log("dobText",new Date(dobText.value));
+        var dateString = dobText.value;
+        var dateArr = dateString.split("/");
+
+        var date_regex = /^([1-9]|0[1-9]|1\d|2\d|3[01])\/(0[1-9]|[1-9]|1[0-2])\/(19[5-9][0-9])$/;
+        var correct = date_regex.test(dobText.value);
+        var fd = new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
+
+        if (((fd.getMonth() + 1) === Number(dateArr[1]) && fd.getDate() === Number(dateArr[0])) && correct) {
+            $scope.dob = fd;
+        } else {
+            $scope.dob = initDate;
+        }
+        $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
+    }*/
+
+    $scope.newChangesApplied = false;
+
+    $scope.enableNewSliders = true;
+
+    $scope.saveWithNew = false;
+
+
+    $scope.c1Name = $rootScope.latestObj.CONTACT_FIELD_122;
+    $scope.c2Name = $rootScope.latestObj.CONTACT_FIELD_127;
+    $scope.c3Name = $rootScope.latestObj.CONTACT_FIELD_132;
+    $scope.c4Name = $rootScope.latestObj.CONTACT_FIELD_138;
+    $scope.c5Name = $rootScope.latestObj.CONTACT_FIELD_144;
+    $scope.c6Name = "Mike";
+    $scope.nameArray = [$scope.c1Name, $scope.c2Name, $scope.c3Name, $scope.c4Name, $scope.c5Name, $scope.c6Name];
+
+    $scope.chartOneOpen = true;
+    // $scope.alterOption = false;
+
+    $scope.studyingOption1 = false;
+    $scope.studyingOption2 = false;
+    $scope.studyingOption3 = false;
+    $scope.studyingOption4 = false;
+    $scope.studyingOption5 = false;
+    $scope.studyingOption6 = false;
+
+    $scope.indexlevel = 0.04;
+
+    $scope.portAnnualReturn = [0.0456, 0.0853, 0.1165, 0.06];
+
+    var school1 = "0",
+        school2 = "0",
+        school3 = "0",
+        school4 = "0",
+        school5 = "0",
+        school6 = "0";
+    var schoolArray = [school1, school2, school3, school4, school5, school6];
+    var publicSchol_avgCostArray = {
+        "NSW": 1615.33,
+        "VIC": 1395,
+        "QLD": 471.25,
+        "SA": 762.5,
+        "WA": 950,
+        "ACT": 357.14,
+        "TAS": 390,
+    };
+    //var publicSchol_avgCostArray = [{name:"",value:1615.33}, 1395, 471.25, 762.5, 950, 357.14, 390];
+    $scope.publicSchoolFees = publicSchol_avgCostArray[$scope.spState];
+    $scope.showPortfolioOption = false;
 
 
 
 
 
+    var initDate = new Date();
+    $scope.begnYearInvestment = $rootScope.latestObj.CONTACT_FIELD_119;
+    $scope.investmentReturnAmount = $rootScope.latestObj.CONTACT_FIELD_176;
+    $scope.contStartYear = $rootScope.latestObj.CONTACT_FIELD_120;
+    $scope.schoolYear1 = $rootScope.latestObj.CONTACT_FIELD_124;
+    $scope.schoolDuration1 = $rootScope.latestObj.CONTACT_FIELD_125;
+    $scope.schoolYear2 = $rootScope.latestObj.CONTACT_FIELD_129;
+    $scope.schoolDuration2 = $rootScope.latestObj.CONTACT_FIELD_130;
+    $scope.schoolYear3 = $rootScope.latestObj.CONTACT_FIELD_134;
+    $scope.schoolDuration3 = $rootScope.latestObj.CONTACT_FIELD_135;
+    $scope.schoolYear4 = $rootScope.latestObj.CONTACT_FIELD_140;
+    $scope.schoolDuration4 = $rootScope.latestObj.CONTACT_FIELD_141;
+    $scope.schoolYear5 = $rootScope.latestObj.CONTACT_FIELD_146;
+    $scope.schoolDuration5 = $rootScope.latestObj.CONTACT_FIELD_147;
+    /* $scope.schoolYear6 = initDate.getFullYear();
+     $scope.schoolDuration6 = 6;*/
+    $scope.endYearInvestment = Number($scope.schoolYear2) + Number($scope.schoolDuration2);
+
+
+
+
+    $scope.compYear = 2016;
+    $scope.begngInvstmntPrd = Math.max(1991, $scope.dob.getFullYear() + 18);
+    $scope.invstmntHorzn = $scope.compYear - $scope.begngInvstmntPrd;
+
+    $scope.initialInvestmentAmount = $rootScope.latestObj.CONTACT_FIELD_96;
+
+    $scope.alterYear = $rootScope.latestObj.CONTACT_FIELD_108;
 
 
 
@@ -3124,7 +3590,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
 
     $scope.diffSchoolOption = false;
 
-    
+
 
     $('.spEducationOption').on('change', function() {
         $scope.spEducationOption = $('.spEducationOption option:selected').val();
@@ -3245,53 +3711,13 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         $timeout(0);
     }
 
-   
 
 
 
 
 
-    $scope.c1Name = latestObj.CONTACT_FIELD_122;
-    $scope.c2Name = latestObj.CONTACT_FIELD_127;
-    $scope.c3Name = latestObj.CONTACT_FIELD_132;
-    $scope.c4Name = latestObj.CONTACT_FIELD_138;
-    $scope.c5Name = latestObj.CONTACT_FIELD_144;
-    $scope.c6Name = "Mike";
-    $scope.nameArray = [$scope.c1Name, $scope.c2Name, $scope.c3Name, $scope.c4Name, $scope.c5Name, $scope.c6Name];
 
-    $scope.chartOneOpen = true;
-    // $scope.alterOption = false;
 
-    $scope.studyingOption1 = false;
-    $scope.studyingOption2 = false;
-    $scope.studyingOption3 = false;
-    $scope.studyingOption4 = false;
-    $scope.studyingOption5 = false;
-    $scope.studyingOption6 = false;
-
-    $scope.indexlevel = 0.04;
-
-    $scope.portAnnualReturn = [0.0456, 0.0853, 0.1165, 0.06];
-
-    var school1 = "0",
-        school2 = "0",
-        school3 = "0",
-        school4 = "0",
-        school5 = "0",
-        school6 = "0";
-    var schoolArray = [school1, school2, school3, school4, school5, school6];
-    var publicSchol_avgCostArray = {
-        "NSW": 1615.33,
-        "VIC": 1395,
-        "QLD": 471.25,
-        "SA": 762.5,
-        "WA": 950,
-        "ACT": 357.14,
-        "TAS": 390,
-    };
-    //var publicSchol_avgCostArray = [{name:"",value:1615.33}, 1395, 471.25, 762.5, 950, 357.14, 390];
-    $scope.publicSchoolFees = publicSchol_avgCostArray[$scope.spState];
-    $scope.showPortfolioOption = false;
 
     function privateSchoolOperation() {
         $scope.spState = $('.spState option:selected').val();
@@ -3405,24 +3831,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         //calculateFinal();
     });
 
-    var initDate = new Date();
-    $scope.begnYearInvestment = latestObj.CONTACT_FIELD_119;
-    $scope.numChildren = 2;
-    $scope.investmentReturnAmount = latestObj.CONTACT_FIELD_176;
-    $scope.contStartYear = latestObj.CONTACT_FIELD_120;
-    $scope.schoolYear1 = latestObj.CONTACT_FIELD_124;
-    $scope.schoolDuration1 = latestObj.CONTACT_FIELD_125;
-    $scope.schoolYear2 = latestObj.CONTACT_FIELD_129;
-    $scope.schoolDuration2 = latestObj.CONTACT_FIELD_130;
-    $scope.schoolYear3 = latestObj.CONTACT_FIELD_134;
-    $scope.schoolDuration3 = latestObj.CONTACT_FIELD_135;
-    $scope.schoolYear4 = latestObj.CONTACT_FIELD_140;
-    $scope.schoolDuration4 = latestObj.CONTACT_FIELD_141;
-    $scope.schoolYear5 = latestObj.CONTACT_FIELD_146;
-    $scope.schoolDuration5 = latestObj.CONTACT_FIELD_147;
-    /* $scope.schoolYear6 = initDate.getFullYear();
-     $scope.schoolDuration6 = 6;*/
-    $scope.endYearInvestment = Number($scope.schoolYear2) + Number($scope.schoolDuration2);
+
 
     var begnYearInvestmentSlider = document.getElementById("begnYearInvestmentSlider"),
         contStartYearSlider = document.getElementById("contStartYearSlider"),
@@ -3917,35 +4326,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         schoolDuration5Slider.noUiSlider.set(schoolDuration5Input.value);
     });
 
-    /*schoolDuration6Slider.noUiSlider.on('update', function(values, handle) {
-        schoolDuration6Input.value = values[handle];
-        $scope.schoolDuration6 = values[handle];
-    });
-    schoolDuration6Slider.noUiSlider.on('set', function(values, handle) {
-        tempValue = Number($scope.schoolYear6) + Number($scope.schoolDuration6);
-        changeMax(tempValue);
-        //calculate();
-        $timeout(0);
-    });
-
-    schoolDuration6Input.addEventListener("change", function() {
-        schoolDuration6Slider.noUiSlider.set(schoolDuration6Input.value);
-    });*/
-
-    /*<<<<<<< Updated upstream
-        $scope.spStudyingOption1='Yes';
-        $scope.spStudyingOption2='Yes';
-        $scope.spStudyingOption3='Yes';
-        $scope.spStudyingOption4='Yes';
-        $scope.spStudyingOption5='Yes';
-    =======
-        $scope.spStudyingOption1 = 'Yes';
-        $scope.spStudyingOption2 = 'Yes';
-        $scope.spStudyingOption3 = 'Yes';
-        $scope.spStudyingOption4 = 'Yes';
-        $scope.spStudyingOption5 = 'Yes';
-    >>>>>>> Stashed changes
-    */
     $('.spStudyingOption1').on('change', function() {
         let temp;
         $scope.spStudyingOption1 = $('.spStudyingOption1 option:selected').val();
@@ -4257,361 +4637,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     $scope.fundNameB = "Fund B";*/
 
     console.log("sadgggggggga");
-    var minDrawdown;
-    $scope.listOb = [{
-        id: 0,
-        name: "Minimum Pension Only"
-    }, {
-        id: 1,
-        name: "Choose you own pension"
-    }];
-    var maleExpectancy = [80.3, 79.6, 78.6, 77.6, 76.6, 75.6, 74.6, 73.6, 72.7, 71.7, 70.7, 69.7, 68.7, 67.7, 66.7, 65.7, 64.7, 63.7, 62.8, 61.8, 60.8, 59.9, 58.9, 57.9, 57, 56, 55, 54.1, 53.1, 52.2, 51.2, 50.2, 49.3, 48.3, 47.3, 46.4, 45.4, 44.5, 43.5, 42.6, 41.6, 40.7, 39.8, 38.8, 37.9, 37, 36, 35.1, 34.2, 33.3, 32.4, 31.4, 30.5, 29.6, 28.8, 27.9, 27, 26.1, 25.3, 24.4, 23.5, 22.7, 21.9, 21, 20.2, 19.4, 18.6, 17.8, 17, 16.3, 15.5, 14.8, 14, 13.3, 12.6, 11.9, 11.2, 10.6, 9.9, 9.3, 8.7, 8.2, 7.6, 7.1, 6.6, 6.1, 5.7, 5.3, 4.9, 4.5, 4.2, 3.9, 3.6, 3.4, 3.2, 3, 2.8, 2.6, 2.5, 2.4, 2.3];
 
-    var femaleExpectancy = [84.4, 83.7, 82.7, 81.7, 80.7, 79.7, 78.7, 77.7, 76.8, 75.8, 74.8, 73.8, 72.8, 71.8, 70.8, 69.8, 68.8, 67.8, 66.8, 65.9, 64.9, 63.9, 62.9, 61.9, 60.9, 60, 59, 58, 57, 56, 55, 54.1, 53.1, 52.1, 51.1, 50.1, 49.2, 48.2, 47.2, 46.3, 45.3, 44.3, 43.4, 42.4, 41.4, 40.5, 39.5, 38.6, 37.6, 36.7, 35.8, 34.8, 33.9, 33, 32, 31.1, 30.2, 29.3, 28.4, 27.5, 26.6, 25.7, 24.8, 23.9, 23, 22.2, 21.3, 20.4, 19.6, 18.8, 17.9, 17.1, 16.3, 15.5, 14.7, 13.9, 13.2, 12.4, 11.7, 11, 10.3, 9.6, 9, 8.3, 7.7, 7.2, 6.6, 6.1, 5.7, 5.2, 4.8, 4.4, 4.1, 3.8, 3.5, 3.3, 3, 2.9, 2.7, 2.5, 2.4];
-
-    // $scope.genderOption = true;
-    //    $scope.genderOptionSpouse = false;
-    // $scope.spouseOption = false;
-    $scope.houseOption = true;
-    $scope.retirementAgeSpouse = latestObj.CONTACT_FIELD_43;
-    $scope.retirementAgeSpouseNew = latestObj.CONTACT_FIELD_43;
-    $scope.annualSalarySpouse = latestObj.CONTACT_FIELD_33;
-    $scope.annualSalarySpouseNew = latestObj.CONTACT_FIELD_33;
-    $scope.superBalanceSpouse = latestObj.CONTACT_FIELD_34;
-    $scope.superBalanceSpouseNew = latestObj.CONTACT_FIELD_34;
-    $scope.salarySacrificeSpouse = latestObj.CONTACT_FIELD_35;
-    $scope.pensionStartSpouse = latestObj.CONTACT_FIELD_44;
-    $scope.insurancePremiumSpouse = latestObj.CONTACT_FIELD_36;
-    $scope.investmentReturnSpouse = latestObj.CONTACT_FIELD_37;
-    $scope.variableFeeSpouse = latestObj.CONTACT_FIELD_38;
-    $scope.fixedFeeSpouse = latestObj.CONTACT_FIELD_39;
-    $scope.pensionDrawdownBase = latestObj.CONTACT_FIELD_31;
-    $scope.pensionDrawdownBaseSpouse = latestObj.CONTACT_FIELD_46;
-    $scope.retirementAge = latestObj.CONTACT_FIELD_28;
-    $scope.retirementAgeNew = latestObj.CONTACT_FIELD_28;
-    $scope.preservationAge = 55;
-    $scope.preservationAgeSpouse = 55;
-    $scope.annualSalary = latestObj.CONTACT_FIELD_12;
-    $scope.annualSalaryNew = latestObj.CONTACT_FIELD_12;
-    $scope.employerContributionLevel = latestObj.CONTACT_FIELD_24;
-    $scope.employerContributionLevelSpouse = latestObj.CONTACT_FIELD_40;
-    // $scope.inflation = 3.50;
-    $scope.inflationSpouse = latestObj.CONTACT_FIELD_41;
-    // $scope.superBalance = 500000;
-    $scope.superBalanceNew = latestObj.CONTACT_FIELD_14;
-    $scope.wageIncrease = latestObj.CONTACT_FIELD_26;
-    $scope.wageIncreaseSpouse = latestObj.CONTACT_FIELD_42;
-    $scope.insurancePremium = latestObj.CONTACT_FIELD_20;
-    $scope.salarySacrifice = latestObj.CONTACT_FIELD_16;
-    $scope.pensionStart = latestObj.CONTACT_FIELD_29;
-    $scope.investmentReturn = latestObj.CONTACT_FIELD_21;
-    $scope.variableFee = latestObj.CONTACT_FIELD_22;
-    $scope.fixedFee = latestObj.CONTACT_FIELD_23;
-    $scope.homeContents = latestObj.CONTACT_FIELD_81;
-    $scope.vehicleCost = latestObj.CONTACT_FIELD_82;
-    $scope.investmentProperty = latestObj.CONTACT_FIELD_83;
-    $scope.bankAssets = latestObj.CONTACT_FIELD_84;
-    $scope.listedInvestment = latestObj.CONTACT_FIELD_85;
-    $scope.marginLoans = latestObj.CONTACT_FIELD_86;
-    $scope.allocatedPension = latestObj.CONTACT_FIELD_87;
-    // $scope.otherInvestment = 20000;
-    $scope.netRentalIncome = latestObj.CONTACT_FIELD_89;
-    $scope.otherIncome = latestObj.CONTACT_FIELD_90;
-    $scope.pensionIncome = latestObj.CONTACT_FIELD_91;
-    $scope.target = latestObj.CONTACT_FIELD_32;
-    $scope.targetNew = latestObj.CONTACT_FIELD_32;
-
-    $scope.personalDetails = {};
-    $scope.spouseDetails = {};
-    $scope.forms = {};
-
-    $scope.grossAnnualIncome = latestObj.CONTACT_FIELD_13;
-    $scope.grossAnnualIncomeNew = latestObj.CONTACT_FIELD_13;
-    $scope.homeMortgage = latestObj.CONTACT_FIELD_60;
-    $scope.investmentPropertyMortgage = latestObj.CONTACT_FIELD_61;
-    $scope.creditCardDebt = latestObj.CONTACT_FIELD_62;
-    $scope.carLoan = latestObj.CONTACT_FIELD_63;
-    $scope.personalLoan = latestObj.CONTACT_FIELD_64;
-    $scope.otherLoan = latestObj.CONTACT_FIELD_65;
-    $scope.homeValue = latestObj.CONTACT_FIELD_80;
-    $scope.cashAtBank = latestObj.CONTACT_FIELD_15;
-    $scope.otherInvestment = latestObj.CONTACT_FIELD_88;
-    $scope.superBalance = latestObj.CONTACT_FIELD_14;
-    $scope.ecLife = latestObj.CONTACT_FIELD_75;
-    $scope.ecLifeNew = latestObj.CONTACT_FIELD_75;
-    $scope.ecTPD = latestObj.CONTACT_FIELD_76;
-    $scope.ecTPDNew = latestObj.CONTACT_FIELD_76;
-    $scope.ecIP = latestObj.CONTACT_FIELD_77;
-    $scope.ecIPNew = latestObj.CONTACT_FIELD_77;
-    $scope.ecTrauma = latestObj.CONTACT_FIELD_78;
-    $scope.ecTraumaNew = latestObj.CONTACT_FIELD_78;
-    $scope.numChildren = latestObj.CONTACT_FIELD_66;
-    $scope.funeralCost = latestObj.CONTACT_FIELD_72;
-    $scope.educationExpensePerYearPerChild = latestObj.CONTACT_FIELD_73;
-    $scope.familyLivingCostPerYear = latestObj.CONTACT_FIELD_74;
-    $scope.inflation = latestObj.CONTACT_FIELD_25;
-    $scope.rateOfReturn = latestObj.CONTACT_FIELD_27;
-    $scope.moneyToBeBorrowed = latestObj.CONTACT_FIELD_172;
-    $scope.valueOfNewProperty = latestObj.CONTACT_FIELD_171;
-    $scope.ageSpouse = 47;
-    $scope.spouseSalary = 50000;
-    $scope.ageChildren1 = latestObj.CONTACT_FIELD_67;
-    $scope.ageChildren2 = latestObj.CONTACT_FIELD_68;
-    $scope.ageChildren3 = latestObj.CONTACT_FIELD_69;
-    $scope.ageChildren4 = latestObj.CONTACT_FIELD_70;
-    $scope.ageChildren5 = latestObj.CONTACT_FIELD_71;
-
-    $scope.resultPerc = {};
-
-    var dt = new Date();
-
-    /*  $scope.genderOption = true;*/
-    // $scope.smokeOption = false;
-    // $scope.spouseOption = false;
-    //    $scope.spouseWorkOption = true;
-    //    $scope.buyOption = true;
-    $scope.sickLeaves = latestObj.CONTACT_FIELD_79;
-
-    $scope.ncc = latestObj.CONTACT_FIELD_17;
-    $scope.superTaxRate = latestObj.CONTACT_FIELD_18;
-
-    $scope.contributionFeeA = latestObj.CONTACT_FIELD_53;
-    $scope.adminFeeA = latestObj.CONTACT_FIELD_54;
-    $scope.indirectCostRationA = latestObj.CONTACT_FIELD_55;
-
-
-    $scope.contributionFeeB = latestObj.CONTACT_FIELD_57;
-    $scope.adminFeeB = latestObj.CONTACT_FIELD_58;
-    $scope.indirectCostRationB = latestObj.CONTACT_FIELD_59;
-
-    $scope.nra = latestObj.CONTACT_FIELD_92;
-    $scope.nrp = latestObj.CONTACT_FIELD_94;
-    $scope.tfp = latestObj.CONTACT_FIELD_93;
-    $scope.beforeTTR = latestObj.CONTACT_FIELD_95;
-    $scope.cses = latestObj.CONTACT_FIELD_177;
-
-    $scope.thp = latestObj.CONTACT_FIELD_19;
-
-    $scope.totalPercentageSelected = 100;
-
-    $scope.asset1Total = latestObj.CONTACT_FIELD_106;
-    $scope.asset2Total = latestObj.CONTACT_FIELD_118;
-
-
-    $scope.australianShares1 = latestObj.CONTACT_FIELD_97;
-    $scope.internationalShares1 = latestObj.CONTACT_FIELD_98;
-    $scope.internationalSharesHedged1 = latestObj.CONTACT_FIELD_99;
-    $scope.usShares1 = latestObj.CONTACT_FIELD_100;
-    $scope.australianBonds1 = latestObj.CONTACT_FIELD_101;
-    $scope.internationalBondsHedged1 = latestObj.CONTACT_FIELD_102;
-    $scope.cash1 = latestObj.CONTACT_FIELD_103;
-    $scope.australianListedProperty1 = latestObj.CONTACT_FIELD_104;
-    $scope.internationalListedProperty1 = latestObj.CONTACT_FIELD_105;
-
-    $scope.asset1Total = $scope.australianShares1 + $scope.internationalShares1 +
-        $scope.internationalSharesHedged1 + $scope.usShares1 +
-        $scope.australianBonds1 + $scope.internationalBondsHedged1 +
-        $scope.cash1 + $scope.australianListedProperty1 +
-        $scope.internationalListedProperty1 + "%";
-
-    $scope.australianShares2 = latestObj.CONTACT_FIELD_109;
-    $scope.internationalShares2 = latestObj.CONTACT_FIELD_110;
-    $scope.internationalSharesHedged2 = latestObj.CONTACT_FIELD_111;
-    $scope.usShares2 = latestObj.CONTACT_FIELD_112;
-    $scope.australianBonds2 = latestObj.CONTACT_FIELD_113;
-    $scope.internationalBondsHedged2 = latestObj.CONTACT_FIELD_114;
-    $scope.cash2 = latestObj.CONTACT_FIELD_115;
-    $scope.australianListedProperty2 = latestObj.CONTACT_FIELD_116;
-    $scope.internationalListedProperty2 = latestObj.CONTACT_FIELD_117;
-
-    $scope.asset2Total = $scope.australianShares2 + $scope.internationalShares2 +
-        $scope.internationalSharesHedged2 + $scope.usShares2 +
-        $scope.australianBonds2 + $scope.internationalBondsHedged2 +
-        $scope.cash2 + $scope.australianListedProperty2 +
-        $scope.internationalListedProperty2 + "%";
-
-    $scope.calculateWaitingPeriod = function(leaves) {
-        if (leaves <= 30) {
-            return 30;
-        }
-        if (leaves > 30 && leaves <= 60) {
-            return 60;
-        }
-        if (leaves > 60) {
-            return 90;
-        }
-    }
-
-    $scope.waitingPeriod = $scope.calculateWaitingPeriod($scope.sickLeaves);
-
-    String.prototype.replaceAll = function(search, replacement) {
-        var targetTemp = this;
-        return targetTemp.split(search).join(replacement);
-    };
-
-    $scope.forms = {};
-
-    $scope.personalDetails = {
-        firstName: "Dexter",
-        lastName: "Payne",
-        email: "dexter@gmail.com",
-        mobile: 412121212,
-        postalCode: 1234
-    };
-    $scope.spouseDetails = {
-        firstName: latestObj.CONTACT_FIELD_6,
-        lastName: latestObj.CONTACT_FIELD_7,
-        email: "rachel@gmail.com",
-        mobile: latestObj.CONTACT_FIELD_10,
-    };
-
-    var d = document.getElementsByClassName('title-div');
-
-    $scope.chartOneOpen = true;
-    $scope.chartTwoOpen = false;
-    $scope.chartThreeOpen = false;
-    $scope.chartFourOpen = false;
-    $scope.needSS = true;
-
-
-
-    var initDate = new Date();
-    initDate.setYear(1988);
-    initDate.setMonth(0);
-    initDate.setDate(1);
-
-    var initDate2 = new Date();
-    initDate2.setYear(1984);
-    initDate2.setMonth(0);
-    initDate2.setDate(1);
-
-    $scope.dob = initDate;
-    $scope.dobSpouse = latestObj.CONTACT_FIELD_9;
-
-    $scope.infoShow = function(value) {
-        if (value) {
-            document.getElementsByClassName("information-overlay")[0].style.visibility = "visible";
-            document.getElementsByClassName("information-overlay")[0].style.zIndex = "9999";
-            document.getElementsByClassName("information-overlay")[0].style.position = "inline-block";
-            document.getElementsByClassName("information-overlay")[0].style.height = "" + (document.getElementsByClassName("otrp-calculator")[0].clientHeight - 10) + "px";
-        } else {
-            document.getElementsByClassName("information-overlay")[0].style.visibility = "hidden";
-        }
-    }
-
-    $scope.firstDP = function() {
-        $scope.dateOptions.maxDate = new Date($scope.fy - 18, 5, 30);
-        $scope.dateOptions.minDate = new Date(1950, 0, 1);
-    }
-
-    $scope.secondDp = function() {
-        delete $scope.dateOptions.maxDate;
-    }
-
-    $scope.today = function() {
-        $scope.dt = new Date();
-    };
-    $scope.today();
-
-    $scope.clear = function() {
-        $scope.dt = null;
-    };
-
-    $scope.inlineOptions = {
-        customClass: getDayClass,
-        showWeeks: true
-    };
-
-    $scope.dateOptions = {
-        formatYear: 'yy',
-        startingDay: 1,
-        showWeeks: false
-    };
-
-    $scope.open1 = function() {
-        $scope.popup1.opened = true;
-        $scope.firstDP();
-    };
-
-    $scope.open2 = function() {
-        $scope.popup2.opened = true;
-        $scope.secondDp();
-    };
-
-    $scope.setDate = function(year, month, day) {
-        $scope.dt = new Date(year, month, day);
-    };
-
-    $scope.formats = ['dd-MMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate', 'dd/MM/yyyy', 'd!/M!/yyyy'];
-    $scope.format = $scope.formats[5];
-
-    $scope.popup1 = {
-        opened: false
-    };
-
-    $scope.popup2 = {
-        opened: false
-    };
-
-    var tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    var afterTomorrow = new Date();
-    afterTomorrow.setDate(tomorrow.getDate() + 1);
-    $scope.events = [{
-        date: tomorrow,
-        status: 'full'
-    }, {
-        date: afterTomorrow,
-        status: 'partially'
-    }];
-
-    function getDayClass(data) {
-        var date = data.date,
-            mode = data.mode;
-        if (mode === 'day') {
-            var dayToCheck = new Date(date).setHours(0, 0, 0, 0);
-
-            for (var i = 0; i < $scope.events.length; i++) {
-                var currentDay = new Date($scope.events[i].date).setHours(0, 0, 0, 0);
-
-                if (dayToCheck === currentDay) {
-                    return $scope.events[i].status;
-                }
-            }
-        }
-
-        return '';
-    }
-
-
-    $scope.fy = dt.getMonth() > 5 ? dt.getFullYear() : dt.getFullYear() - 1;
-
-    $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
-
-
-    /*$scope.ageChange = function() {
-        var dobText = document.getElementById("dobText");
-        // console.log("dobText",new Date(dobText.value));
-        var dateString = dobText.value;
-        var dateArr = dateString.split("/");
-
-        var date_regex = /^([1-9]|0[1-9]|1\d|2\d|3[01])\/(0[1-9]|[1-9]|1[0-2])\/(19[5-9][0-9])$/;
-        var correct = date_regex.test(dobText.value);
-        var fd = new Date(dateArr[2], dateArr[1] - 1, dateArr[0]);
-
-        if (((fd.getMonth() + 1) === Number(dateArr[1]) && fd.getDate() === Number(dateArr[0])) && correct) {
-            $scope.dob = fd;
-        } else {
-            $scope.dob = initDate;
-        }
-        $scope.age = AgeCalculator.getAge($scope.dob, $scope.fy);
-    }*/
-
-    $scope.newChangesApplied = false;
-
-    $scope.enableNewSliders = true;
-
-    $scope.saveWithNew = false;
 
     $('#select-spouse-option').on('changed.bs.select', function(e) {
         $scope.spouseOption = $(this).selectpicker('val') <= 0;
@@ -4623,11 +4649,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         $timeout(0);
     });
 
-    /*<<<<<<< Updated upstream
-        $scope.buyOption="Yes";
-    =======
-        $scope.buyOption = "Yes";
-    >>>>>>> Stashed changes*/
+
     $('#select-buy-option').on('changed.bs.select', function(e) {
         if ($(this).selectpicker('val') == 'Yes') {
             $scope.buyOption = true;
@@ -4637,11 +4659,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         $timeout(0);
     });
 
-    /*<<<<<<< Updated upstream
-    //    $scope.lifeOption="Yes";
-    =======
-        $scope.lifeOption = "Yes";
-    >>>>>>> Stashed changes*/
+
     $('#spLifeOption').on('changed.bs.select', function(e) {
         $scope.lifeOption = $(this).selectpicker('val');
         $timeout(0);
@@ -8400,11 +8418,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         $timeout(0);
     });
 
-    $scope.compYear = 2016;
-    $scope.begngInvstmntPrd = Math.max(1991, $scope.dob.getFullYear() + 18);
-    $scope.invstmntHorzn = $scope.compYear - $scope.begngInvstmntPrd;
 
-    $scope.initialInvestmentAmount = latestObj.CONTACT_FIELD_96;
     //    $scope.alterOption = false;
 
     $('.spAlterOption').on('change', function() {
@@ -8506,7 +8520,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         $timeout(0);
     }
 
-    $scope.alterYear = latestObj.CONTACT_FIELD_108;
 
     console.log("$scope.alterYear", $scope.alterYear);
     console.log("$scope.invstmntHorzn", $scope.invstmntHorzn);
@@ -10096,134 +10109,157 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_146", "FIELD_VALUE": $scope.schoolYear5 },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_147", "FIELD_VALUE": $scope.schoolDuration5 },
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_148", "FIELD_VALUE": $scope.schoolSelected5 },
-            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_149", "FIELD_VALUE": $scope.majorSelected5 }
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_149", "FIELD_VALUE": $scope.majorSelected5 },
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_154", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_154},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_155", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_155},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_156", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_156},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_157", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_157},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_158", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_158},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_159", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_159},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_160", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_160},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_161", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_161},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_162", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_162},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_163", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_163},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_164", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_164},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_165", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_165},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_178", "FIELD_VALUE": $scope.houseOption},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_179", "FIELD_VALUE": $scope.smokeOption},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_180", "FIELD_VALUE": $scope.genderOption},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_181", "FIELD_VALUE": $scope.personalDetails.postalCode},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_182", "FIELD_VALUE": $scope.spouseWorkOption},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_183", "FIELD_VALUE": $scope.dayOfBirth},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_184", "FIELD_VALUE": $scope.monthOfBirth},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_185", "FIELD_VALUE": $scope.yearOfBirth},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_186", "FIELD_VALUE": $scope.dayOfBirthSpouse},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_187", "FIELD_VALUE": $scope.monthOfBirthSpouse},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_188", "FIELD_VALUE": $scope.yearOfBirthSpouse}
         ],
-        "iaObj": {
-            "age": 50,
-            "grossAnnualIncome": 120000,
-            "funeralCost": 20000,
-            "familyLivingCostPerYear": 90000,
-            "hasSpouse": true,
+        insObj : {
+            "age": $scope.age,
+            "grossAnnualIncome": $scope.grossAnnualIncome,
+            "funeralCost": $scope.funeralCost,
+            "familyLivingCostPerYear": $scope.familyLivingCostPerYear,
+            "hasSpouse": $scope.spouseOption,
             "hasChildren": true,
-            "sickLeaves": 20,
+            "sickLeaves": $scope.sickLeaves,
             "assets": {
-                "homeValue": 800000,
-                "cashAtBank": 20000,
-                "otherInvestment": 20000,
-                "superBalance": 100000
+                "homeValue": $scope.homeValue,
+                "cashAtBank": $scope.cashAtBank,
+                "otherInvestment": $scope.otherInvestment,
+                "superBalance": $scope.superBalance
             },
             "existingCovers": {
-                "life": 20000,
-                "TPD": 0,
-                "IP": 0,
-                "trauma": 0
+                "life": $scope.ecLife,
+                "TPD": $scope.ecTPD,
+                "IP": $scope.ecIP,
+                "trauma": $scope.ecTrauma
             },
             "assumptions": {
-                "inflation": 2,
-                "rateOfReturn": 5
+                "inflation": $scope.inflation,
+                "rateOfReturn": $scope.rateOfReturn
             },
             "liabilities": {
-                "homeMortgage": 20000,
-                "investmentPropertyMortgage": 10000,
-                "creditCardDebt": 3000,
-                "carLoan": 20000,
-                "personalLoan": 10000,
-                "otherLoan": 0
+                "homeMortgage": $scope.homeMortgage,
+                "investmentPropertyMortgage": $scope.investmentPropertyMortgage,
+                "creditCardDebt": $scope.creditCardDebt,
+                "carLoan": $scope.carLoan,
+                "personalLoan": $scope.personalLoan,
+                "otherLoan": $scope.otherLoan
             },
             "spouseDetails": {
-                "age": 47,
-                "isWorking": true,
-                "salary": 50000,
-                "moveToSmallerProperty": true,
-                "valueOfNewProperty": 500000,
-                "moneyToBeBorrowed": 400000
+                "age": $scope.ageSpouse,
+                "isWorking": $scope.spouseWorkOption,
+                "salary": $scope.annualSalarySpouse,
+                "moveToSmallerProperty": $scope.buyOption,
+                "valueOfNewProperty": $scope.valueOfNewProperty,
+                "moneyToBeBorrowed": $scope.moneyToBeBorrowed
             },
             "childrenDetails": {
-                "numChildren": 0,
-                "ages": [3, 7],
-                "educationExpensePerYearPerChild": 2000
+                "numChildren": $scope.numChildren,
+                "ages": [$scope.ageChildren1, $scope.ageChildren2, $scope.ageChildren3, $scope.ageChildren4, $scope.ageChildren5],
+                "educationExpensePerYearPerChild": $scope.educationExpensePerYearPerChild
             },
             "width": "1100",
             "height": "600"
         },
         "itObj": {
-            "annualSalary": 60000,
+            "annualSalary": $scope.annualSalary,
             "paymentFrequency": 1,
             "width": "660",
             "height": "360"
         },
         "raObj": {
-            "spouseOption": false,
-            "houseOption": true,
-            "targetIncome": 10000,
+            "spouseOption": $scope.spouseOption,
+            "houseOption": $scope.houseOption,
+            "targetIncome": $scope.target,
             "userDetails": {
                 "gender": "male",
-                "age": 56,
-                "retirementAge": 65,
-                "annualSalary": 260000,
-                "superBalance": 500000,
-                "salarySacrifice": 15384,
-                "pensionStartAge": 57
+                "age": $scope.age,
+                "retirementAge": $scope.retirementAge,
+                "annualSalary": $scope.annualSalary,
+                "superBalance": $scope.superBalance,
+                "salarySacrifice": $scope.salarySacrifice,
+                "pensionStartAge": $scope.pensionStart
             },
             "userAssumptions": {
-                "insurancePremium": 0,
-                "investmentReturn": 5.30,
-                "variableFee": 1.11,
-                "fixedFee": 300,
-                "employerContributionLevel": 9.50,
-                "inflation": 3.50,
-                "wageIncrease": 4.00,
+                "insurancePremium": $scope.insurancePremium,
+                "investmentReturn": $scope.investmentReturn,
+                "variableFee": $scope.variableFee,
+                "fixedFee": $scope.fixedFee,
+                "employerContributionLevel": $scope.employerContributionLevel,
+                "inflation": $scope.inflation,
+                "wageIncrease": $scope.wageIncrease,
                 "pensionDrawdown": 1,
-                "pensionDrawdownBase": 40000
+                "pensionDrawdownBase": $scope.pensionDrawdownBase
             },
             "spouseDetails": {
-                "gender": "female",
-                "age": 50,
-                "retirementAge": 70,
-                "annualSalary": 90000,
-                "superBalance": 200000,
-                "salarySacrifice": 5000,
-                "pensionStartAge": 65
+                "gender": $scope.genderOptionSpouse,
+                "age": $scope.ageSpouse,
+                "retirementAge": $scope.retirementAgeSpouse,
+                "annualSalary": $scope.annualSalarySpouse,
+                "superBalance": $scope.superBalanceSpouse,
+                "salarySacrifice": $scope.salarySacrificeSpouse,
+                "pensionStartAge": $scope.pensionStartSpouse
             },
             "spouseAssumptions": {
-                "insurancePremium": 0,
-                "investmentReturn": 5.30,
-                "variableFee": 1.11,
-                "fixedFee": 300,
-                "employerContributionLevel": 9.50,
-                "inflation": 3.50,
-                "wageIncrease": 4.00,
+                "insurancePremium": $scope.insurancePremiumSpouse,
+                "investmentReturn": $scope.investmentReturnSpouse,
+                "variableFee": $scope.variableFeeSpouse,
+                "fixedFee": $scope.fixedFeeSpouse,
+                "employerContributionLevel": $scope.employerContributionLevelSpouse,
+                "inflation": $scope.inflationSpouse,
+                "wageIncrease": $scope.wageIncreaseSpouse,
                 "pensionDrawdown": 1,
-                "pensionDrawdownBase": 30000
+                "pensionDrawdownBase": $scope.pensionDrawdownBaseSpouse
             },
             "otherAssets": {
-                "homeContents": 50000,
-                "vehicleCost": 0,
-                "investmentProperty": 2000,
-                "bankAssets": 20000,
-                "listedInvestments": 0,
-                "marginLoans": 0,
-                "otherInvestment": 20000,
-                "netRentalIncome": 0,
-                "otherIncome": 0,
-                "pensionIncome": 0,
-                "allocatedPension": 60000
+                "homeContents": $scope.homeContents,
+                "vehicleCost": $scope.vehicleCost,
+                "investmentProperty": $scope.investmentProperty,
+                "bankAssets": $scope.bankAssets,
+                "listedInvestments": $scope.listedInvestment,
+                "marginLoans": $scope.marginLoans,
+                "otherInvestment": $scope.otherInvestment,
+                "netRentalIncome": $scope.netRentalIncome,
+                "otherIncome": $scope.otherIncome,
+                "pensionIncome": $scope.pensionIncome,
+                "allocatedPension": $scope.allocatedPension
             },
             "width": "1039",
             "height": "441"
         },
         "sfcObj": {
-            "age": 47,
-            "retirementAge": 67,
-            "annualSalary": 60000,
-            "superBalance": 100000,
-            "cc": 10000,
-            "ncc": 10000,
-            "ecLevel": 9.5,
-            "inflation": 2.5,
-            "wageIncrease": 3.5,
-            "insurancePremiumPerYear": 200,
-            "netReturn": 2.90,
+            "age": $scope.age,
+            "retirementAge": $scope.retirementAge,
+            "annualSalary": $scope.annualSalary,
+            "superBalance": $scope.superBalance,
+            "cc": $scope.salarySacrifice,
+            "ncc": $scope.ncc,
+            "ecLevel": $scope.employerContributionLevel,
+            "inflation": $scope.inflation,
+            "wageIncrease": $scope.wageIncrease,
+            "insurancePremiumPerYear": $scope.insurancePremium,
+            "netReturn": $scope.netReturn,
             "fundASelectedId": 0,
             "fundNameA": "Special fund 1",
             "contributionFeeA": 1.50,
@@ -10238,70 +10274,70 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             "height": "690"
         },
         "ssoObj": {
-            "age": 19,
-            "cses": 80000,
-            "thp": 45000,
-            "fy": 2016,
+            "age": $scope.age,
+            "cses": $scope.cses,
+            "thp": $scope.thp,
+            "fy": $scope.fy,
             "width": "741",
             "height": "744"
         },
         "ttrObj": {
-            "age": 46,
-            "cses": 80000,
-            "thp": 45000,
-            "fy": 2016,
-            "nra": 6,
-            "nrp": 7,
-            "balance": 50000,
-            "tfp": 2,
+            "age": $scope.age,
+            "cses": $scope.cses,
+            "thp": $scope.thp,
+            "fy": $scope.fy,
+            "nra": $scope.nra,
+            "nrp": $scope.nrp,
+            "balance": $scope.beforeTTR,
+            "tfp": $scope.tfp,
             "width": "700",
             "height": "741"
         },
         "psfObj": {
-            "begnYearInvestment": 2017,
-            "numChildren": 2,
-            "contStartYear": 2017,
-            "spState": 0,
-            "spPort": 0,
+            "begnYearInvestment": $scope.begnYearInvestment,
+            "numChildren": $scope.numChildren,
+            "contStartYear": $scope.contStartYear,
+            "spState": $scope.spState,
+            "spPort": $scope.spPort,
             "firstChild": {
-                "c1Name": "Max",
+                "c1Name": $scope.c1Name,
                 "schoolId1": true,
-                "schoolYear1": 2017,
-                "schoolDuration1": 6,
-                "major1": 0,
-                "studyingOption1": 0
+                "schoolYear1": $scope.schoolYear1,
+                "schoolDuration1": $scope.schoolDuration1,
+                "major1": $scope.majorSelected1,
+                "studyingOption1": $scope.spStudyingOption1
             },
             "secondChild": {
-                "c2Name": "Monica",
+                "c2Name": $scope.c2Name,
                 "schoolId2": true,
-                "schoolYear2": 2017,
-                "schoolDuration2": 6,
-                "major2": 0,
-                "studyingOption2": 0
+                "schoolYear2": $scope.schoolYear2,
+                "schoolDuration2": $scope.schoolDuration2,
+                "major2": $scope.majorSelected2,
+                "studyingOption2": $scope.spStudyingOption2
             },
             "thirdChild": {
-                "c3Name": "john",
+                "c3Name": $scope.c3Name,
                 "schoolId3": true,
-                "schoolYear3": 2017,
-                "schoolDuration3": 6,
-                "major3": 0,
-                "studyingOption3": 0
+                "schoolYear3": $scope.schoolYear3,
+                "schoolDuration3": $scope.schoolDuration3,
+                "major3": $scope.majorSelected3,
+                "studyingOption3": $scope.spStudyingOption3
             },
             "fourthChild": {
-                "c4Name": "Rita",
+                "c4Name": $scope.c4Name,
                 "schoolId4": true,
-                "schoolYear4": 2017,
-                "schoolDuration4": 6,
-                "major4": 0,
-                "studyingOption4": 0
+                "schoolYear4": $scope.schoolYear4,
+                "schoolDuration4": $scope.schoolDuration4,
+                "major4": $scope.majorSelected4,
+                "studyingOption4": $scope.spStudyingOption4
             },
             "fifthChild": {
-                "c5Name": "Tom",
+                "c5Name": $scope.c5Name,
                 "schoolId5": true,
-                "schoolYear5": 2017,
-                "schoolDuration5": 6,
-                "major5": 0,
-                "studyingOption5": 0
+                "schoolYear5": $scope.schoolYear5,
+                "schoolDuration5": $scope.schoolDuration5,
+                "major5": $scope.majorSelected5,
+                "studyingOption5": $scope.spStudyingOption5
             },
             "sixthChild": {
                 "c6Name": "Mike",
@@ -10315,55 +10351,56 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             "height": "110"
         },
         "aaObj": {
-            "initialInvestmentAmount": 50000,
-            "alterOption": true,
-            "alterYear": 1,
-            "birthYear": 1997,
-            "birthMonth": 1,
-            "birthDay": 1,
+            "initialInvestmentAmount": $scope.initialInvestmentAmount,
+            "alterOption": $scope.alterOption,
+            "alterYear": $scope.alterYear,
+            "birthYear": $scope.dayOfBirth,
+            "birthMonth": $scope.monthOfBirth,
+            "birthDay": $scope.yearOfBirth,
             "initial": {
-                "australianShares1": 10,
-                "internationalShares1": 10,
-                "internationalSharesHedged1": 10,
-                "usShares1": 10,
-                "australianBonds1": 10,
-                "internationalBondsHedged1": 10,
-                "cash1": 10,
-                "australianListedProperty1": 10,
-                "internationalListedProperty1": 20
+                "australianShares1": $scope.australianShares1,
+                "internationalShares1": $scope.internationalShares1,
+                "internationalSharesHedged1": $scope.internationalSharesHedged1,
+                "usShares1": $scope.usShares1,
+                "australianBonds1": $scope.australianBonds1,
+                "internationalBondsHedged1": $scope.internationalBondsHedged1,
+                "cash1": $scope.cash1,
+                "australianListedProperty1": $scope.australianListedProperty1,
+                "internationalListedProperty1": $scope.internationalListedProperty1
             },
             "altered": {
-                "australianShares2": 10,
-                "internationalShares2": 10,
-                "internationalSharesHedged2": 10,
-                "usShares2": 10,
-                "australianBonds2": 10,
-                "internationalBondsHedged2": 10,
-                "cash2": 30,
-                "australianListedProperty2": 10,
-                "internationalListedProperty2": 0
+                "australianShares2": $scope.australianShares2,
+                "internationalShares2": $scope.internationalShares2,
+                "internationalSharesHedged2": $scope.internationalSharesHedged2,
+                "usShares2": $scope.usShares2,
+                "australianBonds2": $scope.australianBonds2,
+                "internationalBondsHedged2": $scope.internationalBondsHedged2,
+                "cash2": $scope.cash2,
+                "australianListedProperty2": $scope.australianListedProperty2,
+                "internationalListedProperty2": $scope.internationalListedProperty2
             },
             "width": "110",
             "height": "110"
         }
     };
 
+    console.log("$scope.final_data",$scope.final_data);
 
 
 
-    /*$scope.customFieldObj={};
-        for(i=0; i<$scope.custom_field.length;i++){ 
-         $scope.customFieldObj[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE ;
-     } 
-     console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", $scope.customFieldObj);*/
-
+    /*var customFieldObj1={};
+    for(i=0; i<$scope.custom_field1.length;i++){ 
+        customFieldObj1[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE ;
+    } 
+     console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", customFieldObj1);
+*/
 
     $scope.calculatePdf = function() {
         /*for(i=0; i<$scope.custom_field.length;i++){ 
      $scope.customFieldObj[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE 
  } 
  console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", $scope.customFieldObj);*/
-        UserService.customFieldsUpdate($scope.final_data);
+        //UserService.customFieldsUpdate($scope.final_data);
         UserService.generatePdf($scope.final_data);
         console.log("requsest sent");
     }

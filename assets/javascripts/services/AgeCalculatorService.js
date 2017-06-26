@@ -1,32 +1,54 @@
 var AgeCalculatorService = angular.module('AgeCalculatorService', [])
-.service('AgeCalculator', function (){
-    this.getAge = function (dateBirth,year) {
+    .service('AgeCalculator', function() {
+        this.getAge = function(dateBirth, year) {
 
-    	// console.log("ac",dateBirth);
+            // console.log("ac",dateBirth);
 
-// var today = new Date();
+            // var today = new Date();
 
-thisYear = year;
-thisMonth = 6;
-thisDay = 1;
-birthYear = dateBirth.getFullYear();
-birthMonth = dateBirth.getMonth();
-birthDay = dateBirth.getDate();
+            thisYear = year;
+            thisMonth = 6;
+            thisDay = 1;
+            birthYear = dateBirth.getFullYear();
+            birthMonth = dateBirth.getMonth();
+            birthDay = dateBirth.getDate();
 
-var age = thisYear - birthYear;
+            var age = thisYear - birthYear;
 
-if (thisMonth < birthMonth)
-{
-  age--;
-}
+            if (thisMonth < birthMonth) {
+                age--;
+            }
 
-if (birthMonth === thisMonth && thisDay < birthDay)
-{
-  age--;
-}
+            if (birthMonth === thisMonth && thisDay < birthDay) {
+                age--;
+            }
 
-return age;
+            return age;
+        };
+        this.getAgeInit = function(dayOfBirth,monthOfBirth,yearOfBirth, year) {
 
-    };
+            // console.log("ac",dateBirth);
 
-});
+            // var today = new Date();
+
+            thisYear = year;
+            thisMonth = 6;
+            thisDay = 1;
+            birthYear = yearOfBirth;
+            birthMonth = monthOfBirth;
+            birthDay = dayOfBirth;
+
+            var age = thisYear - birthYear;
+
+            if (thisMonth < birthMonth) {
+                age--;
+            }
+
+            if (birthMonth === thisMonth && thisDay < birthDay) {
+                age--;
+            }
+
+            return age;
+        };
+
+    });
