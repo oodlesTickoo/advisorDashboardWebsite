@@ -10392,7 +10392,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             $scope.customFieldObj22[$scope.final_data.custom_field[i].CUSTOM_FIELD_ID] = $scope.final_data.custom_field[i].FIELD_VALUE ;
         } 
         console.log("customFieldObj22", $scope.customFieldObj22);
-        $scope.final_data[customFieldMap]=$scope.customFieldObj22;
+        $scope.final_data["customFieldMap"]=$scope.customFieldObj22;
         //UserService.customFieldsUpdate($scope.final_data);
         UserService.generatePdf($scope.final_data);
         console.log("requsest sent");
