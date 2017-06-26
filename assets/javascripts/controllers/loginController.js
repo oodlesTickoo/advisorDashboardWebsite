@@ -23,15 +23,14 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', 
                 return;
             }
             if (response && response.data && response.data.response) {
-                console.log("response",response);
-                console.log("response.data",response.data);
-                console.log("response.data.response",response.data.response);
-                /*var customFieldObj1 = {};
+                console.log("response.data.response",response.data.response.me.CUSTOMFIELDS);
+                var customFieldObj1 = {};
                 for (i = 0; i < $scope.custom_field1.length; i++) {
-                    customFieldObj1[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE;
+                    customFieldObj1[response.data.response.me.CUSTOMFIELDS[i].CUSTOM_FIELD_ID] = response.data.response.me.CUSTOMFIELDS[i].FIELD_VALUE;
                 }
-                console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", customFieldObj1);*/
-                $rootScope.latestObj = {
+                console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", customFieldObj1);
+                $rootScope.latestObj = customFieldObj1;
+                /*{
                     CONTACT_FIELD_1: "Excellent",
                     CONTACT_FIELD_2: "No", //false
                     CONTACT_FIELD_3: "Yes",
@@ -216,7 +215,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', 
                     CONTACT_FIELD_186: "02",
                     CONTACT_FIELD_187: "05",
                     CONTACT_FIELD_188: "1987",
-                };
+                };*/
                 AuthenticationService.cacheSession(response);
                 $rootScope.isLoggedIn = true;
                 $state.go('app.welcome');
