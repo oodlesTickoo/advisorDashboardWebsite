@@ -10134,7 +10134,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_187", "FIELD_VALUE": $scope.monthOfBirthSpouse},
             { "CUSTOM_FIELD_ID": "CONTACT_FIELD_188", "FIELD_VALUE": $scope.yearOfBirthSpouse}
         ],
-        insObj : {
+        iaObj : {
             "age": $scope.age,
             "grossAnnualIncome": $scope.grossAnnualIncome,
             "funeralCost": $scope.funeralCost,
