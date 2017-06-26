@@ -12,7 +12,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
     $scope.advisor.type = USER_ROLE.ADVISOR;
     $scope.client = {};
     $scope.client.type = USER_ROLE.CLIENT;
-
+    $rootScope.isLoggedIn=false;
     console.log("222222222222222222222222222222222");
 
     $scope.login = function(data) {
