@@ -1,4 +1,4 @@
-app.controller("GoalBasedAdviceController", ['$scope', '$state', '$rootScope', 'GoalBasedAdviceService', '$timeout', function($scope, $state, $rootScope, GoalBasedAdviceService, $timeout) {
+app.controller("GoalBasedAdviceController", ['$scope', '$state', '$rootScope','UserService', 'GoalBasedAdviceService', '$timeout', function($scope, $state, $rootScope,UserService, GoalBasedAdviceService, $timeout) {
     $rootScope.addGoal = false;
 
     $scope.goalBasedAdvice = GoalBasedAdviceService.goalBasedAdvice();
