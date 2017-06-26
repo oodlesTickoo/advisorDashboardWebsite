@@ -20,13 +20,30 @@ app.controller("GoalBasedAdviceController", ['$scope', '$state', '$rootScope', '
         }, 3000);
     };
 
+
+   $scope.final_data= {"custom_field": [
+            
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_154", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_154},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_155", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_155},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_156", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_156},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_157", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_157},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_158", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_158},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_159", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_159},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_160", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_160},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_161", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_161},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_162", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_162},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_163", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_163},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_164", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_164},
+            { "CUSTOM_FIELD_ID": "CONTACT_FIELD_165", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_165},
+            
+        ]};
     //to remove a Goal
     $scope.removeGoal = function(index, severity) {
         $scope.showTooltip = "";
         $scope.goalBasedAdvice[index].severity = 'false';
         console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", $scope.showTooltip, $scope.goalBasedAdvice[index].severity);
     };
-
+    $scope.customFieldObj22={};
     $scope.saveGoals = function() {
         for(i=0; i<$scope.final_data.custom_field.length;i++){ 
             $scope.customFieldObj22[$scope.final_data.custom_field[i].CUSTOM_FIELD_ID] = $scope.final_data.custom_field[i].FIELD_VALUE ;
