@@ -25,7 +25,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', 
             if (response && response.data && response.data.response) {
                 console.log("response.data.response",response.data.response.me.CUSTOMFIELDS);
                 var customFieldObj1 = {};
-                for (i = 0; i < $scope.custom_field1.length; i++) {
+                for (i = 0; i < response.data.response.me.CUSTOMFIELDS.length; i++) {
                     customFieldObj1[response.data.response.me.CUSTOMFIELDS[i].CUSTOM_FIELD_ID] = response.data.response.me.CUSTOMFIELDS[i].FIELD_VALUE;
                 }
                 console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", customFieldObj1);
