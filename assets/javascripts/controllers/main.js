@@ -18,7 +18,7 @@ app.controller("MainCtrl", ['$scope', 'sessionService', '$state', '$rootScope', 
 	$rootScope.previousState;
 	$rootScope.currentState;
 
-    $rootScope.latestObj = {
+    /*$rootScope.latestObj = {
         CONTACT_FIELD_1: "Excellent",
         CONTACT_FIELD_2: "No", //false
         CONTACT_FIELD_3: "Yes",
@@ -203,7 +203,7 @@ app.controller("MainCtrl", ['$scope', 'sessionService', '$state', '$rootScope', 
         CONTACT_FIELD_186: "02",
         CONTACT_FIELD_187: "05",
         CONTACT_FIELD_188: "1987",
-    };
+    };*/
 
 
     function init() {

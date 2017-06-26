@@ -13,6 +13,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', 
     $scope.client = {};
     $scope.client.type = USER_ROLE.CLIENT;
 
+    console.log("222222222222222222222222222222222");
 
     $scope.login = function(data) {
         console.log("Login: ", data);
@@ -22,7 +23,9 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', 
                 return;
             }
             if (response && response.data && response.data.response) {
-                console.log(response);
+                console.log("response",response);
+                console.log("response.data",response.data);
+                console.log("response.data.response",response.data.response);
                 /*var customFieldObj1 = {};
                 for (i = 0; i < $scope.custom_field1.length; i++) {
                     customFieldObj1[$scope.custom_field[i].CUSTOM_FIELD_ID] = $scope.custom_field[i].FIELD_VALUE;

@@ -1,5 +1,7 @@
 app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
-    $rootScope.latestObj = {
+   
+    console.log("11111111111111111111111111111111111111111111111");
+    /*$rootScope.latestObj = {
         CONTACT_FIELD_1: "Excellent",
         CONTACT_FIELD_2: "No", //false
         CONTACT_FIELD_3: "Yes",
@@ -184,7 +186,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         CONTACT_FIELD_186: "02",
         CONTACT_FIELD_187: "05",
         CONTACT_FIELD_188: "1987",
-    };
+    };*/
 
     $scope.fundTypeA = [
         { id: 0, name: 'MySuper Fund' },
