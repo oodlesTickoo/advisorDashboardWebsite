@@ -1370,7 +1370,7 @@ a.edit-action i {
 .submit-calculator{
 	margin-top: 20px !important;
     height: 45px;
-    width: 63%;
+    width: auto;
     /* text-transform: inherit; */
     font-size: 18px;
     margin: 0px auto;

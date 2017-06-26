@@ -27,6 +27,16 @@ app.controller("GoalBasedAdviceController", ['$scope', '$state', '$rootScope', '
         console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", $scope.showTooltip, $scope.goalBasedAdvice[index].severity);
     };
 
+    $scope.saveGoals = function() {
+        for(i=0; i<$scope.final_data.custom_field.length;i++){ 
+            $scope.customFieldObj22[$scope.final_data.custom_field[i].CUSTOM_FIELD_ID] = $scope.final_data.custom_field[i].FIELD_VALUE ;
+        } 
+        console.log("customFieldObj22", $scope.customFieldObj22);
+        $scope.final_data["customFieldMap"]=$scope.customFieldObj22;
+        UserService.customFieldsUpdate($scope.final_data);
+        console.log("requsest sent");
+    };
+
     //go to Goal Based calculator
     /* $scope.goToGoalCalc = function() {
          $rootScope.addGoal = true;
