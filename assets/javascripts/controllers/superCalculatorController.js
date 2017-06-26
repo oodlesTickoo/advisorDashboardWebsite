@@ -1,6 +1,6 @@
 app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
    
-    console.log("11111111111111111111111111111111111111111111111");
+    console.log("111111111111111111111111111111111111daboooooooooooooo11111111111");
     /*$rootScope.latestObj = {
         CONTACT_FIELD_1: "Excellent",
         CONTACT_FIELD_2: "No", //false

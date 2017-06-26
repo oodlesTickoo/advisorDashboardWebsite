@@ -1,9 +1,12 @@
 (function() {
     'use strict';
 
-    app.factory("GoalBasedAdviceService", function($rootScope,$state) {
+    app.factory("GoalBasedAdviceService", function($rootScope,$state,sessionService) {
             if($rootScope.latestObj===undefined){
+                    sessionService.unsetAll();
+                    $rootScope.isLoggedIn = false;
                     $state.go('login');
+                    return;
             }
 
         var customFieldObj = {
