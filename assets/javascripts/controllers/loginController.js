@@ -1,4 +1,4 @@
-app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', '$rootScope', 'toastr', function($scope, AuthenticationService, $state, $rootScope, toastr) {
+app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionService' ,'$state', '$rootScope', 'toastr', function($scope, AuthenticationService,sessionService, $state, $rootScope, toastr) {
     'use strict';
 
     var USER_ROLE = {
@@ -29,6 +29,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', '$state', 
                     customFieldObj1[response.data.response.me.CUSTOMFIELDS[i].CUSTOM_FIELD_ID] = response.data.response.me.CUSTOMFIELDS[i].FIELD_VALUE;
                 }
                 console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk", customFieldObj1);
+                sessionService.set("latestObj",JSON.stringify(customFieldObj1));
                 $rootScope.latestObj = customFieldObj1;
                 /*{
                     CONTACT_FIELD_1: "Excellent",

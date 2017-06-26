@@ -3,8 +3,7 @@
 
     app.factory("GoalBasedAdviceService", function($rootScope,$state,sessionService) {
             if($rootScope.latestObj===undefined){
-                    sessionService.unsetAll();
-                    return false;
+                    $rootScope.latestObj=JSON.parse(sessionService.get('latestObj'));
             }
 
         var customFieldObj = {

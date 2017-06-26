@@ -1,9 +1,9 @@
 app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
-   if(GoalBasedAdviceService===false){
+   /*if(GoalBasedAdviceService===false){
                     $rootScope.isLoggedIn = false;
                     $state.go('login');
                     return false;
-            }
+            }*/
     console.log("111111111111111111111111111111111111daboooooooooooooo11111111111");
     /*$rootScope.latestObj = {
         CONTACT_FIELD_1: "Excellent",
