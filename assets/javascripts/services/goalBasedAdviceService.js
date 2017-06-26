@@ -4,9 +4,7 @@
     app.factory("GoalBasedAdviceService", function($rootScope,$state,sessionService) {
             if($rootScope.latestObj===undefined){
                     sessionService.unsetAll();
-                    $rootScope.isLoggedIn = false;
-                    $state.go('login');
-                    return;
+                    return false;
             }
 
         var customFieldObj = {
