@@ -1,6 +1,6 @@
-app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService','$uibModal', '$rootScope', function($scope, sessionService, $state, UserService, $uibModal, $rootScope) {
+app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService', '$uibModal', '$rootScope', function($scope, sessionService, $state, UserService, $uibModal, $rootScope) {
     'use strict';
-	
+
     //tab toggle btn group
     $scope.fileExist = false;
     $scope.LOGGED_NAME = sessionService.get('name');
@@ -9,45 +9,45 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         CLIENT: "CLIENT",
         ADMIN: "ADMINISTRATOR"
     };
-	
+
     $rootScope.addGoal = false;
     $scope.my_clients = [];
     $scope.advisors = [];
     $scope.client_advisors = [];
 
-    function initialize(){
+    function initialize() {
         //$scope.selectedRole = "ADMINISTRATOR";      // sessionService.get('role');
-        $scope.selectedRole =  sessionService.get('role');
+        $scope.selectedRole = sessionService.get('role');
         _getPageData();
 
     }
     initialize();
 
-    function _getPageData(){
+    function _getPageData() {
         console.log("Getting data");
-        if($scope.selectedRole !== $scope.USER_ROLE.CLIENT){
-            UserService.homePageData().then(function(result){
+        if ($scope.selectedRole !== $scope.USER_ROLE.CLIENT) {
+            UserService.homePageData().then(function(result) {
                 console.log("Response ", result);
-                $scope.my_clients = result.data.response.my_clients?result.data.response.my_clients: [];
-                $scope.advisors = result.data.response.advisors?result.data.response.advisors: [];
-                $scope.client_advisors = result.data.response.clientAdvisor?result.data.response.clientAdvisor: []; 
+                $scope.my_clients = result.data.response.my_clients ? result.data.response.my_clients : [];
+                $scope.advisors = result.data.response.advisors ? result.data.response.advisors : [];
+                $scope.client_advisors = result.data.response.clientAdvisor ? result.data.response.clientAdvisor : [];
                 _updateListData();
-            }).catch(function(err){
+            }).catch(function(err) {
                 console.log(err);
             });
-        } else{
-            UserService.isFileExist('docx').then(function(result){
+        } else {
+            UserService.isFileExist('docx').then(function(result) {
                 console.log(result);
                 $scope.fileExist = result.data.response.status;
             });
         }
     }
 
-    function _updateListData(){
-    
-        $scope.client_advisors.forEach(function(ca){
+    function _updateListData() {
+
+        $scope.client_advisors.forEach(function(ca) {
             ca.client.NAME = ca.client.FIRST_NAME + ' ' + ca.client.LAST_NAME;
-            if(ca.advisor)
+            if (ca.advisor)
                 ca.advisor.NAME = ca.advisor.FIRST_NAME + ' ' + ca.advisor.LAST_NAME;
         });
 
@@ -94,8 +94,8 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             name: 'actions',
             width: 150,
             pinnedRight: true,
-            cellTemplate: "<a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity.CONTACT_ID)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ng-click='grid.appScope.uploadDoc(row.entity.CONTACT_ID)'><i></i></a>"+
-            "<input type='file' fileread='' id='{{row.entity.CONTACT_ID}}' style='display:none;'>",
+            cellTemplate: "<a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity.CONTACT_ID)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ng-click='grid.appScope.uploadDoc(row.entity.CONTACT_ID)'><i></i></a>" +
+                "<input type='file' fileread='' id='{{row.entity.CONTACT_ID}}' style='display:none;'>",
         }],
         onRegisterApi: function(gridApi) {
             $scope.gridApi = gridApi;
@@ -109,7 +109,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
     /*Client List*/
     /// SHOW CLIENTS 
-   
+
     $scope.administratorCLientListData = {
         data: 'my_clients',
         useExternalPagination: false,
@@ -156,7 +156,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         columnDefs: [{
             name: 'client.NAME',
             displayName: 'Name'
-        },{
+        }, {
             name: 'advisor.NAME',
             displayName: 'Advisors Name'
         }, {
@@ -177,44 +177,44 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         var link = document.createElement('a');
         document.body.appendChild(link);
         link.href = '/download/TEMPLATE_DOC.docx';
-        link.target='_blank';
+        link.target = '_blank';
         link.click();
     }
 
-    $scope.downloadPdf = function(id){
-        var url = '/api/v1/file?contact_id='+id+'&file_format=pdf';
+    $scope.downloadPdf = function(id) {
+        var url = '/api/v1/file?contact_id=' + id + '&file_format=pdf';
         var link = document.createElement('a');
         document.body.appendChild(link);
         link.href = url;
-        link.target='_blank';
+        link.target = '_blank';
         link.click();
     }
 
-    $scope.uploadDoc = function(id){
+    $scope.uploadDoc = function(id) {
         console.log(id);
-        document.getElementById(''+id).click();
+        document.getElementById('' + id).click();
     }
 
-    $scope.fileSelected = function(id){
+    $scope.fileSelected = function(id) {
 
-        console.log("---------------------",document.getElementById(''+id));
+        console.log("---------------------", document.getElementById('' + id));
 
     }
 
-    $scope.saveDocForClient = function(){
-         UserService.download(sessionService.get('contact'), 'docx').then(function(data){
-            if(data.data && data.data.response && data.data.response.file){
-                const url = '/download/'+ data.data.response.file;
+    $scope.saveDocForClient = function() {
+        UserService.download(sessionService.get('contact'), 'docx').then(function(data) {
+            if (data.data && data.data.response && data.data.response.file) {
+                const url = '/download/' + data.data.response.file;
                 var link = document.createElement('a');
                 document.body.appendChild(link);
                 link.href = url;
-                link.target='_blank';
+                link.target = '_blank';
                 link.click();
-            } 
-         })
+            }
+        })
     }
 
-     $scope.showModal = function(client, advisor) {
+    $scope.showModal = function(client, advisor) {
         $uibModal.open({
                 templateUrl: 'changeAdvisorModal.html',
                 controller: 'ChangeAdvisorController',
@@ -241,6 +241,6 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                     console.log("Cancel");
                 }
             );
-        }
+    }
 
 }]);

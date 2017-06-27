@@ -9922,11 +9922,9 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
                 scrollTop: $("#tell-us").position().top + 80
             }, "slow");
         }
-
-
     }
 
-    $scope.hitLink = function() {
+    /*$scope.hitLink = function() {
         $('#myModal4').modal('hide');
         $rootScope.isLoading = true;
         console.log("kartik is great again");
@@ -9951,11 +9949,9 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         }
         http.send(params);
 
-    }
+    }*/
 
-
-
-    console.log("$scope.final_data", $scope.final_data);
+    // console.log("$scope.final_data", $scope.final_data);
     
 
     $scope.calculatePdf = function() {
@@ -10422,13 +10418,13 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         $timeout(0);
     }
 
-    var grossAnnualIncome1, homeMortgage1, investmentPropertyMortgage1, creditCardDebt1, carLoan1, personalLoan1,
+    /*var grossAnnualIncome1, homeMortgage1, investmentPropertyMortgage1, creditCardDebt1, carLoan1, personalLoan1,
         otherLoan1, homeValue1, cashAtBank1, otherInvestment1, superBalance1, ecLife1, ecTPD1, ecIP1, ecTrauma1,
         funeralCost1, educationExpensePerYearPerChild1, familyLivingCostPerYear1, inflation1, rateOfReturn1,
-        moneyToBeBorrowed1, valueOfNewProperty1;
+        moneyToBeBorrowed1, valueOfNewProperty1;*/
 
 
-    $scope.calculateFinal = function(isValid, closeInputs) {
+    /*$scope.calculateFinal = function(isValid, closeInputs) {
 
             if (isValid) {
 
@@ -10684,10 +10680,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
                     scrollTop: $("#tell-us").position().top + 80
                 }, "slow");
             }
-        }
+        }*/
         //$scope.calculateFinal(true, false);
 
-    document.getElementById("download").addEventListener("click", function() {
+   /* document.getElementById("download").addEventListener("click", function() {
         if ($scope.forms.ttrForm.$valid) {
 
             var personalDetailsObject = {
@@ -10756,8 +10752,8 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             }, "slow");
         }
     });
-
-    // document.getElementById("bar-chart").addEventListener("click", function() {
+*/
+   /* // document.getElementById("bar-chart").addEventListener("click", function() {
     $("#bar-chart,#bar-chart-m").on("click", function() {
         $scope.chartOneOpen = true;
         $scope.chartTwoOpen = false;
@@ -10819,11 +10815,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
         document.getElementById("containerB4").style.display = "block";
         $("#containerB4").highcharts().reflow();
         $timeout(0);
-    });
+    });*/
 
-    $(".print-doc").on("click", printBothCharts);
+    // $(".print-doc").on("click", printBothCharts);
 
-    function printBothCharts() {
+    /*function printBothCharts() {
         if ($scope.forms.ttrForm.$valid) {
             var printUpdate = function() {
                 $('#container').highcharts().reflow();
@@ -10862,7 +10858,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             }, "slow");
         }
     };
-
+*/
     $scope.resetSliders = function() {
         window.contentRevealOptions.reset = true;
         sr.reveal('.contents', contentRevealOptions);

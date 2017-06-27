@@ -3,7 +3,7 @@
     <div class="container main-container">
         <div class="row no-margin">
             <div class="col-md-6 login-col">
-                <form name="advisorForm" ng-submit="login(advisor);" novalidate>
+                <form name="advisorForm" ng-submit="loginAdvisor(advisor,client);" novalidate>
                     <div class="login-form-header">
                         <h1 class="text-center ">Financial Advisor Login</h1>
                     </div>
@@ -68,7 +68,7 @@
                 </form>
             </div>
             <div class="col-md-6 login-col">
-                <form name="clientForm" ng-submit="login(client);" novalidate>
+                <form name="clientForm" ng-submit="loginClient(client);" novalidate>
                     <div class="login-form-header">
                         <h1 class="text-center ">Client Login </h1>
                     </div>
