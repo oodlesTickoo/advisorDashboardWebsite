@@ -961,10 +961,15 @@ table tr:nth-child(even) {
     box-shadow: none;
     height: 45px;
     color: rgba(255, 255, 255, 0.70);
-    text-transform: uppercase;
+    text-transform: capitalize;
     /* font-size: 14px; */
     text-align: -webkit-center;
     font-family: HelveticaLT;
+}
+
+.email
+{
+     text-transform: none !important;
 }
 
 .login-content .form-control:active,

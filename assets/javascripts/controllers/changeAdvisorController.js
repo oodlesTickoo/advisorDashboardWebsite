@@ -36,7 +36,7 @@ app.controller("ChangeAdvisorController", ['$scope', '$uibModalInstance', 'advis
         UserService.linkClientToAdvisor(clientId, advisorId).then(function(result){
             if(result.status === 200){
 				$scope.ok();
-				 toastr.success('Hello world!');
+				 toastr.success('Advisor Changed Successfully');
 			}
                 
             else
