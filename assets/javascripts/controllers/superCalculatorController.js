@@ -3576,20 +3576,20 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
 
     $('.spDiseaseOption').on('change', function() {
         $scope.diseaseOption = $('.spDiseaseOption option:selected').val();
-        console.log("spHealthOption:", $scope.healthOption);
+        console.log("spHealthOption:", $scope.diseaseOption);
         $timeout(0);
     });
 
     $('.spHospitalCoverOption').on('change', function() {
         $scope.hospitalCoverOption = $('.spHospitalCoverOption option:selected').val();
-        console.log("hospitalCoverOption:", $scope.healthOption);
+        console.log("hospitalCoverOption:", $scope.hospitalCoverOption);
 
         $timeout(0);
     });
 
     $('.spWillOption').on('change', function() {
         $scope.willOption = $('.spWillOption option:selected').val();
-        console.log("spHealthOption:", $scope.healthOption);
+        console.log("spHealthOption:", $scope.willOption);
         $timeout(0);
     });
 
@@ -10394,6 +10394,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     $scope.customFieldObj22={};
 
     $scope.calculatePdf = function() {
+        console.log("$scope.final_data11111111",$scope.final_data);
         for(i=0; i<$scope.final_data.custom_field.length;i++){ 
             $scope.customFieldObj22[$scope.final_data.custom_field[i].CUSTOM_FIELD_ID] = $scope.final_data.custom_field[i].FIELD_VALUE ;
         } 
