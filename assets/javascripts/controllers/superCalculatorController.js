@@ -10401,7 +10401,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             customFieldObj22[final_data.custom_field[i].CUSTOM_FIELD_ID] = final_data.custom_field[i].FIELD_VALUE;
         }
         console.log("customFieldObj22", customFieldObj22);
-        $scope.final_data["customFieldMap"] = customFieldObj22;
+        final_data["customFieldMap"] = customFieldObj22;
         UserService.customFieldsUpdate(final_data);
         /*UserService.generatePdf($scope.final_data).then(function(data111){
             console.log("response aaaaaaaaaaaa gyaaaaaaa",data111);
