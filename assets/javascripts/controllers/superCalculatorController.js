@@ -9956,10 +9956,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
 
 
     console.log("$scope.final_data", $scope.final_data);
-    $scope.customFieldObj22 = {};
+    
 
     $scope.calculatePdf = function() {
-        $scope.final_data = {
+        var final_data = {
             "custom_field": [
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_1", "FIELD_VALUE": $scope.healthOption },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_2", "FIELD_VALUE": $scope.spouseOption },
@@ -10395,13 +10395,14 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
                 "height": "110"
             }
         };
+        var customFieldObj22 = {};
         console.log("$scope.final_data11111111", $scope.final_data);
-        for (i = 0; i < $scope.final_data.custom_field.length; i++) {
-            $scope.customFieldObj22[$scope.final_data.custom_field[i].CUSTOM_FIELD_ID] = $scope.final_data.custom_field[i].FIELD_VALUE;
+        for (i = 0; i < final_data.custom_field.length; i++) {
+            customFieldObj22[final_data.custom_field[i].CUSTOM_FIELD_ID] = final_data.custom_field[i].FIELD_VALUE;
         }
-        console.log("customFieldObj22", $scope.customFieldObj22);
-        $scope.final_data["customFieldMap"] = $scope.customFieldObj22;
-        UserService.customFieldsUpdate($scope.final_data);
+        console.log("customFieldObj22", customFieldObj22);
+        $scope.final_data["customFieldMap"] = customFieldObj22;
+        UserService.customFieldsUpdate(final_data);
         /*UserService.generatePdf($scope.final_data).then(function(data111){
             console.log("response aaaaaaaaaaaa gyaaaaaaa",data111);
             console.log("response aaaaaaaaaaaa gyaaaaaaa 11111111111",data111.data.response.filePath);
