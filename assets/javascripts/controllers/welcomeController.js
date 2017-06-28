@@ -1,4 +1,4 @@
-app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService', '$uibModal', '$rootScope', function($scope, sessionService, $state, UserService, $uibModal, $rootScope) {
+app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'UserService', '$uibModal', '$rootScope', 'toastr', function($scope, sessionService, $state, UserService, $uibModal, $rootScope, toastr) {
     'use strict';
 
     //tab toggle btn group
@@ -187,15 +187,17 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     $scope.downloadPdf = function(id) {
         UserService.getFile(id).then(function(response) {
             console.log("response",response);
-            if (response.error === true) { 
-                toaster.error("No Pdf to download");
-            } else {
+            if (response.status === 200) { 
                 var url = '/api/v1/file?contact_id=' + id + '&file_format=pdf';
                 var link = document.createElement('a');
                 document.body.appendChild(link);
                 link.href = url;
                 link.target = '_blank';
                 link.click();
+            } else {
+                
+
+                toaster.error("No Pdf to download");
 
             }
 
