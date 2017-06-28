@@ -38,14 +38,14 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         } else {
             UserService.isFileExist('docx').then(function(result) {
                 if (result && result.status !== 200) {
-                    console.log("doc file does not exist",result);
+                    console.log("doc file does not exist", result);
                     return;
                 }
-                
-                console.log("errorrrr",result);
+
+                console.log("errorrrr", result);
                 $scope.fileExist = result.data.response.status;
             }).catch(function(err) {
-                console.log("doc file does not exist",err);
+                console.log("doc file does not exist", err);
             });
         }
     }
@@ -185,12 +185,22 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     }
 
     $scope.downloadPdf = function(id) {
-        var url = '/api/v1/file?contact_id=' + id + '&file_format=pdf';
-        var link = document.createElement('a');
-        document.body.appendChild(link);
-        link.href = url;
-        link.target = '_blank';
-        link.click();
+        UserService.getFile(id).then(function(response) {
+            console.log("response",response);
+            if (response.error === true) { 
+                toaster.error("No Pdf to download");
+            } else {
+                var url = '/api/v1/file?contact_id=' + id + '&file_format=pdf';
+                var link = document.createElement('a');
+                document.body.appendChild(link);
+                link.href = url;
+                link.target = '_blank';
+                link.click();
+
+            }
+
+        })
+
     }
 
     $scope.uploadDoc = function(id) {
@@ -212,7 +222,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                 document.body.appendChild(link);
                 link.href = url;
                 //link.target = '_blank';
-		console.log("link:",link.href);
+                //console.log("link:",link.href);
                 link.click();
             }
         })
