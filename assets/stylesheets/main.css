@@ -67,7 +67,7 @@ body {
     /*background-color: #e0e0e0;
 background: url("../images/landingPage-bg.png") no-repeat;
 background-size: cover;*/
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
@@ -318,7 +318,7 @@ a:visited {
 /*** Grid ***/
 
 .ui-grid .ui-grid-render-container-body .ui-grid-viewport {
-    overflow: hidden !important;
+    overflow: auto !important;
 }
 
 .grid {
@@ -1111,7 +1111,7 @@ table tr:nth-child(even) {
 .welcome-container {
     /*    padding-top: 45px;*/
     height: 100%;
-    top: 2px;
+    top: -20px;
 }
 
 .welcome-container h2 {

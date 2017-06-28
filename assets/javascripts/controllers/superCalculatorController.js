@@ -2919,7 +2919,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
         id: 2,
         name: "Growth Ambitious"
     }];
-    var latestObj1 = {};
+/*    var latestObj1 = {};
 
     for (var key in $rootScope.latestObj) {
         if ($rootScope.latestObj.hasOwnProperty(key)) {
@@ -2932,7 +2932,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
         }
     }
 
-    console.log("latestObj1:", latestObj1);
+    console.log("latestObj1:", latestObj1);*/
 
 
 

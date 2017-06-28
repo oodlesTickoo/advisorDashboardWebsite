@@ -91,9 +91,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         exporterMenuCsv: false,
         enableColumnMenus: false,
         enableSorting: false,
-        enableHorizontalScrollbar: 0,
-        enableVerticalScrollbar: 0,
-        rowHeight: 30,
+        enableVerticalScrollbar: 1,
         columnDefs: [{
             name: 'name',
             displayName: 'Name'
@@ -126,8 +124,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         exporterMenuCsv: false,
         enableColumnMenus: false,
         enableSorting: false,
-        enableHorizontalScrollbar: 0,
-        enableVerticalScrollbar: 0,
+        enableVerticalScrollbar: 1,
         rowHeight: 30,
         columnDefs: [{
             name: 'name',
@@ -157,8 +154,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         exporterMenuCsv: false,
         enableColumnMenus: false,
         enableSorting: false,
-        enableHorizontalScrollbar: 0,
-        enableVerticalScrollbar: 0,
+        enableVerticalScrollbar: 1,
         rowHeight: 30,
         columnDefs: [{
             name: 'client.NAME',
