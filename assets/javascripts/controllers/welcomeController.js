@@ -197,7 +197,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             } else {
                 
 
-                toaster.error("No Pdf to download");
+                toastr.error("No Pdf to download");
 
             }
 
