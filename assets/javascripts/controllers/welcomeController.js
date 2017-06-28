@@ -37,8 +37,15 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             });
         } else {
             UserService.isFileExist('docx').then(function(result) {
-                console.log(result);
+                if (result && result.status !== 200) {
+                    console.log("doc file does not exist",result);
+                    return;
+                }
+                
+                console.log("errorrrr",result);
                 $scope.fileExist = result.data.response.status;
+            }).catch(function(err) {
+                console.log("doc file does not exist",err);
             });
         }
     }

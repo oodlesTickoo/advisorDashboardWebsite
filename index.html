@@ -29,8 +29,9 @@
     <!-- JAVASCRIPTS -->
     <script src="assets/javascripts/libs/head.min.js" type="text/javascript"></script>
 </head>
+<style>    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {        display: none !important;    }</style>
 
-<body ng-class="{'scroll' : $state.includes('app.superCalculator')}">
+<body ng-class="{'scroll' : $state.includes('app.superCalculator')}" ng-cloak>
     <div class="body-container">
         <div ng-controller="MainCtrl">
             <!--        <ng-view></ng-view>-->

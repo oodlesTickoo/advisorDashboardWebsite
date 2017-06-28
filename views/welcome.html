@@ -1,6 +1,6 @@
 <!--Welcome Content -->
 <div id="welcome-content">
-    <div class="main-container welcome-container" ng-scrollbars ng-scrollbars-config="config">
+    <div class="main-container welcome-container" >
         <div class="container">
             <div class="row no-margin" style="padding-top: 45px">
                 <h2>Welcome</h2>
@@ -25,7 +25,6 @@
                         </div>
                     </div>
                     <!-- /Advisor Login-->
-
                     <!-- Administrator Login-->
                     <div class="administrator-content" ng-if="selectedRole === USER_ROLE.ADMIN">
                         <div class="row no-margin">
@@ -44,7 +43,6 @@
                             <!-- Administrator Client List -->
                             <div class="col-md-12">
                                 <div id="grid2" ui-grid="administratorCLientListData" class="grid" ng-if="radioModel == 'Left'" ui-grid-auto-resize></div>
-
                                 <!--Master Advisor List -->
                                 <div class="row no-margin" ng-if="radioModel == 'Middle'">
                                     <div class="col-md-12" style="padding: 12.5px 20px;color: #9fe7f7; background: #062135;font-family: AvantGardeBookBT;font-size: 18px;font-weight: 100;letter-spacing: 1px;">
@@ -64,14 +62,12 @@
                                         </uib-accordion-group>
                                     </uib-accordion>
                                 </div>
-
                                 <!-- Master Clients List -->
                                 <div id="grid2" ui-grid="administratorMasterClientListData" class="grid" ng-if="radioModel == 'Right'" ui-grid-auto-resize></div>
                             </div>
                         </div>
                     </div>
                     <!-- /Administrator Login-->
-
                     <!-- Client Login-->
                     <div class="advisor-content" ng-if="selectedRole === USER_ROLE.CLIENT">
                         <div class="col-md-9" ng-if="fileExist">
@@ -91,26 +87,22 @@
                     </div>
                     <!-- /Client Login-->
                 </div>
-
             </div>
         </div>
     </div>
 </div>
 <!-- /Welcome Content -->
-
 <script type="text/ng-template" id="changeAdvisorModal.html">
     <div class="modal-header">
         <h4 class="modal-title">{{name}}</h4>
     </div>
     <div class="modal-body">
         <p>Change Your Advisor : </p>
-        <select id="" class="form-control"  ng-model="selectedAdvisor" ng-options="advisorObject.id as advisorObject.name for advisorObject in advisorList" name="advisorList" ng-change="advisorChanged(selectedAdvisor)" required>
-        
+        <select id="" class="form-control" ng-model="selectedAdvisor" ng-options="advisorObject.id as advisorObject.name for advisorObject in advisorList" name="advisorList" ng-change="advisorChanged(selectedAdvisor)" required>
         </select>
-
     </div>
     <div class="modal-footer">
         <button class="btn btn-success" ng-click="ok()">Save</button>
-		<button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
     </div>
 </script>

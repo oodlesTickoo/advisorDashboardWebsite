@@ -67,7 +67,7 @@ body {
     /*background-color: #e0e0e0;
 background: url("../images/landingPage-bg.png") no-repeat;
 background-size: cover;*/
-    overflow-y: hidden;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 
@@ -345,6 +345,7 @@ a:visited {
     color: #191717;
     text-shadow: 0 0 0 #191717;
     padding: 20px;
+    text-transform: capitalize;
 }
 
 .ui-grid-top-panel {

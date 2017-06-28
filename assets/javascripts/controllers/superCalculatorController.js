@@ -1,4 +1,4 @@
-app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
+app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionService','UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, sessionService,UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
     /*if(GoalBasedAdviceService===false){
                      $rootScope.isLoggedIn = false;
                      $state.go('login');
@@ -9955,16 +9955,19 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
     
 
     $scope.calculatePdf = function() {
+
+        console.log("$scope.customField", $scope.customField);
+        console.log("$scope.goalBasedAdvice", $scope.goalBasedAdvice);
         var final_data = {
             "custom_field": [
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_1", "FIELD_VALUE": $scope.healthOption },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_2", "FIELD_VALUE": $scope.spouseOption },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_3", "FIELD_VALUE": $scope.diseaseOption },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_2", "FIELD_VALUE": $scope.yesOrNoArray($scope.spouseOption) },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_3", "FIELD_VALUE": $scope.yesOrNoArray($scope.diseaseOption) },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_4", "FIELD_VALUE": $scope.hospitalCoverOption },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_5", "FIELD_VALUE": $scope.willOption },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_5", "FIELD_VALUE": $scope.yesOrNoArray($scope.willOption) },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_6", "FIELD_VALUE": $scope.spouseDetails.firstName },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_7", "FIELD_VALUE": $scope.spouseDetails.lastName },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_8", "FIELD_VALUE": $scope.genderOptionSpouse },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_8", "FIELD_VALUE": $scope.yesOrNoArray($scope.genderOptionSpouse) },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_9", "FIELD_VALUE": $scope.dobSpouse },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_10", "FIELD_VALUE": $scope.spouseDetails.mobile },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_11", "FIELD_VALUE": $scope.fy },
@@ -10118,18 +10121,18 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_147", "FIELD_VALUE": $scope.schoolDuration5 },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_148", "FIELD_VALUE": $scope.schoolSelected5 },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_149", "FIELD_VALUE": $scope.majorSelected5 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_154", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_154 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_155", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_155 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_156", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_156 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_157", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_157 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_158", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_158 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_159", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_159 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_160", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_160 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_161", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_161 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_162", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_162 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_163", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_163 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_164", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_164 },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_165", "FIELD_VALUE": $scope.customField.CONTACT_FIELD_165 },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_154", "FIELD_VALUE": $scope.goalBasedAdvice[0].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_155", "FIELD_VALUE": $scope.goalBasedAdvice[1].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_156", "FIELD_VALUE": $scope.goalBasedAdvice[2].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_157", "FIELD_VALUE": $scope.goalBasedAdvice[3].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_158", "FIELD_VALUE": $scope.goalBasedAdvice[4].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_159", "FIELD_VALUE": $scope.goalBasedAdvice[5].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_160", "FIELD_VALUE": $scope.goalBasedAdvice[6].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_161", "FIELD_VALUE": $scope.goalBasedAdvice[7].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_162", "FIELD_VALUE": $scope.goalBasedAdvice[8].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_163", "FIELD_VALUE": $scope.goalBasedAdvice[9].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_164", "FIELD_VALUE": $scope.goalBasedAdvice[10].severity },
+                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_165", "FIELD_VALUE": $scope.goalBasedAdvice[11].severity },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_178", "FIELD_VALUE": $scope.houseOption },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_179", "FIELD_VALUE": $scope.smokeOption },
                 { "CUSTOM_FIELD_ID": "CONTACT_FIELD_180", "FIELD_VALUE": $scope.genderOption },
@@ -10392,13 +10395,14 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'UserServic
             }
         };
         var customFieldObj22 = {};
-        console.log("$scope.final_data11111111", $scope.final_data);
         for (i = 0; i < final_data.custom_field.length; i++) {
             customFieldObj22[final_data.custom_field[i].CUSTOM_FIELD_ID] = final_data.custom_field[i].FIELD_VALUE;
         }
         console.log("customFieldObj22", customFieldObj22);
         final_data["customFieldMap"] = customFieldObj22;
-        UserService.customFieldsUpdate(final_data);
+        UserService.customFieldsUpdate(final_data).then(function(){
+            sessionService.set("latestObj", JSON.stringify(customFieldObj22));
+        });;
         /*UserService.generatePdf($scope.final_data).then(function(data111){
             console.log("response aaaaaaaaaaaa gyaaaaaaa",data111);
             console.log("response aaaaaaaaaaaa gyaaaaaaa 11111111111",data111.data.response.filePath);
