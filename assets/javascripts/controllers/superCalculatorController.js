@@ -10403,11 +10403,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
         UserService.customFieldsUpdate(final_data).then(function(){
             sessionService.set("latestObj", JSON.stringify(customFieldObj22));
         });;
-        /*UserService.generatePdf($scope.final_data).then(function(data111){
-            console.log("response aaaaaaaaaaaa gyaaaaaaa",data111);
-            console.log("response aaaaaaaaaaaa gyaaaaaaa 11111111111",data111.data.response.filePath);
-            SaveToDisk(data111.data.response.filePath,data111.data.response.fileName);
-         });*/
+        UserService.generatePdf(final_data).then(function(response){
+
+            SaveToDisk(response.data.response.filePath,response.data.response.fileName);
+         });
         console.log("requsest sent");
     }
 
