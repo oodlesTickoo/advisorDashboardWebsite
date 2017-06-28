@@ -185,7 +185,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     }
 
     $scope.downloadPdf = function(id) {
-        UserService.getFile(id).then(function(response) {
+        UserService.checkFile(id).then(function(response) {
             console.log("response",response);
             if (response.status === 200) { 
                 var url = '/api/v1/file?contact_id=' + id + '&file_format=pdf';
@@ -195,10 +195,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                 link.target = '_blank';
                 link.click();
             } else {
-                
-
                 toastr.error("No Pdf to download");
-
             }
 
         })

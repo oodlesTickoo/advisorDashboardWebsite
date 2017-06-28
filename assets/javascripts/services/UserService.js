@@ -79,7 +79,7 @@
                 };
                 return $http(req);
             },
-            getFile: function(contact_id) {
+            checkFile: function(contact_id) {
                 var req = {
                     method: 'GET',
                     url: '/api/v1/file?contact_id='+contact_id+'&file_format=pdf',
