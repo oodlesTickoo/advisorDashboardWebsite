@@ -82,7 +82,7 @@
             checkFile: function(contact_id) {
                 var req = {
                     method: 'GET',
-                    url: '/api/v1/file?contact_id='+contact_id+'&file_format=pdf',
+                    url: '/api/v1/checkfile?contact_id='+contact_id+'&file_format=pdf',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': sessionService.get('token')
