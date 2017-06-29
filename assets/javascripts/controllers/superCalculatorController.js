@@ -9151,10 +9151,10 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
     $scope.spFundBName = $scope.fundsOb[1].name;*/
 
     function spFundAChange() {
-        selected1 = $('.spFundA option:selected').val();
-        $scope.spFundAName = $scope.fundsOb[selected1].name;
-        if (Number(selected1) >= 307) {
-            if (Number(selected1) == 311) {
+        $scope.selected1 = $('.spFundA option:selected').val();
+        $scope.spFundAName = $scope.fundsOb[$scope.selected1].name;
+        if (Number($scope.selected1) >= 307) {
+            if (Number($scope.selected1) == 311) {
                 $scope.fundNotFoundA = true;
                 console.log("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee", $scope.fundNotFoundA);
                 $scope.fundA = {
@@ -9166,25 +9166,25 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
             } else {
                 $scope.fundNotFoundA = false;
                 $scope.fundA = {
-                    name: $scope.fundsOb[selected1].name,
-                    annualPercentageFee: $scope.fundsOb[selected1].contributionFee,
-                    adminFee: $scope.fundsOb[selected1].adminFee,
-                    indirectCostRation: $scope.fundsOb[selected1].indirectCostRation
+                    name: $scope.fundsOb[$scope.selected1].name,
+                    annualPercentageFee: $scope.fundsOb[$scope.selected1].contributionFee,
+                    adminFee: $scope.fundsOb[$scope.selected1].adminFee,
+                    indirectCostRation: $scope.fundsOb[$scope.selected1].indirectCostRation
                 };
             }
         } else {
             $scope.fundNotFoundA = false;
-            $scope.fundA = $scope.fundsOb[selected1];
+            $scope.fundA = $scope.fundsOb[$scope.selected1];
         }
         // console.log("$scope.fundA", $scope.fundA);
         $timeout(0);
     }
 
     function spFundBChange() {
-        selected2 = $('.spFundB option:selected').val();
-        $scope.spFundBName = $scope.fundsOb[selected2].name;
-        if (Number(selected2) >= 307) {
-            if (Number(selected2) == 311) {
+        $scope.selected2 = $('.spFundB option:selected').val();
+        $scope.spFundBName = $scope.fundsOb[$scope.selected2].name;
+        if (Number($scope.selected2) >= 307) {
+            if (Number($scope.selected2) == 311) {
                 $scope.fundNotFoundB = true;
                 $scope.fundB = {
                     name: $scope.fundNameB,
@@ -9195,15 +9195,15 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
             } else {
                 $scope.fundNotFoundB = false;
                 $scope.fundB = {
-                    name: $scope.fundsOb[selected2].name,
-                    annualPercentageFee: $scope.fundsOb[selected2].contributionFee,
-                    adminFee: $scope.fundsOb[selected2].adminFee,
-                    indirectCostRation: $scope.fundsOb[selected2].indirectCostRation
+                    name: $scope.fundsOb[$scope.selected2].name,
+                    annualPercentageFee: $scope.fundsOb[$scope.selected2].contributionFee,
+                    adminFee: $scope.fundsOb[$scope.selected2].adminFee,
+                    indirectCostRation: $scope.fundsOb[$scope.selected2].indirectCostRation
                 };
             }
         } else {
             $scope.fundNotFoundB = false;
-            $scope.fundB = $scope.fundsOb[selected2];
+            $scope.fundB = $scope.fundsOb[$scope.selected2];
         }
         $timeout(0);
     }
@@ -10271,16 +10271,16 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
                 "wageIncrease": $scope.wageIncrease,
                 "insurancePremiumPerYear": $scope.insurancePremium,
                 "netReturn": $scope.netReturn,
-                "fundASelectedId": 0,
-                "fundNameA": "Special fund 1",
-                "contributionFeeA": 1.50,
-                "adminFeeA": 100,
-                "indirectCostRationA": 1.50,
-                "fundBSelectedId": 1,
-                "fundNameB": "Special fund 2",
-                "contributionFeeB": 1.50,
-                "adminFeeB": 100,
-                "indirectCostRationB": 1.50,
+                "fundASelectedId": Number($scope.selected1),
+                "fundNameA": $scope.fundNameA,
+                "contributionFeeA":$scope.contributionFeeA,
+                "adminFeeA": $scope.adminFeeA,
+                "indirectCostRationA": $scope.indirectCostRationA,
+                "fundBSelectedId": Number($scope.selected2),
+                "fundNameB": $scope.fundNameB,
+                "contributionFeeB":$scope.contributionFeeB ,
+                "adminFeeB": $scope.adminFeeB,
+                "indirectCostRationB": $scope.indirectCostRationB,
                 "width": "741",
                 "height": "690"
             },
@@ -10404,7 +10404,6 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
             sessionService.set("latestObj", JSON.stringify(customFieldObj22));
         });;
         UserService.generatePdf(final_data).then(function(response){
-
             SaveToDisk(response.data.response.filePath,response.data.response.fileName);
          });
         console.log("requsest sent");
