@@ -1129,6 +1129,7 @@ table tr:nth-child(even) {
     margin-top: 8px;
     margin-bottom: 8px;
     letter-spacing: 2px;
+        text-transform: capitalize;
 }
 
 .welcome-container h3 {

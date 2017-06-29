@@ -10,9 +10,9 @@ app.directive("fileread", ['$http', 'toastr', function($http, toastr) {
                 if (files && files.length > 0) {
                     var fd = new FormData();
                     fd.append('file', files[0]);
-                    var ext = files[0].type.split('.').pop();
+                    //var ext = files[0].type.split('.').pop();
                     //if(=="pdf" || ext=="docx" || ext=="doc"){
-                    if (ext=="docx" || ext=="doc" ) {
+                    if (true) {
                         var uploadUrl = '/api/v1/upload?contact_id=' + $attrs.id;
                         $http.post(uploadUrl, fd, {
                             transformRequest: angular.identity,
