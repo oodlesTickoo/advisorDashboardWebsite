@@ -95,7 +95,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
                         CONTACT_FIELD_5: "No",
                         CONTACT_FIELD_6: "Rachel",
                         CONTACT_FIELD_7: "Payne",
-                        CONTACT_FIELD_8: "No", //false
+                        CONTACT_FIELD_8: "Female", //false
                         CONTACT_FIELD_9: "Sun Jan 01 1984 04: 09: 09 GMT + 0530(IST)",
                         CONTACT_FIELD_10: "4123333333",
                         CONTACT_FIELD_11: "2016",
