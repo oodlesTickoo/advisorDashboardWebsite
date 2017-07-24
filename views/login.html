@@ -2,113 +2,185 @@
 <div id="login-content">
     <div class="container main-container">
         <div class="row no-margin">
+            <!-- Financial Advisor -->
             <div class="col-md-6 login-col">
-                <form name="advisorForm" ng-submit="loginAdvisor(advisor,client,$);" novalidate>
+				<!-- Signup -->
+                <form name="advisorSignupForm" ng-submit="loginAdvisor(advisor,client,$);" ng-show="advisorSignUp" novalidate>
                     <div class="login-form-header">
                         <h1 class="text-center ">Financial Advisor Login</h1>
                     </div>
                     <div class="login-content">
                         <div class="form-group ">
                             <input id="firstname" ng-model="advisor.firstName" type="text" class="form-control" name="firstname" placeholder="First Name" autocomplete="off" ng-pattern="/^[a-zA-Z ]*$/" required>
-                            <span ng-show="(advisorForm.firstname.$dirty || advisorForm.$submitted) && advisorForm.firstname.$error.required">
+                            <span ng-show="(advisorSignupForm.firstname.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.firstname.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="advisorForm.firstname.$error.pattern">
+                            <span ng-show="advisorSignupForm.firstname.$error.pattern">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid Firstname"></i>
 							</span>
                         </div>
                         <div class="form-group ">
                             <input id="lastname" ng-model="advisor.lastName" type="text" class="form-control" name="lastname" placeholder="Last Name" autocomplete="off" ng-pattern="/^[a-zA-Z ]*$/" required>
-                            <span ng-show="(advisorForm.lastname.$dirty || advisorForm.$submitted) && advisorForm.lastname.$error.required">
+                            <span ng-show="(advisorSignupForm.lastname.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.lastname.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="advisorForm.lastname.$error.pattern">
+                            <span ng-show="advisorSignupForm.lastname.$error.pattern">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid Lastname"></i>
 							</span>
                         </div>
 
                         <div class="form-group ">
                             <input id="dealer" ng-model="advisor.dealer" type="text" class="form-control" name="dealer" placeholder="Dealer Group" autocomplete="off" required>
-                            <span ng-show="(advisorForm.dealer.$dirty || advisorForm.$submitted) && advisorForm.dealer.$error.required">
+                            <span ng-show="(advisorSignupForm.dealer.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.dealer.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
                         </div>
                         <div class="form-group">
                             <input id="mobile" ng-model="advisor.phone" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='10' minlength='10' required>
-                            <span ng-show="(advisorForm.mobile.$dirty || advisorForm.$submitted) && advisorForm.mobile.$error.required">
+                            <span ng-show="(advisorSignupForm.mobile.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.mobile.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="advisorForm.mobile.$error.maxlength">
+                            <span ng-show="advisorSignupForm.mobile.$error.maxlength">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
 							</span>
-                            <span ng-show="advisorForm.mobile.$error.minlength">
+                            <span ng-show="advisorSignupForm.mobile.$error.minlength">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
 							</span>
                         </div>
                         <div class="form-group ">
                             <input id="email" ng-model="advisor.mail" type="email" class="form-control email" name="email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
-                            <span ng-show="(advisorForm.email.$dirty || advisorForm.$submitted) && advisorForm.email.$error.required">
+                            <span ng-show="(advisorSignupForm.email.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.email.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="advisorForm.email.$error.pattern">
+                            <span ng-show="advisorSignupForm.email.$error.pattern">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid Email"></i>
 							</span>
                         </div>
                         <div class="terms">
                             <input type="checkbox" id="advisorTerms" name="advisorTerms" ng-model="agreeTerms" required>
                             <label for="advisorTerms"><span>I agree with the <b>Terms & Conditions</b></span></label>
-                            <span class="error-span" ng-show="(advisorForm.advisorTerms.$dirty || advisorForm.$submitted) && advisorForm.advisorTerms.$error.required">
+                            <span class="error-span" ng-show="(advisorSignupForm.advisorTerms.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.advisorTerms.$error.required">
 								  Please indicate that you accept the <b>Terms & Conditions</b>
 							</span>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" name="advisorSubmit" ng-disabled="!advisorForm.$valid" class="btn btn-primary btn-lg btn-block login-button" ng-click="submitted= true;">login</button>
+                            <button type="submit" name="advisorSubmit" ng-disabled="advisorSignupForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="submitted= true;">Sign Up</button>
+                        </div>
+                        <div class="form-change-link text-center">
+                            <span>Already have account? <a ng-click="advisorSignUp = false"><b>Login</b></a></span>
+                        </div>
+                    </div>
+                </form>
+				
+				<!-- Login -->
+                <form name="advisorLoginForm" ng-show="(advisorLogin && !advisorSignUp)" novalidate>
+                    <div class="login-form-header">
+                        <h1 class="text-center ">Financial Advisor Login</h1>
+                    </div>
+                    <div class="login-content">
+                        <div class="form-group text-center">
+                            <img src="../assets/images/login-icon.png" style="padding: 35px 0;" />
+                        </div>
+                        <div class="form-group" style="margin-bottom: 25px;">
+                            <input id="mobile" ng-model="advisor.phone" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='10' minlength='10' required>
+                            <span ng-show="(advisorLoginForm.mobile.$dirty || advisorLoginForm.$submitted) && advisorLoginForm.mobile.$error.required">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
+							</span>
+                            <span ng-show="advisorLoginForm.mobile.$error.maxlength">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
+							</span>
+                            <span ng-show="advisorLoginForm.mobile.$error.minlength">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
+							</span>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" name="advisorSubmit" ng-disabled="advisorLoginForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="advisorLoginWithOtp()">Login</button>
+                        </div>
+                        <div class="form-change-link text-center">
+                            <span>Don't have account? <a ng-click="advisorSignUp = true"><b>Sign up</b></a></span>
+                        </div>
+                    </div>
+                </form>
+				
+				<!-- OTP -->
+				<form name="advisorOtpForm" ng-show="(advisorOtp && !advisorLogin)" novalidate>
+                    <div class="login-form-header">
+                        <h1 class="text-center ">Financial Advisor Login</h1>
+                    </div>
+                    <div class="login-content">
+                        <div class="form-group text-center">
+                            <img src="../assets/images/otp-key-icon.png" style="padding: 35px 0;" />
+                        </div>
+                        <div class="form-group" style="margin-bottom: 25px;">
+                            <input id="otp" ng-model="advisor.otp" type="number" class="form-control" name="otp" placeholder="OTP" autocomplete="off" maxlength='4' minlength='4' required>
+                             <span ng-show="(advisorOtpForm.otp.$dirty || advisorOtpForm.$submitted) && advisorOtpForm.otp.$error.required">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
+							</span>
+                            <span ng-show="advisorOtpForm.otp.$error.maxlength">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 4 digit number"></i>
+							</span>
+                            <span ng-show="advisorOtpForm.otp.$error.minlength">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 4 digit number"></i>
+							</span>
+                        </div>
+						 <div class="resendOtp text-center">
+								 <a class="pointer"><b>Resend OTP</b></a>
+                        </div>
+						<div class="change-mobile text-center">
+                            <span>Using different Number? <a ng-click="advisorLogin = true"><b>Change</b></a></span>
+                        </div>
+                        <div class="form-actions" style="margin-top: 25px">
+                            <button type="submit" name="advisorOtpSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-disabled="advisorOtpForm.$invalid">SUBMIT</button>
                         </div>
                     </div>
                 </form>
             </div>
+            <!-- /Financial Advisor-->
+
+            <!-- Client -->
             <div class="col-md-6 login-col">
-                <form name="clientForm" ng-submit="loginClient(client);" novalidate>
+				<!-- Signup -->
+                <form name="clientSignupForm" ng-submit="loginClient(client);" ng-show="clientSignup" novalidate>
                     <div class="login-form-header">
                         <h1 class="text-center ">Client Login </h1>
                     </div>
                     <div class="login-content">
                         <div class="form-group ">
                             <input id="firstname" ng-model="client.firstName" type="text" class="form-control" name="firstName" placeholder="First Name" autocomplete="off" ng-pattern="/^[a-zA-Z ]*$/" required>
-                            <span ng-show="(clientForm.firstName.$dirty || clientForm.$submitted) && clientForm.firstName.$error.required">
+                            <span ng-show="(clientSignupForm.firstName.$dirty || clientSignupForm.$submitted) && clientSignupForm.firstName.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="clientForm.firstName.$error.pattern">
+                            <span ng-show="clientSignupForm.firstName.$error.pattern">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid Firstname"></i>
 							</span>
                         </div>
                         <div class="form-group ">
                             <input id="lastname" ng-model="client.lastName" type="text" class="form-control" name="lastName" placeholder="Last Name" autocomplete="off" ng-pattern="/^[a-zA-Z ]*$/" required>
-                            <span ng-show="(clientForm.lastName.$dirty || clientForm.$submitted) && clientForm.lastName.$error.required">
+                            <span ng-show="(clientSignupForm.lastName.$dirty || clientSignupForm.$submitted) && clientSignupForm.lastName.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="clientForm.lastName.$error.pattern">
+                            <span ng-show="clientSignupForm.lastName.$error.pattern">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid Lastname"></i>
 							</span>
                         </div>
                         <div class="form-group ">
                             <input id="email" ng-model="client.mail" type="email" class="form-control email" name="Email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
-                            <span ng-show="(clientForm.Email.$dirty || clientForm.$submitted) && clientForm.Email.$error.required">
+                            <span ng-show="(clientSignupForm.Email.$dirty || clientSignupForm.$submitted) && clientSignupForm.Email.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="clientForm.Email.$error.pattern">
+                            <span ng-show="clientSignupForm.Email.$error.pattern">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid Email"></i>
 							</span>
                         </div>
                         <div class="form-group ">
                             <input id="phone" ng-model="client.phone" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" maxlength='10' minlength='10' required>
-                            <span ng-show="(clientForm.phoneNumber.$dirty || clientForm.$submitted) && clientForm.phoneNumber.$error.required">
+                            <span ng-show="(clientSignupForm.phoneNumber.$dirty || clientSignupForm.$submitted) && clientSignupForm.phoneNumber.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="clientForm.phoneNumber.$error.maxlength">
+                            <span ng-show="clientSignupForm.phoneNumber.$error.maxlength">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
 							</span>
-                            <span ng-show="clientForm.phoneNumber.$error.minlength">
+                            <span ng-show="clientSignupForm.phoneNumber.$error.minlength">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
 							</span>
                         </div>
@@ -120,17 +192,86 @@
                         <div class="terms client-terms" ng-class="{'is-financial-advisor' : isFinancialAdvisor}">
                             <input type="checkbox" id="clientTerms" name="clientTerms" ng-model="clientTerms" required>
                             <label for="clientTerms"><span>I agree with the <b>Terms & Conditions</b></span></label>
-							<span class="error-span" ng-show="(clientForm.clientTerms.$dirty || clientForm.$submitted) && clientForm.clientTerms.$error.required">
+                            <span class="error-span" ng-show="(clientSignupForm.clientTerms.$dirty || clientSignupForm.$submitted) && clientSignupForm.clientTerms.$error.required">
 								  Please indicate that you accept the <b>Terms & Conditions</b>
 							</span>
                         </div>
                         <div class="form-actions" ng-if="!isFinancialAdvisor">
-                            <button type="submit" name="clientSubmit" ng-disabled="!clientForm.$valid" class="btn btn-primary btn-lg btn-block login-button" ng-click="submitted=true;">login</button>
-                            <!--  <a href="#" type="button" ng-click="login('client')"  class="btn btn-primary btn-lg btn-block login-button">login in</a> -->
+                            <button type="submit" name="clientSubmit" ng-disabled="clientSignupForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="submitted=true;">Sign Up</button>
+                        </div>
+                        <div class="form-change-link text-center">
+                            <span>Already have account? <a ng-click="clientSignup = false"><b>Login</b></a></span>
+                        </div>
+                    </div>
+                </form>
+				
+				<!-- Login -->
+                <form name="clientLoginForm" ng-show="(clientLogin && !clientSignup)" novalidate>
+                    <div class="login-form-header">
+                        <h1 class="text-center ">Client Login </h1>
+                    </div>
+                    <div class="login-content">
+                        <div class="form-group text-center">
+                            <img src="../assets/images/login-icon.png" style="padding: 35px 0;" />
+                        </div>
+                        <div class="form-group">
+                            <input id="phone" ng-model="client.phone" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" maxlength='10' minlength='10' required>
+                            <span ng-show="(clientLoginForm.phoneNumber.$dirty || clientLoginForm.$submitted) && clientLoginForm.phoneNumber.$error.required">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
+							</span>
+                            <span ng-show="clientLoginForm.phoneNumber.$error.maxlength">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
+							</span>
+                            <span ng-show="clientLoginForm.phoneNumber.$error.minlength">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
+							</span>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" name="clientSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-click="clientLoginWithOtp()" ng-disabled="clientLoginForm.$invalid">Login</button>
+                        </div>
+                        <div class="form-change-link text-center">
+                            <span>Don't have account? <a ng-click="clientSignup = true"><b>Sign up</b></a></span>
+                        </div>
+                    </div>
+                </form>
+				
+				<!-- OTP -->
+				<form name="clientOtpForm" ng-show="(clientOtp && !clientLogin)" novalidate>
+                    <div class="login-form-header">
+                        <h1 class="text-center ">Financial Advisor Login</h1>
+                    </div>
+                    <div class="login-content">
+                        <div class="form-group text-center">
+                            <img src="../assets/images/otp-key-icon.png" style="padding: 35px 0;" />
+                        </div>
+                        <div class="form-group" style="margin-bottom: 25px;">
+                            <input id="otp" ng-model="advisor.otp" type="number" class="form-control" name="otp" placeholder="OTP" autocomplete="off" maxlength="4" minlength="4" ng-pattern="/^\d+$/">
+                            <span ng-show="(clientOtpForm.otp.$dirty || clientOtpForm.$submitted) && clientOtpForm.otp.$error.required">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
+							</span>
+                            <span ng-show="clientOtpForm.otp.$error.maxlength">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 4 digit OTP"></i>
+							</span>
+                            <span ng-show="clientOtpForm.otp.$error.minlength">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 4 digit OTP"></i>
+							</span>
+							 <span ng-show="clientOtpForm.otp.$error.pattern">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid OTP"></i>
+							</span>
+                        </div>
+						 <div class="resendOtp text-center">
+								 <a class="pointer"><b>Resend OTP</b></a>
+                        </div>
+						<div class="change-mobile text-center">
+                            <span>Using different Number? <a ng-click="clientLogin = true"><b>Change</b></a></span>
+                        </div>
+                        <div class="form-actions" style="margin-top: 25px">
+                            <button type="submit" name="clientOtpSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-click="submitted= true;" ng-disabled="clientOtp.$invalid">SUBMIT</button>
                         </div>
                     </div>
                 </form>
             </div>
+            <!-- /Client -->
         </div>
     </div>
 </div>

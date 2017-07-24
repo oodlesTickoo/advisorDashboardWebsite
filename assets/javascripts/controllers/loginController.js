@@ -14,6 +14,13 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
     $scope.client = {};
     $scope.client.type = USER_ROLE.CLIENT;
     $rootScope.isLoggedIn = false;
+    $scope.advisorSignUp = false;
+    $scope.advisorLogin = true;
+    $scope.advisorOtp = false; 
+	
+	$scope.clientSignup = false;
+    $scope.clientLogin = true;
+    $scope.clientOtp = false;
 
     $scope.loginAdvisor = function(advisor, client) {
 
@@ -286,6 +293,18 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
             toastr.error('Internal Server Error', 'Error');
         });
     };
+	
+	$scope.advisorLoginWithOtp = function(){
+		$scope.advisorOtp = true;
+		$scope.advisorLogin = false;
+		
+	}
+	
+	$scope.clientLoginWithOtp = function(){
+		$scope.clientOtp = true;
+		$scope.clientLogin = false;
+		
+	}
 
     function callAuthService() {
         AuthenticationService.login(data).then(function(response) {
