@@ -5,7 +5,7 @@
             <!-- Financial Advisor -->
             <div class="col-md-6 login-col">
 				<!-- Signup -->
-                <form name="advisorSignupForm" ng-submit="loginAdvisor(advisor,client,$);" ng-show="advisorSignUp" novalidate>
+                <form name="advisorSignupForm" ng-show="advisorSignUp" novalidate>
                     <div class="login-form-header">
                         <h1 class="text-center ">Financial Advisor Login</h1>
                     </div>
@@ -36,7 +36,7 @@
 							</span>
                         </div>
                         <div class="form-group">
-                            <input id="mobile" ng-model="advisor.phone" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='10' minlength='10' required>
+                            <input id="mobile" ng-model="advisor.mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='10' minlength='10' required>
                             <span ng-show="(advisorSignupForm.mobile.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.mobile.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -48,7 +48,7 @@
 							</span>
                         </div>
                         <div class="form-group ">
-                            <input id="email" ng-model="advisor.mail" type="email" class="form-control email" name="email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                            <input id="email" ng-model="advisor.email" type="email" class="form-control email" name="email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
                             <span ng-show="(advisorSignupForm.email.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.email.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -64,7 +64,7 @@
 							</span>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" name="advisorSubmit" ng-disabled="advisorSignupForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="submitted= true;">Sign Up</button>
+                            <button type="submit" name="advisorSubmit" ng-disabled="advisorSignupForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="registerUser(advisor, advisorSignupForm.$valid)">Sign Up</button>
                         </div>
                         <div class="form-change-link text-center">
                             <span>Already have account? <a ng-click="advisorSignUp = false"><b>Login</b></a></span>
@@ -94,7 +94,7 @@
 							</span>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" name="advisorSubmit" ng-disabled="advisorLoginForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="advisorLoginWithOtp()">Login</button>
+                            <button type="submit" name="advisorSubmit" ng-disabled="advisorLoginForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="loginUser(advisor, advisorLoginForm.$valid)">Login</button>
                         </div>
                         <div class="form-change-link text-center">
                             <span>Don't have account? <a ng-click="advisorSignUp = true"><b>Sign up</b></a></span>
@@ -112,25 +112,25 @@
                             <img src="../assets/images/otp-key-icon.png" style="padding: 35px 0;" />
                         </div>
                         <div class="form-group" style="margin-bottom: 25px;">
-                            <input id="otp" ng-model="advisor.otp" type="number" class="form-control" name="otp" placeholder="OTP" autocomplete="off" maxlength='4' minlength='4' required>
-                             <span ng-show="(advisorOtpForm.otp.$dirty || advisorOtpForm.$submitted) && advisorOtpForm.otp.$error.required">
+                            <input id="advisorOtp" ng-model="advisor.otp" type="number" class="form-control" name="advisorOtp" placeholder="OTP" autocomplete="off" maxlength='4' minlength='4' required>
+                             <span ng-show="(advisorOtpForm.advisorOtp.$dirty || advisorOtpForm.$submitted) && advisorOtpForm.advisorOtp.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="advisorOtpForm.otp.$error.maxlength">
+                            <span ng-show="advisorOtpForm.advisorOtp.$error.maxlength">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 4 digit number"></i>
 							</span>
-                            <span ng-show="advisorOtpForm.otp.$error.minlength">
+                            <span ng-show="advisorOtpForm.advisorOtp.$error.minlength">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 4 digit number"></i>
 							</span>
                         </div>
 						 <div class="resendOtp text-center">
-								 <a class="pointer"><b>Resend OTP</b></a>
+								 <a class="pointer" ng-click="resendOtp()"><b>Resend OTP</b></a>
                         </div>
 						<div class="change-mobile text-center">
                             <span>Using different Number? <a ng-click="advisorLogin = true"><b>Change</b></a></span>
                         </div>
                         <div class="form-actions" style="margin-top: 25px">
-                            <button type="submit" name="advisorOtpSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-disabled="advisorOtpForm.$invalid">SUBMIT</button>
+                            <button type="submit" name="advisorOtpSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-disabled="advisorOtpForm.$invalid" ng-click="submitOtp(advisor, advisorOtpForm.$valid)">SUBMIT</button>
                         </div>
                     </div>
                 </form>
@@ -140,7 +140,7 @@
             <!-- Client -->
             <div class="col-md-6 login-col">
 				<!-- Signup -->
-                <form name="clientSignupForm" ng-submit="loginClient(client);" ng-show="clientSignup" novalidate>
+                <form name="clientSignupForm" ng-show="clientSignUp" novalidate>
                     <div class="login-form-header">
                         <h1 class="text-center ">Client Login </h1>
                     </div>
@@ -164,7 +164,7 @@
 							</span>
                         </div>
                         <div class="form-group ">
-                            <input id="email" ng-model="client.mail" type="email" class="form-control email" name="Email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                            <input id="email" ng-model="client.email" type="email" class="form-control email" name="Email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
                             <span ng-show="(clientSignupForm.Email.$dirty || clientSignupForm.$submitted) && clientSignupForm.Email.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -173,7 +173,7 @@
 							</span>
                         </div>
                         <div class="form-group ">
-                            <input id="phone" ng-model="client.phone" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" maxlength='10' minlength='10' required>
+                            <input id="phone" ng-model="client.mobile" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" maxlength='10' minlength='10' required>
                             <span ng-show="(clientSignupForm.phoneNumber.$dirty || clientSignupForm.$submitted) && clientSignupForm.phoneNumber.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -197,16 +197,16 @@
 							</span>
                         </div>
                         <div class="form-actions" ng-if="!isFinancialAdvisor">
-                            <button type="submit" name="clientSubmit" ng-disabled="clientSignupForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="submitted=true;">Sign Up</button>
+                            <button type="submit" name="clientSubmit" ng-disabled="clientSignupForm.$invalid" class="btn btn-primary btn-lg btn-block login-button" ng-click="registerUser(client, clientSignupForm.$valid)">Sign Up</button>
                         </div>
                         <div class="form-change-link text-center">
-                            <span>Already have account? <a ng-click="clientSignup = false"><b>Login</b></a></span>
+                            <span>Already have account? <a ng-click="clientSignUp = false"><b>Login</b></a></span>
                         </div>
                     </div>
                 </form>
 				
 				<!-- Login -->
-                <form name="clientLoginForm" ng-show="(clientLogin && !clientSignup)" novalidate>
+                <form name="clientLoginForm" ng-show="(clientLogin && !clientSignUp)" novalidate>
                     <div class="login-form-header">
                         <h1 class="text-center ">Client Login </h1>
                     </div>
@@ -214,7 +214,7 @@
                         <div class="form-group text-center">
                             <img src="../assets/images/login-icon.png" style="padding: 35px 0;" />
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="margin-bottom: 25px;">
                             <input id="phone" ng-model="client.phone" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" maxlength='10' minlength='10' required>
                             <span ng-show="(clientLoginForm.phoneNumber.$dirty || clientLoginForm.$submitted) && clientLoginForm.phoneNumber.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
@@ -227,10 +227,10 @@
 							</span>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" name="clientSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-click="clientLoginWithOtp()" ng-disabled="clientLoginForm.$invalid">Login</button>
+                            <button type="submit" name="clientSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-click="loginUser(client, clientLoginForm.$valid)" ng-disabled="clientLoginForm.$invalid">Login</button>
                         </div>
                         <div class="form-change-link text-center">
-                            <span>Don't have account? <a ng-click="clientSignup = true"><b>Sign up</b></a></span>
+                            <span>Don't have account? <a ng-click="clientSignUp = true"><b>Sign up</b></a></span>
                         </div>
                     </div>
                 </form>
@@ -238,35 +238,35 @@
 				<!-- OTP -->
 				<form name="clientOtpForm" ng-show="(clientOtp && !clientLogin)" novalidate>
                     <div class="login-form-header">
-                        <h1 class="text-center ">Financial Advisor Login</h1>
+                        <h1 class="text-center ">Client Login</h1>
                     </div>
                     <div class="login-content">
                         <div class="form-group text-center">
                             <img src="../assets/images/otp-key-icon.png" style="padding: 35px 0;" />
                         </div>
                         <div class="form-group" style="margin-bottom: 25px;">
-                            <input id="otp" ng-model="advisor.otp" type="number" class="form-control" name="otp" placeholder="OTP" autocomplete="off" maxlength="4" minlength="4" ng-pattern="/^\d+$/">
-                            <span ng-show="(clientOtpForm.otp.$dirty || clientOtpForm.$submitted) && clientOtpForm.otp.$error.required">
+                            <input id="clientOtp" ng-model="client.otp" type="number" class="form-control" name="clientOtp" placeholder="OTP" autocomplete="off" maxlength="4" minlength="4" ng-pattern="/^\d+$/" required>
+                            <span ng-show="(clientOtpForm.clientOtp.$dirty || clientOtpForm.$submitted) && clientOtpForm.clientOtp.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
-                            <span ng-show="clientOtpForm.otp.$error.maxlength">
+                            <span ng-show="clientOtpForm.clientOtp.$error.maxlength">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 4 digit OTP"></i>
 							</span>
-                            <span ng-show="clientOtpForm.otp.$error.minlength">
+                            <span ng-show="clientOtpForm.clientOtp.$error.minlength">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 4 digit OTP"></i>
 							</span>
-							 <span ng-show="clientOtpForm.otp.$error.pattern">
+							 <span ng-show="clientOtpForm.clientOtp.$error.pattern">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid OTP"></i>
 							</span>
                         </div>
 						 <div class="resendOtp text-center">
-								 <a class="pointer"><b>Resend OTP</b></a>
+								 <a class="pointer" ng-click="resendOtp()"><b>Resend OTP</b></a>
                         </div>
 						<div class="change-mobile text-center">
                             <span>Using different Number? <a ng-click="clientLogin = true"><b>Change</b></a></span>
                         </div>
                         <div class="form-actions" style="margin-top: 25px">
-                            <button type="submit" name="clientOtpSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-click="submitted= true;" ng-disabled="clientOtp.$invalid">SUBMIT</button>
+                            <button type="submit" name="clientOtpSubmit" class="btn btn-primary btn-lg btn-block login-button"  ng-disabled="clientOtpForm.$invalid" ng-click="submitOtp(client, clientOtpForm.$valid)">SUBMIT</button>
                         </div>
                     </div>
                 </form>

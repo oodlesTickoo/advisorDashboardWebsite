@@ -931,7 +931,7 @@ table tr:nth-child(even) {
 }
 
 .terms .error-span {
-    position: absolute;
+/*    position: absolute;*/
     width: 100%;
     left: 0;
     top: 100%;
@@ -1011,6 +1011,11 @@ table tr:nth-child(even) {
     -moz-appearance: none;
     appearance: none;
     margin: 0;
+}
+
+.admin-login-col{
+	margin: 0 auto;
+	float: none;
 }
 
 ::-webkit-input-placeholder {

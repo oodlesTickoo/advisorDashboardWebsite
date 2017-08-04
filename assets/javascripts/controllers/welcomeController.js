@@ -14,17 +14,48 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     $scope.my_clients = [];
     $scope.advisors = [];
     $scope.client_advisors = [];
+    $scope.updateMasterClients = [];
 
     function initialize() {
-        //$scope.selectedRole = "ADMINISTRATOR";      // sessionService.get('role');
         $scope.selectedRole = sessionService.get('role');
         _getPageData();
-
     }
     initialize();
 
+
+
     function _getPageData() {
-        console.log("Getting data");
+        if ($scope.selectedRole === $scope.USER_ROLE.ADMIN) {
+            UserService.masterClientList().then(clientListObj => {
+                $scope.masterClients = clientListObj.data.response;
+                return UserService.masterAdvisorList();
+            }).then(advisorListObj => {
+                $scope.masterAdvisors = advisorListObj.data.response;
+
+                console.log("Response ", $scope.masterClients);
+                console.log("Response ", $scope.masterAdvisors);
+
+            }).catch(function(err) {
+                console.log(err);
+            });
+        } else if ($scope.selectedRole === $scope.USER_ROLE.ADVISOR) {
+            UserService.clientList().then(clientListObj => {
+                console.log("Response ", clientListObj);
+                $scope.clientList = clientListObj.data.response.my_clients ? result.data.response.my_clients : [];
+            }).catch(function(err) {
+                console.log(err);
+            });
+        } else {
+            UserService.getFactFindData().then(factFindDataObj => {
+                console.log("Response ", clientListObj);
+                $scope.factFindData = clientListObj.data.response.factFindDataObj ? result.data.response.my_clients : [];
+            }).catch(function(err) {
+                console.log(err);
+            });
+        }
+
+        /*
+		console.log("Getting data");
         if ($scope.selectedRole !== $scope.USER_ROLE.CLIENT) {
             UserService.homePageData().then(function(result) {
                 console.log("Response ", result);
@@ -47,7 +78,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             }).catch(function(err) {
                 console.log("doc file does not exist", err);
             });
-        }
+        }*/
     }
 
     function _updateListData() {
@@ -60,7 +91,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
     }
 
-    $scope.radioModel = 'Left';
+    $scope.radioModel = 'Middle';
 
     $scope.checkModel = {
         left: true,
@@ -146,7 +177,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     // Data 
     /*Master Client List*/
     $scope.administratorMasterClientListData = {
-        data: 'client_advisors',
+        data: 'masterClients',
         useExternalPagination: false,
         enablePaginationOption: false,
         enableGridMenu: false,
@@ -157,11 +188,13 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         enableVerticalScrollbar: 1,
         rowHeight: 30,
         columnDefs: [{
-            name: 'client.NAME',
-            displayName: 'Name'
+			name: 'firstName',
+            displayName: 'Name',
+			cellTemplate: "<span>{{row.entity.firstName}} {{row.entity.lastName}}</span>"
         }, {
             name: 'advisor.NAME',
-            displayName: 'Advisors Name'
+            displayName: 'Advisors Name',
+			cellTemplate: "<span>{{row.entity.advisor.firstName}} {{row.entity.advisor.lastName}}</span>"
         }, {
             name: 'actions',
             width: 150,
@@ -186,8 +219,8 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
     $scope.downloadPdf = function(id) {
         UserService.checkFile(id).then(function(response) {
-            console.log("response",response);
-            if (response.status === 200) { 
+            console.log("response", response);
+            if (response.status === 200) {
                 var url = '/api/v1/file?contact_id=' + id + '&file_format=pdf';
                 var link = document.createElement('a');
                 document.body.appendChild(link);

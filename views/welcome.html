@@ -25,12 +25,13 @@
                         </div>
                     </div>
                     <!-- /Advisor Login-->
+					
                     <!-- Administrator Login-->
                     <div class="administrator-content" ng-if="selectedRole === USER_ROLE.ADMIN">
                         <div class="row no-margin">
                             <div class="col-md-9">
                                 <div class="btn-group">
-                                    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uib-uncheckable="uncheckable">Your Client List</label>
+<!--                                    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uib-uncheckable="uncheckable">Your Client List</label>-->
                                     <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uib-uncheckable="uncheckable">Advisors</label>
                                     <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uib-uncheckable="uncheckable">Clients</label>
                                 </div>
@@ -51,9 +52,9 @@
                                 </div>
                                 <div class="master-advisor-accordion" ng-if="radioModel == 'Middle'">
                                     <uib-accordion close-others=false>
-                                        <uib-accordion-group ng-repeat="advisor in advisors" ng-scroll="advisor in advisors" is-open="group.isOpen" ng-click="updateOpenStatus()">
+                                        <uib-accordion-group ng-repeat="advisor in masterAdvisors" ng-scroll="advisor in advisors" is-open="group.isOpen" ng-click="updateOpenStatus()">
                                             <uib-accordion-heading ng-model="checkTitle">
-                                                {{advisor.advisor.FIRST_NAME + ' ' + advisor.advisor.LAST_NAME}}
+                                                {{advisor.firstName + ' ' + advisor.lastName}}
                                             </uib-accordion-heading>
                                             <!--                                            <a>{{advisorList.content}}</a>-->
                                             <ul>

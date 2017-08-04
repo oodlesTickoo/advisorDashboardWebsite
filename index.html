@@ -89,7 +89,7 @@
                                                         <div class="dropdown">
                                                             <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">{{loginName}}<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
                                                             <ul class="dropdown-menu logout-menu">
-                                                                <li ng-click="logout()" class="logout pointer">Logout</li>
+                                                                <li ng-click="logoutUser()" class="logout pointer">Logout</li>
                                                             </ul>
                                                         </div>
                                                     </li>
@@ -126,7 +126,7 @@
         </div>
     </div>
     <!-- JAVASCRIPTS -->
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" integrity="sha256-ihAoc6M/JPfrIiIeayPE9xjin4UWjsx2mjW/rtmxLM4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
     <script src="assets/javascripts/libs/angular/angular.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
@@ -163,6 +163,7 @@
     <script src="assets/javascripts/libs/canvg.min.js" type="text/javascript"></script>
     <script src="assets/javascripts/libs/angular-toastr.tpls.min.js" type="text/javascript"></script>
     <script src="assets/javascripts/libs/angular-loading-bar/loading-bar.js" type="text/javascript"></script>
+    <script src="assets/javascripts/libs/underscore-min.js" type="text/javascript"></script>
     <script src="https://use.fontawesome.com/ddac04c5c3.js"></script>
     <script src="assets/javascripts/app.js" type="text/javascript"></script>
     <!-- Controllers-->
@@ -174,6 +175,7 @@
     <script src="assets/javascripts/controllers/goalBasedAdviceController.js" type="text/javascript"></script>
     <script src="assets/javascripts/controllers/changeAdvisorController.js" type="text/javascript"></script>
     <script src="assets/javascripts/controllers/contactController.js" type="text/javascript"></script>
+    <script src="assets/javascripts/controllers/adminLoginController.js" type="text/javascript"></script>
     <!--Services-->
     <script src="assets/javascripts/services/AgeCalculatorService.js" type="text/javascript"></script>
     <script src="assets/javascripts/services/AreaChartService.js" type="text/javascript"></script>

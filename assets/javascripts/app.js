@@ -49,6 +49,13 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
         templateUrl: 'views/login.html',
         controller: 'LoginController'
     })
+	
+	//ADMIN LOGIN STATE
+	 .state('adminLogin', {
+        url: '/adminLogin',
+        templateUrl: 'views/adminLogin.html',
+        controller: 'AdminLoginController'
+    })
 
     // NESTED VIEWS 
     .state('app', {

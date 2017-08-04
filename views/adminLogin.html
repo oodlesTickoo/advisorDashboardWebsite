@@ -1,0 +1,39 @@
+<!-- Content -->
+<div id="login-content">
+    <div class="container main-container">
+        <div class="row no-margin">
+            <!-- Financial Advisor Admin Login -->
+            <div class="col-md-7 login-col admin-login-col">
+                <form name="adminLoginForm" novalidate>
+                    <div class="login-form-header">
+                        <h1 class="text-center ">Financial Admnistrator Login</h1>
+                    </div>
+                    <div class="login-content">
+                        <div class="form-group text-center">
+                            <img src="../assets/images/login-icon.png" style="padding: 35px 0;" />
+                        </div>
+                        <div class="form-group ">
+                            <input id="email" ng-model="admin.email" type="email" class="form-control email" name="email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                            <span ng-show="(adminLoginForm.email.$dirty || adminLoginForm.$submitted) && adminLoginForm.email.$error.required">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
+							</span>
+                            <span ng-show="adminLoginForm.email.$error.pattern">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Invalid Email"></i>
+							</span>
+                        </div>
+                        <div class="form-group ">
+                            <input id="password" ng-model="admin.password" type="password" class="form-control" name="password" placeholder="Password" autocomplete="off" required>
+                            <span ng-show="(adminLoginForm.password.$dirty || adminLoginForm.$submitted) && adminLoginForm.password.$error.required">
+							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
+							</span>
+                        </div>
+                        <div class="form-actions" style="margin-top: 25px">
+                            <button type="submit" name="clientOtpSubmit" class="btn btn-primary btn-lg btn-block login-button" ng-disabled="adminLoginForm.$invalid" ng-click="adminLogin(admin)">LOGIN</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Content -->

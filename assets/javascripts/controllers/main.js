@@ -5,20 +5,20 @@
  * # MainCtrl
  * Controller of the fmsApp
  */
-app.controller("MainCtrl", ['$scope', 'sessionService', '$state', '$rootScope', function($scope, sessionService, $state, $rootScope) {
+app.controller("MainCtrl", ['$scope', 'sessionService', '$state', '$rootScope', 'AuthenticationService', function($scope, sessionService, $state, $rootScope, AuthenticationService) {
     //    $scope.menuItems = ['Home', 'Calculators', 'Goal Based Advice', 'Contact Us'];
-	
-	console.log("In Main Controller");
-	
+
+    console.log("In Main Controller");
+
     //to get token
     $rootScope.isLoggedIn = false;
     $rootScope.loginName = '';
     $scope.showColor = false;
     $scope.showUser = false;
-	$rootScope.previousState;
-	$rootScope.currentState;
+    $rootScope.previousState;
+    $rootScope.currentState;
 
-    
+
 
 
     function init() {
@@ -52,10 +52,35 @@ app.controller("MainCtrl", ['$scope', 'sessionService', '$state', '$rootScope', 
         $scope.selected = index;
     };
 
-    $scope.logout = function() {
-        sessionService.unsetAll();
-        $rootScope.isLoggedIn = false;
-        $state.go('login');
+    /* $scope.logout = function() {
+         sessionService.unsetAll();
+         $rootScope.isLoggedIn = false;
+         $state.go('login');
+     }*/
+    $scope.logoutUser = function() {
+
+        $scope.logoutData = {
+            mobile: sessionService.get('mobile')
+        }
+        AuthenticationService.logout($scope.logoutData).then(function(response) {
+            if (!response.data.error) {
+                console.log("error", response);
+                sessionService.unsetAll();
+                $rootScope.isLoggedIn = false;
+                sessionService.get('role') === "ADMINISTRATOR" ? $state.go('adminLogin') : $state.go('login');
+
+            } else {
+                toastr.error(response.data.message, 'Error');
+            }
+        }).catch(function(errResponse) {
+            //$ionicLoading.hide();
+            console.log("erorororororororro", errResponse);
+            if (errResponse.error) {
+                toastr.error(errResponse.message, 'Error');
+            }
+        });
+
+
     }
 
     $scope.fontchange = function() {

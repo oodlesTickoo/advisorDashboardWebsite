@@ -11,86 +11,113 @@
             //sessionService.unsetAll();
         };
 
-        function formTemplate(user) {
-            if (user.advisorID === undefined) {
-                return {
-                    "FIRST_NAME": user.firstName,
-                    "LAST_NAME": user.lastName,
-
-                    "CONTACTINFOS": [{
-                        "TYPE": "PHONE",
-                        "DETAIL": user.phone
-                    }, {
-                        "TYPE": "EMAIL",
-                        "DETAIL": user.mail
-                    }],
-                    "CUSTOMFIELDS": [{
-                        "CUSTOM_FIELD_ID": "CONTACT_FIELD_150",
-                        "FIELD_VALUE": user.type
-                    }]
-                };
-            } else {
-                return {
-                    "FIRST_NAME": user.firstName,
-                    "LAST_NAME": user.lastName,
-
-                    "CONTACTINFOS": [{
-                        "TYPE": "PHONE",
-                        "DETAIL": user.phone
-                    }, {
-                        "TYPE": "EMAIL",
-                        "DETAIL": user.mail
-                    }],
-                    "CUSTOMFIELDS": [{
-                        "CUSTOM_FIELD_ID": "CONTACT_FIELD_150",
-                        "FIELD_VALUE": user.type
-                    }, {
-                        "CUSTOM_FIELD_ID": "CONTACT_FIELD_151",
-                        "FIELD_VALUE": user.advisorID
-                    }]
-                };
-            }
-
-        }
-
         return {
+            register: function(registerCredentials) {
+                console.log("registerCredentials: ", registerCredentials);
 
-            login: function(credentials) {
-                console.log("credentials", credentials);
-                console.log("form", formTemplate(credentials));
-                
+                var req = {
+                    method: 'POST',
+                    url: '/api/v1/register',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: registerCredentials
+                };
+
+                console.log("req", req);
+
+                return $http(req);
+            },
+            login: function(loginCredentials) {
+                console.log("credentials: ", loginCredentials);
+
                 var req = {
                     method: 'POST',
                     url: '/api/v1/login',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    data: formTemplate(credentials)
+                    data: loginCredentials
                 };
 
-                 console.log("req", req);
+                console.log("req", req);
 
-                /* Use this for real authentication*/
-                //return $http(req);
+                return $http(req);
+            },
+            submitOtp: function(otpKey) {
+                console.log("otpKey: ", otpKey);
 
-                var login = $http(req);
-                console.log("login11:", login);
+                var req = {
+                    method: 'POST',
+                    url: '/api/v1/verify',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: otpKey
+                };
 
-                return login;
+                console.log("req", req);
+
+                return $http(req);
+            },
+            resendOtp: function(mobile) {
+                console.log("resendOtp: ", mobile);
+
+                var req = {
+                    method: 'POST',
+                    url: '/api/v1/resend',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: mobile
+                };
+
+                console.log("req", req);
+
+                return $http(req);
+            },
+            adminLogin: function(data) {
+                console.log("adminLogin: ", data);
+
+                var req = {
+                    method: 'POST',
+                    url: '/api/v1/adminLogin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: data
+                };
+
+                console.log("req", req);
+
+                return $http(req);
+            },
+            logout: function(mobile) {
+                console.log("logout: ", mobile);
+
+                var req = {
+                    method: 'POST',
+                    url: '/api/v1/logout',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    data: mobile
+                };
+
+                console.log("req", req);
+
+                return $http(req);
             },
             isLoggedIn: function() {
                 return sessionService.get('token');
             },
             cacheSession: function(response) {
-                var result = response.data.response.me;
-                $rootScope.loginName = result.FIRST_NAME + ' ' + result.LAST_NAME;
-                sessionService.set('name', result.FIRST_NAME + ' ' + result.LAST_NAME);
-                sessionService.set('email', result.CONTACTINFOS[1].DETAIL);
-                sessionService.set('mobile', result.CONTACTINFOS[0].DETAIL);
-                sessionService.set('role', response.data.response.role);
-                sessionService.set('token', response.data.response.token);
-                sessionService.set('contact', result.CONTACT_ID);
-
+                var result = response.data.response;
+                //                $rootScope.loginName = result.FIRST_NAME + ' ' + result.LAST_NAME;
+                sessionService.set('auth_token', result.auth_token);
+                sessionService.set('mobile', result.mobile);
+                sessionService.set('role', result.role);
+                sessionService.set('_id', result._id);
 
             }
         };
