@@ -37,13 +37,13 @@
 			
 			linkClientToAdvisor: function(clientId, advisorId) {
                 var req = {
-                    method: 'PUT',
+                    method: 'POST',
                     url: '/api/v1/client/link_advisor',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': sessionService.get('auth_token')
                     },
-                    data: { 'client_id':clientId, 'advisor_id':advisorId}
+                    data: { 'clientId':clientId, 'advisorId':advisorId}
                 };
                 return $http(req);
             },

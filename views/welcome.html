@@ -25,13 +25,12 @@
                         </div>
                     </div>
                     <!-- /Advisor Login-->
-					
                     <!-- Administrator Login-->
                     <div class="administrator-content" ng-if="selectedRole === USER_ROLE.ADMIN">
                         <div class="row no-margin">
                             <div class="col-md-9">
                                 <div class="btn-group">
-<!--                                    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uib-uncheckable="uncheckable">Your Client List</label>-->
+                                    <!--                                    <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Left'" uib-uncheckable="uncheckable">Your Client List</label>-->
                                     <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Middle'" uib-uncheckable="uncheckable">Advisors</label>
                                     <label class="btn btn-success" ng-model="radioModel" uib-btn-radio="'Right'" uib-uncheckable="uncheckable">Clients</label>
                                 </div>
@@ -95,11 +94,11 @@
 <!-- /Welcome Content -->
 <script type="text/ng-template" id="changeAdvisorModal.html">
     <div class="modal-header">
-        <h4 class="modal-title">{{name}}</h4>
+        <h4 class="modal-title">{{clientName}}</h4>
     </div>
     <div class="modal-body">
         <p>Change Your Advisor : </p>
-        <select id="" class="form-control" ng-model="selectedAdvisor" ng-options="advisorObject.id as advisorObject.name for advisorObject in advisorList" name="advisorList" ng-change="advisorChanged(selectedAdvisor)" required>
+        <select id="" class="form-control" ng-init="selectedAdvisor" ng-model="selectedAdvisor" ng-options="advisorObject.id as advisorObject.name for advisorObject in advisorList" name="advisorList" ng-change="advisorChanged(selectedAdvisor)" required>
         </select>
     </div>
     <div class="modal-footer">

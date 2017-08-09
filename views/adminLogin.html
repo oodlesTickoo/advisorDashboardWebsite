@@ -13,7 +13,7 @@
                             <img src="../assets/images/login-icon.png" style="padding: 35px 0;" />
                         </div>
                         <div class="form-group ">
-                            <input id="email" ng-model="admin.email" type="email" class="form-control email" name="email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                            <input id="email" ng-model="admin.email" type="email" class="form-control email" autocomplete="off" name="email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
                             <span ng-show="(adminLoginForm.email.$dirty || adminLoginForm.$submitted) && adminLoginForm.email.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>

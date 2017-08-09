@@ -31,10 +31,8 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                 return UserService.masterAdvisorList();
             }).then(advisorListObj => {
                 $scope.masterAdvisors = advisorListObj.data.response;
-
                 console.log("Response ", $scope.masterClients);
                 console.log("Response ", $scope.masterAdvisors);
-
             }).catch(function(err) {
                 console.log(err);
             });
@@ -55,7 +53,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         }
 
         /*
-		console.log("Getting data");
+        console.log("Getting data");
         if ($scope.selectedRole !== $scope.USER_ROLE.CLIENT) {
             UserService.homePageData().then(function(result) {
                 console.log("Response ", result);
@@ -80,6 +78,66 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             });
         }*/
     }
+
+    $scope.administratorMasterClientListData = {
+        data: 'masterClients',
+        useExternalPagination: false,
+        enablePaginationOption: false,
+        enableGridMenu: false,
+        exporterMenuPdf: false,
+        exporterMenuCsv: false,
+        enableColumnMenus: false,
+        enableSorting: false,
+        enableVerticalScrollbar: 1,
+        rowHeight: 30,
+        columnDefs: [{
+            name: 'firstName',
+            displayName: 'Name',
+            cellTemplate: "<span>{{row.entity.firstName}} {{row.entity.lastName}}</span>"
+        }, {
+            name: 'advisor.name',
+            displayName: 'Advisors Name',
+            cellTemplate: "<span>{{row.entity.advisor.firstName}} {{row.entity.advisor.lastName}}</span>"
+        }, {
+            name: 'actions',
+            width: 150,
+            pinnedRight: true,
+            cellTemplate: "<a class='edit-action action-icon pointer' title='Edit' ng-click='grid.appScope.showModal(row.entity, row.entity.advisor)'><i></i></a>",
+        }],
+        onRegisterApi: function(gridApi) {
+            $scope.gridApi = gridApi;
+            /*  gridApi.pagination.on.paginationChanged($scope, function(newPage, pageSize) {
+                  setPaginationDataAndGetList(newPage, pageSize);
+              });*/
+        }
+    };
+
+    $scope.showModal = function(client, advisor) {
+        $uibModal.open({
+                templateUrl: 'changeAdvisorModal.html',
+                controller: 'ChangeAdvisorController',
+                size: 'md',
+                backdrop: 'static',
+                resolve: {
+                    advisors: function() {
+                        return {
+                            client: client,
+                            assisgnedAdvisor: advisor,
+                            advisorList: $scope.masterAdvisors
+                        };
+                    }
+                }
+            })
+            .result.then(
+                function() {
+                    console.log("OK");
+                    _getPageData();
+                },
+                function() {
+                    console.log("Cancel");
+                }
+            );
+    };
 
     function _updateListData() {
 
@@ -176,38 +234,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
     // Data 
     /*Master Client List*/
-    $scope.administratorMasterClientListData = {
-        data: 'masterClients',
-        useExternalPagination: false,
-        enablePaginationOption: false,
-        enableGridMenu: false,
-        exporterMenuPdf: false,
-        exporterMenuCsv: false,
-        enableColumnMenus: false,
-        enableSorting: false,
-        enableVerticalScrollbar: 1,
-        rowHeight: 30,
-        columnDefs: [{
-			name: 'firstName',
-            displayName: 'Name',
-			cellTemplate: "<span>{{row.entity.firstName}} {{row.entity.lastName}}</span>"
-        }, {
-            name: 'advisor.NAME',
-            displayName: 'Advisors Name',
-			cellTemplate: "<span>{{row.entity.advisor.firstName}} {{row.entity.advisor.lastName}}</span>"
-        }, {
-            name: 'actions',
-            width: 150,
-            pinnedRight: true,
-            cellTemplate: "<a class='edit-action action-icon pointer' title='Edit' ng-click='grid.appScope.showModal(row.entity.client, row.entity.advisor.CONTACT_ID)'><i></i></a>",
-        }],
-        onRegisterApi: function(gridApi) {
-            $scope.gridApi = gridApi;
-            /*  gridApi.pagination.on.paginationChanged($scope, function(newPage, pageSize) {
-                  setPaginationDataAndGetList(newPage, pageSize);
-              });*/
-        }
-    };
+
 
     $scope.saveTemplateDoc = function() {
         var link = document.createElement('a');
@@ -260,33 +287,6 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         })
     }
 
-    $scope.showModal = function(client, advisor) {
-        $uibModal.open({
-                templateUrl: 'changeAdvisorModal.html',
-                controller: 'ChangeAdvisorController',
-                size: 'md',
-                backdrop: 'static',
-                resolve: {
-                    advisors: function() {
-                        return {
-                            client: client.CONTACT_ID,
-                            name: client.FIRST_NAME + ' ' + client.LAST_NAME,
-                            advisors: $scope.advisors,
-                            selected: advisor
-                        };
-                    }
 
-                }
-            })
-            .result.then(
-                function() {
-                    console.log("OK");
-                    _getPageData();
-                },
-                function() {
-                    console.log("Cancel");
-                }
-            );
-    }
 
 }]);
