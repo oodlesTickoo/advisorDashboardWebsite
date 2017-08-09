@@ -1,6 +1,9 @@
 app.controller("AdminLoginController", ['$scope', 'AuthenticationService', 'sessionService', '$state', '$rootScope', 'toastr', 'UserService', function($scope, AuthenticationService, sessionService, $state, $rootScope, toastr, UserService) {
     'use strict';
 
+	$scope.showMenuMethod = function() {
+        $rootScope.$emit("showMainMenu", {});
+    }
 
 
     $scope.adminLogin = function(adminCredentials) {
@@ -14,8 +17,10 @@ app.controller("AdminLoginController", ['$scope', 'AuthenticationService', 'sess
             //$ionicLoading.hide();
             if (!response.data.error) {
                 console.log("responseeeeee", response);
+                sessionService.set('isLoggedIn', true);
                 AuthenticationService.cacheSession(response);
-				$state.go('app.welcome');
+				$scope.showMenuMethod();
+                $state.go('app.welcome');
             } else {
                 toastr.error(response.data.message, 'Error');
             }
@@ -27,7 +32,6 @@ app.controller("AdminLoginController", ['$scope', 'AuthenticationService', 'sess
             }
         });
     }
-
 
 
     /* $scope.signUpClient = function(data) {
@@ -55,7 +59,7 @@ app.controller("AdminLoginController", ['$scope', 'AuthenticationService', 'sess
              sessionService.set("latestObj", JSON.stringify(customFieldObj1));
              $rootScope.latestObj = customFieldObj1;
              AuthenticationService.cacheSession(response);
-             $rootScope.isLoggedIn = true;
+             $scope.isLoggedIn = true;
              $state.go('app.welcome');
 
          }).catch(function(error) {

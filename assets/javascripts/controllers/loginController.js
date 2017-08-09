@@ -1,4 +1,4 @@
-app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionService', '$state', '$rootScope', 'toastr', function($scope, AuthenticationService, sessionService, $state, $rootScope, toastr) {
+app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionService', '$state', '$rootScope', 'toastr', 'UserService', function($scope, AuthenticationService, sessionService, $state, $rootScope, toastr, UserService) {
     'use strict';
 
     var USER_ROLE = {
@@ -13,7 +13,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
     $scope.isFinancialAdvisor = false;
     $scope.client = {};
     $scope.client.role = USER_ROLE.CLIENT;
-    $rootScope.isLoggedIn = false;
+    $scope.isLoggedIn = false;
     $scope.advisorSignUp = false;
     $scope.advisorLogin = true;
     $scope.advisorOtp = false;
@@ -22,13 +22,16 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
     $scope.clientLogin = true;
     $scope.clientOtp = false;
 
+    $scope.showMenuMethod = function() {
+        $rootScope.$emit("showMainMenu", {});
+    }
 
     // to login financial Advisor or Client
     $scope.loginUser = function(user, validForm) {
         console.log("in login user fnctn : ", user, validForm);
 
         $scope.loginData = {
-            mobile: 919999999999 //user.mobile
+            mobile: 918888888888 //user.mobile
         }
         console.log("login data : ", $scope.loginData);
         AuthenticationService.login($scope.loginData).then(function(response) {
@@ -69,9 +72,25 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
         AuthenticationService.submitOtp($scope.otpData).then(function(response) {
             //			AuthenticationService.cacheSession(response);
             if (!response.data.error) {
-                console.log("otp response", response);
+				console.log("333333333333333333333333333333333333333333", response);
+				sessionService.set("auth_token",response.data.response.auth_token)
+                UserService.getMe().then(function(getMeObj) {
+                    console.log("otp response", getMeObj);
+                    sessionService.set('isLoggedIn', true);
+                    AuthenticationService.cacheSession(getMeObj);
+                    $scope.showMenuMethod();
+                    $state.go('app.welcome');
+                }).catch(function(errResponse) {
+                    //$ionicLoading.hide();
+                    if (errResponse.error) {
+                        toastr.error(errResponse.message, 'Error');
+                    }
+                });
+                /*console.log("otp response", response);
+                sessionService.set('isLoggedIn', true);
                 AuthenticationService.cacheSession(response);
-				$state.go('app.welcome');
+				$scope.showMenuMethod();
+				$state.go('app.welcome');*/
 
             } else {
                 toastr.error(response.data.message, 'Error');
@@ -141,29 +160,6 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
             }
         });
     }
-	
-	$scope.adminLogin = function(adminCredentials) {
-        console.log("adminLogin: ", adminCredentials);
-        $scope.adminLoginData = {
-            email: adminCredentials.email,
-			passsword: adminCredentials.password
-        }
-		console.log("adminLoginData: ", $scope.adminLoginData);
-        /*AuthenticationService.resendOtp($scope.adminLoginData).then(function(response) {
-            //$ionicLoading.hide();
-            if (!response.data.error) {
-                console.log("repsonseeeeee", response);
-            } else {
-                toastr.error(response.data.message, 'Error');
-            }
-        }).catch(function(errResponse) {
-            //$ionicLoading.hide();
-            console.log("erorororororororro", errResponse);
-            if (errResponse.error) {
-                toastr.error(errResponse.message, 'Error');
-            }
-        });*/
-    }
 
 
 
@@ -192,7 +188,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
              sessionService.set("latestObj", JSON.stringify(customFieldObj1));
              $rootScope.latestObj = customFieldObj1;
              AuthenticationService.cacheSession(response);
-             $rootScope.isLoggedIn = true;
+             $scope.isLoggedIn = true;
              $state.go('app.welcome');
 
          }).catch(function(error) {

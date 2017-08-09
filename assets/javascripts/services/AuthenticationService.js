@@ -99,7 +99,8 @@
                     method: 'POST',
                     url: '/api/v1/logout',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+						'Authorization': sessionService.get('auth_token')
                     },
                     data: mobile
                 };
@@ -113,11 +114,12 @@
             },
             cacheSession: function(response) {
                 var result = response.data.response;
-                //                $rootScope.loginName = result.FIRST_NAME + ' ' + result.LAST_NAME;
-                sessionService.set('auth_token', result.auth_token);
+//                sessionService.set('auth_token', result.auth_token);
                 sessionService.set('mobile', result.mobile);
                 sessionService.set('role', result.role);
                 sessionService.set('_id', result._id);
+                sessionService.set('firstName', result.firstName);
+                sessionService.set('lastName', result.lastName);
 
             }
         };

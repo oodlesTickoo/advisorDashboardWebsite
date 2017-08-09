@@ -3,18 +3,21 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
     //tab toggle btn group
     $scope.fileExist = false;
-    $scope.LOGGED_NAME = sessionService.get('name');
+    $scope.LoggedName = sessionService.get('firstName') + " " + sessionService.get('lastName');
     $scope.USER_ROLE = {
         ADVISOR: "ADVISOR",
         CLIENT: "CLIENT",
         ADMIN: "ADMINISTRATOR"
     };
 
+    console.log("In welcome ctrl", $scope.LoggedName);
+
     $rootScope.addGoal = false;
     $scope.my_clients = [];
     $scope.advisors = [];
     $scope.client_advisors = [];
     $scope.updateMasterClients = [];
+    $scope.openIndex = [false];
 
     function initialize() {
         $scope.selectedRole = sessionService.get('role');
@@ -37,9 +40,11 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                 console.log(err);
             });
         } else if ($scope.selectedRole === $scope.USER_ROLE.ADVISOR) {
-            UserService.clientList().then(clientListObj => {
-                console.log("Response ", clientListObj);
-                $scope.clientList = clientListObj.data.response.my_clients ? result.data.response.my_clients : [];
+
+            let advisorId = sessionService.get('_id')
+            UserService.advisorsClientList(advisorId).then(clientListObj => {
+                $scope.clientList = clientListObj.data.response ? clientListObj.data.response : [];
+                console.log("Response clientList", $scope.clientList);
             }).catch(function(err) {
                 console.log(err);
             });
@@ -172,7 +177,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
 
     $scope.advisorListData = {
-        data: 'my_clients',
+        data: 'clientList',
         useExternalPagination: false,
         enablePaginationOption: false,
         enableGridMenu: false,
@@ -183,13 +188,14 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         enableVerticalScrollbar: 1,
         columnDefs: [{
             name: 'name',
-            displayName: 'Name'
+            displayName: 'Name',
+            cellTemplate: "<span>{{row.entity.firstName}} {{row.entity.lastName}}</span>"
         }, {
             name: 'actions',
             width: 150,
             pinnedRight: true,
-            cellTemplate: "<a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity.CONTACT_ID)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ng-click='grid.appScope.uploadDoc(row.entity.CONTACT_ID)'><i></i></a>" +
-                "<input type='file' fileread='' id='{{row.entity.CONTACT_ID}}' style='display:none;'>",
+            cellTemplate: "<input type='file'  name='file' ng-model='file[row.entity._id]' ngf-select='file[row.entity._id] = null; grid.appScope.showUploadFileModel($file, $invalidFiles, row.entity._id)' ngf-max-size='5MB' required ngf-model-invalid='errorFile'><a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity._id)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ng-click='grid.appScope.uploadDoc(row.entity._id)'><i></i></a>" /*+ "<input type='file'  name='file'  ngf-select='grid.appScope.showUploadFileModel($file, $invalidFiles, row.entity._id)' ngf-max-size='5MB' required ngf-model-invalid='errorFile'>"*/
+                //                                "<input type='file' fileread='' id='{{row.entity.CONTACT_ID}}' style='display:none;'>",
         }],
         onRegisterApi: function(gridApi) {
             $scope.gridApi = gridApi;
@@ -197,6 +203,31 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                   setPaginationDataAndGetList(newPage, pageSize);
               });*/
         }
+    };
+
+    $scope.showUploadFileModel = function(file, invalidFiles, clientId) {
+        $uibModal.open({
+                templateUrl: 'uploadFileModal.html',
+                controller: 'UploadFileModalController',
+                size: 'md',
+                backdrop: 'static',
+                resolve: {
+                    file: function() {
+                        return file;
+                    },
+					clientId: function(){
+						return clientId;
+					}
+                }
+            })
+            .result.then(
+                function() {
+                    console.log("OK");
+                },
+                function() {
+                    console.log("Cancel");
+                }
+            );
     };
 
     //Administrator Login
@@ -230,7 +261,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 
     /*Master Advisor List*/
 
-    $scope.isOpen = false;
+    //    $scope.isOpen = false;
 
     // Data 
     /*Master Client List*/
@@ -244,9 +275,9 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         link.click();
     }
 
-    $scope.downloadPdf = function(id) {
-        UserService.checkFile(id).then(function(response) {
-            console.log("response", response);
+    $scope.downloadPdf = function(clientId) {
+        UserService.downloadPdf(clientId).then(function(response) {
+            console.log("response downloadPdf", response);
             if (response.status === 200) {
                 var url = '/api/v1/file?contact_id=' + id + '&file_format=pdf';
                 var link = document.createElement('a');
@@ -288,5 +319,45 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     }
 
 
+    //to show advisors client list
+    $scope.showAdvisorsClientList = function(advisorId, index) {
+        console.log("Dddddddddddddddddddddddddd", sessionService.get('auth_token'), advisorId, $scope.openIndex, index);
+        if ($scope.openIndex[index]) {
+            UserService.advisorsClientList(advisorId).then(clientListObj => {
+                console.log("showAdvisorsClientList Response ", clientListObj);
+                $scope.advisorsClientList = clientListObj.data.response ? clientListObj.data.response : [];
+            }).catch(function(err) {
+                console.log(err);
+            });
+        }
+    }
+}]);
 
+app.controller("UploadFileModalController", ['$scope', 'file', '$uibModalInstance','UserService','clientId','$timeout','toastr',function($scope, file, $uibModalInstance, UserService, clientId, $timeout,toastr) {
+    $scope.file = file;
+    $scope.uploadFile = function() {
+        file.upload = UserService.uploadFile(file, clientId)
+
+        file.upload.then(function(response) {
+            $timeout(function() {
+				$uibModalInstance.close();
+				file = null
+				if(response.data.error){
+					toastr.error(response.data.message);
+				}else{
+					toastr.success(response.data.message);
+				}
+            });
+        }, function(response) {
+            if (response.status > 0)
+                toastr.error(response.data.message);
+        }, function(evt) {
+            // Math.min is to fix IE which reports 200% sometimes
+            file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+    }
+	$scope.close = function(){
+		 $uibModalInstance.dismiss('cancel');
+	}
+	
 }]);

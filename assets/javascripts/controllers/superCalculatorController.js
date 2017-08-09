@@ -1,6 +1,6 @@
 app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionService','UserService', '$timeout', 'AgeCalculator', 'ChartServiceHc', 'DonutChartServiceHc', 'PdfMaker', '$window', 'GoalBasedAdviceService', 'WithSSCalculator', function($scope, $rootScope, sessionService,UserService, $timeout, AgeCalculator, ChartServiceHc, DonutChartServiceHc, PdfMaker, $window, GoalBasedAdviceService, WithSSCalculator) {
     /*if(GoalBasedAdviceService===false){
-                     $rootScope.isLoggedIn = false;
+                     $scope.isLoggedIn = false;
                      $state.go('login');
                      return false;
              }*/

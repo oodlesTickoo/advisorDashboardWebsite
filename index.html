@@ -29,7 +29,16 @@
     <!-- JAVASCRIPTS -->
     <script src="assets/javascripts/libs/head.min.js" type="text/javascript"></script>
 </head>
-<style>    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-    ng-cloak {        display: none !important;    }</style>
+<style>
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x- ng-cloak {
+        display: none !important;
+    }
+</style>
 
 <body ng-class="{'scroll' : $state.includes('app.superCalculator')}" ng-cloak>
     <div class="body-container">
@@ -46,7 +55,7 @@
                                     </div>
                                 </header>
                             </div>
-                            <div class="col-md-6 col-sm-6" ng-if="isLoggedIn === true">
+                            <div class="col-md-6 col-sm-6" ng-if="isLoggedIn">
                                 <nav role="navigation">
                                     <div id="menuToggle" ng-class="{removeBackground : showUser}">
                                         <!--
@@ -78,40 +87,19 @@
                                             <li class="menu-items" ng-class="{sel: $state.includes('app.contact')}">
                                                 <a ui-sref="app.contact" ng-class="{menufix: showColor}">Contact Us</a>
                                             </li>
-                                            <!-- <li class="menu-items" ng-repeat="item in menuItems" ng-click="select($index)" ng-class="{sel: $index == selected}">
-
-                                                <a ui-sref="{{item.path}}" ng-class="{menufix: showColor}"> {{item.name}}</a>
-                                            </li>-->
                                             <li class="user-menu" ng-class="{userfix : showUser}">
                                                 <ul>
                                                     <li class="user-left"><img src="assets/images/user-icon.png">
                                                         <br/>
-                                                        <div class="dropdown">
-                                                            <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">{{loginName}}<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
-                                                            <ul class="dropdown-menu logout-menu">
-                                                                <li ng-click="logoutUser()" class="logout pointer">Logout</li>
-                                                            </ul>
-                                                        </div>
+<!--                                                        <div class="dropdow ">-->
+                                                           <!-- <button class="user-menu-name dropdown-toggle btn btn-md" data-toggle="dropdown">--><p>{{loginName}}</p><!--<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>-->
+<!--                                                            <ul class="logout-menu">-->
+                                                                <button class="user-menu-name dropdown-toggle btn btn-md" ng-click="logoutUser()" class="logout pointer">Logout</button>
+<!--                                                            </ul>-->
+<!--                                                        </div>-->
                                                     </li>
-                                                    <!--  <li class="user-right"><img src="assets/images/user-icon.png">
-                                                    <br/>
-                                                    
-                                                           <div class="dropdown">
-                                                    <button class="user-menu-name dropdown-toggle" data-toggle="dropdown">Advisor<img class="arrow-icon-menu" src="assets/images/menu-arrowdown.png"></button>
-                                                
-                                                    <ul class="dropdown-menu logout-menu">
-                                                      <li ng-click="logout()" class="logout pointer">Logout</li>
-                                                   
-                                                    </ul>
-                                                  </div>
-
-                                                  
-
-                                                </li>
- -->
                                                 </ul>
                                             </li>
-                                            <!--                                        </a>-->
                                         </ul>
                                     </div>
                                 </nav>

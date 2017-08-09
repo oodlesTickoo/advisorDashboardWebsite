@@ -8,30 +8,39 @@
 app.controller("MainCtrl", ['$scope', 'sessionService', '$state', '$rootScope', 'AuthenticationService', function($scope, sessionService, $state, $rootScope, AuthenticationService) {
     //    $scope.menuItems = ['Home', 'Calculators', 'Goal Based Advice', 'Contact Us'];
 
-    console.log("In Main Controller");
+
 
     //to get token
-    $rootScope.isLoggedIn = false;
-    $rootScope.loginName = '';
+    //    $scope.isLoggedIn = false;
+	$scope.isLoggedIn = sessionService.get('isLoggedIn');
+	$scope.loginName = sessionService.get('firstName') + " " + sessionService.get('lastName');
     $scope.showColor = false;
     $scope.showUser = false;
-    $rootScope.previousState;
-    $rootScope.currentState;
+    /*$rootScope.previousState;
+    $rootScope.currentState;*/
 
-
+  
 
 
     function init() {
         var token = sessionService.get('token');
         if (token && token !== '' && token !== null && token !== 'null') {
-            $rootScope.isLoggedIn = true;
+            $scope.isLoggedIn = true;
         }
         var name = sessionService.get('name');
         if (name && name !== '' && name !== null && name !== 'null') {
-            $rootScope.loginName = name;
+            $scope.loginName = name;
         }
     }
     init();
+
+    $rootScope.$on("showMainMenu", function() {
+        //        $scope.parentmethod();
+        $scope.isLoggedIn = sessionService.get('isLoggedIn');
+        $scope.loginName = sessionService.get('firstName') + " " + sessionService.get('lastName');
+    });
+	  console.log("In Main Controller", $scope.loginName);
+
 
     $scope.menuItems = [{
         'path': 'app.welcome',
@@ -54,7 +63,7 @@ app.controller("MainCtrl", ['$scope', 'sessionService', '$state', '$rootScope', 
 
     /* $scope.logout = function() {
          sessionService.unsetAll();
-         $rootScope.isLoggedIn = false;
+         $scope.isLoggedIn = false;
          $state.go('login');
      }*/
     $scope.logoutUser = function() {
@@ -66,7 +75,7 @@ app.controller("MainCtrl", ['$scope', 'sessionService', '$state', '$rootScope', 
             if (!response.data.error) {
                 console.log("error", response);
                 sessionService.unsetAll();
-                $rootScope.isLoggedIn = false;
+                $scope.isLoggedIn = false;
                 sessionService.get('role') === "ADMINISTRATOR" ? $state.go('adminLogin') : $state.go('login');
 
             } else {

@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row no-margin" style="padding-top: 63px">
                 <h2>Welcome</h2>
-                <h1>{{LOGGED_NAME}}!</h1>
+                <h1>{{LoggedName}}!</h1>
                 <h3>Now you are logged in and you can browse to different menus</h3>
                 <!-- Advisor Login-->
                 <div class="row welcome-intro">
@@ -20,7 +20,7 @@
                         </div>
                         <div class="row no-margin">
                             <div class="col-md-12">
-                                <div id="grid1" ui-grid="advisorListData" class="grid" ui-grid-auto-resize></div>
+                                <div id="grid" ui-grid="advisorListData" class="grid" ui-grid-auto-resize></div>
                             </div>
                         </div>
                     </div>
@@ -50,14 +50,14 @@
                                     </div>
                                 </div>
                                 <div class="master-advisor-accordion" ng-if="radioModel == 'Middle'">
-                                    <uib-accordion close-others=false>
-                                        <uib-accordion-group ng-repeat="advisor in masterAdvisors" ng-scroll="advisor in advisors" is-open="group.isOpen" ng-click="updateOpenStatus()">
+                                    <uib-accordion close-others=true>
+                                        <uib-accordion-group ng-repeat="advisor in masterAdvisors" ng-scroll="advisor in masterAdvisors" is-open="openIndex[$index]" ng-click="showAdvisorsClientList(advisor._id, $index)">
                                             <uib-accordion-heading ng-model="checkTitle">
                                                 {{advisor.firstName + ' ' + advisor.lastName}}
                                             </uib-accordion-heading>
                                             <!--                                            <a>{{advisorList.content}}</a>-->
                                             <ul>
-                                                <li ng-repeat="content in advisor.clients">{{content.FIRST_NAME + ' '+ content.LAST_NAME}}</li>
+                                                <li ng-repeat="client in advisorsClientList">{{client.firstName + ' '+ client.lastName}}</li>
                                             </ul>
                                         </uib-accordion-group>
                                     </uib-accordion>
@@ -92,17 +92,33 @@
     </div>
 </div>
 <!-- /Welcome Content -->
+
+<!-- change Advisor Modal -->
 <script type="text/ng-template" id="changeAdvisorModal.html">
     <div class="modal-header">
         <h4 class="modal-title">{{clientName}}</h4>
     </div>
     <div class="modal-body">
         <p>Change Your Advisor : </p>
-        <select id="" class="form-control" ng-init="selectedAdvisor" ng-model="selectedAdvisor" ng-options="advisorObject.id as advisorObject.name for advisorObject in advisorList" name="advisorList" ng-change="advisorChanged(selectedAdvisor)" required>
+        <select id="" class="form-control" ng-init="selectedAdvisor" ng-model="selectedAdvisor" ng-options="advisorObject.id as advisorObject.name for advisorObject in advisorList" name="advisorList" required>
         </select>
     </div>
     <div class="modal-footer">
-        <button class="btn btn-success" ng-click="ok()">Save</button>
+        <button class="btn btn-success" ng-click="changeAdvisor()">Save</button>
+        <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<!-- upload file Modal -->
+<script type="text/ng-template" id="uploadFileModal.html">
+    <div class="modal-header">
+        <h4 class="modal-title">Upload File</h4>
+    </div>
+    <div class="modal-body">
+        <p><a class='upload-word action-icon'></a>{{file.name}}</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="uploadFile()">upload</button>
         <button class="btn btn-default" ng-click="cancel()">Cancel</button>
     </div>
 </script>

@@ -346,6 +346,7 @@ a:visited {
     text-shadow: 0 0 0 #191717;
     padding: 20px;
     text-transform: capitalize;
+    display: block;
 }
 
 .ui-grid-top-panel {
@@ -672,7 +673,7 @@ table tr:nth-child(even) {
 }
 
 .user-menu {
-    margin-top: 100px;
+    margin-top: 75px;
     opacity: 0;
 }
 
@@ -686,6 +687,12 @@ table tr:nth-child(even) {
     text-align: center;
 }
 
+.user-left p{
+	font-size: 20px;
+    color: #fff;
+    margin-top: 5px;
+}
+
 .user-right {
     float: right;
     width: 50%;
@@ -694,13 +701,17 @@ table tr:nth-child(even) {
 }
 
 .user-menu-name {
-    color: white;
+   color: white;
     font-family: AvantGardeBookBT;
     margin-top: 8px;
     letter-spacing: 1px;
     margin-left: 10px;
-    border: none;
+    border: 1px solid #fff;
     background: none;
+}
+
+.user-menu-name:hover{
+	background: #fff;
 }
 
 .arrow-icon-menu {
@@ -1102,6 +1113,7 @@ table tr:nth-child(even) {
     color: #fff;
     margin-left: 10px;
     letter-spacing: 1px;
+	cursor: pointer;
 }
 
 .welcome-intro a {
@@ -1110,6 +1122,7 @@ table tr:nth-child(even) {
     font-family: LatoRegular;
     color: #fff;
     display: inline-block;
+	cursor: pointer;
 }
 
 a.download-pdf i {
