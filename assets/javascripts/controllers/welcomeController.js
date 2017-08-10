@@ -23,7 +23,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
 	$scope.haveFinancialAdvisorModal = function() {
         $uibModal.open({
                 templateUrl: 'haveFinancialAdvisor.html',
-                controller: '',
+                controller: 'HaveFinancialAdvisorController',
                 size: 'md',
                 backdrop: 'static'
             })
@@ -33,9 +33,9 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     function initialize() {
         $scope.selectedRole = sessionService.get('role');
         _getPageData();
-		/*if($scope.selectedRole === $scope.USER_ROLE.CLIENT){
+		if($scope.selectedRole === $scope.USER_ROLE.CLIENT){
 			$scope.haveFinancialAdvisorModal();
-		}*/
+		}
     }
     initialize();
 
@@ -411,6 +411,14 @@ app.controller("UploadFileModalController", ['$scope', 'file', '$uibModalInstanc
 }]);
 
 app.controller("ShowInstructionsController", ['$scope','$uibModalInstance', function($scope, $uibModalInstance) {
+  
+    $scope.close = function() {
+        $uibModalInstance.dismiss('cancel');
+    }
+
+}]);
+
+app.controller("HaveFinancialAdvisorController", ['$scope','$uibModalInstance', function($scope, $uibModalInstance) {
   
     $scope.close = function() {
         $uibModalInstance.dismiss('cancel');

@@ -308,7 +308,9 @@ a:visited {
 
 
 /*** Error ***/
-
+.error{
+	color: #c9302c;
+}
 
 /* .submitted .ng-invalid{
 	border: 1px solid #c9302c !important;
