@@ -1,29 +1,10 @@
 (function() {
     'use strict';
 
-    app.factory("GoalBasedAdviceService", function($rootScope,$state,sessionService) {
-            if($rootScope.latestObj===undefined){
-                    $rootScope.latestObj=JSON.parse(sessionService.get('latestObj'));
-            }
+    app.factory("GoalBasedAdviceService", function($rootScope, $state, sessionService) {
 
-        var customFieldObj = {
-            CONTACT_FIELD_154: $rootScope.latestObj.CONTACT_FIELD_154,
-            CONTACT_FIELD_155: $rootScope.latestObj.CONTACT_FIELD_155,
-            CONTACT_FIELD_156: $rootScope.latestObj.CONTACT_FIELD_156,
-            CONTACT_FIELD_157: $rootScope.latestObj.CONTACT_FIELD_157,
-            CONTACT_FIELD_158: $rootScope.latestObj.CONTACT_FIELD_158,
-            CONTACT_FIELD_159: $rootScope.latestObj.CONTACT_FIELD_159,
-            CONTACT_FIELD_160: $rootScope.latestObj.CONTACT_FIELD_160,
-            CONTACT_FIELD_161: $rootScope.latestObj.CONTACT_FIELD_161,
-            CONTACT_FIELD_162: $rootScope.latestObj.CONTACT_FIELD_162,
-            CONTACT_FIELD_163: $rootScope.latestObj.CONTACT_FIELD_163,
-            CONTACT_FIELD_164: $rootScope.latestObj.CONTACT_FIELD_164,
-            CONTACT_FIELD_165: $rootScope.latestObj.CONTACT_FIELD_165
-        };
-
-        var goalBasedAdvices = [{
-            severity: customFieldObj.CONTACT_FIELD_154,
-            insightlyFielId: 'CONTACT_FIELD_154',
+        var customFieldObj = {};
+		var goalBasedAdvices = [{
             image: "/assets/images/goal1.jpg",
             goalimg: "/assets/images/cal-goal1.png",
             heading: " Protect my income",
@@ -32,8 +13,6 @@
             listTwo: "What might I be covered?",
             listThree: "How do I get insurance?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_155,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal2.jpg",
             goalimg: "/assets/images/cal-goal2.png",
             heading: " Simplify my finances",
@@ -42,8 +21,6 @@
             listTwo: "Do I have a budget and savings plan in place?",
             listThree: "Would consolidating my debits make things easier?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_156,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal3.jpg",
             goalimg: "/assets/images/cal-goal3.png",
             heading: " Retire right",
@@ -52,8 +29,6 @@
             listTwo: "Will I be eligible for the Age Pension?",
             listThree: "Will I work less, stop working or do something different?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_157,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal4.jpg",
             goalimg: "/assets/images/cal-goal4.png",
             heading: "Be debt free",
@@ -62,8 +37,6 @@
             listTwo: "How much interest am I paying?",
             listThree: "Should I roll my debts into one?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_158,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal5.jpg",
             goalimg: "/assets/images/cal-goal5.png",
             heading: "Invest in property",
@@ -72,8 +45,6 @@
             listTwo: "Will I be eligible for any tax deductions?",
             listThree: "Can I invest in property through my super?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_159,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal6.jpg",
             goalimg: "/assets/images/cal-goal6.png",
             heading: "Save for something big",
@@ -82,8 +53,6 @@
             listTwo: "Do I have a budget and savings plan in place?",
             listThree: "Are my debts under control?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_160,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal7.jpg",
             goalimg: "/assets/images/cal-goal7.png",
             heading: "Pursue a passion",
@@ -92,8 +61,6 @@
             listTwo: "Do I have a budget and savings plan in place?",
             listThree: "Am I taking steps to minimise other debts?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_161,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal8.jpg",
             goalimg: "/assets/images/cal-goal8.png",
             heading: "Buy a home",
@@ -102,8 +69,6 @@
             listTwo: "Am I across the upfront and ongoing costs?",
             listThree: "Am I aware of the government entitlements available?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_162,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal9.jpg",
             goalimg: "/assets/images/cal-goal9.png",
             heading: "We're married, now what?",
@@ -112,8 +77,6 @@
             listTwo: "What are our goals - travel, kids, property?",
             listThree: "What is our contingency plan if something goes wrong?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_163,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal10.jpg",
             goalimg: "/assets/images/cal-goal10.png",
             heading: "Retirement living options",
@@ -122,8 +85,6 @@
             listTwo: "Will I be able to afford recreational activities?",
             listThree: "What happens if I need aged care?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_164,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal11.jpg",
             goalimg: "/assets/images/cal-goal11.png",
             heading: "Start accessing my super",
@@ -132,8 +93,6 @@
             listTwo: "What age can I access my super?",
             listThree: "Can I continue working and access super?"
         }, {
-            severity: customFieldObj.CONTACT_FIELD_165,
-            insightlyFielId: 'CONTACT_FIELD_154',
             image: "/assets/images/goal12.jpg",
             goalimg: "/assets/images/cal-goal12.png",
             heading: "Give them the best chance",
@@ -143,14 +102,56 @@
             listThree: "Have I explored payment options?"
         }];
 
+        var setGoalBasedAdviceData = function(goalBasedAdviceData) {
+            customFieldObj["goalBasedAdvice_0_severity"] = goalBasedAdviceData.goalBasedAdvice_0_severity;
+            customFieldObj["goalBasedAdvice_1_severity"] = goalBasedAdviceData.goalBasedAdvice_1_severity;
+            customFieldObj["goalBasedAdvice_2_severity"] = goalBasedAdviceData.goalBasedAdvice_2_severity;
+            customFieldObj["goalBasedAdvice_3_severity"] = goalBasedAdviceData.goalBasedAdvice_3_severity;
+            customFieldObj["goalBasedAdvice_4_severity"] = goalBasedAdviceData.goalBasedAdvice_4_severity;
+            customFieldObj["goalBasedAdvice_5_severity"] = goalBasedAdviceData.goalBasedAdvice_5_severity;
+            customFieldObj["goalBasedAdvice_6_severity"] = goalBasedAdviceData.goalBasedAdvice_6_severity;
+            customFieldObj["goalBasedAdvice_7_severity"] = goalBasedAdviceData.goalBasedAdvice_7_severity;
+            customFieldObj["goalBasedAdvice_8_severity"] = goalBasedAdviceData.goalBasedAdvice_8_severity;
+            customFieldObj["goalBasedAdvice_9_severity"] = goalBasedAdviceData.goalBasedAdvice_9_severity;
+            customFieldObj["goalBasedAdvice_10_severity"] = goalBasedAdviceData.goalBasedAdvice_10_severity;
+            customFieldObj["goalBasedAdvice_11_severity"] = goalBasedAdviceData.goalBasedAdvice_11_severity;
+            goalBasedAdvices[0]["severity"] = customFieldObj.goalBasedAdvice_0_severity;
+            goalBasedAdvices[1]["severity"] = customFieldObj.goalBasedAdvice_1_severity;
+            goalBasedAdvices[2]["severity"] = customFieldObj.goalBasedAdvice_2_severity;
+            goalBasedAdvices[3]["severity"] = customFieldObj.goalBasedAdvice_3_severity;
+            goalBasedAdvices[4]["severity"] = customFieldObj.goalBasedAdvice_4_severity;
+            goalBasedAdvices[5]["severity"] = customFieldObj.goalBasedAdvice_5_severity;
+            goalBasedAdvices[6]["severity"] = customFieldObj.goalBasedAdvice_6_severity;
+            goalBasedAdvices[7]["severity"] = customFieldObj.goalBasedAdvice_7_severity;
+            goalBasedAdvices[8]["severity"] = customFieldObj.goalBasedAdvice_8_severity;
+            goalBasedAdvices[9]["severity"] = customFieldObj.goalBasedAdvice_9_severity;
+            goalBasedAdvices[10]["severity"] = customFieldObj.goalBasedAdvice_10_severity;
+            goalBasedAdvices[11]["severity"] = customFieldObj.goalBasedAdvice_11_severity;
+
+
+        };
+
+        var getCustomFieldObj = function() {
+            return customFieldObj;
+        };
+		
+		var getGoalBasedAdvices = function() {
+            return goalBasedAdvices;
+        };
+
+        
+
         return {
-            goalBasedAdvice: function() {
+            /*goalBasedAdvice: function() {
                 //Do something here
                 return goalBasedAdvices;
             },
             custom_field: {
-					customFieldObj
-            }
+                customFieldObj
+            }*/
+			getCustomFieldObj,
+			getGoalBasedAdvices,
+			setGoalBasedAdviceData
         };
 
     });

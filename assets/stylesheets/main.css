@@ -318,7 +318,8 @@ a:visited {
 /*** Grid ***/
 
 .ui-grid .ui-grid-render-container-body .ui-grid-viewport {
-    overflow: auto !important;
+   overflow-y: auto !important;
+    overflow-x: hidden !important;
 }
 
 .grid {
@@ -691,6 +692,7 @@ table tr:nth-child(even) {
 	font-size: 20px;
     color: #fff;
     margin-top: 5px;
+    text-transform: capitalize;
 }
 
 .user-right {

@@ -36,7 +36,7 @@
 							</span>
                         </div>
                         <div class="form-group">
-                            <input id="mobile" ng-model="advisor.mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='10' minlength='10' required>
+                            <input id="mobile" ng-model="advisor.mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='12' minlength='10' required>
                             <span ng-show="(advisorSignupForm.mobile.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.mobile.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -48,7 +48,7 @@
 							</span>
                         </div>
                         <div class="form-group ">
-                            <input id="email" ng-model="advisor.email" type="email" class="form-control email" name="email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                            <input id="email" ng-model="advisor.email" type="email" class="form-control email" name="email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z.-0-9]+@[a-z]+\.[a-z.]{2,6}$/" required>
                             <span ng-show="(advisorSignupForm.email.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.email.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -82,7 +82,7 @@
                             <img src="../assets/images/login-icon.png" style="padding: 35px 0;" />
                         </div>
                         <div class="form-group" style="margin-bottom: 25px;">
-                            <input id="mobile" ng-model="918888888888" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='10' minlength='10' required>
+                            <input id="mobile" ng-model="advisor.mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='12' minlength='12' required>
                             <span ng-show="(advisorLoginForm.mobile.$dirty || advisorLoginForm.$submitted) && advisorLoginForm.mobile.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -164,7 +164,7 @@
 							</span>
                         </div>
                         <div class="form-group ">
-                            <input id="email" ng-model="client.email" type="email" class="form-control email" name="Email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                            <input id="email" ng-model="client.email" type="email" class="form-control email" name="Email" placeholder="Email Id" autocomplete="off" ng-pattern="/^[a-z]+[a-z.-0-9]+@[a-z]+\.[a-z.]{2,6}$/" required>
                             <span ng-show="(clientSignupForm.Email.$dirty || clientSignupForm.$submitted) && clientSignupForm.Email.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -215,7 +215,7 @@
                             <img src="../assets/images/login-icon.png" style="padding: 35px 0;" />
                         </div>
                         <div class="form-group" style="margin-bottom: 25px;">
-                            <input id="phone" ng-model="919999999999" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" maxlength='10' minlength='10' required>
+                            <input id="phone" ng-model="client.mobile" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" maxlength='12' minlength='12' required>
                             <span ng-show="(clientLoginForm.phoneNumber.$dirty || clientLoginForm.$submitted) && clientLoginForm.phoneNumber.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>

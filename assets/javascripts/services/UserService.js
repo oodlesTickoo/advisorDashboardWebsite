@@ -75,7 +75,7 @@
                 };
                 return $http(req);
             },
-            downloadPdf: function(clientId) {
+            downloadPdf: function(clientId, data) {
                 var req = {
                     method: 'GET',
                     url: '/api/v1/user/' + clientId + '/file/pdf',
@@ -83,7 +83,9 @@
                         'Content-Type': 'application/json',
                         'Authorization': sessionService.get('auth_token')
                     },
-                    data: {}
+                    data: {
+						'data': data
+					}
                 };
                 return $http(req);
             },
@@ -91,7 +93,7 @@
             uploadFile: function(file, clientId) {
 				console.log(file, clientId)
                 return Upload.upload({
-                    url: '/api/v1/user/'+ clientId +'/upload',
+                    url: '/api/v1/user/'+ clientId +'/upload/doc',
 					 headers: {
                         'Authorization': sessionService.get('auth_token')
                     },
@@ -109,6 +111,32 @@
                         'Authorization': sessionService.get('auth_token')
                     },
                     data: {}
+                };
+                return $http(req);
+            },
+			getFactFindData : function() {
+                var req = {
+                    method: 'GET',
+                    url: '/api/v1/calculator/factfind',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionService.get('auth_token')
+                    },
+                    data: {}
+                };
+                return $http(req);
+            },
+			saveFactFindData : function(factFindData) {
+                var req = {
+                    method: 'POST',
+                    url: '/api/v1/calculator/factfind',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionService.get('auth_token')
+                    },
+                    data: factFindData/*{
+						'factFindData': factFindData
+					}*/
                 };
                 return $http(req);
             },

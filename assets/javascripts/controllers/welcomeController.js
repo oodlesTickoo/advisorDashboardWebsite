@@ -50,8 +50,10 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             });
         } else {
             UserService.getFactFindData().then(factFindDataObj => {
-                console.log("Response ", clientListObj);
-                $scope.factFindData = clientListObj.data.response.factFindDataObj ? result.data.response.my_clients : [];
+                console.log("Response ", factFindDataObj);
+                $scope.factFindData = factFindDataObj.data.response ? factFindDataObj.data.response : [];
+                $scope.fileExist =  $scope.factFindData.docFile ? true : false;
+                console.log("$scope.fileExist: ", $scope.fileExist);
             }).catch(function(err) {
                 console.log(err);
             });
@@ -98,11 +100,11 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         columnDefs: [{
             name: 'firstName',
             displayName: 'Name',
-            cellTemplate: "<span>{{row.entity.firstName}} {{row.entity.lastName}}</span>"
+            cellTemplate: "<span class='ui-grid-cell-contents'>{{row.entity.firstName}} {{row.entity.lastName}}</span>"
         }, {
             name: 'advisor.name',
             displayName: 'Advisors Name',
-            cellTemplate: "<span>{{row.entity.advisor.firstName}} {{row.entity.advisor.lastName}}</span>"
+            cellTemplate: "<span class='ui-grid-cell-contents'>{{row.entity.advisor.firstName}} {{row.entity.advisor.lastName}}</span>"
         }, {
             name: 'actions',
             width: 150,
@@ -189,12 +191,12 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         columnDefs: [{
             name: 'name',
             displayName: 'Name',
-            cellTemplate: "<span>{{row.entity.firstName}} {{row.entity.lastName}}</span>"
+            cellTemplate: "<span class='ui-grid-cell-contents'>{{row.entity.firstName}} {{row.entity.lastName}}</span>"
         }, {
             name: 'actions',
             width: 150,
             pinnedRight: true,
-            cellTemplate: "<input type='file'  name='file' ng-model='file[row.entity._id]' ngf-select='file[row.entity._id] = null; grid.appScope.showUploadFileModel($file, $invalidFiles, row.entity._id)' ngf-max-size='5MB' required ngf-model-invalid='errorFile'><a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity._id)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ng-click='grid.appScope.uploadDoc(row.entity._id)'><i></i></a>" /*+ "<input type='file'  name='file'  ngf-select='grid.appScope.showUploadFileModel($file, $invalidFiles, row.entity._id)' ngf-max-size='5MB' required ngf-model-invalid='errorFile'>"*/
+            cellTemplate: "<input type='file'  name='file' ng-model='file[row.entity._id]' ngf-select='file[row.entity._id] = null; grid.appScope.showUploadFileModel($file, $invalidFiles, row.entity._id)' ngf-max-size='5MB' required ngf-model-invalid='errorFile' style='position: absolute; left: 89%; top: 55%; opacity: 0;'><a class='download-pdf action-icon' title='Download PDF' ng-click='grid.appScope.downloadPdf(row.entity._id)'><i></i></a><a class='upload-word action-icon' title='Upload WORD' ><i></i></a>" /*ng-click='grid.appScope.uploadDoc(row.entity._id)' + "<input type='file'  name='file'  ngf-select='grid.appScope.showUploadFileModel($file, $invalidFiles, row.entity._id)' ngf-max-size='5MB' required ngf-model-invalid='errorFile'>"*/
                 //                                "<input type='file' fileread='' id='{{row.entity.CONTACT_ID}}' style='display:none;'>",
         }],
         onRegisterApi: function(gridApi) {
@@ -215,9 +217,9 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                     file: function() {
                         return file;
                     },
-					clientId: function(){
-						return clientId;
-					}
+                    clientId: function() {
+                        return clientId;
+                    }
                 }
             })
             .result.then(
@@ -275,8 +277,10 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         link.click();
     }
 
+
+
     $scope.downloadPdf = function(clientId) {
-        UserService.downloadPdf(clientId).then(function(response) {
+        /*UserService.downloadPdf(clientId).then(function(response) {
             console.log("response downloadPdf", response);
             if (response.status === 200) {
                 var url = '/api/v1/file?contact_id=' + id + '&file_format=pdf';
@@ -289,14 +293,29 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                 toastr.error("No Pdf to download");
             }
 
-        })
-
+        })*/
+        UserService.downloadPdf(clientId).then(function(response) {
+            console.log(response)
+            saveToDisk(response.data.response.filePath)
+        });
+        console.log("requsest sent");
     }
 
-    $scope.uploadDoc = function(id) {
+
+    function saveToDisk(fileURL) {
+        var link = document.createElement('a');
+        document.body.appendChild(link);
+        link.href = fileURL;
+        link.target = '_blank';
+        link.click();
+        //$rootScope.isLoading = false;
+        // $timeout(0);
+    }
+
+    /*$scope.uploadDoc = function(id) {
         console.log(id);
         document.getElementById('' + id).click();
-    }
+    }*/
 
     $scope.fileSelected = function(id) {
 
@@ -305,16 +324,19 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     }
 
     $scope.saveDocForClient = function() {
-        UserService.download(sessionService.get('contact'), 'docx').then(function(data) {
-            if (data.data && data.data.response && data.data.response.file) {
-                const url = '/download/' + data.data.response.file;
+        //        UserService.downloadDoc(sessionService.get('_id'), 'docx').then(function(data) {
+        UserService.downloadDoc(sessionService.get('_id')).then(function(response) {
+            console.log("saveDocForClient: ", response);
+			saveToDisk(response.data.response.filePath)
+           /* if (data.data && data.data.response && data.data.response.file) {
+                var url = '/download/' + data.data.response.file;
                 var link = document.createElement('a');
                 document.body.appendChild(link);
                 link.href = url;
                 //link.target = '_blank';
                 //console.log("link:",link.href);
                 link.click();
-            }
+            }*/
         })
     }
 
@@ -333,20 +355,20 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     }
 }]);
 
-app.controller("UploadFileModalController", ['$scope', 'file', '$uibModalInstance','UserService','clientId','$timeout','toastr',function($scope, file, $uibModalInstance, UserService, clientId, $timeout,toastr) {
+app.controller("UploadFileModalController", ['$scope', 'file', '$uibModalInstance', 'UserService', 'clientId', '$timeout', 'toastr', function($scope, file, $uibModalInstance, UserService, clientId, $timeout, toastr) {
     $scope.file = file;
     $scope.uploadFile = function() {
         file.upload = UserService.uploadFile(file, clientId)
 
         file.upload.then(function(response) {
             $timeout(function() {
-				$uibModalInstance.close();
-				file = null
-				if(response.data.error){
-					toastr.error(response.data.message);
-				}else{
-					toastr.success(response.data.message);
-				}
+                $uibModalInstance.close();
+                file = null
+                if (response.data.error) {
+                    toastr.error(response.data.message);
+                } else {
+                    toastr.success(response.data.message);
+                }
             });
         }, function(response) {
             if (response.status > 0)
@@ -356,8 +378,8 @@ app.controller("UploadFileModalController", ['$scope', 'file', '$uibModalInstanc
             file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
     }
-	$scope.close = function(){
-		 $uibModalInstance.dismiss('cancel');
-	}
-	
+    $scope.close = function() {
+        $uibModalInstance.dismiss('cancel');
+    }
+
 }]);

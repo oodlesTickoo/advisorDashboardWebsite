@@ -31,7 +31,7 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
         console.log("in login user fnctn : ", user, validForm);
 
         $scope.loginData = {
-            mobile: 918888888888 //user.mobile
+            mobile: user.mobile
         }
         console.log("login data : ", $scope.loginData);
         AuthenticationService.login($scope.loginData).then(function(response) {
@@ -70,10 +70,8 @@ app.controller("LoginController", ['$scope', 'AuthenticationService', 'sessionSe
         }
         console.log("otp data : ", $scope.otpData);
         AuthenticationService.submitOtp($scope.otpData).then(function(response) {
-            //			AuthenticationService.cacheSession(response);
             if (!response.data.error) {
-				console.log("333333333333333333333333333333333333333333", response);
-				sessionService.set("auth_token",response.data.response.auth_token)
+				sessionService.set("auth_token",response.data.response.auth_token);
                 UserService.getMe().then(function(getMeObj) {
                     console.log("otp response", getMeObj);
                     sessionService.set('isLoggedIn', true);

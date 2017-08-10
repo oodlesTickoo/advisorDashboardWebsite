@@ -120,6 +120,7 @@
                 sessionService.set('_id', result._id);
                 sessionService.set('firstName', result.firstName);
                 sessionService.set('lastName', result.lastName);
+                sessionService.set('email', result.email);
 
             }
         };

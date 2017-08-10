@@ -16,11 +16,19 @@ app.controller("AdminLoginController", ['$scope', 'AuthenticationService', 'sess
         AuthenticationService.adminLogin($scope.adminLoginData).then(function(response) {
             //$ionicLoading.hide();
             if (!response.data.error) {
-                console.log("responseeeeee", response);
-                sessionService.set('isLoggedIn', true);
-                AuthenticationService.cacheSession(response);
-				$scope.showMenuMethod();
-                $state.go('app.welcome');
+				sessionService.set("auth_token",response.data.response.auth_token);
+                UserService.getMe().then(function(getMeObj) {
+                    console.log("otp response", getMeObj);
+                    sessionService.set('isLoggedIn', true);
+                    AuthenticationService.cacheSession(getMeObj);
+                    $scope.showMenuMethod();
+                    $state.go('app.welcome');
+                }).catch(function(errResponse) {
+                    //$ionicLoading.hide();
+                    if (errResponse.error) {
+                        toastr.error(errResponse.message, 'Error');
+                    }
+                });
             } else {
                 toastr.error(response.data.message, 'Error');
             }

@@ -1,10 +1,26 @@
 app.controller("GoalBasedAdviceController", ['$scope', '$state', '$rootScope', 'sessionService','UserService', 'GoalBasedAdviceService', '$timeout', function($scope, $state, $rootScope,sessionService, UserService, GoalBasedAdviceService, $timeout) {
     $rootScope.addGoal = false;
 
-    $scope.goalBasedAdvice = GoalBasedAdviceService.goalBasedAdvice();
-    $scope.customField = GoalBasedAdviceService.custom_field.customFieldObj;
+    $scope.goalBasedAdvice = GoalBasedAdviceService.getGoalBasedAdvices();
+    $scope.customField = GoalBasedAdviceService.getCustomFieldObj;
     console.log('Goal controllerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr', $scope.goalBasedAdvice, $scope.customField);
-
+	
+	
+	function initialize() {
+        _getPageData();
+    }
+    initialize();
+	
+	 function _getPageData() {
+		UserService.getFactFindData().then(factFindDataObj => {
+			console.log("Response ", factFindDataObj);
+			$scope.factFindData = factFindDataObj.data.response ? factFindDataObj.data.response : [];
+		}).catch(function(err) {
+			console.log(err);
+		});
+    }
+	
+	
     //to add a Goal
     $scope.addGoal = function(index, severity) {
         $scope.showTooltip = index;
@@ -30,18 +46,18 @@ app.controller("GoalBasedAdviceController", ['$scope', '$state', '$rootScope', '
     $scope.saveGoals = function() {
         var final_data = {
             "custom_field": [
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_154", "FIELD_VALUE": $scope.goalBasedAdvice[0].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_155", "FIELD_VALUE": $scope.goalBasedAdvice[1].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_156", "FIELD_VALUE": $scope.goalBasedAdvice[2].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_157", "FIELD_VALUE": $scope.goalBasedAdvice[3].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_158", "FIELD_VALUE": $scope.goalBasedAdvice[4].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_159", "FIELD_VALUE": $scope.goalBasedAdvice[5].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_160", "FIELD_VALUE": $scope.goalBasedAdvice[6].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_161", "FIELD_VALUE": $scope.goalBasedAdvice[7].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_162", "FIELD_VALUE": $scope.goalBasedAdvice[8].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_163", "FIELD_VALUE": $scope.goalBasedAdvice[9].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_164", "FIELD_VALUE": $scope.goalBasedAdvice[10].severity },
-                { "CUSTOM_FIELD_ID": "CONTACT_FIELD_165", "FIELD_VALUE": $scope.goalBasedAdvice[11].severity }
+                { goalBasedAdvice_0_severity:$scope.goalBasedAdvice[0].severity },
+                { goalBasedAdvice_1_severity: $scope.goalBasedAdvice[1].severity },
+                { goalBasedAdvice_2_severity: $scope.goalBasedAdvice[2].severity },
+                { goalBasedAdvice_3_severity: $scope.goalBasedAdvice[3].severity },
+                { goalBasedAdvice_4_severity: $scope.goalBasedAdvice[4].severity },
+                { goalBasedAdvice_5_severity: $scope.goalBasedAdvice[5].severity },
+                { goalBasedAdvice_6_severity: $scope.goalBasedAdvice[6].severity },
+                { goalBasedAdvice_7_severity: $scope.goalBasedAdvice[7].severity },
+                { goalBasedAdvice_8_severity: $scope.goalBasedAdvice[8].severity },
+                { goalBasedAdvice_9_severity: $scope.goalBasedAdvice[9].severity },
+                { goalBasedAdvice_10_severity: $scope.goalBasedAdvice[10].severity },
+                { goalBasedAdvice_11_severity: $scope.goalBasedAdvice[11].severity }
             ]
         };
         var customFieldObj22 = {};
