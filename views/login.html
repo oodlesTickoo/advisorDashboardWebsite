@@ -36,7 +36,7 @@
 							</span>
                         </div>
                         <div class="form-group">
-                            <input id="mobile" ng-model="advisor.mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='12' minlength='10' required>
+                            <input id="mobile" ng-model="advisor.mobile" type="number" class="form-control" name="mobile" placeholder="Mobile Phone" autocomplete="off" maxlength='12' minlength='12' required>
                             <span ng-show="(advisorSignupForm.mobile.$dirty || advisorSignupForm.$submitted) && advisorSignupForm.mobile.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -173,7 +173,7 @@
 							</span>
                         </div>
                         <div class="form-group ">
-                            <input id="phone" ng-model="client.mobile" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" required>
+                            <input id="phone" ng-model="client.mobile" type="number" class="form-control" name="phoneNumber" placeholder="Phone No" autocomplete="off" maxlength='12' minlength='12' required>
                             <span ng-show="(clientSignupForm.phoneNumber.$dirty || clientSignupForm.$submitted) && clientSignupForm.phoneNumber.$error.required">
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="This field is required"></i>
 							</span>
@@ -184,11 +184,11 @@
 							  <i class="fa fa-exclamation-triangle" aria-hidden="true" title="Please enter 10 digit number"></i>
 							</span>
                         </div>
-                        <div class="terms advisor">
+                        <!--<div class="terms advisor">
                             <input type="checkbox" id="advisorcheck" name="advisorcheck" ng-model="isFinancialAdvisor">
                             <label for="advisorcheck"><span>Do you have a Financial Advisor?</span></label>
                             <p ng-if="isFinancialAdvisor">Please complete your Financial Advisor Details</p>
-                        </div>
+                        </div>-->
                         <div class="terms client-terms" ng-class="{'is-financial-advisor' : isFinancialAdvisor}">
                             <input type="checkbox" id="clientTerms" name="clientTerms" ng-model="clientTerms" required>
                             <label for="clientTerms"><span>I agree with the <b>Terms & Conditions</b></span></label>

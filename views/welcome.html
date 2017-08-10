@@ -16,7 +16,7 @@
                             </a>
                         </div>
                         <div class="col-md-3 text-right">
-                            <a>Click here for instructions</a>
+                            <a ng-click="showInstructionsModal()">Click here for instructions</a>
                         </div>
                         <div class="row no-margin">
                             <div class="col-md-12">
@@ -100,7 +100,8 @@
     </div>
     <div class="modal-body">
         <p>Change Your Advisor : </p>
-        <select id="" class="form-control" ng-init="selectedAdvisor" ng-model="selectedAdvisor" ng-options="advisorObject.id as advisorObject.name for advisorObject in advisorList" name="advisorList" required>
+        <select id="" class="form-control" ng-init="selectedAdvisor" ng-model="selectedAdvisor" ng-options="advisorObject.id as advisorObject.name for advisorObject in advisorList" name="advisorList" placeholder="Select your Advisor" required>
+		<option value="" disabled selected>Please select Your Advisor</option>
         </select>
     </div>
     <div class="modal-footer">
@@ -115,10 +116,38 @@
         <h4 class="modal-title">Upload File</h4>
     </div>
     <div class="modal-body">
-        <p><a class='upload-word action-icon'></a>{{file.name}}</p>
+        <a class='upload-word action-icon'><i></i></a><p style="display: inline-block;margin-left: 15px;position: relative;bottom: 13px;">Are you sure, you want to upload {{file.name}} ?</p>
     </div>
     <div class="modal-footer">
         <button class="btn btn-success" ng-click="uploadFile()">upload</button>
         <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</script>
+
+<!-- Instructions Modal -->
+<script type="text/ng-template" id="showInstructions.html">
+    <div class="modal-header">
+        <h4 class="modal-title">Instructions</h4>
+    </div>
+    <div class="modal-body">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit ligula, euismod sed vulputate et, convallis at arcu. Vestibulum eu dolor non felis fermentum hendrerit sed sit amet est. Aliquam eu diam at nisl dictum tristique id vel massa. Nullam diam enim, faucibus quis elit sit amet, maximus lobortis purus. In pulvinar risus vitae massa luctus, sit amet egestas risus porta. Nulla facilisi. Donec faucibus nec ipsum eu vestibulum. Aenean posuere lorem at neque dapibus tempor. Suspendisse at velit et risus euismod molestie vel eu sem. Nam nec nisi nec lectus gravida tristique sed id felis. Duis ullamcorper eros at dolor semper venenatis. Integer ante massa, cursus eget sem sed, vehicula semper risus. Cras viverra iaculis eros, sit amet tristique ipsum elementum nec. Ut malesuada lectus justo. Aenean commodo consequat viverra. Phasellus hendrerit erat in scelerisque rhoncus.</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="close()">Ok</button>
+<!--        <button class="btn btn-default" ng-click="cancel()">Cancel</button>-->
+    </div>
+</script>
+
+<!-- Instructions Modal -->
+<script type="text/ng-template" id="haveFinancialAdvisor.html">
+    <div class="modal-header">
+        <h4 class="modal-title">Do you have a Financial Advisor?</h4>
+    </div>
+    <div class="modal-body">
+      <p></p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="close()">Ok</button>
+<!--        <button class="btn btn-default" ng-click="cancel()">Cancel</button>-->
     </div>
 </script>

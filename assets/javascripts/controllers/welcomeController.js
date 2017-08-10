@@ -18,14 +18,28 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     $scope.client_advisors = [];
     $scope.updateMasterClients = [];
     $scope.openIndex = [false];
+	
+	//You have Financial Adivsor Modal
+	$scope.haveFinancialAdvisorModal = function() {
+        $uibModal.open({
+                templateUrl: 'haveFinancialAdvisor.html',
+                controller: '',
+                size: 'md',
+                backdrop: 'static'
+            })
+    };
+
 
     function initialize() {
         $scope.selectedRole = sessionService.get('role');
         _getPageData();
+		/*if($scope.selectedRole === $scope.USER_ROLE.CLIENT){
+			$scope.haveFinancialAdvisorModal();
+		}*/
     }
     initialize();
 
-
+	
 
     function _getPageData() {
         if ($scope.selectedRole === $scope.USER_ROLE.ADMIN) {
@@ -85,7 +99,8 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
             });
         }*/
     }
-
+	
+	
     $scope.administratorMasterClientListData = {
         data: 'masterClients',
         useExternalPagination: false,
@@ -145,6 +160,17 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
                 }
             );
     };
+	
+	//to show instructions modal
+	$scope.showInstructionsModal = function() {
+        $uibModal.open({
+                templateUrl: 'showInstructions.html',
+                controller: 'ShowInstructionsController',
+                size: 'md',
+                backdrop: 'static'
+            })
+    };
+
 
     function _updateListData() {
 
@@ -378,6 +404,14 @@ app.controller("UploadFileModalController", ['$scope', 'file', '$uibModalInstanc
             file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
     }
+    $scope.close = function() {
+        $uibModalInstance.dismiss('cancel');
+    }
+
+}]);
+
+app.controller("ShowInstructionsController", ['$scope','$uibModalInstance', function($scope, $uibModalInstance) {
+  
     $scope.close = function() {
         $uibModalInstance.dismiss('cancel');
     }
