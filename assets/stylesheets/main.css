@@ -122,13 +122,13 @@ a:visited {
     box-sizing: border-box;
 }
 
-@media screen and (min-width: 1370px) {
+/*@media screen and (min-width: 1370px) {
     .main-container {
         max-width: 1366px;
         margin: 0 auto;
         box-shadow: 0 0 25px #999;
     }
-}
+}*/
 
 
 /*---- Floats ----*/
@@ -1854,6 +1854,10 @@ a.edit-action i {
         margin: 0 auto;
         box-shadow: 0 0 25px #999;
     }
+	
+	#menuToggle {
+		left: 40px;
+	}
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {

@@ -126,7 +126,7 @@
                 };
                 return $http(req);
             },
-			saveFactFindData : function(factFindData) {
+			saveFactFindDataGetPdf : function(factFindData) {
                 var req = {
                     method: 'POST',
                     url: '/api/v1/calculator/factfind',
@@ -140,6 +140,21 @@
                 };
                 return $http(req);
             },
+			saveFactFindData : function(factFindData) {
+                var req = {
+                    method: 'POST',
+                    url: "/api/v1/calculator/saveFactfind",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionService.get('auth_token')
+                    },
+                    data: factFindData/*{
+						'factFindData': factFindData
+					}*/
+                };
+                return $http(req);
+            },
+			
             /*uploadDocFile: function(clientId) {
                 var req = {
                     method: 'POST',

@@ -15,10 +15,23 @@ app.controller("GoalBasedAdviceController", ['$scope', '$state', '$rootScope', '
 		UserService.getFactFindData().then(factFindDataObj => {
 			console.log("Response ", factFindDataObj);
 			$scope.factFindData = factFindDataObj.data.response ? factFindDataObj.data.response : [];
+			GoalBasedAdviceService.setGoalBasedAdviceData($scope.factFindData);
 		}).catch(function(err) {
 			console.log(err);
 		});
     }
+	
+//	function _getPageData() {
+//		UserService.getFactFindData().then(factFindDataObj => {
+//			console.log("Response ", factFindDataObj);
+//			$scope.factFindData = factFindDataObj.data.response ? factFindDataObj.data.response : [];
+//			GoalBasedAdviceService.setGoalBasedAdviceData($scope.factFindData);
+//			promise.resolve($scope.factFindData);
+//			return promise;
+//		}).catch(function(err) {
+//			console.log(err);
+//		});
+//    }
 	
 	
     //to add a Goal
@@ -42,30 +55,32 @@ app.controller("GoalBasedAdviceController", ['$scope', '$state', '$rootScope', '
         $scope.goalBasedAdvice[index].severity = 'false';
         console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq", $scope.showTooltip, $scope.goalBasedAdvice[index].severity);
     };
-    $scope.customFieldObj22 = {};
+    
     $scope.saveGoals = function() {
-        var final_data = {
-            "custom_field": [
-                { goalBasedAdvice_0_severity:$scope.goalBasedAdvice[0].severity },
-                { goalBasedAdvice_1_severity: $scope.goalBasedAdvice[1].severity },
-                { goalBasedAdvice_2_severity: $scope.goalBasedAdvice[2].severity },
-                { goalBasedAdvice_3_severity: $scope.goalBasedAdvice[3].severity },
-                { goalBasedAdvice_4_severity: $scope.goalBasedAdvice[4].severity },
-                { goalBasedAdvice_5_severity: $scope.goalBasedAdvice[5].severity },
-                { goalBasedAdvice_6_severity: $scope.goalBasedAdvice[6].severity },
-                { goalBasedAdvice_7_severity: $scope.goalBasedAdvice[7].severity },
-                { goalBasedAdvice_8_severity: $scope.goalBasedAdvice[8].severity },
-                { goalBasedAdvice_9_severity: $scope.goalBasedAdvice[9].severity },
-                { goalBasedAdvice_10_severity: $scope.goalBasedAdvice[10].severity },
-                { goalBasedAdvice_11_severity: $scope.goalBasedAdvice[11].severity }
-            ]
-        };
-        var customFieldObj22 = {};
-        for (i = 0; i < final_data.custom_field.length; i++) {
-            customFieldObj22[final_data.custom_field[i].CUSTOM_FIELD_ID] = final_data.custom_field[i].FIELD_VALUE;
-        }
-        final_data["customFieldMap"] = customFieldObj22;
-        UserService.customFieldsUpdate(final_data);
+         var final_data = {
+			"factFindData": {
+				 goalBasedAdvice_0_severity : $scope.goalBasedAdvice[0].severity ,
+				 goalBasedAdvice_1_severity : $scope.goalBasedAdvice[1].severity ,
+				 goalBasedAdvice_2_severity : $scope.goalBasedAdvice[2].severity ,
+				 goalBasedAdvice_3_severity : $scope.goalBasedAdvice[3].severity ,
+				 goalBasedAdvice_4_severity : $scope.goalBasedAdvice[4].severity ,
+				 goalBasedAdvice_5_severity : $scope.goalBasedAdvice[5].severity ,
+				 goalBasedAdvice_6_severity : $scope.goalBasedAdvice[6].severity ,
+				 goalBasedAdvice_7_severity : $scope.goalBasedAdvice[7].severity ,
+				 goalBasedAdvice_8_severity : $scope.goalBasedAdvice[8].severity ,
+				 goalBasedAdvice_9_severity : $scope.goalBasedAdvice[9].severity ,
+				 goalBasedAdvice_10_severity : $scope.goalBasedAdvice[10].severity ,
+				 goalBasedAdvice_11_severity : $scope.goalBasedAdvice[11].severity 
+			}
+		};
+        console.log("GOAL final_data", final_data);
+        UserService.saveFactFindData(final_data).then(function(res){
+			console.log(res)
+        });
+       /* UserService.downloadPdf(sessionService.get('_id'), final_data).then(function(response){
+            SaveToDisk(response.data.response.filePath,response.data.response.fileName);
+         });*/
+        console.log("GOAL requsest sent");
     };
 }]);
 'use strict';
