@@ -353,6 +353,9 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
         //        UserService.downloadDoc(sessionService.get('_id'), 'docx').then(function(data) {
         UserService.downloadDoc(sessionService.get('_id')).then(function(response) {
             console.log("saveDocForClient: ", response);
+		 	toastr.info("Please check if the pop-ups are allowed for the page.",{
+				timeOut: 3000
+			});
 			saveToDisk(response.data.response.filePath)
            /* if (data.data && data.data.response && data.data.response.file) {
                 var url = '/download/' + data.data.response.file;

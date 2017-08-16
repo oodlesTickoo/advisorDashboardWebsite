@@ -2892,12 +2892,13 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
         $(".spStudyingOption3 option[value='" + $scope.spStudyingOption3 + "']").attr("selected", true);
         $(".spStudyingOption4 option[value='" + $scope.spStudyingOption4 + "']").attr("selected", true);
         $(".spStudyingOption5 option[value='" + $scope.spStudyingOption5 + "']").attr("selected", true);
-        $(".spSchool1 option[value='" + $scope.schoolSelected1 + "']").attr("selected", true);
-        $(".spSchool2 option[value='" + $scope.schoolSelected2 + "']").attr("selected", true);
-        $(".spSchool3 option[value='" + $scope.schoolSelected3 + "']").attr("selected", true);
-        $(".spSchool4 option[value='" + $scope.schoolSelected4 + "']").attr("selected", true);
-        $(".spSchool5 option[value='" + $scope.schoolSelected5 + "']").attr("selected", true);
-        $(".spSchool6 option[value='" + $scope.schoolSelected6 + "']").attr("selected", true);
+        $('.spSchool1 option[value="' + $scope.schoolSelected1 + '"]').attr("selected", true);
+        $('.spSchool2 option[value="' + $scope.schoolSelected2 + '"]').attr("selected", true);
+        $('.spSchool3 option[value="' + $scope.schoolSelected3 + '"]').attr("selected", true);
+        $('.spSchool4 option[value="' + $scope.schoolSelected4 + '"]').attr("selected", true);
+        $('.spSchool5 option[value="' + $scope.schoolSelected5 + '"]').attr("selected", true);
+        $('.spSchool6 option[value="' + $scope.schoolSelected6 + '"]').attr("selected", true);
+        
 
         $(".spMajor1 option[value='" + $scope.majorSelected1 + "']").attr("selected", true);
         $(".spMajor2 option[value='" + $scope.majorSelected2 + "']").attr("selected", true);
@@ -2907,8 +2908,11 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
 
 
         $timeout(0);
+		
         spFundAChange();
         spFundBChange();
+		spFundATypeChange();
+		spFundBTypeChange();
     });
 
 
@@ -3157,7 +3161,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
         firstName: sessionService.get('firstName'),
         lastName: sessionService.get('lastName'),
         email: sessionService.get('email'),
-        mobile: sessionService.get('mobile'),
+        mobile: Number(sessionService.get('mobile')),
         postalCode: Number($scope.factFindData.personalDetails_postalCode)
     };
 		
@@ -10204,7 +10208,7 @@ app.controller("SuperCalculatorController", ['$scope', '$rootScope', 'sessionSer
 			}
 		};
         console.log("final_data", final_data);
-        UserService.saveFactFindData(final_data).then(function(res){
+        UserService.saveFactFindDataGetPdf(final_data).then(function(res){
 			console.log(res)
 			saveToDisk(res.data.response.filePath)
         });
