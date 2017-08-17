@@ -298,7 +298,7 @@ app.controller("WelcomeController", ['$scope', 'sessionService', '$state', 'User
     $scope.saveTemplateDoc = function() {
         var link = document.createElement('a');
         document.body.appendChild(link);
-        link.href = '/download/TEMPLATE_DOC.docx';
+        link.href = '/TEMPLATE_DOC.docx';
         link.target = '_blank';
         link.click();
     }

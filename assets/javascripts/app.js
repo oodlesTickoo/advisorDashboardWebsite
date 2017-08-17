@@ -61,9 +61,8 @@ app.config(function($stateProvider, $urlRouterProvider, ScrollBarsProvider, $loc
     .state('app', {
         url: '/app',
         abstract: true,
-        templateUrl: 'views/app.html'
-            /*,
-                    controller: 'AppCtrl'*/
+        templateUrl: 'views/app.html',
+		controller: 'AppCtrl'
     })
 
     .state('app.welcome', {

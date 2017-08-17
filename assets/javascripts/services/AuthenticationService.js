@@ -44,6 +44,18 @@
 
                 return $http(req);
             },
+			verifyAuth: function() {
+                var req = {
+                    method: 'POST',
+                    url: '/api/v1/verifyAuth',
+                    headers: {
+                        'Content-Type': 'application/json',
+						'Authorization': sessionService.get('auth_token')
+                    },
+                    data: {}
+                };
+                return $http(req);
+            },
             submitOtp: function(otpKey) {
                 console.log("otpKey: ", otpKey);
 
@@ -114,14 +126,13 @@
             },
             cacheSession: function(response) {
                 var result = response.data.response;
-//                sessionService.set('auth_token', result.auth_token);
                 sessionService.set('mobile', result.mobile);
                 sessionService.set('role', result.role);
                 sessionService.set('_id', result._id);
                 sessionService.set('firstName', result.firstName);
                 sessionService.set('lastName', result.lastName);
                 sessionService.set('email', result.email);
-
+                sessionService.set('isLoggedIn', true);
             }
         };
 
